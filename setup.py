@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/mcalla314/tkintertoy/archive/v1.0.0.tar.gz",
-    packages=[tkintertoy],
+    packages=['tkintertoy'],
     keywords=['GUI','Tkinter'],
     classifiers=[
         "Programming Language :: Python :: 2.7",

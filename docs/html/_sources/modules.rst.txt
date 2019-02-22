@@ -1,7 +1,0 @@
-tkintertoy
-==========
-
-.. toctree::
-   :maxdepth: 4
-
-   tkintertoy

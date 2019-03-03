@@ -1,7 +1,7 @@
 tkintertoy module
 =================
 
-.. automodule:: tkintertoy
+.. automodule:: tt
     :members:
     :undoc-members:
     :show-inheritance:

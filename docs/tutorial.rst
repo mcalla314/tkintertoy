@@ -305,7 +305,7 @@ EF scale).
 This will demonstrate the use of the ``collector`` widget, which acts as a dialog 
 inside a dialog. Below is the screenshot:
 
-  ..image:: images/tornado.png
+  .. image:: images/tornado.png
 
 You can see for the date we will use a **ttspinbox**, the county will be a
 **ttcombobox** widget``, the damage will use **ttcheckbutton** row, and all choices 
@@ -371,7 +371,7 @@ notebook that combines two different map making methods into a single GUI.
 
 Below is a screenshot:
 
-  ..image:: images/mapper.png
+  .. image:: images/mapper.png
 
 Here is the code. We will also demonstrate more dynamic widgets and introduce some 
 simple error trapping:
@@ -402,7 +402,7 @@ Here are the line explanations:
 #. Add a **ttnotebook**.
 #. This code section is for the Routine notebook page.
 #. Assign the first page of the notebook, which is a ``Window`` to ``self.routine``.
-#. Get today’s date.
+#. Get todayÂ’s date.
 #. Convert it to [date, month, year, month abr]; ex. [25, 12, 2018, 'Dec']
 #. Add a title **ttentry** widget. This will be filled in dynamically.
 #. Set the title using today's date.

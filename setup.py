@@ -5,13 +5,16 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tkintertoy",
-    version="1.0.1",
+    version="1.0.3",
     author="Mike Callahan",
     author_email="mcalla@twc.com",
     description="A simple GUI package based on Tkinter",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/mcalla314/tkintertoy/archive/v1.0.1.tar.gz",
+    url="https://github.com/mcalla314/tkintertoy",
+    project_urls={
+        'Documentation' : 'https://tkintertoy.readthedocs.io'
+    },
     packages=['tkintertoy'],
     keywords=['GUI','Tkinter'],
     classifiers=[

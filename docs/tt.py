@@ -1238,7 +1238,7 @@ class Window(object):
         Parameters:
             tag (str): - Reference to widget
             value (object): - Value to set
-            setValues (bool): if True, replace all values
+            allValues (bool): if True, replace all values
         """
 
         widgetType = self.getType(tag)                 # get type

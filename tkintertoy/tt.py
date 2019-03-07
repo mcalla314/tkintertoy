@@ -3,12 +3,13 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      12/09/2017
-# Copyright:    (c) mike.callahan 2017
+# Created:      03/07/2019
+# Copyright:    (c) mike.callahan 2019
 # License:      MIT
 #
 # History:
 # 1.00 - initial version
+# 1.04 - update comments for autodoc
 ###################################################################
 
 try:

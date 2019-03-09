@@ -23,7 +23,7 @@ class Gui(object):
             'Birds':['Cardinal','Robin','Sparrow'],
             'Flowers':['Rose','Petunia','Daylily']}
         select = self.gui.get('category')
-        self.gui.set('items', lookup[select], setValues=True)
+        self.gui.set('items', lookup[select], allValues=True)
 
 app = Gui()
 app.gui.waitforUser()

@@ -8,8 +8,8 @@ Tkintertoy Tutorial
 Introduction
 ============
 
-*Tkintertoy* grew out of a GIS Python (mapping) class I taught at a local college. My
-students knew GIS but when it came time to put the workflows into a 
+*Tkintertoy* grew out of a GIS Python (mapping) class I taught at a local college.
+My students knew GIS but when it came time to put the workflows into a
 standalone application, they were stumped with the complexity of programming 
 a GUI, even a simple one like *Tkinter*. So I developed an easy to use GUI 
 library that made it much simpler for their applications. This was posted on 
@@ -22,7 +22,7 @@ widget is supported and a few combined widgets are included. Most widgets
 are contained in a ``Frame`` which can act as a label to the user. The widgets 
 are referenced by string tags which are used to access the widget, its 
 contents, and its containing Frame. All this information is in the ``content`` 
-directory of the Window.
+dictionary of the Window.
 
 The early (by early I mean experience, not age) programmer does not need to 
 be concerned with details of creating and assigning a tk/ttk widget, while a 
@@ -39,9 +39,9 @@ A "Hello World" Example
 Let's look at a bare bones example of a complete GUI. This GUI will ask for 
 the user's name and use it in a welcome message:
 
-  .. literalinclude:: examples/first.py
-      :linenos:
-      :language: python
+  .. include:: examples/first.py
+      :number-lines:
+      :code: python
 
 Here is a screen shot of the resulting GUI:
 
@@ -49,10 +49,10 @@ Here is a screen shot of the resulting GUI:
 
 Here is an explanation of what each line does:
 
-1. Import the ``Window`` code which is the foundation of Tkintertoy. It will 
-   initialize Tk, create a Toplevel window, create a Frame, and create a 
+1. Import the ``Window`` code which is the foundation of Tkintertoy.
+#. Create an instance of a ``Window`` object assigned to ``gui``. This will
+   initialize Tk, create a Toplevel window, create a Frame, and create a
    ``content`` directory which will hold all the widgets.
-#. Create an instance of a ``Window`` object assigned to ``gui``.
 #. Change the title of ``gui`` to "My First Tkintertoy GUI!". If you 
    don't do this, the title of the ``Window`` will default to "Tk". If you want no 
    title make the second argument '' or None.
@@ -65,42 +65,42 @@ Here is an explanation of what each line does:
    options can be overridden.
 #. Add a **ttlabel** widget to ``gui``. This tag will be 'welcome' since this is 
    where the welcome message will appear. Labels are a good widget for one line 
-   information to appear.
+   information to appear that the user cannot edit.
 #. Add a **ttbuttonbox** row. It defaults to two buttons, 'Ok' and 'Cancel'. 
-   The default action is when the user click on 'Ok' the GUI processing loop is 
+   The default action is when the user clicks on 'Ok' the GUI processing loop is
    exited. However, if the user clicks on 'Cancel', the loop is exited and the 
    ``content`` directory is deleted. Of course, the button labels and these actions 
    can be easily modified by the programmer.
-#. Place the name widget at row 0 of ``gui`` centered. The ``row=0`` parameter
-   could have been left off since it is the default. The ``plot()`` method is 
-   really a synonym for the tk ``grid()`` method. All arguments to ``grid()`` can be
-   used in ``plot()``. Plot was selected as a better word for a beginner. Until a
-   widget is plotted, it will not appear. The ``gui`` window is automatically
+#. Place the name widget at row 0 (first row) of ``gui`` centered. The ``row=0``
+   parameter could have been left off since it is the default. The ``plot()`` method
+   is really a synonym for the tk ``grid()`` method. All arguments to ``grid()`` can
+   be used in ``plot()``. Plot was selected as a better word for a beginner. Until a
+   widget is plotted, it will not appear. However, the ``gui`` window is automatically
    plotted.
-#. Place the welcome widget at row 1 of ``gui`` centered. There is a 3 pixel 
-   default vertical spacing between the Label widget and Entry widget.
-#. Place the command bar at row 2 of ``gui`` centered with a vertical 
+#. Place the welcome widget at row 1 (second row) of ``gui`` centered. There is a 3
+   pixel default vertical spacing between the Label widget and Entry widget.
+#. Place the command bar at row 2 (third row) of ``gui`` centered with a vertical
    spacing of 10 pixels.
 #. Begin an infinite loop.
 #. Wait for the user to press click on a button. The ``waitforUser()`` method 
-   is a synonym for the tk ``mainloop()`` method. Again, the name was changed to 
-   help a beginning programmer. This method starts the GUI processing loop and is the
-   heart of all GUIs. It handles all key presses and mouse clicks. Nothing will 
-   happen until this method is running.
+   is a synonym for the tk ``mainloop()`` method. Again, the name was changed to
+   help a beginning programmer. This method starts the event processing loop and
+   is the heart of all GUIs. It handles all key presses and mouse clicks. Nothing
+   will happen until this method is running.
 #. Test to see if the ``contents`` directory exists. If it does, the user 
    clicked on the 'Ok' button. Otherwise, the user clicked on the 'Cancel' button. 
    This line of code will not be reached until the user clicks on a button.
 #. Since the user clicked on the 'Ok' button, collect the contents of the 
-   name widget and place it with the welcome message into the welcome widget.
-   This shows how easy it is to get and set the contents of a widget using the given
-   methods. Also, since all widgets are contained in the ``content`` directory of
-   ``gui``, the programmer does not need to keep track of individual widgets, only
+   name widget and add it to "Welcome" in the welcome widget. This shows how easy
+   it is to get and set the contents of a widget using the given methods. Also,
+   since all widgets are contained in the ``content`` directory of ``gui``, the
+   programmer does not need to keep track of individual widgets, only
    their containing frames or windows.
 #. This line of code is reached only if the user clicked on 'Cancel' which 
    deleted the ``content`` directory. In this case, the user is finished with the 
    program.
 #. Break the infinite loop and exit the program. Notice the difference 
-   between the program loop set up by the ``while`` statement and the GUI 
+   between the program loop set up by the ``while`` statement and the event
    processing loop set up by the ``waitforUser()`` method.
 
 So you can see, with 15 lines of code, Tkintertoy gives you a complete GUI 
@@ -115,7 +115,7 @@ tool which creates a map. This example was not written in an object-oriented sty
 order to help the typical GIS script or early Python script writer. Object-oriented 
 style will be demonstrated later. We will need the filename of the input CSV file, 
 the output PNG map image, and the title for the map. We will use an *Open* filename 
-widget, a *Save As* filename widget, and an *Entry* widget, and a *Message* widget as 
+widget, a *Save As* filename widget, and an *Entry* widget, and a *Text* widget as
 a status window.
 
 We want the layout for the dialog to look like this:
@@ -124,29 +124,29 @@ We want the layout for the dialog to look like this:
 
 Here is the code (we will not worry not the code that actually creates the map!):
 
-  .. literalinclude:: examples/map1.py
-      :linenos:
-      :language: python
+  .. include:: examples/map1.py
+      :number-lines:
+      :code: python
 
 Each line of code is explained below:
 
 1. Import the ``Window`` object from tkintertoy.
 #. Create an instance of a ``Window`` and label it ``gui``.
 #. Set the title ``gui`` to "Create a Map".
-#. We want to limit the input files to .csv only. This is how you do that. Notice,
-   you can filter multiple types.
+#. We want to limit the input files to .csv only. This list will be used in the next
+   line. Notice, you can filter multiple types.
 #. Add an **ttopen** box widget, with a 40 character wide **ttentry** widget,
    filtering only CSV files.
 #. We want to limit our output to .png only.
-#. Add a **ttsavea** box widget, with a 40 character wide **ttentry** widget,
+#. Add a **ttsaveas** box widget, with a 40 character wide **ttentry** widget,
    filtering only PNG files. If the file already exists, an overwrite confirmation
    window will pop up.
 #. Add an **ttentry** widget that is 40 characters wide to collect the map title. 
 #. Add a **tttext** widget, with a width of 40 characters, a height of 5 lines, which
    will be used for all status messages.
 #. Add a **ttbuttonbox** with the default 'Ok' and 'Cancel' buttons.
-#. Plot the input widget in the first row, vertically separating widgets by 10
-   pixels.
+#. Plot the input widget in the first row (row 0), vertically separating widgets by
+   10 pixels.
 #. Plot the output widget in the second row, vertically separating widgets by 10
    pixels.
 #. Plot the title widget in the third row, vertically separating widgets by
@@ -155,7 +155,7 @@ Each line of code is explained below:
    pixels.
 #. Plot the command widget in the fifth row, vertically separating widgets by 20
    pixels.
-#. Enter the GUI processing loop and exit when the user clicks on a button.
+#. Enter the event processing loop and exit when the user clicks on a button.
 #. If the user clicked on the OK button do the following:
 #. Create the status message.
 #. Display the status message.
@@ -163,7 +163,9 @@ Each line of code is explained below:
 #. Pretend we are making a map but in reality just pause for 5 seconds so the user
    can see the status message.
 #. This is where the actual map making code would begin.
-#. Exit the program.  
+#. Exit the program.
+
+Notice, if the user clicks on the Cancel button, the program exits at step 17.
  
 Dynamic Widgets
 ===============
@@ -171,7 +173,7 @@ Dynamic Widgets
 A very useful technique is to create a widget which is dependent on the contents of 
 another widget. The code below shows a combobox which is dependent on a radio button 
 row. The trick is to create a combobox widget and then create a *callback* function 
-which looks at the contents of the radio button row and then sets the values
+which looks at the contents of the radio button row and then sets the item list
 attribute of the combo widget. Again, we will avoid an object-oriented approach in 
 order not to confuse the early script writer. However, you will see later that an
 object-oriented approach will eliminate some strange looking code. 
@@ -187,9 +189,9 @@ section.
 
 Below is the code:
 
-  .. literalinclude:: examples/dynamic_widget1.py
-      :linenos:
-      :language: python
+  .. include:: examples/dynamic_widget1.py
+      :number-lines:
+      :code: python
 
 Below explains every line:
 
@@ -204,13 +206,13 @@ Below explains every line:
 #. Get the category the user clicked on.
 #. Using this category as a key, set all the values in the **ttcombobox** widget list
    to the list returned by the lookup dictionary, rather than the **ttentry** widget,
-   which is why the ``SetValues`` option is used.
+   which is why the ``allValues`` option is used.
 #. Blank lines improve code readability.
 #. Create the three categories.
 #. Create an instance of ``Window`` assigned to ``gui``.
 #. Set the title for ``gui``.
 #. Add a **ttradiobutton** box using the categories.
-#. Add a **ttcombobox** widget which will update its values list whenever the user
+#. Add a **ttcombobox** widget which will update its items list whenever the user
    clicks on a **Radio** button. This is an example of using the ``postcommand``
    option for the **ttcombobox** widget. Normally, ``postcommand`` would be assigned
    to a single method or function name. However, we need to include ``gui`` as an
@@ -222,8 +224,8 @@ Below explains every line:
 #. Plot the category widget in the first row.
 #. Plot the items widget in the second row.
 #. Plot the command buttons in the third row.
-#. Start the GUI processing loop and wait for the user to click on a button.
-#. Check to see if the user clicked on Ok by seeing if content is not None.
+#. Start the event processing loop and wait for the user to click on a button.
+#. Check to see if the user clicked on Ok by seeing if content is not empty.
 #. Retrieve the value of each widget using the get method.
 #. Same as above.
 #. This where the actual processing code would start.
@@ -240,9 +242,9 @@ complicated at all, just a little different.
 
 Below is the new code:
 
-  .. literalinclude:: examples/dynamic_widget2.py
-      :linenos:
-      :language: python
+  .. include:: examples/dynamic_widget2.py
+      :number-lines:
+      :code: python
 
 And the line explanations:
 
@@ -253,14 +255,14 @@ And the line explanations:
 #. This is a class documentation string.
 #. Blank lines improve code readability.
 #. Create an initialize method that will create the interface. All methods in the
-   class will have access to ``self``.
+   class will have access to ``self.gui``.
 #. This is the method documentation string.
 #. Create the three categories.
 #. Create an instance of ``Window`` assigned to ``self.gui``. This means that all
    methods in the class will be able to access the ``Window`` through ``self.gui``.
 #. Set the title for ``self.gui``.
 #. Add a **ttradiobutton** box using the categories.
-#. Add a **ttcombobox** widget which will update its values list whenever the user
+#. Add a **ttcombobox** widget which will update its items list whenever the user
    clicks on a **Radio** button. Notice that the ``postcommand`` option now simply
    points to the callback method without ``lambda`` since ALL methods can access
    ``self.gui``. This is the major advantage to object-oriented code.
@@ -277,14 +279,14 @@ And the line explanations:
 #. Same as above.
 #. Same as above.
 #. Get the category the user clicked on.
-#. Using this category as a key, set all the values in the **ttcombobox** widget list
+#. Using this category as a key, set all the items in the **ttcombobox** widget list
    to the list returned by the lookup dictionary, rather than the **ttentry** widget,
-   which is why the ``SetValues`` option is used.
+   which is why the ``allValues`` option is used.
 #. Blank lines improve code readability.
 #. Create an instance of the ``Gui`` class labeled ``app``. Notice that ``app.gui``
    will refer to the ``Window`` created in the ``__init__`` method and
    ``app.gui.content`` will have the contents of the window.
-#. Start the gui processing loop and wait for the user to click on a button.
+#. Start the event processing loop and wait for the user to click on a button.
 #. Check to see if the user clicked on Ok by seeing if content is not None.
 #. Retrieve the value of each widget using the get method.
 #. Same as above.
@@ -292,12 +294,13 @@ And the line explanations:
 #. Exit the program.
 
 There are very good reasons for learning this style of programming. It should be used 
-for all except the simplest code.
+for all except the simplest code. You will quickly get use to typing "self." All future
+examples in this tutorial will use this style of coding.
 
 Using the Collector Widget
 ==========================
 
-This next example is the interface to a tornado path generator. Image that we have a 
+This next example is the interface to a tornado path generator. Assume that we have a
 database that has tornado paths stored by date, counties that the tornado moved 
 through, and the maximum damaged caused by the tornado (called the Enhanced Fajita or 
 EF scale).
@@ -311,9 +314,9 @@ You can see for the date we will use a **ttspinbox**, the county will be a
 **ttcombobox** widget``, the damage will use **ttcheckbutton** row, and all choices 
 will be shown in the **ttcollector** widget. Here is the code:
 
-  .. literalinclude:: examples/tornado.py
-      :linenos:
-      :language: python
+  .. include:: examples/tornado.py
+      :number-lines:
+      :code: python
 
 Here are the line explanations, notice the first steps are very similar to the 
 previous example:
@@ -357,7 +360,7 @@ previous example:
 #. Blank lines improve code readability.
 #. Create an instance of the ``Gui`` class which will create the GUI.
 #. Wait for the user to click a button.
-#. Collect all the values in the collector.
+#. Collect all the lines in the collector.
 #. This is where the tornado path generation code would begin.
 #. Blank lines improve code readability.
 #. Run the driving function.
@@ -376,9 +379,9 @@ Below is a screenshot:
 Here is the code. We will also demonstrate more dynamic widgets and introduce some 
 simple error trapping:
 
-  .. literalinclude:: examples/mapper.py
-      :linenos:
-      :language: python
+  .. include:: examples/mapper.py
+      :number-lines:
+      :code: python
 
 Here are the line explanations:
 
@@ -392,17 +395,19 @@ Here are the line explanations:
    which will contain all the non-interface code, mostly stubs where real code would
    go.
 #. This is the method documentation string.
-#. This lets all method in this class access the Mapper class.
+#. This lets all methods in this class access the Mapper instance.
 #. Create an instance of ``Window`` labeled ``self.dialog``. All methods in this
    Class will have access.
 #. Set the title of ``self.dialog`` to Mapper 1.0.
 #. This code section is for the notebook widget.
 #. Create a list which contains the names of the tabs in the notebook:
-   Routine & Accumulate.
-#. Add a **ttnotebook**.
+   Routine & Accumulate. Routine will make a map of one day's rainfall, accumulate
+   will add up several days worth of rain.
+#. Add a **ttnotebook**. The notebook will return two ``Windows`` which will be used
+   as a container for each notebook page.
 #. This code section is for the Routine notebook page.
-#. Assign the first page of the notebook, which is a ``Window`` to ``self.routine``.
-#. Get todays date.
+#. Assign the first page (page[0]) of the notebook, which is a ``Window`` to ``self.routine``.
+#. Get today's date.
 #. Convert it to [date, month, year, month abr]; ex. [25, 12, 2018, 'Dec']
 #. Add a title **ttentry** widget. This will be filled in dynamically.
 #. Set the title using today's date.
@@ -415,7 +420,7 @@ Here are the line explanations:
 #. Turn on both check boxes, by default.
 #. Plot the jobs widget in the third row.
 #. This code section is for the Accumulate notebook page.
-#. Assign the first page of the notebook, which is a ``Window`` to ``self.accum``.
+#. Assign the second page (page[1]) of the notebook, which is a ``Window`` to ``self.accum``.
 #. Create the list for the parameters of a date spinner.
 #. Add an ending date **ttspin** row, with the callback set to self.updateAccum().
 #. Same as above.
@@ -431,14 +436,34 @@ Here are the line explanations:
 #. Fill in the title using the default values in the above widgets.
 #. This section of code is for the rest of the dialog window.
 #. Add a messages **tttext**. This is where all messages to the user will appear.
-#. Plot the messages widget in the second row. The notebook will be in the first row.
+#. Plot the messages widget in the second row of the dialog window. The notebook will be in
+   the first row.
 #. Add a command **ttbuuton** row, the default are labeled Ok and Cancel.
-#. Set the callback for the first button to self.go().
-#. Set the label of the second button to Exit.
+#. Set the callback for the first button to self.go(). We are getting the Tk widget
+   using the getWidget method and changing the *command* parameter. This shows how
+   easy it is to get to the more complex parts of Tk from tkintertoy.
+#. Set the label of the second button to Exit using the same method as above but
+   changing the *text* parameter.
 #. Plot the command buttons in the third row.
 #. Plot the notebook in the first row.
-#. Set the default notebook page to Routine.
+#. Set the default notebook page to Routine. This will be the page displayed when the
+   application first starts.
 #. Blank lines improve readability.
+#. This method will update the widgets on the accumulate page expanding on dynamic widgets.
+#. This is the method documentation string.
+#. Get the ending date from the widget. It will come back as [month, day, year].
+#. This will turn the list of ints into a datetime object.
+#. Turn the object into a comma-separated string 'date-int, month-int, year, month-abrev'
+   like '27,12,2018,Dec'.
+#. Get the number of days back the user wanted.
+#. Set the title of the map in the title widget. As the user changes the dates and days back,
+   this title will dynamically change. The user can edit this one last time before they click
+   on Ok.
+#. Calculate the beginning date from the ending date and the days back. The final form
+   is ['date-int','month-int'] like ['25','12'].
+#. Set the title of the map file to something like 'accum1225-12272018'. Again, this will
+   be dynamically updated and can be overridden.
+
   
 
   

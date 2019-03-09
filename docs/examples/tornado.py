@@ -30,7 +30,7 @@ def main():
     app = Gui()
     app.gui.waitforUser()
     if app.gui.content:
-        tdate, counties, levels = app.gui.get('paths', getValues=True)
+        tdate, counties, levels = app.gui.get('paths', allValues=True)
         # magic tornado path generation code
 
 main()

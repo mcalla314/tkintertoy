@@ -6,7 +6,7 @@ def update(gui): # callback function
         'Birds':['Cardinal','Robin','Sparrow'],
         'Flowers':['Rose','Petunia','Daylily']}
     select = gui.get('category')
-    gui.set('items', lookup[select], setValues=True)
+    gui.set('items', lookup[select], allValues=True)
 
 categories = ['Trees','Birds','Flowers']
 gui = Window()

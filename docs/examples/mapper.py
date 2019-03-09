@@ -53,8 +53,7 @@ class Gui(object):
 
     def updateAccum(self):
         """ update widgets on accum page """
-        end = self.accum.get('endDate').split('/')
-        end = [int(item) for item in end]
+        end = self.accum.get('endDate')
         endDate = datetime.date(end[2], end[0], end[1])
         endDateFmt = endDate.strftime('%d,%m,%Y,%B').split(',')
         daysBack = self.accum.get('daysBack')

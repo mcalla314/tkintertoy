@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +21,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/tutorial.rst">
           <provider selected="true" editor-type-id="restructured-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/conf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="72" column="38" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -46,6 +55,7 @@
         <option value="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" />
         <option value="$PROJECT_DIR$/docs/tutorial.rst" />
         <option value="$PROJECT_DIR$/docs/requirement.txt" />
+        <option value="$PROJECT_DIR$/docs/conf.py" />
       </list>
     </option>
   </component>
@@ -213,6 +223,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/tutorial.rst">
       <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="72" column="38" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

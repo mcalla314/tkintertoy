@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +45,7 @@
         <option value="$PROJECT_DIR$/docs/examples/mapper.py" />
         <option value="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" />
         <option value="$PROJECT_DIR$/docs/tutorial.rst" />
+        <option value="$PROJECT_DIR$/docs/requirement.txt" />
       </list>
     </option>
   </component>
@@ -202,6 +201,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="717">
           <caret line="1240" column="15" selection-start-line="1240" selection-start-column="15" selection-end-line="1240" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/requirement.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

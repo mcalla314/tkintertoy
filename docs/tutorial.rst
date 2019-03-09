@@ -40,8 +40,8 @@ Let's look at a bare bones example of a complete GUI. This GUI will ask for
 the user's name and use it in a welcome message:
 
   .. include:: examples/first.py
-      :number-lines:
       :code: python
+      :number-lines:
 
 Here is a screen shot of the resulting GUI:
 

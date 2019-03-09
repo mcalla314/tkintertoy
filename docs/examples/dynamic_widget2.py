@@ -28,7 +28,7 @@ class Gui(object):
 app = Gui()
 app.gui.waitforUser()
 if app.gui.content:
-    selected_cat = gui.get('category')
-    item = gui.get('items')
+    selected_cat = app.gui.get('category')
+    item = app.gui.get('items')
     # more code would go here...
     app.gui.cancel()

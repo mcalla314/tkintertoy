@@ -1,11 +1,12 @@
-import tkintertoy, datetime
+import datetime
+from tkintertoy import Window
 
 class Gui(object):
     """ the GUI for the script """
     def __init__(self, mapper):
         """ create the interface """
         self.mapper = mapper
-        self.dialog = tkintertoy.Window()
+        self.dialog = Window()
         self.dialog.setTitle('Mapper 1.0')
         # notebook
         tabs = ['Routine', 'Accumulate']

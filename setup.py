@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tkintertoy",
-    version="1.0.4b",
+    version="1.0.5",
     author="Mike Callahan",
     author_email="mcalla@twc.com",
     description="A simple GUI package based on Tkinter",

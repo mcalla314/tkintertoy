@@ -11,8 +11,8 @@ def update(gui): # callback function
 categories = ['Trees','Birds','Flowers']
 gui = Window()
 gui.setTitle('Dynamic Widget Demo')
-gui.addRadio('category', categories, 'Item Types')
-gui.addCombo('items', None, 'Items', postcommand=(lambda: update(gui)))
+gui.addRadio('category', 'Item Types', categories)
+gui.addCombo('items', 'Items', None, postcommand=(lambda: update(gui)))
 gui.addButton('command')
 gui.set('category', 'Trees')
 gui.set('items', '...')

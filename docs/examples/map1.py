@@ -2,9 +2,9 @@ from tkintertoy import Window
 gui = Window()
 gui.setTitle('Create a Map')
 csv = [('CSV files', ('*.csv'))]
-gui.addOpen('input', 40, 'Input CSV filename', filetypes=csv)
+gui.addOpen('input', 'Input CSV filename', width=40, filetypes=csv)
 png = [('PNG files', ('*.png'))]
-gui.addSaveAs('output', 40, 'Output PNG filename', filetypes=png)
+gui.addSaveAs('output', 'Output PNG filename', width=40, filetypes=png)
 gui.addEntry('title', 'Map Title', width=40)
 gui.addText('status', width=40, height=5, prompt='Status:')
 gui.addButton('commands')

@@ -23,17 +23,17 @@ class Gui(object):
         self.routine.set('outfile', 'pcpn{0[1]}{0[0]}{0[2]}.png'.format(self.dt))
         self.routine.plot('outfile', row=1)
         jobs = ['Make KMLs', 'Make Maps']
-        self.routine.addCheck('jobs', jobs, 'Jobs')
+        self.routine.addCheck('jobs', 'Jobs', jobs)
         self.routine.set('jobs', jobs[:2])
         self.routine.plot('jobs', row=2)
         # accum pcpn page
         self.accum = pages[1]
         parms = [[2, 1, 12], [2, 1, 31], [4, 2000, 2100]]
-        accumDate = self.accum.addSpin('endDate', parms, '/', 'Ending Date',
+        self.accum.addSpin('endDate', parms, '/', 'Ending Date',
             command=self.updateAccum)
         self.accum.set('endDate', [today.month, today.day, today.year])
         self.accum.plot('endDate', row=0)
-        accumBack = self.accum.addSpin('daysBack', [[2, 1, 45]], '', 'Days back',
+        self.accum.addSpin('daysBack', [[2, 1, 45]], '', 'Days back',
             command=self.updateAccum)
         self.accum.set('daysBack', [2])
         self.accum.plot('daysBack', row=1)
@@ -57,7 +57,7 @@ class Gui(object):
         end = self.accum.get('endDate')
         endDate = datetime.date(end[2], end[0], end[1])
         endDateFmt = endDate.strftime('%d,%m,%Y,%B').split(',')
-        daysBack = self.accum.get('daysBack')
+        daysBack = self.accum.get('daysBack')[0]
         self.accum.set('title', '{0} Day Precipitation Total Ending {1[3]} {1[0]}, {1[2]}'.format(
             int(daysBack), endDateFmt))
         begDate = endDate - datetime.timedelta(int(self.accum.get('daysBack')[0]) - 1)
@@ -66,10 +66,11 @@ class Gui(object):
             begDateFmt, endDateFmt))
 
     def go(self):
-        """ get current selected page workaround """
+        """ get current selected page and make map """
         run = self.dialog.get('notebook')               # get selected tab
+        mapper = self.mapper(self)                      # create a Mapper instance using the Gui
+                                                        # instance which is self
         try:
-            mapper = self.mapper(self)
             if run == 0:
                 mapper.runRoutine()
             elif run == 1:
@@ -82,12 +83,8 @@ class Mapper(object):
 
     def __init__(self, gui):
         """ create Mapper instance
-            workspace:str - path to workspace
             gui: Gui object """
         self.gui = gui
-        #tdy = datetime.date.today()
-        #self.year, self.month, self.date, self.mnNum = tdy.strftime(
-        #    '%Y,%b,%d,%m').split(',')               # get current date
 
     def runRoutine(self):
         """ make the routine precipitation maps """
@@ -104,7 +101,7 @@ class Mapper(object):
         # magic map making code goes here
 
 def main():
-    gui = Gui(Mapper)
+    gui = Gui(Mapper) # create a Gui instance and pass Mapper class to it
     gui.dialog.waitforUser()
 
 if __name__ == '__main__':

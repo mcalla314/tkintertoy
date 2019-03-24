@@ -8,8 +8,8 @@ class Gui(object):
         categories = ['Trees','Birds','Flowers']
         self.gui = Window()
         self.gui.setTitle('Dynamic Widget Demo')
-        self.gui.addRadio('category', categories, 'Item Types')
-        self.gui.addCombo('items', None, 'Items', postcommand=self.update)
+        self.gui.addRadio('category', 'Item Types', categories)
+        self.gui.addCombo('items', 'Items', None, postcommand=self.update)
         self.gui.addButton('command')
         self.gui.set('category', 'Trees')
         self.gui.set('items', '...')

@@ -3,13 +3,15 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      03/07/2019
+# Created:      03/24/2019
 # Copyright:    (c) mike.callahan 2019
 # License:      MIT
 #
 # History:
 # 1.00 - initial version
-# 1.04 - update comments for autodoc
+# 1.01-1.04 - update comments for autodoc
+# 1.10 - make prompt second parameter for most methods, add popup
+#        open, saveas, choosedir
 ###################################################################
 
 try:
@@ -62,6 +64,7 @@ class Window(object):
         width (int): Width of frame (pixels)
     """
 
+    ver = 1.10                                                # version number
     # basic class methods
 
     def __init__(self, master=None, extra=False, **tkparms):
@@ -308,7 +311,7 @@ class Window(object):
         self.content[tag]['frame'] = frame
         self.content[tag]['widget'] = listbox
 
-    def addCombo(self, tag, values=None, prompt='', **tkparms):
+    def addCombo(self, tag, prompt='', values=None, **tkparms):
         """ Create a ttcombobox.
 
         Comboboxes combine features of Entry and Listbox into a single widget. The
@@ -318,8 +321,9 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
-            values (list of str): Values to include in dropdown
             prompt (str): Text of frame label
+            values (list of str): Values to include in dropdown
+
 
         Keyword Arguments:
             height (int): Maximum number of rows in dropdown [10]
@@ -339,7 +343,7 @@ class Window(object):
         self.content[tag]['frame'] = frame
         self.content[tag]['widget'] = combobox
 
-    def addCheck(self, tag, alist, prompt='', orient='horizontal', **tkparms):
+    def addCheck(self, tag, prompt='', alist=[], orient='horizontal', **tkparms):
         """ Create a ttcheckbutton box.
 
         Checkboxes are used to collect options from the user, similar to a listbox.
@@ -348,8 +352,8 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
-            alist (list): Checkbox labels
             prompt (str): Text of frame label
+            alist (list): Checkbox labels
             orient (str): ['horizontal'] or 'vertical'
 
         Keyword Arguments:
@@ -380,7 +384,7 @@ class Window(object):
         self.content[tag]['value'] = cvalues
         self.content[tag]['widget'] = cbuttons
 
-    def addRadio(self, tag, alist, prompt='', orient='horizontal', **tkparms):
+    def addRadio(self, tag, prompt='', alist=[], orient='horizontal', **tkparms):
         """ Create a ttradiobutton box.
 
         Radiobuttons allow the user to select only one option. If they change options,
@@ -390,8 +394,8 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
-            alist (list): Radiobutton labels
             prompt (int): Text of frame label
+            alist (list): Radiobutton labels
             orient (str): 'horizontal' or 'vertical'
 
         Keyword Arguments:
@@ -419,7 +423,7 @@ class Window(object):
         self.content[tag]['frame'] = frame
         self.content[tag]['widget'] = rbuttons         # list of radio buttons
 
-    def addOption(self, tag, alist, prompt=''):
+    def addOption(self, tag, prompt='', alist=[]):
         """ Create an ttoptionmenu.
 
         Option menus allow the user to select one fixed option, similar to
@@ -428,8 +432,9 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
-            alist (list): Strings in option list
             prompt (str): Text of frame label
+            alist (list): Strings in option list
+
         """
 
         self.content[tag] = {'type': 'option', 'value': tk.StringVar()}  # init var to tk var
@@ -442,7 +447,7 @@ class Window(object):
         self.content[tag]['frame'] = frame
         self.content[tag]['widget'] = option
 
-    def addScale(self, tag, width, parms, prompt='', **tkparms):
+    def addScale(self, tag, parms, prompt='', width=20, **tkparms):
         """ Create a ttscale which is an integer scale with entry box.
 
         Scale allows the user to enter an integer value using a sliding scale. The
@@ -450,10 +455,9 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
-            width (int): Width of entry widget (chars)
             parms (list): Limits of scale [from, to]
             prompt (str): Text of frame label
-
+            width (int): Width of entry widget (chars)
 
         Keyword Arguments:
             command (callback): Function to call when scale changes
@@ -512,7 +516,7 @@ class Window(object):
             width, xfrom, to = parm                    # extract spinbox parms
             self.content[tag]['value'].append(tk.IntVar())  # add tkvar to list
             spin = tk.Spinbox(frame, width=width, from_=xfrom, to=to,
-                textvariable=self.content[tag]['value'][col/2], **tkparms)  # create spinbox
+                textvariable=self.content[tag]['value'][col//2], **tkparms)  # create spinbox
             spin.grid(row=0, column=col)               # grid it
             spins.append(spin)                         # add it to list
             label = ttk.Label(frame, text=between)     # add the between str
@@ -554,7 +558,7 @@ class Window(object):
         self.content[tag]['frame'] = frame
         self.content[tag]['widget'] = progress
 
-    def addButton(self, tag, cmd=[], space=3, prompt='', orient='horizontal', **tkparms):
+    def addButton(self, tag, prompt='', cmd=[], space=3, orient='horizontal', **tkparms):
         """ Create a ttbuttonbox, defaults to Ok - Cancel.
 
         This widget is where one would place most of the command buttons for a GUI,
@@ -564,9 +568,9 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
+            prompt (str): Text of frame label
             cmd (list): [label:str, callback:function] for each button
             space (int): space (pixels) between buttons
-            prompt (str): Text of frame label
             orient (str): ['horizontal'] or 'vertical'
 
         Keyword Arguments:
@@ -677,7 +681,7 @@ class Window(object):
 
     # file/directory dialogs
 
-    def addOpen(self, tag, width=20, prompt='', **tkparms):
+    def addOpen(self, tag, prompt='', width=20, **tkparms):
         """ Create a ttopen box which is a file entry and a browse button.
 
         This has all the widgets needed to open a file. When the user clicks on
@@ -686,8 +690,8 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
-            width (int): Width of entry widget (chars)
             prompt (str): Text of frame label
+            width (int): Width of entry widget (chars)
 
         Keyword Arguments:
             defaultextension (str): extention added to filename (must strat with .)
@@ -720,7 +724,7 @@ class Window(object):
         if fn:                                         # user selected file?
             self.set(tag, fn)                          # store it in content
 
-    def addSaveAs(self, tag, width=20, prompt='', **tkparms):
+    def addSaveAs(self, tag, prompt='', width=20, **tkparms):
         """ Create an ttsaveas box which is a file entry with a browse button.
 
         This has all the widgets needed to save a file. When the user clicks on
@@ -731,8 +735,9 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
-            width (int): Width of entry widget
             prompt (str): Text of frame label
+            width (int): Width of entry widget
+
 
         Keyword Arguments:
             defaultextension (str): extention added to filename (must strat with .)
@@ -763,7 +768,7 @@ class Window(object):
         if fn:
             self.set(tag, fn)
 
-    def addChooseDir(self, tag, width=20, prompt='', **tkparms):
+    def addChooseDir(self, tag, prompt='', width=20, **tkparms):
         """ Create a ttchoosedir box which is a directory entry with a browse button.
 
         This has all the widgets needed to select a directory. When the user clicks
@@ -773,8 +778,8 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to widget
-            width (int): Width of entry widget
             prompt (str): Text of frame label
+            width (int): Width of entry widget
 
         Keyword Arguments:
             initialdir (str): Initial directory (space, ' ' remembers last directory)
@@ -1038,7 +1043,6 @@ class Window(object):
         self.content[tag]['widget'] = notebook         # add widget
         return pages
 
-
     def addPanes(self, tag, titles, **tkparms):
         """ Create a multipaned window with user adjustable columns.
 
@@ -1047,7 +1051,7 @@ class Window(object):
 
         Parameters:
             tag (str): Reference to container
-            panes (list): Tag and titles of all embedded windows
+            titles (list): [tag, titles] of all embedded windows
 
         Keyword Arguments:
             height (int): Height of frame (pixels)
@@ -1149,6 +1153,48 @@ class Window(object):
         # python magic, eval converts the string to a function and the...
         # parmeter list calls the function
         return eval(mtype)(title, message, **tkparms)   # cool, yes?
+
+    def popOpen(self, **tkparms):
+        """ Popup a open dialog
+
+        This pops up a standard open dialog
+
+        Keyword Arguments
+            defaultextension (str): extention added to filename (must strat with .)
+            filetypes (list of str): entrys in file listing [[label1, pattern1], [...]]
+            initialdir (str): Initial directory (space, ' ' remembers last directory)
+            initialfile (str): Default filename
+            title (str): Pop-up window's title
+        """
+
+        return askopenfilename(**tkparms)
+
+    def popSaveAs(self, **tkparms):
+        """ Popup a save as dialog
+
+        This pops up a standard save as dialog
+
+        Keyword Arguments
+            defaultextension (str): extention added to filename (must strat with .)
+            filetypes (list of str): entrys in file listing [[label1, pattern1], [...]]
+            initialdir (str): Initial directory (space, ' ' remembers last directory)
+            initialfile (str): Default filename
+            title (str): Pop-up window's title
+        """
+
+        return asksaveasfilename(**tkparms)
+
+    def popChooseDir(self, **tkparms):
+        """ Popup a choose directory dialog
+
+        This pops up a standard choose directory dialog
+
+        Keyword Arguments
+            initialdir (str): Initial directory (space, ' ' remembers last directory)
+            title (str): Pop-up window's title
+        """
+
+        return askdirectory(**tkparms)
 
     def popColorChooser(self, **tkparms):
         """ Popup a color chooser dialog.

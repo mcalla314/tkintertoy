@@ -1,4 +1,4 @@
-.. tuorial.rst 3/16/19
+.. tuorial.rst 3/23/19
 ===================
 Tkintertoy Tutorial
 ===================
@@ -374,7 +374,7 @@ previous example:
 #. Blank lines improve code readability.
 #. Create an instance of the ``Gui`` class which will create the GUI.
 #. Wait for the user to click a button.
-#. Collect all the lines in the collector.
+#. Get all the lines in the collector as a list of dictionaries.
 #. This is where the tornado path generation code would begin.
 #. Blank lines improve code readability.
 #. Run the driving function.
@@ -410,9 +410,9 @@ Here are the line explanations:
    interface.
 #. This is a class documentation string.
 #. Create an initialize method that will create the interface. All methods in the
-   class will have access to ``self``. We are also going to pass Mapper class
-   which will contain all the non-interface code, mostly stubs where real code would
-   go.
+   class will have access to ``self``. We are also going to pass Mapper class (not an
+   instance) which will contain all the non-interface code. In this case it will be stubs
+   where real code would go. We will see how this works in line 71.
 #. This is the method documentation string.
 #. This lets all methods in this class access the Mapper instance.
 #. Create an instance of ``Window`` labeled ``self.dialog``. All methods in this
@@ -457,7 +457,7 @@ Here are the line explanations:
 #. Add a messages **tttext**. This is where all messages to the user will appear.
 #. Plot the messages widget in the second row of the dialog window. The notebook will be in
    the first row.
-#. Add a command **ttbuuton** row, the default are labeled Ok and Cancel.
+#. Add a command **ttbutton** row, the default are labeled Ok and Cancel.
 #. Set the callback for the first button to self.go(). We are getting the Tk widget
    using the getWidget method and changing the *command* parameter. This shows how
    easy it is to get to the more complex parts of Tk from tkintertoy.
@@ -482,6 +482,66 @@ Here are the line explanations:
    is ['date-int','month-int'] like ['25','12'].
 #. Set the title of the map file to something like 'accum1225-12272018'. Again, this will
    be dynamically updated and can be overridden.
+#. Blank lines improve code readability.
+#. This method will execute the correct the map generation code.
+#. This is the method documentation string.
+#. Get the selected notebook tab page, either 0 for the routine page or 1 for the accumulation
+   page.
+#. This code might fail so we place it in a try...except block.
+#. Create an instance of a Mapper object. However, we have a chicken/egg type problem. Mapper
+   must know about the Gui instance in order to send messages to the user. That is why the
+   Mapper instance must be created after the Gui instance. However, the Gui instance must
+   also know about the Mapper instance in order to execute the map making code. That is why
+   the Mapper instance is created inside of this method and why we passed the Mapper class
+   as an argument. The Gui instance ``self`` is used as an argument to the Mapper
+   initialization method. It looks funny but it works.
+#. If the current page is the routine page...
+#. Run the routine map generation code.
+#. If the current page is the accumulation page...
+#. Run the accumulated map generation code.
+#. Catch any exceptions.
+#. Place all error messages into the messages widget.
+#. Blank lines improve code readability.
+#. Create a Mapper class which contains all the map generation code. This will be a stud
+   here since map generation code is well beyond the scope of this tutorial.
+#. Class documentation line.
+#. Blank lines improve code readability.
+#. Create an initialize method that will contain all the map making methods. For this
+   example this will be mainly stubs since actual GIS code is well beyond the scope
+   of this tutorial!
+#. Method documentation lines.
+#. Same as above.
+#. Make the Gui object an attribute of the instance so all methods have access.
+#. Blank lines improve code readability.
+#. This method contains the code for making the routine daily precipitation map.
+#. Method documentation line.
+#. Get the desired map title. This will be used in the magic map making code section.
+#. Get the filename of the map.
+#. Send a message to the user that the magic map making has begun.
+#. This is well beyond the scope of this tutorial.
+#. Blank lines improve code readability.
+#. This method contains the code for making accumulated precipitation maps, that is,
+   precipitation that fell over several days.
+#. Method documentation line.
+#. Get the desired map title. This will be used in the magic map making code section.
+#. Get the filename of the map.
+#. Send a message to the user that the magic map making has begun.
+#. Blank lines improve code readability.
+#. Create the main function.
+#. Create the GUI.
+#. Run the GUI.
+#. Blank lines improve code readability.
+#. Standard Python. If you are executing this code from the command line, execute the
+   main function. If importing, don't.
+#. Same as above.
+
+Conclusion
+==========
+
+It is hoped that with Tkintertoy, a Python instructor can quickly lead a young Python
+programmer out of the boring world of command-line interfaces and join the fun world of
+GUI programming. To see all ther widgets that Tkintertoy supports, run ttgallery.py.
+
 
   
 

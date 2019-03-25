@@ -1159,12 +1159,15 @@ class Window(object):
 
         This pops up a standard open dialog
 
-        Keyword Arguments
+        Keyword Arguments:
             defaultextension (str): extention added to filename (must strat with .)
             filetypes (list of str): entrys in file listing [[label1, pattern1], [...]]
             initialdir (str): Initial directory (space, ' ' remembers last directory)
             initialfile (str): Default filename
             title (str): Pop-up window's title
+
+        Returns:
+            The filename selected as str
         """
 
         return askopenfilename(**tkparms)
@@ -1174,12 +1177,14 @@ class Window(object):
 
         This pops up a standard save as dialog
 
-        Keyword Arguments
+        Keyword Arguments:
             defaultextension (str): extention added to filename (must strat with .)
             filetypes (list of str): entrys in file listing [[label1, pattern1], [...]]
             initialdir (str): Initial directory (space, ' ' remembers last directory)
             initialfile (str): Default filename
             title (str): Pop-up window's title
+        Returns:
+            The filename selected as str
         """
 
         return asksaveasfilename(**tkparms)
@@ -1189,9 +1194,12 @@ class Window(object):
 
         This pops up a standard choose directory dialog
 
-        Keyword Arguments
+        Keyword Arguments:
             initialdir (str): Initial directory (space, ' ' remembers last directory)
             title (str): Pop-up window's title
+
+        Returns:
+            The directory selected as str
         """
 
         return askdirectory(**tkparms)
@@ -1204,6 +1212,9 @@ class Window(object):
         Keyword Arguments
             color (str): Initial color
             title (str): Title of pop-up window ['Color']
+
+        Returns:
+            Color selected as tuple
         """
 
         return askcolor(**tkparms)

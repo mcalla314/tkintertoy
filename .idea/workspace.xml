@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/docs/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,9 +10,31 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/docs/examples/mapper.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-136">
+                    <caret line="70" column="61" selection-start-line="70" selection-start-column="61" selection-end-line="70" selection-end-column="61" />
+                    <folding>
+                      <element signature="e#0#15#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/tutorial.rst">
           <provider selected="true" editor-type-id="restructured-text-editor" />
         </entry>
@@ -57,18 +79,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/examples/tt.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="1161" column="25" lean-forward="true" selection-start-line="1161" selection-start-column="25" selection-end-line="1161" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/tt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
+            <state relative-caret-position="3386">
               <caret line="1216" column="35" selection-start-line="1216" selection-start-column="35" selection-end-line="1216" selection-end-column="35" />
             </state>
           </provider>
@@ -99,18 +112,18 @@
         <option value="$PROJECT_DIR$/docs/examples/tt2.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/docs/examples/mapper.py" />
-        <option value="$PROJECT_DIR$/docs/tutorial.rst" />
         <option value="$PROJECT_DIR$/docs/conf.py" />
         <option value="$PROJECT_DIR$/docs/examples/ttgallery.py" />
         <option value="$PROJECT_DIR$/docs/examples/tt.py" />
         <option value="$PROJECT_DIR$/docs/tt.py" />
+        <option value="$PROJECT_DIR$/docs/tutorial.rst" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="572" />
-    <option name="y" value="19" />
-    <option name="width" value="1069" />
+    <option name="x" value="519" />
+    <option name="y" value="16" />
+    <option name="width" value="1301" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectView">
@@ -323,10 +336,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="98" y="5" width="1069" height="1000" extended-state="0" />
+    <frame x="519" y="16" width="1301" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13967022" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11401425" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -413,25 +426,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/examples/mapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="102" column="11" selection-start-line="102" selection-start-column="11" selection-end-line="102" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/examples/tornado.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="22" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/tutorial.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/conf.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -466,10 +466,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/tt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
+        <state relative-caret-position="3386">
           <caret line="1216" column="35" selection-start-line="1216" selection-start-column="35" selection-end-line="1216" selection-end-column="35" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/examples/mapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="70" column="61" selection-start-line="70" selection-start-column="61" selection-end-line="70" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/tutorial.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
   </component>
 </project>

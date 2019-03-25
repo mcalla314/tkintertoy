@@ -404,7 +404,8 @@ simple error trapping:
 
 Here are the line explanations:
 
-1. Import ``Window`` from tkintertoy.
+1. Import datetime for automatic date functions
+#. Import ``Window`` from tkintertoy.
 #. Blank lines improve code readability.
 #. Create a class called ``Gui``. This will contain all the code dealing with the
    interface.
@@ -412,7 +413,7 @@ Here are the line explanations:
 #. Create an initialize method that will create the interface. All methods in the
    class will have access to ``self``. We are also going to pass Mapper class (not an
    instance) which will contain all the non-interface code. In this case it will be stubs
-   where real code would go. We will see how this works in line 71.
+   where real code would go. We will see how this works in line 77.
 #. This is the method documentation string.
 #. This lets all methods in this class access the Mapper instance.
 #. Create an instance of ``Window`` labeled ``self.dialog``. All methods in this
@@ -430,6 +431,7 @@ Here are the line explanations:
 #. Convert it to [date, month, year, month abr]; ex. [25, 12, 2018, 'Dec']
 #. Add a title **ttentry** widget. This will be filled in dynamically.
 #. Set the title using today's date.
+#. Same as above.
 #. Plot the title in the first row.
 #. Add an output filename **ttentry** widget. This will also filled in dynamically.
 #. Set the output filename using today's date.
@@ -452,6 +454,8 @@ Here are the line explanations:
 #. Plot the days back widget in the second row.
 #. Add a title **ttentry**. This will be filled in dynamically.
 #. Plot the title widget in the third row.
+#. Add an output filename **ttentry**. This will be filled in dynamically.
+#. Plot the output filename widget in the fourth row.
 #. Fill in the title using the default values in the above widgets.
 #. This section of code is for the rest of the dialog window.
 #. Add a messages **tttext**. This is where all messages to the user will appear.
@@ -478,16 +482,17 @@ Here are the line explanations:
 #. Set the title of the map in the title widget. As the user changes the dates and days back,
    this title will dynamically change. The user can edit this one last time before they click
    on Ok.
-#. Calculate the beginning date from the ending date and the days back. The final form
-   is ['date-int','month-int'] like ['25','12'].
+#. Same as above.
+#. Calculate the beginning date from the ending date and the days back.
+#. Convert the datetime into a list of strings ['date-int','month-int'] like ['25','12'].
 #. Set the title of the map file to something like 'accum1225-12272018'. Again, this will
    be dynamically updated and can be overridden.
+#. Same as above.
 #. Blank lines improve code readability.
 #. This method will execute the correct the map generation code.
 #. This is the method documentation string.
 #. Get the selected notebook tab page, either 0 for the routine page or 1 for the accumulation
    page.
-#. This code might fail so we place it in a try...except block.
 #. Create an instance of a Mapper object. However, we have a chicken/egg type problem. Mapper
    must know about the Gui instance in order to send messages to the user. That is why the
    Mapper instance must be created after the Gui instance. However, the Gui instance must
@@ -495,6 +500,8 @@ Here are the line explanations:
    the Mapper instance is created inside of this method and why we passed the Mapper class
    as an argument. The Gui instance ``self`` is used as an argument to the Mapper
    initialization method. It looks funny but it works.
+#. Blank lines improve code readability.
+#. This code might fail so we place it in a try...except block.
 #. If the current page is the routine page...
 #. Run the routine map generation code.
 #. If the current page is the accumulation page...
@@ -526,6 +533,7 @@ Here are the line explanations:
 #. Get the desired map title. This will be used in the magic map making code section.
 #. Get the filename of the map.
 #. Send a message to the user that the magic map making has begun.
+#. This is well beyond the scope of this tutorial.
 #. Blank lines improve code readability.
 #. Create the main function.
 #. Create the GUI.
@@ -540,7 +548,8 @@ Conclusion
 
 It is hoped that with Tkintertoy, a Python instructor can quickly lead a young Python
 programmer out of the boring world of command-line interfaces and join the fun world of
-GUI programming. To see all ther widgets that Tkintertoy supports, run ttgallery.py.
+GUI programming. To see all the widgets that Tkintertoy supports, run ttgallery.py.
+As always, looking at the code can be very instructive.
 
 
   

@@ -46,8 +46,8 @@ class Gui(object):
         self.dialog.addText('messages', 70, 15, 'Messages')
         self.dialog.plot('messages', row=1)
         self.dialog.addButton('commands', space=20)
-        self.dialog.getWidget('commands')[0]['command'] = self.go
-        self.dialog.getWidget('commands')[1]['text'] = 'Exit'
+        self.dialog.changeWidget('commands', 0, command=self.go)
+        self.dialog.changeWidget('commands', 1, text='Exit')
         self.dialog.plot('commands', row=2)
         self.dialog.plot('notebook', row=0)
         self.dialog.set('notebook', 0)

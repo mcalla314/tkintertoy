@@ -17,7 +17,6 @@ gui.waitforUser()
 if gui.content:
     message = 'Converting {} into {}...\n'.format(gui.get('input'), gui.get('output'))
     gui.set('status', message)
-    import time
-    time.sleep(5)
+    gui.master.after(5000)
     # magic map making code goes here...
     gui.cancel()

@@ -4,13 +4,12 @@
 #
 # Author:      mike.callahan
 #
-# Created:     3/24/2019
+# Created:     12/28/2019
 # Copyright:   (c) mike.callahan 2019
 # License:     MIT
 #-------------------------------------------------------------------------------
 
 from tkintertoy import Window
-import time
 
 class Gui(object):
 
@@ -190,14 +189,14 @@ class Gui(object):
         result += str(self.simplePage.get('ttspin')) + '\n    '
         self.gui.set('ttprogress', 33)
         self.gui.set('ttext', result, allValues=True)
-        time.sleep(.5)
+        self.gui.master.after(500)
         result = '  File Page:\n    '
         result += self.dialogPage.get('ttopen') + '\n    '
         result += self.dialogPage.get('ttsaveas') + '\n    '
         result += self.dialogPage.get('ttchoosedir') + '\n    '
         self.gui.set('ttprogress', 66)
         self.gui.set('ttext', result)
-        time.sleep(.5)
+        self.gui.master.after(500)
         result = '  Multi Page:\n    '
         result += str(self.multiPage.get('ttlist')) + '\n    '
         result += str(self.multiPage.get('ttledger')) + '\n    '
@@ -205,7 +204,7 @@ class Gui(object):
         # Progress Bar
         self.gui.set('ttprogress', 100)
         self.gui.set('ttext', result)
-        time.sleep(1.0)
+        self.gui.master.after(1000)
         self.gui.set('ttprogress', 0)
 
 def main():
@@ -215,7 +214,7 @@ def main():
     except:
         errorMessage = app.gui.catchExcept()
         app.gui.popMessage(errorMessage, 'showwarning', 'Error')
-        app.gui.destroy()
+        app.gui.cancel()
 
 main()
 

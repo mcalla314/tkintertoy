@@ -1,7 +1,7 @@
-.. tuorial.rst 3/23/19
-===================
-Tkintertoy Tutorial
-===================
+.. tuorial.rst 1/1/20
+=======================
+Tkintertoy 1.2 Tutorial
+=======================
 
   :Date: |today|
   :Author: **Mike Callahan**
@@ -14,9 +14,12 @@ My students knew GIS but when it came time to put the workflows into a
 standalone application, they were stumped with the complexity of programming 
 a GUI, even a simple one like *Tkinter*. So I developed an easy to use GUI 
 library that made it much simpler for their applications. This was posted on 
-PIPY as *EzDialog*. Over the last several months I took some of the original 
+PIPY as *EzDialog*. Over the first months of 2019 I took some of the original
 ideas in EzDialog and developed Tkintertoy, which is even easier to use, but 
-more powerful as well.
+more powerful as well. Since that time, I have been teaching local and uploaded
+a series of narrated Powerpoint slide of those seminars using Tkintertoy in the
+development of easy applications. As result, I have fixed a few minor bugs, improved
+the documentation, and added some methods for version 1.2.
 
 Tkintertoy creates Windows which contain widgets. Almost every *tk* or *ttk* 
 widget is supported and a few combined widgets are included. Most widgets 
@@ -113,9 +116,9 @@ Simple Map Creation Dialog
 ==========================
 
 Below is the code to create a simple dialog window which might be useful for a GIS 
-tool which creates a map. This example was not written in an object-oriented style in 
+tool which creates a map. This example was not written in an object-oriented mode in
 order to help the typical GIS script or early Python script writer. Object-oriented 
-style will be demonstrated later. We will need the filename of the input CSV file, 
+mode will be demonstrated later. We will need the filename of the input CSV file,
 the output PNG map image, and the title for the map. We will use an *Open* filename 
 widget, a *Save As* filename widget, and an *Entry* widget, and a *Text* widget as
 a status window.
@@ -137,12 +140,12 @@ Each line of code is explained below:
 #. Set the title ``gui`` to "Create a Map".
 #. We want to limit the input files to .csv only. This list will be used in the
    method in the next line. Notice, you can filter multiple types.
-#. Add an **ttopen** box widget, with a 40 character wide **ttentry** widget,
+#. Add an **ttopen** dialog widget, with a 40 character wide **ttentry** widget,
    filtering only CSV files.
 #. We want to limit our output to .png only.
-#. Add a **ttsaveas** box widget, with a 40 character wide **ttentry** widget,
+#. Add a **ttsaveas** dialog widget, with a 40 character wide **ttentry** widget,
    filtering only PNG files. If the file already exists, an overwrite confirmation
-   window will pop up.
+   dialog will pop up.
 #. Add an **ttentry** widget that is 40 characters wide to collect the map title. 
 #. Add a **tttext** widget, with a width of 40 characters, a height of 5 lines, which
    will be used for all status messages.
@@ -162,7 +165,6 @@ Each line of code is explained below:
 #. If the user clicked on the OK button do the following:
 #. Create the status message.
 #. Display the status message.
-#. Import the time module
 #. Pretend we are making a map but in reality just pause for 5 seconds so the user
    can see the status message.
 #. This is where the actual map making code would begin.
@@ -247,7 +249,7 @@ Object-Oriented Dynamic Widgets
 While I told you to not fear lambda, if you write code in an object-oriented mode, 
 you don't have to be concerned about lambda. While, the details of writing object-
 oriented code is far beyond the scope of this tutorial, we will look at the previous 
-example in an object-oriented style using composition. You will see, it is not really 
+example in an object-oriented mode using composition. You will see, it is not really
 complicated at all, just a little different. The GUI did not change.
 
 Below is the new code:
@@ -369,7 +371,7 @@ previous example:
 #. Plot the path widget in the fourth row, separating the widgets by 5 pixels.
 #. Plot the command widget in the fifth row, separating the widgets by 10 pixels.
 #. Blank lines improve code readability.
-#. Create a ``main()`` function. This is the way most Python scripts work.
+#. Create a ``main`` function. This is the way most Python scripts work.
 #. This is the function documentation.
 #. Blank lines improve code readability.
 #. Create an instance of the ``Gui`` class which will create the GUI.
@@ -416,17 +418,18 @@ Here are the line explanations:
    where real code would go. We will see how this works in line 77.
 #. This is the method documentation string.
 #. This lets all methods in this class access the Mapper instance.
-#. Create an instance of ``Window`` labeled ``self.dialog``. All methods in this
-   Class will have access.
-#. Set the title of ``self.dialog`` to Mapper 1.0.
+#. Create an instance of ``Window`` that will be asignned to an attribute ``dialog``. All
+   methods in this class will have access.
+#. Set the title of the window to Mapper 1.0.
 #. This code section is for the notebook widget.
 #. Create a list which contains the names of the tabs in the notebook:
-   Routine & Accumulate. Routine will make a map of one day's rainfall, accumulate
-   will add up several days worth of rain.
+   ``Routine`` & ``Accumulate``. ``Routine`` will make a map of one day's rainfall,
+   ``Accumulate`` will add up several days worth of rain.
 #. Add a **ttnotebook**. The notebook will return two ``Windows`` which will be used
    as a container for each notebook page.
-#. This code section is for the Routine notebook page.
-#. Assign the first page (page[0]) of the notebook, which is a ``Window`` to ``self.routine``.
+#. This code section is for the ``Routine`` notebook page.
+#. Assign the first page (page[0]) of the notebook, which is a ``Window`` to an attribute
+   ``routine``.
 #. Get today's date.
 #. Convert it to [date, month, year, month abr]; ex. [25, 12, 2018, 'Dec']
 #. Add a title **ttentry** widget. This will be filled in dynamically.
@@ -440,8 +443,9 @@ Here are the line explanations:
 #. Add a jobs **ttchecks**.
 #. Turn on both check boxes, by default.
 #. Plot the jobs widget in the third row.
-#. This code section is for the Accumulate notebook page.
-#. Assign the second page (page[1]) of the notebook, which is a ``Window`` to ``self.accum``.
+#. This code section is for the ``Accumulate`` notebook page.
+#. Assign the second page (page[1]) of the notebook, which is a ``Window`` to an
+   attribute ``accum``.
 #. Create the list for the parameters of a date spinner.
 #. Add an ending date **ttspin** row, with the callback set to self.updateAccum().
 #. Same as above.
@@ -462,14 +466,14 @@ Here are the line explanations:
 #. Plot the messages widget in the second row of the dialog window. The notebook will be in
    the first row.
 #. Add a command **ttbutton** row, the default are labeled Ok and Cancel.
-#. Set the callback for the first button to self.go(). We are getting the Tk widget
-   using the getWidget method and changing the *command* parameter. This shows how
-   easy it is to get to the more complex parts of Tk from tkintertoy.
+#. Set the callback for the first button to the ``go`` method. We are changing the
+   *command* parameter. This shows how easy it is to get to the more complex parts
+   of Tk/ttk from tkintertoy.
 #. Set the label of the second button to Exit using the same method as above but
    changing the *text* parameter.
 #. Plot the command buttons in the third row.
 #. Plot the notebook in the first row.
-#. Set the default notebook page to Routine. This will be the page displayed when the
+#. Set the default notebook page to ``Routine``. This will be the page displayed when the
    application first starts.
 #. Blank lines improve readability.
 #. This method will update the widgets on the accumulate page expanding on dynamic widgets.
@@ -509,7 +513,7 @@ Here are the line explanations:
 #. Catch any exceptions.
 #. Place all error messages into the messages widget.
 #. Blank lines improve code readability.
-#. Create a Mapper class which contains all the map generation code. This will be a stud
+#. Create a ``Mapper`` class which contains all the map generation code. This will be a stud
    here since map generation code is well beyond the scope of this tutorial.
 #. Class documentation line.
 #. Blank lines improve code readability.
@@ -535,9 +539,159 @@ Here are the line explanations:
 #. Send a message to the user that the magic map making has begun.
 #. This is well beyond the scope of this tutorial.
 #. Blank lines improve code readability.
-#. Create the main function.
+#. Create the ``main`` function.
 #. Create the GUI.
 #. Run the GUI.
+#. Blank lines improve code readability.
+#. Standard Python. If you are executing this code from the command line, execute the
+   main function. If importing, don't.
+#. Same as above.
+
+Dynamically Changing Widgets
+============================
+
+The next example is a simple implementation of a digital stopwatch that demonstrates
+how to change a widget dynamically. Tkintertoy uses both tk and ttk widgets. The appearance
+of ttk widgets are changed using the concept of **ttstyles** which will be shown. This
+example will show how to change a widget state from enabled to disabled. This example will also
+show how to separate the implementation and the gui code into two separate classes. Lastly,
+this code will demonstrate how a complete application based on Tkintertoy could be
+written.
+
+Below is a screenshot:
+
+  .. image:: images/stopwatch.png
+
+Here is the code. We will also demonstrate more dynamic widgets and introduce some
+simple error trapping:
+
+  .. literalinclude:: examples/stopwatch.py
+      :linenos:
+      :language: python3
+
+Here are the line explanations:
+
+1. We will need the time function from the time module
+#. Import ``Window`` from tkintertoy.
+#. Blank lines improve code readability.
+#. Define a function, ``sec2hmsc`` which will change decimal seconds into (hours, minutes, seconds,
+   centiseconds).
+#. Function documentation string.
+#. Same as above.
+#. Split decimal seconds into whole hours with a remainder.
+#. Split the remainder into whole minutes with a remainder.
+#. Split the remainder into whole seconds and centiseconds.
+#. Return the time values as a tuple.
+#. Blank lines improve code readability.
+#. Define the ``Stopwatch`` class which will encapsulate a stopwatch.
+#. This is the class documentation string.
+#. Blank lines improve code readability.
+#. Create the ``__init__`` method. This will initialize the stopwatch.
+#. This is the method documentation string.
+#. Create an attribute which will hold the beginning time.
+#. Create an attribute which will hold the time elapsed while stopped.
+#. Create an attribute which will hold the running flag.
+#. Blank lines improve code readability.
+#. Create the ``start`` method. This will start the stopwatch.
+#. This is the method documentation string.
+#. Get the current time and save it in the ``then`` attribute.
+#. Check to see if the ``elapsed`` attribute is non-zero.
+#. If so, the stopwatch has been stopped and ``then`` needs to be adjusted.
+#. Set the ``running`` attribute to True.
+#. Blank lines improve code readability.
+#. Create the ``check`` method. This method will return the elapsed time as a
+   tuple.
+#. This is the method documentation string.
+#. Same as above.
+#. Check to see if the stopwatch is running.
+#. If so, get the current time.
+#. Adjust ``elapsed`` with the current time.
+#. In any case, call convert the decimal seconds to a time tuple
+#. Return the time tuple.
+#. Blank lines improve code readability.
+#. Create the ``stop`` method. This will stop the stopwatch.
+#. This is the method documentation string.
+#. Update the elapsed time.
+#. Set ``running`` to False.
+#. This is the method documentation string.
+#. Create the ``reset`` method. This resets the stopwatch.
+#. This is the method documentation string.
+#. This method is the same as the ``__init__`` so just call it.
+#. Blank lines improve code readability.
+#. Create the ``Gui`` class. This class will contain the gui for the stopwatch.
+#. This is the class documentation string.
+#. Blank lines improve code readability.
+#. Create the ``__init__`` method which will initialize the gui.
+#. This is the method documentation string.
+#. Same as above
+#. Create an instance of a **Tkintertoy** window and save it as the ``win`` attribute.
+#. Save the inputted Stopwatch as the ``stopw`` attribute.
+#. Create the gui.
+#. Blank lines improve code readability.
+#. Create the ``makeGui`` method which will create the gui and begin a display loop.
+#. This is the method documentation string.
+#. Set the title of the window.
+#. Create a **ttstyle** which has large red characters. This is how we will color our
+   **ttlabel** in the stopped state.
+#. Same as above.
+#. Create a **ttstyle** which has large green characters. The is how we will color our
+   **ttlabel** in the running state.
+#. Same as above.
+#. Create a **ttlabel** which will hold the elapsed time of the stopwatch.
+#. Create a list of button labels and commands, ``buttons``, for the buttons. Note the
+   commands are Gui methods.
+#. Same as above.
+#. Create a row of **ttbuttons** which will be initialized using the labels and commands
+   in ``buttons``.
+#. Change the state of of the Reset (second button) to disabled. This is to prevent the
+   user from trying to reset the stopwatch while stopped. Remember, counting in Python
+   is always from zero. Widgets can have many states which is why this method uses a
+   list.
+#. Plot the **ttlabel**
+#. PLot the **ttbutton** row.
+#. Update the gui. You will see that calling update will start an event processing loop
+   without the use of ``waitfoUser``.
+#. Blank lines improve code readability.
+#. Create the ``startstop`` method. Since the user will start and stop the stopwatch using
+   the same button, this method will have do handle both tasks.
+#. This is the method documentation string.
+#. Check to see if the stopwatch is running.
+#. If so, stop it.
+#. Retext the first button as Start. It was Stop.
+#. Change the color to red.
+#. Disable the Reset button.
+#. Else, the stopwatch was stopped.
+#. Start the stopwatch.
+#. Retext the first button as Stop. It was Start.
+#. Change the color to green.
+#. Enable the Reset button. The ! represents not, so !disabled means not disabled.
+#. Blank lines improve code readability.
+#. Create the ``reset`` method, which will reset the stopwatch. Since this is connected
+   to the Reset button and this button is disabled unless the stopwatch is running,
+   this method can only be executed while the stopwatch is running.
+#. This is the method documentation string.
+#. Stop the stopwatch. Remember, the stopwatch must be running to get to this line of
+   code.
+#. Reset the stopwatch.
+#. Blank lines improve code readability.
+#. Create the ``update`` method which shows the elapsed time in the **ttlabel**.
+#. This is the method documentation string.
+#. Get the elapsed time and a time tuple, (hours, minutes, seconds, centiseconds).
+#. Create a template for the ``format`` string method that will convert each time
+   element as a two digit number with leading leading zero separated by colons. If
+   the time tuple was (0, 12, 6, 13) this template convert it to '00:12:06:13'.
+#. Using the template, convert the time tuple into a string.
+#. Update the **ttlabel** with the time string.
+#. After 0.01 seconds, call ``update`` again. This allows the stopwatch to update its
+   display every hundredth of a second. Every Tkintertoy window has a **master**
+   attribute which has many useful methods you can call. This line create an event
+   processing loop but it only executes every 0.01 second which makes sure that the
+   stopwatch is displaying the correct elapsed time.
+#. Blank lines improve code readability.
+#. Create the ``main`` function.
+#. This is the function documentation.
+#. Create a stopwatch.
+#. Create and run the gui. Note, that assigning the gui is unnecessary.
 #. Blank lines improve code readability.
 #. Standard Python. If you are executing this code from the command line, execute the
    main function. If importing, don't.

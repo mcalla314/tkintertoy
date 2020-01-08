@@ -571,7 +571,9 @@ simple error trapping:
 
 Here are the line explanations:
 
-1. We will need the time function from the time module
+1. File documentation.
+#. Blank lines improve code readability.
+#. We will need the time function from the time module
 #. Import ``Window`` from tkintertoy.
 #. Blank lines improve code readability.
 #. Define a function, ``sec2hmsc`` which will change decimal seconds into (hours, minutes, seconds,
@@ -643,10 +645,6 @@ Here are the line explanations:
 #. Same as above.
 #. Create a row of **ttbuttons** which will be initialized using the labels and commands
    in ``buttons``.
-#. Change the state of of the Reset (second button) to disabled. This is to prevent the
-   user from trying to reset the stopwatch while stopped. Remember, counting in Python
-   is always from zero. Widgets can have many states which is why this method uses a
-   list.
 #. Plot the **ttlabel**
 #. PLot the **ttbutton** row.
 #. Update the gui. You will see that calling update will start an event processing loop
@@ -659,19 +657,19 @@ Here are the line explanations:
 #. If so, stop it.
 #. Retext the first button as Start. It was Stop.
 #. Change the color to red.
-#. Disable the Reset button.
+#. Enable the Reset button. Reset should only be used while the stopwatch is stopped. The
+   ! means "not" so we are setting the state of the second button to "not disabled" which
+   enables it.
 #. Else, the stopwatch was stopped.
 #. Start the stopwatch.
 #. Retext the first button as Stop. It was Start.
 #. Change the color to green.
-#. Enable the Reset button. The ! represents not, so !disabled means not disabled.
+#. Disable the Reset button.
 #. Blank lines improve code readability.
 #. Create the ``reset`` method, which will reset the stopwatch. Since this is connected
-   to the Reset button and this button is disabled unless the stopwatch is running,
-   this method can only be executed while the stopwatch is running.
+   to the Reset button and this button is disabled unless the stopwatch is stopped,
+   this method can only be executed while the stopwatch is stopped.
 #. This is the method documentation string.
-#. Stop the stopwatch. Remember, the stopwatch must be running to get to this line of
-   code.
 #. Reset the stopwatch.
 #. Blank lines improve code readability.
 #. Create the ``update`` method which shows the elapsed time in the **ttlabel**.

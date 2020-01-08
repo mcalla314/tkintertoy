@@ -4,8 +4,8 @@
 #
 # Author:      mike.callahan
 #
-# Created:     12/28/2019
-# Copyright:   (c) mike.callahan 2019
+# Created:     1/3/2020
+# Copyright:   (c) mike.callahan 2019, 2020
 # License:     MIT
 #-------------------------------------------------------------------------------
 
@@ -34,16 +34,16 @@ class Gui(object):
         mymenu.add('cascade', label='Misc', menu=self.gui.get('ttmmenu'))
         self.gui.master['menu'] = mymenu # connect the main menu to the window
         # Notebook
-        tabs = ['Simple','Dialog','Multi','Other']
-        self.pages = self.gui.addNotebook('ttnotebook', tabs)
+        tabs = ['Simple','Dialog','Multi','Other'] # label the tabs
+        self.pages = self.gui.addNotebook('ttnotebook', tabs) # create the notebook
         # Text Box
-        self.gui.addText('ttext', 60, 10, 'Text Box')
+        self.gui.addText('ttext', 60, 10, 'Text Box') # create text area
         self.gui.plot('ttext', row=1)
         # Progress Bar
-        self.gui.addProgress('ttprogress', 100, 'Progress Bar')
+        self.gui.addProgress('ttprogress', 100, 'Progress Bar') # create progrees bar
         self.gui.plot('ttprogress', row=2)
         # Command Buttons
-        cmd = [['Collect',self.collect],['Exit', self.gui.cancel]]
+        cmd = [['Collect',self.collect],['Exit', self.gui.cancel]] # create two buttons
         self.gui.addButton('ttbutton', '', cmd)
         self.gui.plot('ttbutton', row=3)
         # Notebook Pages
@@ -56,57 +56,57 @@ class Gui(object):
     def makeSimple(self):
         self.simplePage = self.pages[0]
         # Label
-        self.simplePage.addLabel('ttlabel','','bold')
-        self.simplePage.set('ttlabel', 'This is a BOLD label')
+        self.simplePage.addLabel('ttlabel','','bold') # create a label
+        self.simplePage.set('ttlabel', 'This is a BOLD label') # fill in the value
         self.simplePage.plot('ttlabel', row=0)
         # Line
-        self.simplePage.addLine('ttline')
+        self.simplePage.addLine('ttline') # create a horizontal line
         self.simplePage.plot('ttline', row=1)
         # Message
-        self.simplePage.addMessage('ttmessage', 'Message Box')
+        self.simplePage.addMessage('ttmessage', 'Message') # create a message
         self.simplePage.set('ttmessage', 'Useful for multi-line messages')
         self.simplePage.plot('ttmessage', row=2)
         # Entry
-        self.simplePage.addEntry('ttentry', 'Entry Box')
-        self.simplePage.set('ttentry', 'Default Entry')
+        self.simplePage.addStyle('g.TEntry', foreground='green') # create a green entry
+        self.simplePage.addEntry('ttentry', 'Entry', style='g.TEntry')
+        self.simplePage.set('ttentry', 'Default Entry') # fill in the value
         self.simplePage.plot('ttentry', row=3)
         # Option
         alist = ['Option1','Option2','Option3']
-        self.simplePage.addOption('ttoption', 'Option Box', alist)
+        self.simplePage.addOption('ttoption', 'Option List', alist) # create an option list
         self.simplePage.set('ttoption', 'Option1')
         self.simplePage.plot('ttoption', row=5)
         # Combobox and Style
         acombo = ['ComboOption1','ComboOption2','ComboOption3']
-        self.simplePage.addStyle('new.TCombobox', foreground='red')
-        self.simplePage.addCombo('ttcombo', 'Combo Box', acombo, style='new.TCombobox')
+        self.simplePage.addCombo('ttcombo', 'Combo Box', acombo) # create combobox
         self.simplePage.plot('ttcombo', row=6)
         # Checkboxes
         achecks = ['CheckOption1','CheckOption2','CheckOption3']
-        self.simplePage.addCheck('ttchecks', 'Check Box', achecks)
+        self.simplePage.addCheck('ttchecks', 'Check Box', achecks) # create 3 checkboxes
         self.simplePage.plot('ttchecks', row=7)
+        self.simplePage.changeState('ttchecks', 1, ['disabled']) # disable CheckOption2
         # Radio Buttons
         aradio = ['RadioOption1','RadioOption2','RadioOption3']
-        self.simplePage.addRadio('ttradio', 'RadioButton Box', aradio)
-        self.simplePage.plot('ttradio', row=8)
+        self.simplePage.addRadio('ttradio', 'RadioButton Box', aradio) # create 3 radiobuttons      self.simplePage.plot('ttradio', row=8)
         # Scale
-        self.simplePage.addScale('ttscale', [1,10], 'Scale Box', width=2)
+        self.simplePage.addScale('ttscale', [1,10], 'Scale', width=2) # create a scale
         self.simplePage.plot('ttscale', row=9)
         # Spinners
         adate = [[2,1,12],[2,1,31],[4,2000,2099]]
-        self.simplePage.addSpin('ttspin', adate, '/', 'Date Box')
+        self.simplePage.addSpin('ttspin', adate, '/', 'Date Box') # create a date entry box
         self.simplePage.set('ttspin', [11,17,2017])
         self.simplePage.plot('ttspin', row=10)
 
     def makeDialog(self):
         self.dialogPage = self.pages[1]
         # Open
-        self.dialogPage.addOpen('ttopen', 'Open Box', width=40)
+        self.dialogPage.addOpen('ttopen', 'Open', width=40) # open dialog
         self.dialogPage.plot('ttopen', row=0)
         # SaveAs
-        self.dialogPage.addSaveAs('ttsaveas', 'Save As Box', width=40)
+        self.dialogPage.addSaveAs('ttsaveas', 'Save As', width=40) # save as dialog
         self.dialogPage.plot('ttsaveas', row=1)
         # ChooseDir
-        self.dialogPage.addChooseDir('ttchoosedir', 'Choose Dir Box', width=40)
+        self.dialogPage.addChooseDir('ttchoosedir', 'Choose Dir', width=40) # choose dir dialog
         self.dialogPage.plot('ttchoosedir', row=2)
 
     def popOpen(self):
@@ -133,11 +133,11 @@ class Gui(object):
         self.multiPage = self.pages[2]
         # List
         alist = ['ListOption1','ListOption2','ListOption3']
-        self.multiPage.addList('ttlist', 'List Box', alist, height=4)
+        self.multiPage.addList('ttlist', 'List', alist, height=4) # create list
         self.multiPage.plot('ttlist', row=0)
         # Ledger
         cols = [['column1',100],['column2',80],['column3',80]]
-        self.multiPage.addLedger('ttledger', 4, cols, 'Ledger Box')
+        self.multiPage.addLedger('ttledger', 4, cols, 'Ledger') # create ledger
         self.multiPage.set('ttledger', [['header1','item1-1','item1-2']])
         self.multiPage.set('ttledger', [['header2','item2-1','item2-2']])
         self.multiPage.set('ttledger', [['header3','tiem3-1','item2-3']])
@@ -154,14 +154,14 @@ class Gui(object):
         self.subwin.plot('ttradio2', row=1)
         # -Collector
         cols = [['Combo',100],['Radio', 100]]
-        self.subwin.addCollector('ttcollector', 4, cols, ['ttcombo2','ttradio2'], 'Collector Box')
+        self.subwin.addCollector('ttcollector', 4, cols, ['ttcombo2','ttradio2'], 'Collector')
         self.subwin.plot('ttcollector', row=2)
         self.multiPage.plot('ttframe', row=2)
 
     def makeOther(self):
         self.otherPage = self.pages[3]
         # Canvas
-        self.otherPage.addCanvas('ttcanvas', 300, 100, 'Canvas Box')
+        self.otherPage.addCanvas('ttcanvas', 300, 100, 'Canvas') # create canvas
         self.otherPage.get('ttcanvas').create_oval(10 ,10 ,290 ,90 ,fill='green')
         self.otherPage.plot('ttcanvas', row=0)
         # Multipane
@@ -189,14 +189,14 @@ class Gui(object):
         result += str(self.simplePage.get('ttspin')) + '\n    '
         self.gui.set('ttprogress', 33)
         self.gui.set('ttext', result, allValues=True)
-        self.gui.master.after(500)
+        self.gui.master.after(500) # wait .5 sec
         result = '  File Page:\n    '
         result += self.dialogPage.get('ttopen') + '\n    '
         result += self.dialogPage.get('ttsaveas') + '\n    '
         result += self.dialogPage.get('ttchoosedir') + '\n    '
         self.gui.set('ttprogress', 66)
         self.gui.set('ttext', result)
-        self.gui.master.after(500)
+        self.gui.master.after(500) # wait .5 sec
         result = '  Multi Page:\n    '
         result += str(self.multiPage.get('ttlist')) + '\n    '
         result += str(self.multiPage.get('ttledger')) + '\n    '
@@ -204,7 +204,7 @@ class Gui(object):
         # Progress Bar
         self.gui.set('ttprogress', 100)
         self.gui.set('ttext', result)
-        self.gui.master.after(1000)
+        self.gui.master.after(1000) # wait 1 sec
         self.gui.set('ttprogress', 0)
 
 def main():
@@ -214,7 +214,7 @@ def main():
     except:
         errorMessage = app.gui.catchExcept()
         app.gui.popMessage(errorMessage, 'showwarning', 'Error')
-        app.gui.cancel()
+        app.gui.destroy()
 
 main()
 

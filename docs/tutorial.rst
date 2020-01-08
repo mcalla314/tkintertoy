@@ -556,7 +556,7 @@ of ttk widgets are changed using the concept of **ttstyles** which will be shown
 example will show how to change a widget state from enabled to disabled. This example will also
 show how to separate the implementation and the gui code into two separate classes. Lastly,
 this code will demonstrate how a complete application based on Tkintertoy could be
-written.
+written.+
 
 Below is a screenshot:
 

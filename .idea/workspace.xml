@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/examples/stopwatch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/examples/map1.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/map1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/examples/mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/mapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/examples/stopwatch.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/stopwatch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/examples/ttgallery.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/ttgallery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/slides/Python_GUI_Calculator.pptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tkintertoy/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tkintertoy/tt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552001238965</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Change many files in preparation for version 1.2.">
+      <created>1577985489077</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577985489077</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,19 +209,27 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Test of PyCharm connection" />
     <MESSAGE value="Correct typos for autodoc. Change a few variable names." />
     <MESSAGE value="Change documentation for set to allValues parameter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change documentation for set to allValues parameter" />
+    <MESSAGE value="Change many files in preparation for version 1.2." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change many files in preparation for version 1.2." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1577985484649">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577985484648" />
     <state x="739" y="266" key="FileChooserDialogImpl" timestamp="1577984693353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -243,9 +250,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1362" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577710794583" />
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1577896418871">
+    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1578444202903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577896418871" />
+    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578444202903" />
   </component>
 </project>

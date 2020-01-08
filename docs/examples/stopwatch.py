@@ -1,3 +1,5 @@
+# stopwatch.py - A single stopwatch - Mike Callahan - 1/7/2020
+
 import time
 from tkintertoy import Window
 
@@ -6,7 +8,7 @@ def sec2hmsc(secs):
         secs:float -> (int, int, int, int) """
     hours, rem = divmod(secs, 3600)                    # extract hours
     minutes, rem = divmod(rem, 60)                     # extract minutes
-    seconds, cseconds = divmod(rem*100, 100)           # extract seconds, cseconds
+    seconds, cseconds = divmod(rem*100, 100)           # extract seconds, cseconds 
     return (int(hours), int(minutes), int(seconds), int(cseconds))
 
 class Stopwatch(object):
@@ -15,22 +17,22 @@ class Stopwatch(object):
     def __init__(self):
         """ initialize the stopwatch """
         self.then = 0.0                                # starting time
-        self.elapsed = 0.0                             # elapsed time during stop
-        self.running = False                           # running flag
+        self.elapsed = 0.0                             # elapsed time during stop 
+        self.running = False                           # running flag 
 
     def start(self):
         """ start the stopwatch """
         self.then = time.time()                        # record starting time
         if self.elapsed > 0:                      
-            self.then -= self.elapsed                  # adjust starting time if stopped
+            self.then -= self.elapsed
         self.running = True                            # raise flag
 
     def check(self):
         """ check the elapsed time
             -> (int, int, int, int) """
         if self.running:
-            now = time.time()                          # get current time
-            self.elapsed = now - self.then             # update elapsed
+            now = time.time()                          # get current time 
+            self.elapsed = now - self.then             # update elapsed 
         elptup = sec2hmsc(self.elapsed)
         return elptup
 
@@ -49,7 +51,7 @@ class Gui(object):
     def __init__(self, stopwatch):
         """ init stopwatch gui
             stopwatch:Stopwatch -> """
-        self.win = Window()                            # make window an attribute
+        self.win = Window()                            # make window an attribute 
         self.stopw = stopwatch                         # make stopwatch an attribute
         self.makeGui()                                 # create gui
 
@@ -64,10 +66,9 @@ class Gui(object):
         buttons = [('Start', self.startstop), ('Reset', self.reset),
             ('Exit', self.win.cancel)]                 # label and assign buttons
         self.win.addButton('buttons', cmd=buttons)     # create buttons
-        self.win.changeState('buttons', 1, ['disabled'])  # disable Reset
         self.win.plot('elapsed', row=0)
         self.win.plot('buttons', row=1, pady=10)
-        self.update()                                  # update display and start loop
+        self.update()                                  # update display
 
     def startstop(self):
         """ start or stop the stopwatch """
@@ -75,16 +76,15 @@ class Gui(object):
             self.stopw.stop()
             self.win.changeWidget('buttons', 0, text='Start')  # relabel button
             self.win.changeWidget('elapsed', style='r.TLabel')  # color display
-            self.win.changeState('buttons', 1, ['disabled'])  # disable Reset
+            self.win.changeState('buttons', 1, ['!disabled'])  # enable Reset
         else:
             self.stopw.start()
             self.win.changeWidget('buttons', 0, text='Stop')  # relabel button
             self.win.changeWidget('elapsed', style='g.TLabel')  # color display
-            self.win.changeState('buttons', 1, ['!disabled'])  # enable Reset
+            self.win.changeState('buttons', 1, ['disabled'])  # disable Reset
         
     def reset(self):
         """ reset stopwatch """
-        self.startstop()                               # stop it
         self.stopw.reset()                             # reset it
 
     def update(self):
@@ -102,3 +102,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+            

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ttgallery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578444969870</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Make tutorial.rst agree with stopwatch.py.">
+      <created>1578446322474</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1578446322474</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,33 +235,34 @@
     <MESSAGE value="Change documentation for set to allValues parameter" />
     <MESSAGE value="Change many files in preparation for version 1.2." />
     <MESSAGE value="Add stopwatch.py to examples, update ttgallery.py, update tutorial.rst." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add stopwatch.py to examples, update ttgallery.py, update tutorial.rst." />
+    <MESSAGE value="Make tutorial.rst agree with stopwatch.py." />
+    <option name="LAST_COMMIT_MESSAGE" value="Make tutorial.rst agree with stopwatch.py." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1578444966758">
+    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1578446320019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578444966758" />
+    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578446320019" />
     <state x="739" y="266" key="FileChooserDialogImpl" timestamp="1577984693353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="266" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1577984693353" />
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1578445182234">
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1578451125093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578445182234" />
-    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1578445182233">
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578451125093" />
+    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1578451125092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578445182233" />
-    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1578445182233">
+    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578451125092" />
+    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1578451125092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578445182233" />
-    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1578445182234">
+    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578451125092" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1578451125093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578445182234" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578451125093" />
     <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1578444202903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

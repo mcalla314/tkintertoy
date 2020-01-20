@@ -23,20 +23,22 @@ the documentation, and added some methods for version 1.2.
 
 Tkintertoy creates Windows which contain widgets. Almost every *tk* or *ttk* 
 widget is supported and a few combined widgets are included. Most widgets 
-are contained in a ``Frame`` which can act as a label to the user. The widgets 
+are contained in a ``Frame`` which can act as a prompt to the user. The widgets
 are referenced by string tags which are used to access the widget, its 
 contents, and its containing Frame. All this information is in the ``content`` 
-dictionary of the Window.
+dictionary of the Window. The fact that the programmer does not need to keep
+track of every widget makes interfaces much simpler to write, one only needs
+to pass the window.
 
-The early (by early I mean experience, not age) programmer does not need to 
-be concerned with details of creating and assigning a tk/ttk widget, while a 
+While the early (by early I mean experience, not age) programmer does not need
+to be concerned with details of creating and assigning a tk/ttk widget, the
 more advanced programmer can access all the tk/ttk options of the widgets. 
-Tkintertoy makes sure that all aspects of tk/ttk are exposed if the 
+Tkintertoy makes sure that all aspects of tk/ttk are exposed when the
 programmer needs them.
 
-It is hoped that an instructor teaching desktop Python will take advantage 
-of Tkintertoy and quickly move their students from boring command-line 
-interfaces. GUI programming can be fun, which puts the "toy" in Tkintertoy.
+In the following example below, one can see how the ideas in Tkintertoy can
+be used to create simple but useful GUIs. GUI programming can be fun, which
+puts the "toy" in Tkintertoy.
 
 A "Hello World" Example
 =======================
@@ -552,18 +554,17 @@ Dynamically Changing Widgets
 
 The next example is a simple implementation of a digital stopwatch that demonstrates
 how to change a widget dynamically. Tkintertoy uses both tk and ttk widgets. The appearance
-of ttk widgets are changed using the concept of **ttstyles** which will be shown. This
-example will show how to change a widget state from enabled to disabled. This example will also
-show how to separate the implementation and the gui code into two separate classes. Lastly,
-this code will demonstrate how a complete application based on Tkintertoy could be
-written.+
+of ttk widgets are changed using the concept of **ttstyles** which will be shown. In addition,
+this example will show how to change a widget state from enabled to disabled. This example
+will also show how to separate the implementation and the gui code into two separate classes.
+Lastly, this code will demonstrate how a complete application based on Tkintertoy could be
+written.
 
 Below is a screenshot:
 
   .. image:: images/stopwatch.png
 
-Here is the code. We will also demonstrate more dynamic widgets and introduce some
-simple error trapping:
+Here is the code:
 
   .. literalinclude:: examples/stopwatch.py
       :linenos:
@@ -634,7 +635,11 @@ Here are the line explanations:
 #. This is the method documentation string.
 #. Set the title of the window.
 #. Create a **ttstyle** which has large red characters. This is how we will color our
-   **ttlabel** in the stopped state.
+   **ttlabel** in the stopped state. Due to operating system styles, **ttlabels**
+   seem to be the safest widgets to experiment with styles. Certain parameters might
+   be ignored by other widgets like **ttentry**. Notice that the style must be created
+   for each type of widget. Since this style is for **ttlabels**, the tag must end with
+   ``.TLabel``.
 #. Same as above.
 #. Create a **ttstyle** which has large green characters. The is how we will color our
    **ttlabel** in the running state.

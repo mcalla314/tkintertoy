@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/images/stopwatch.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tkintertoy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tkintertoy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578446322474</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add stopwatch.png to images.">
+      <created>1578781694506</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1578781694506</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,13 +244,14 @@
     <MESSAGE value="Change many files in preparation for version 1.2." />
     <MESSAGE value="Add stopwatch.py to examples, update ttgallery.py, update tutorial.rst." />
     <MESSAGE value="Make tutorial.rst agree with stopwatch.py." />
-    <option name="LAST_COMMIT_MESSAGE" value="Make tutorial.rst agree with stopwatch.py." />
+    <MESSAGE value="Add stopwatch.png to images." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add stopwatch.png to images." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1578446320019">
+    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1578781691390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578446320019" />
+    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578781691390" />
     <state x="739" y="266" key="FileChooserDialogImpl" timestamp="1577984693353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -270,9 +276,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="166" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578778396205" />
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1578778278603">
+    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1579559098946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578778278603" />
+    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579559098946" />
   </component>
 </project>

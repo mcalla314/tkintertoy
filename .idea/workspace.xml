@@ -220,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578781694506</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fix tutorial.rst and include stopwatch.png in the documentation build.">
+      <created>1579560864976</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1579560864976</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,13 +252,14 @@
     <MESSAGE value="Add stopwatch.py to examples, update ttgallery.py, update tutorial.rst." />
     <MESSAGE value="Make tutorial.rst agree with stopwatch.py." />
     <MESSAGE value="Add stopwatch.png to images." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add stopwatch.png to images." />
+    <MESSAGE value="Fix tutorial.rst and include stopwatch.png in the documentation build." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix tutorial.rst and include stopwatch.png in the documentation build." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1578781691390">
+    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1579560862067">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1578781691390" />
+    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579560862067" />
     <state x="739" y="266" key="FileChooserDialogImpl" timestamp="1577984693353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -276,9 +284,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="166" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578778396205" />
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1579559098946">
+    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584499946448">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579559098946" />
+    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584499946448" />
   </component>
 </project>

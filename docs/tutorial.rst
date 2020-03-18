@@ -708,6 +708,10 @@ programmer out of the boring world of command-line interfaces and join the fun w
 GUI programming. To see all the widgets that Tkintertoy supports, run ttgallery.py.
 As always, looking at the code can be very instructive.
 
+As a result of the classes I have been teaching, I have created a series of narrated slideshows
+on YouTube as *Programming on Purpose with Python* which features how to use *Tkintertoy* to
+develop complete applications. Just search for *Mike Callahan* and *programming*.
+
 
   
 

@@ -20,8 +20,7 @@ class Gui(object):
 
     def makeGui(self):
         # a simple menu
-        self.gui.addMenu('ttmainmenu', self.gui.master) # create a main menu
-        mymenu = self.gui.get('ttmainmenu') # get the widget
+        mymenu = self.gui.addMenu('ttmainmenu', self.gui.master) # create a main menu
         fmenu = [['command', {'label':'Open...', 'command':self.popOpen}], # create a file menu
             ['command', {'label':'Save As...', 'command':self.popSaveAs}],
             ['command', {'label':'Choose Directory...', 'command':self.popChooseDir}],

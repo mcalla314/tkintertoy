@@ -1,6 +1,6 @@
-.. tuorial.rst 1/1/20
+.. tuorial.rst 5/11/20
 =======================
-Tkintertoy 1.2 Tutorial
+Tkintertoy 1.3 Tutorial
 =======================
 
   :Date: |today|
@@ -19,7 +19,7 @@ ideas in EzDialog and developed Tkintertoy, which is even easier to use, but
 more powerful as well. Since that time, I have been teaching local and uploaded
 a series of narrated Powerpoint slide of those seminars using Tkintertoy in the
 development of easy applications. As result, I have fixed a few minor bugs, improved
-the documentation, and added some methods for version 1.2.
+the documentation, and improved the operation of the library for version 1.3.
 
 Tkintertoy creates Windows which contain widgets. Almost every *tk* or *ttk* 
 widget is supported and a few combined widgets are included. Most widgets 

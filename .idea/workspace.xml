@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/examples/ttgallery.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/ttgallery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tkintertoy/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tkintertoy/tt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,15 +21,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs" />
     <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mcall\Documents\deploy\tkintertoy" />
+      <recent name="C:\Users\mcall\Documents\deploy\tkintertoy\tkintertoy" />
       <recent name="C:\Users\mcall\Documents\GitHub\tkintertoy\tkintertoy" />
       <recent name="C:\Program Files (x86)\Python37-32\Lib\site-packages\tkintertoy" />
       <recent name="C:\Users\mcall\Documents\GitHub\tkintertoy\docs\examples" />
-      <recent name="C:\Users\mcall\Documents\GitHub\tkintertoy\docs" />
     </key>
   </component>
   <component name="RunManager" selected="Python.ttgallery">
@@ -240,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584500542588</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update package to version 1.3.">
+      <created>1589234193752</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1589234193752</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,25 +269,46 @@
     <MESSAGE value="Add stopwatch.png to images." />
     <MESSAGE value="Fix tutorial.rst and include stopwatch.png in the documentation build." />
     <MESSAGE value="Update tutorial with paragraph about YouTube videos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update tutorial with paragraph about YouTube videos." />
+    <MESSAGE value="Update package to version 1.3." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update package to version 1.3." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1584500539095">
+    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1589234190771">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584500539095" />
+    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589234190771" />
+    <state x="1341" y="182" key="FileChooserDialogImpl" timestamp="1589337482129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1341" y="182" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589337482129" />
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1589235979306">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589235979306" />
+    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1589235979306">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589235979306" />
+    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1589235979306">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589235979306" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1589235979306">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589235979306" />
     <state x="463" y="166" key="SettingsEditor" timestamp="1584829307028">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="166" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584829307028" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1584569600218">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1589337422439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584569600218" />
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1589232827588">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589337422439" />
+    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1589337369712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589232827588" />
+    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589337369712" />
     <state x="771" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589233898964">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

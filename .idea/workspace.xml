@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="">
+    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Minor update to history">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tkintertoy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tkintertoy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,24 +20,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/docs/tutorial.rst" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1VZeeyJz6T0PCNQaYZakF0rx94H" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs" />
-    <property name="settings.editor.selected.configurable" value="copyright" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/mcall/AppData/Local/Programs/Python/Python311/Lib/site-packages/tkintertoy/tt.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mcall\AppData\Local\Programs\Python\Python311\Lib\idlelib" />
+      <recent name="C:\Users\mcall\PycharmProjects\tkintertoy" />
       <recent name="C:\Users\mcall\Documents\deploy\tkintertoy" />
       <recent name="C:\Users\mcall\Documents\deploy\tkintertoy\tkintertoy" />
       <recent name="C:\Users\mcall\Documents\GitHub\tkintertoy\tkintertoy" />
-      <recent name="C:\Program Files (x86)\Python37-32\Lib\site-packages\tkintertoy" />
-      <recent name="C:\Users\mcall\Documents\GitHub\tkintertoy\docs\examples" />
     </key>
   </component>
   <component name="RunManager" selected="Python.ttgallery">
@@ -161,6 +176,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -250,9 +266,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -271,47 +285,5 @@
     <MESSAGE value="Update tutorial with paragraph about YouTube videos." />
     <MESSAGE value="Update package to version 1.3." />
     <option name="LAST_COMMIT_MESSAGE" value="Update package to version 1.3." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="625" y="119" key="CommitChangelistDialog2" timestamp="1589234190771">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="625" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589234190771" />
-    <state x="1341" y="182" key="FileChooserDialogImpl" timestamp="1589337482129">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1341" y="182" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589337482129" />
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1589235979306">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589235979306" />
-    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1589235979306">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589235979306" />
-    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1589235979306">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589235979306" />
-    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1589235979306">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589235979306" />
-    <state x="463" y="166" key="SettingsEditor" timestamp="1584829307028">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="463" y="166" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584829307028" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1589337422439">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589337422439" />
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1589337369712">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589337369712" />
-    <state x="771" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589233898964">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="771" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589233898964" />
   </component>
 </project>

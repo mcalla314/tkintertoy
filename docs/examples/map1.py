@@ -15,7 +15,7 @@ gui.plot('status', row=3, pady=10)
 gui.plot('commands', row=4, pady=20)
 gui.waitforUser()
 if gui.content:
-    message = 'Converting {} into {}...\n'.format(gui.get('input'), gui.get('output'))
+    message = f"Converting {gui.get('input')} into {gui.get('output')}...\n"
     gui.set('status', message)
     gui.master.after(5000)
     # magic map making code goes here...

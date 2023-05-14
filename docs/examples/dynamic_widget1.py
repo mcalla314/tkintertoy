@@ -7,12 +7,14 @@ def update(gui): # callback function
         'Flowers':['Rose','Petunia','Daylily']}
     select = gui.get('category')
     gui.set('items', lookup[select], allValues=True)
+    gui.set('items', '...')
 
+def main():
 categories = ['Trees','Birds','Flowers']
 gui = Window()
 gui.setTitle('Dynamic Widget Demo')
 gui.addRadio('category', 'Item Types', categories)
-gui.addCombo('items', 'Items', None, postcommand=(lambda: update(gui)))
+gui.addCombo('items', 'Items', None, postcommand=(lambda gui: update(gui)))
 gui.addButton('command')
 gui.set('category', 'Trees')
 gui.set('items', '...')

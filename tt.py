@@ -3,7 +3,7 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      5/5/2023
+# Created:      5/14/2023
 # Copyright:    (c) mike.callahan 2019 - 2023
 # License:      MIT
 #
@@ -1506,6 +1506,11 @@ class Window:
         else:
             self.content[tag]['frame'].grid(**tkparms)  # grid frame
 
+    def grid(self, tag=None, **tkparms):
+        """ Synonym for plot """
+
+        self.plot(self, tag, **tkparms)
+
     def getWidget(self, tag):
         """ Get the tk/ttk widget if present.
 
@@ -1604,6 +1609,11 @@ class Window:
         """
 
         self.master.mainloop()
+
+    def mainloop(self):
+        """ Synonym for waitforUser """
+
+        self.waitforUser()
 
     def close(self):
         """ Close the window.

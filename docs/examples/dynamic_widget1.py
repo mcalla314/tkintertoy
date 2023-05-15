@@ -10,20 +10,23 @@ def update(gui): # callback function
     gui.set('items', '...')
 
 def main():
-categories = ['Trees','Birds','Flowers']
-gui = Window()
-gui.setTitle('Dynamic Widget Demo')
-gui.addRadio('category', 'Item Types', categories)
-gui.addCombo('items', 'Items', None, postcommand=(lambda gui: update(gui)))
-gui.addButton('command')
-gui.set('category', 'Trees')
-gui.set('items', '...')
-gui.plot('category', row=0)
-gui.plot('items', row=1, pady=20)
-gui.plot('command', row=2)
-gui.waitforUser()
-if gui.content:
-    selected_cat = gui.get('category')
-    item = gui.get('items')
-    # more code would go here...
-    gui.cancel()
+    """ main driving function """
+    categories = ['Trees','Birds','Flowers']
+    gui = Window()
+    gui.setTitle('Dynamic Widget Demo')
+    gui.addRadio('category', 'Item Types', categories)
+    gui.addCombo('items', 'Items', None, postcommand=(lambda gui: update(gui)))
+    gui.addButton('command')
+    gui.set('category', 'Trees')
+    gui.set('items', '...')
+    gui.plot('category', row=0)
+    gui.plot('items', row=1, pady=20)
+    gui.plot('command', row=2)
+    gui.waitforUser()
+    if gui.content:
+        selected_cat = gui.get('category')
+        item = gui.get('items')
+        # more code would go here...
+        gui.cancel()
+
+main()

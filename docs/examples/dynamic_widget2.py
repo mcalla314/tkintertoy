@@ -1,6 +1,6 @@
 from tkintertoy import Window
 
-class Gui(object):
+class Gui:
     """ A simple gui class """
 
     def __init__(self):
@@ -25,10 +25,12 @@ class Gui(object):
         select = self.gui.get('category')
         self.gui.set('items', lookup[select], allValues=True)
 
-app = Gui()
-app.gui.waitforUser()
-if app.gui.content:
-    selected_cat = app.gui.get('category')
-    item = app.gui.get('items')
-    # more code would go here...
+def main():
+    """ the main driving function """
+    app = Gui()
+    app.gui.waitforUser()
+    if app.gui.content:
+        selected_cat = app.gui.get('category')
+        item = app.gui.get('items')
+        # more code would go here...
     app.gui.cancel()

@@ -226,8 +226,8 @@ Below is the code:
 Below explains every line:
 
 1. Import ``Window`` from tkintertoy.
-#. Blank lines improve code readability.
-#. Define the callback function. It will have a single parameter, the calling
+#. Blank line.
+#. Define the callback function, ``update``. It will have a single parameter, the calling
    ``Window``.
 #. This is the function documentation string.
 #. These next three lines define the lookup dictionary.
@@ -236,8 +236,13 @@ Below explains every line:
 #. Get the category the user clicked on.
 #. Using this category as a key, set all the values in the **ttCombo** widget list
    to the list returned by the lookup dictionary, rather than the entry widget,
-   which is why the ``allValues`` option is used.
-#. Change the displayed value of 'items' to '...'.   
+   which is why the allValues==True option is used.
+#. Change the entry value of 'items' to '...' which is why allValues==False. This will
+   overwrite any selection the user had made.
+#. Blank line.
+#. Create the main function, ``main``. It will have no parameters. Most Python applications
+   have a main driving function.
+#. The documentation line for ``main``
 #. Blank line.
 #. Create the three categories.
 #. Create an instance of ``Window`` assigned to ``gui``.
@@ -256,8 +261,8 @@ Below explains every line:
    of it as a special ``def`` command that defines a function in place.
 #. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
 #. Initialize the category widget. This will be just as if the user clicked on Trees.
-#. Initialize the items widget entry widget to just three dots. Notice the difference
-   between this line an line 9.
+#. Initialize the items widget entry widget to just three dots. This lets the user know
+   there are selections available in the pulldown.
 #. Plot the category widget in the first row.
 #. Plot the items widget in the second row.
 #. Plot the command buttons in the third row.
@@ -269,17 +274,20 @@ Below explains every line:
 #. Retrieve the value of the items widget that was selected or typed in.
 #. This where the actual processing code would start.
 #. Exit the program. Calling ``cancel`` is the same as clicking on the Cancel button.
+#. Blank line.
+#. Call ``main``. Even though we defined ``main`` above, Python will not execute the
+   function until we call it.
 
 Object-Oriented Dynamic Widgets
 ===============================
 
 While I told you to not fear lambda, if you write code in an object-oriented mode, 
-you don't have to be concerned about lambda. However, one can write complex guis in
-tkintertoy without object-oriented style, which might be better for novice programmers.
-While, the details of writing object-oriented code is far beyond the scope of this
-tutorial, we will look at the previous example in an object-oriented mode using
-composition. You will see, it is not really complicated at all, just a little different.
-The GUI design did not change.
+you don't have to be concerned about lambda. One can write complex guis in tkintertoy
+without object-oriented style, which might be better for novice programmers, most guis
+should be oject-oriented once the programmer is ready. While, the details of writing
+object-oriented code is far beyond the scope of this tutorial, we will look at the previous
+example in an object-oriented mode using composition. You will see, it is not really
+complicated at all, just a little different. The GUI design did not change.
 
 Below is the new code:
 
@@ -290,13 +298,15 @@ Below is the new code:
 And the line explanations:
 
 1. Import ``Window`` from tkintertoy.
-#. Blank lines improve code readability.
+#. Blank line.
 #. Create a class called ``Gui``. This will contain all the code dealing with the
-   interface.
+   interface. We are not inheriting from a parent class in this example. We will see
+   how to do this in another example below.
 #. This is a class documentation string.
-#. Blank lines improve code readability.
-#. Create an initialize method that will create the interface. All methods in the
-   class will have access to ``self.gui``.
+#. Blank line.
+#. Create an initialize method that will create the interface, called ``__init__``. This
+   strange name is required. Methods that begin and end with double underscore are special
+   in Python.
 #. This is the method documentation string.
 #. Create the three categories.
 #. Create an instance of ``Window`` assigned to ``self.gui``. This means that all
@@ -323,7 +333,7 @@ And the line explanations:
 #. Using this category as a key, set all the items in the **ttcombobox** widget list
    to the list returned by the lookup dictionary, rather than the entry widget,
    which is why the ``allValues`` option is used.
-#. Blank lines improve code readability.
+#. Blank line.
 #. Create an instance of the ``Gui`` class labeled ``app``. Notice that ``app.gui``
    will refer to the ``Window`` created in the ``__init__`` method and
    ``app.gui.content`` will have the contents of the window.

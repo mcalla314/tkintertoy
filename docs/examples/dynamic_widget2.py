@@ -24,6 +24,7 @@ class Gui:
             'Flowers':['Rose','Petunia','Daylily']}
         select = self.gui.get('category')
         self.gui.set('items', lookup[select], allValues=True)
+        self.gui.set('items', '...')
 
 def main():
     """ the main driving function """
@@ -33,4 +34,5 @@ def main():
         selected_cat = app.gui.get('category')
         item = app.gui.get('items')
         # more code would go here...
-    app.gui.cancel()
+
+main()

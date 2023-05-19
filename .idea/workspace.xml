@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.41a 5/14/2023">
+    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.41b 5/15/2023">
+      <change afterPath="$PROJECT_DIR$/docs/examples/burger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/examples/dynamic_widget1.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/dynamic_widget1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,25 +30,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mcall/PycharmProjects/tkintertoy/docs/tutorial.rst&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/mcall/PycharmProjects/tkintertoy/docs/examples/tornado.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mcall\PycharmProjects\tkintertoy\docs\examples" />
       <recent name="C:\Users\mcall\PycharmProjects\tkintertoy" />
       <recent name="C:\Users\mcall\AppData\Local\Programs\Python\Python311\Lib\idlelib" />
       <recent name="C:\Users\mcall\Documents\deploy\tkintertoy" />
       <recent name="C:\Users\mcall\Documents\deploy\tkintertoy\tkintertoy" />
-      <recent name="C:\Users\mcall\Documents\GitHub\tkintertoy\tkintertoy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ttgallery">
-    <configuration name="map1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.dynamic_widget2">
+    <configuration name="dynamic_widget2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tkintertoy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -59,7 +60,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/examples/map1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dynamic_widget2" />
         <item itemvalue="Python.ttgallery" />
         <item itemvalue="Python.stopwatch" />
         <item itemvalue="Python.tt" />
         <item itemvalue="Python.mapper" />
-        <item itemvalue="Python.map1" />
       </list>
     </recent_temporary>
   </component>
@@ -270,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684100831216</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update to version 1.41b 5/15/2023">
+      <created>1684162160828</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1684162160828</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,6 +306,7 @@
     <MESSAGE value="Update package to version 1.3." />
     <MESSAGE value="Update to version 1.41" />
     <MESSAGE value="Update to version 1.41a 5/14/2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update to version 1.41a 5/14/2023" />
+    <MESSAGE value="Update to version 1.41b 5/15/2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update to version 1.41b 5/15/2023" />
   </component>
 </project>

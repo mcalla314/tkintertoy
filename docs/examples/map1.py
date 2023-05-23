@@ -17,6 +17,6 @@ gui.waitforUser()
 if gui.content:
     message = f"Converting {gui.get('input')} into {gui.get('output')}...\n"
     gui.set('status', message)
-    gui.master.after(5000)
+    gui.master.after(5000)  # pause 5 seconds
     # magic map making code goes here...
     gui.cancel()

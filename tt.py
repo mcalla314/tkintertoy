@@ -3,7 +3,7 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      5/14/2023
+# Created:      5/5/2023
 # Copyright:    (c) mike.callahan 2019 - 2023
 # License:      MIT
 #
@@ -21,6 +21,7 @@
 #        add tk & ttk class variable, clean up code in many functions
 # 1.41 - fix vertical alignment to addCheck and addRadio, add reset,
 #        fix changeState, rename change* to set*
+# 1.42 - fix __init__
 ###################################################################
 
 import tkinter as tk                               # support only Python 3
@@ -82,7 +83,7 @@ class Window:
 
     # class variables
 
-    VER = 1.41                                                # version number
+    VER = 1.42                                                # version number
         
     # basic class methods
 
@@ -97,6 +98,7 @@ class Window:
         if not master:
             if not extra:
                 self.master = tk.Tk()                  # first window
+                self.master.configure(**tkparms)       # tk.Tk doesn't accept **tkparm
             else:
                 self.master = tk.Toplevel(**tkparms)   # extra window
             self.topwin = self.master.winfo_toplevel()      # get topwindow info
@@ -719,13 +721,13 @@ class Window:
         else:
             frame = ttk.Frame(self.master)             # no title
         text = tk.Text(frame, **tkparms)               # create text widget
-        text.grid(row=0, sticky='wens')                # fill entire frame
+        text.grid(row=0, sticky='nsew')                # fill entire frame
         vbar = ttk.Scrollbar(frame)                    # create scrollbar
         text['yscrollcommand'] = vbar.set              # connect text to scrollbar
         vbar['command'] = text.yview                   # connect scrollbar to text
         if 'font' not in tkparms:
             text['font'] = ('Helvetica', '10')         # default font
-        vbar.grid(row=0, column=1, sticky='ns')        # grid scrollbar
+        vbar.grid(row=0, column=1, sticky='nse')        # grid scrollbar
         self.content[tag]['frame'] = frame
         self.content[tag]['widget'] = text
         return text
@@ -1455,7 +1457,7 @@ class Window:
         self.refresh()                                 # update display
 
     def reset(self, tag):
-        """ Reset the selection in a widget 
+        """ Reset the selections in a widget 
 
         This clears any selections in a widget. This was created mainly for
         lists but is useful for all selection widgets.
@@ -1505,11 +1507,6 @@ class Window:
             self.content[tag]['widget'].grid(**tkparms)  # grid widget
         else:
             self.content[tag]['frame'].grid(**tkparms)  # grid frame
-
-    def grid(self, tag=None, **tkparms):
-        """ Synonym for plot """
-
-        self.plot(self, tag, **tkparms)
 
     def getWidget(self, tag):
         """ Get the tk/ttk widget if present.
@@ -1564,7 +1561,7 @@ class Window:
             widget = widget[index]                     # get element
         widget.configure(**tkparms)                    # configure tkparms
 
-    def setState(self, tag, *states, index=None):
+    def setState(self, tag, states, index=None):
         """ Set or clear ttk or tk widget states
 
          Change the underlying ttk or tk widget states. For ttk widgets
@@ -1576,7 +1573,8 @@ class Window:
 
          Parameters:
              tag (str): Reference to widget
-             states (list): States of widget, usually ['disabled'] or ['!disabled'] for ttk
+             states (list): States of widget, usually 'disabled' or
+                 '!disabled' for ttk
              index (int): Index to element in multipart widget
          """
 
@@ -1584,9 +1582,9 @@ class Window:
         if index is not None:                          # if multiwidget...
             widget = widget[index]                     # get element
         try:    
-            widget.state(*states)                      # clear/set states
+            widget.state(states)                       # clear/set states
         except AttributeError:                         # tk widget   
-            widget.configure(state=states[0])          # 'disabled','normal','readonly'
+            widget.configure(states[0])                # 'disabled','normal','readonly'
 
     def getType(self, tag):
         """ Get the type of widget.
@@ -1609,11 +1607,6 @@ class Window:
         """
 
         self.master.mainloop()
-
-    def mainloop(self):
-        """ Synonym for waitforUser """
-
-        self.waitforUser()
 
     def close(self):
         """ Close the window.

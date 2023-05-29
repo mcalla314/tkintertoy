@@ -223,10 +223,56 @@ Here is the code:
       :linenos:
       :language: python3
 
-1. Import the ``Window`` object from tkintertoy.
-#. Create an instance of a ``Window`` and label it ``app``.
-#. Set the title ``app`` to "Create a Hamburger".
-#. pass
+1.  Import the ``Window`` object from tkintertoy.
+2.  Create an instance of a ``Window`` and label it ``app``.
+3.  Set the title ``app`` to "Order a Hamburger".
+4.  Create a list of burger types.
+5.  Add a **ttRadiobox** which is a list of three ttk Radiobuttons labeled with the type of burgers.
+    These will be referenced with a single tag, 'type'. If we want to referenced a single Radiobutton, we will
+    use an index; [0], [1], or [2].
+6.  Create a list of burger toppings.
+7.  Add a **ttListbox** which is a tk Listbox with a tk scrollbar. The elements are the list of toppings. Notice
+    that selectmode is 'multiple' so the will be able to topping multiple toppings without pressing the control
+    key. This is a good example of when a listbox is useful. While it does take up screen space, it makes it easy
+    to select multiple options.
+8.  Create a list of condiments.
+9.  Create a **ttCheckbox** which is a list of three ttk Checkbuttons labeled with the types of condiments. The
+    orientation will be vertical. This is another widget where the user can select multiple options. It is best 
+    with a small number of options.
+10. Add a **ttText** with a height of 5. This is where the order will appear.    
+11. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
+12. Plot the 'type' widget in the first row, first column.
+13. Plot the 'toppings' widget in the first row, second column.
+14. Plot the 'condiments' widget in the first row, third column.
+15. Plot the 'order' widget in the second row, strectched across three columns.
+16. Plot the 'commands' widget in the third row, stretched across three columns.
+18. Begin a infinite loop.
+19. Enter the event processing loop and exit when the user clicks on a button.
+20. If the user clicked on the OK button do the following:
+21. Get the burger type.
+22. Get the toppings list.
+23. Get the condiments list.
+24. Start the order message. The allValue=True clears the text widget of any previous orders.
+25. If the user selected any toppings...
+26. Add the toppings phrase in the 'orders' widget.
+27. Create a string containing the selected toppings separated by a comma.
+28. Add it to the 'orders' widget.
+29. The user selected no toppings.
+30. Mark the burger as plain.
+31. If the user selected any condiments...
+32. Add the condiments phrase.
+33. Create a string containing the selected condiments separated by a comma.
+34. Add it to the order.
+35. Reset the 'type' widget.
+36. Reset the 'toppings' widget.
+37. Reset the 'condiments' widget.
+38. The user clicked on the 'Cancel' button.
+39. Break the infinate loop.
+
+This is a sample the the selection widgets that are available in *Tkintertoy*. The best one to use is up to the programmer's 
+discretion. As you can see, this code is getting too long for imparative style. We will use procedure style in the next
+example.
+
 
 Dynamic Widgets
 ===============

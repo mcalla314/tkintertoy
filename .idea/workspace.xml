@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.41c 5/19/2023">
+    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.42b 5/25/2023">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/examples/map1.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/map1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +36,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mcall/PycharmProjects/tkintertoy/tt.py",
+    "last_opened_file_path": "C:/Users/mcall/PycharmProjects/tkintertoy/docs/tt.py",
     "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
 }]]></component>
@@ -289,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684506468598</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update to version 1.42a 5/22/2023">
+      <created>1684803877329</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684803877329</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,6 +324,7 @@
     <MESSAGE value="Update to version 1.41a 5/14/2023" />
     <MESSAGE value="Update to version 1.41b 5/15/2023" />
     <MESSAGE value="Update to version 1.41c 5/19/2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update to version 1.41c 5/19/2023" />
+    <MESSAGE value="Update to version 1.42a 5/22/2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update to version 1.42a 5/22/2023" />
   </component>
 </project>

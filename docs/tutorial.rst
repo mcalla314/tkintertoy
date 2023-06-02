@@ -1,4 +1,4 @@
-.. tuorial.rst 4/28/23
+.. tuorial.rst 05/29/23
 =======================
 Tkintertoy 1.4 Tutorial
 =======================
@@ -162,38 +162,38 @@ Here is the code (we will not worry not the code that actually creates the map!)
 Each line of code is explained below:
 
 1.  Import the ``Window`` object from tkintertoy.
-#.  Create an instance of a ``Window`` and label it ``gui``.
-#.  Set the title ``gui`` to "Create a Map".
-#.  We want to limit the input files to .csv only. This list will be used in the  method in the
+2.  Create an instance of a ``Window`` and label it ``gui``.
+3.  Set the title ``gui`` to "Create a Map".
+4.  We want to limit the input files to .csv only. This list will be used in the  method in the
     next line. Notice, you can filter multiple types.
-#.  Add an **ttOpen** dialog widget. This is a combination of a ttk Entry widget, a 'Browse' ttk
+5.  Add an **ttOpen** dialog widget. This is a combination of a ttk Entry widget, a 'Browse' ttk
     Button, and a ttk LabelFrame. If the user clicks on the 'Browse' button, they will see a
     directory limited to CSV files. To allow the user to see the entire path, we change the width
     of the entry to 40 characters.
-#.  We want to limit our output to .png only.
-#.  Add a **ttSaveAs** dialog widget. This is a combination of a ttk Entry widget, a 'Browse' ttk
+6.  We want to limit our output to .png only.
+7.  Add a **ttSaveAs** dialog widget. This is a combination of a ttk Entry widget, a 'Browse' ttk
     Button, and a ttk LabelFrame. If the user clicks on the 'Browse' button, they will see a directory
     limited to PNG files. If the file already exists, an overwrite confirmation dialog will pop up.
-#.  Add an **ttEntry** widget that is 40 characters wide to collect the map title.
-#.  Add a **ttText** widget, which is a combination of a ttk Text widget, a ttk Scrollbar, and a ttk
+8.  Add an **ttEntry** widget that is 40 characters wide to collect the map title.
+9.  Add a **ttText** widget, which is a combination of a ttk Text widget, a ttk Scrollbar, and a ttk
     LabelFrame. It will have a width of 40 characters, a height of 5 lines, and will be used for all
     status messages. The **ttText** widget is extremelly useful for many different purposes.
-#.  Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
-#. Plot the 'input' widget in the first row (row 0), vertically separating widgets by 10 pixels.
-#. Plot the 'output' widget in the second row, vertically separating widgets by 10 pixels. Notice
-   this will cause a 20 pixel separation between the input and output widgets.
-#. Plot the 'title' widget in the third row, vertically separating widgets by 10 pixels.
-#. Plot the 'status' widget in the fourth row, vertically separating widgets by 10 pixels.
-#. Plot the 'commands' widget in the fifth row, vertically separating widgets by 20 pixels. This
-   will be 30 pixels from the status widget.
-#. Enter the event processing loop and exit when the user clicks on a button.
-#. If the user clicked on the OK button do the following:
-#. Create the status message.
-#. Display the status message.
-#. Pretend we are making a map but in reality just pause for 5 seconds so the user can see the status
-   message.
-#. This is where the actual map making code would begin.
-#. Exit the program.
+10. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
+11. Plot the 'input' widget in the first row (row 0), vertically separating widgets by 10 pixels.
+12. Plot the 'output' widget in the second row, vertically separating widgets by 10 pixels. Notice
+    this will cause a 20 pixel separation between the input and output widgets.
+13. Plot the 'title' widget in the third row, vertically separating widgets by 10 pixels.
+14. Plot the 'status' widget in the fourth row, vertically separating widgets by 10 pixels.
+15. Plot the 'commands' widget in the fifth row, vertically separating widgets by 20 pixels. This
+    will be 30 pixels from the status widget.
+16. Enter the event processing loop and exit when the user clicks on a button.
+17. If the user clicked on the OK button do the following:
+18. Create the status message.
+19. Display the status message.
+20. Pretend we are making a map but in reality just pause for 5 seconds so the user can see the status
+    message.
+21. This is where the actual map making code would begin.
+22. Exit the program.
 
 Notice, if the user clicks on the Cancel button, the program exits at line 17.
  
@@ -228,24 +228,24 @@ Here is the code:
 3.  Set the title ``app`` to "Order a Hamburger".
 4.  Create a list of burger types.
 5.  Add a **ttRadiobox** which is a list of three ttk Radiobuttons labeled with the type of burgers.
-    These will be referenced with a single tag, 'type'. If we want to referenced a single Radiobutton, we will
+    These will be referenced with a single tag, 'type'. If we want to reference a single Radiobutton, we will
     use an index; [0], [1], or [2].
 6.  Create a list of burger toppings.
-7.  Add a **ttListbox** which is a tk Listbox with a tk scrollbar. The elements are the list of toppings. Notice
-    that selectmode is 'multiple' so the will be able to topping multiple toppings without pressing the control
-    key. This is a good example of when a listbox is useful. While it does take up screen space, it makes it easy
-    to select multiple options.
+7.  Add a **ttListbox** which is a tk Listbox with a tk scrollbar. The elements are the items in the list of
+    toppings. Notice that selectmode is 'multiple' so the will be able to topping multiple toppings without pressing
+    the control key. This is a good example of when a listbox is useful. While it does take up screen space, it makes
+    it easy to select many multiple options and restricts the user to a fixed set of options.
 8.  Create a list of condiments.
-9.  Create a **ttCheckbox** which is a list of three ttk Checkbuttons labeled with the types of condiments. The
-    orientation will be vertical. This is another widget where the user can select multiple options. It is best 
-    with a small number of options.
+9.  Create a **ttCheckbox** which is a list of three ttk Checkbuttons labeled with the condiments. The orientation
+    will be vertical. This is another widget where the user can select multiple options. It is best used with a
+    small number of options.
 10. Add a **ttText** with a height of 5. This is where the order will appear.    
 11. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
 12. Plot the 'type' widget in the first row, first column.
 13. Plot the 'toppings' widget in the first row, second column.
 14. Plot the 'condiments' widget in the first row, third column.
 15. Plot the 'order' widget in the second row, strectched across three columns.
-16. Plot the 'commands' widget in the third row, stretched across three columns.
+16. Plot the 'commands' widget in the third row, also stretched across three columns.
 18. Begin a infinite loop.
 19. Enter the event processing loop and exit when the user clicks on a button.
 20. If the user clicked on the OK button do the following:
@@ -257,7 +257,7 @@ Here is the code:
 26. Add the toppings phrase in the 'orders' widget.
 27. Create a string containing the selected toppings separated by a comma.
 28. Add it to the 'orders' widget.
-29. The user selected no toppings.
+29. If the user selected no toppings...
 30. Mark the burger as plain.
 31. If the user selected any condiments...
 32. Add the condiments phrase.
@@ -266,33 +266,32 @@ Here is the code:
 35. Reset the 'type' widget.
 36. Reset the 'toppings' widget.
 37. Reset the 'condiments' widget.
-38. The user clicked on the 'Cancel' button.
-39. Break the infinate loop.
+38. If the user clicked on the 'Cancel' button...
+39. Break the infinate loop. The *Tkintertoy* application was automatically canceled.
 
-This is a sample the the selection widgets that are available in *Tkintertoy*. The best one to use is up to the programmer's 
-discretion. As you can see, this code is getting too long for imparative style. We will use procedure style in the next
-example.
-
+This is a example showed some of the selection widgets that are available in *Tkintertoy*.
+The best one to use is up to the programmer's discretion. As you can see, this code is getting
+too long for imparative style. We will use procedure style in the next example.
 
 Dynamic Widgets
 ===============
 
 A very useful technique is to create a widget which is dependent on the contents of another widget.
-The code below shows a **ttCombo** which is dependent on a **ttRadiobox** row.
+The code below shows a **ttCombobox** which is dependent on a **ttRadiobox** row.
 
-The trick have have the contents of a combo be dependent on a radio box is to create a combo widget
+The trick to have the contents of a combobox be dependent on a radiobox, is to create a combo widget
 and then create a callback function which looks at the contents of the radiobox and then sets the item
 list attribute of the combo widget. This time we will use procedure style code which is a more advanced
-style but still accessable to the novice programmer. However, you will see later that an object-oriented
-approach will eliminate some strange looking code.
+style but still accessable to the novice programmer. We will also do a better job in adding comments
+to the code.
 
 Here is the screenshot:
 
   .. image:: images/dynamic_widget1.png
 
 The callback function will have to know the widget that called it which is included when the Window is
-passes as an argument. This complexity can be eliminated by writing in an object-oriented fashion, which
-will be covered in the following section.
+passes as an argument, which will lead to some strange looking code. This complexity can be eliminated
+by writing in an object-oriented fashion, which will be covered in the next example.
 
 Below is the code:
 
@@ -302,113 +301,102 @@ Below is the code:
 
 Below explains every line:
 
-1. Import ``Window`` from tkintertoy.
-#. Blank line.
-#. Define the callback function, ``update``. It will have a single parameter, the calling ``Window``.
-#. This is the function documentation string. It is a great idea to have a documentation string for every
-   function and method. Since we are using the triple quote our comment can exceed a single line.
-#. These next three lines define the lookup dictionary.
-#. Same as above.
-#. Same as above.
-#. Get the category the user clicked on.
-#. Using this category as a key, set all the values in the **ttCombo** widget list to the list returned
-   by the lookup dictionary, rather than the entry widget, which is why the allValues==True option is used.
-#. Change the entry value of 'items' to '...' which is why allValues==False. This will overwrite any selection
-   the user had made.
-#. Blank line.
-#. Create the main function, ``main``. It will have no parameters. Most Python applications have a main driving
-   function.
-#. The documentation line for ``main``
-#. Blank line.
-#. Create the three categories.
-#. Create an instance of ``Window`` assigned to ``gui``.
-#. Set the title for ``gui``.
-#. Add a **ttRadio** box using the categories.
-#. Add a **ttCombo** widget. This is a combination of a ttk Combobox contained in a ttk LabelFrame. This widget
-   will update its items list whenever the user clicks on a radiobox button. This is an example of using the
-   ``postcommand`` option for the combo widget. Normally, ``postcommand`` would be assigned to a single method
-   or function name. However, we need to include ``gui`` as an parameter. This is why ``lambda`` is there. Do
-   not fear ``lambda``. Just think of it as a special ``def`` command that defines a function in place.
-#. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
-#. Initialize the category widget. This will be just as if the user clicked on Trees.
-#. Initialize the items widget entry widget to just three dots. This lets the user know there are selections
-   available in the pulldown.
-#. Plot the category widget in the first row.
-#. Plot the items widget in the second row.
-#. Plot the command buttons in the third row.
-#. Start the event processing loop and wait for the user to click on a button. Notice that as the user clicks
-   on a category button, the list in the items combobox changes and the event loop keeps running.
-#. Check to see if the user clicked on Ok by seeing if content is not empty.
-#. Retrieve the value of the category widget using the get method.
-#. Retrieve the value of the items widget that was selected or typed in.
-#. This where the actual processing code would start.
-#. Exit the program. Calling ``cancel`` is the same as clicking on the Cancel button.
-#. Blank line.
-#. Call ``main``. Even though we defined ``main`` above, Python will not execute the function until we call it.
+1.  Import ``Window`` from tkintertoy.
+3.  Define the callback function, ``update``. It will have a single parameter, the calling ``Window``.
+4.  This is the function documentation string. It is a great idea to have a documentation string for every
+    function and method. Since we are using the triple quote our comment can exceed a single line.
+5.  These next three lines define the lookup dictionary.
+8.  Get the category the user clicked on. This shows an advantage of *Tkintertoy's* content directory. All
+    widgets are included in the window. The programmer does not have to pass individual widgets.
+9.  Using this category as a key, set all the values in the **ttCombobox** widget list to the list returned.
+    by the lookup dictionary, rather than the entry widget. This is why the allValues is True.
+10. Change the entry value of 'items' to '...' which is why allValues is False. This will overwrite any
+    selection the user had made.
+12. Create the main function, ``main``. It will have no parameters. Most Python applications have a main driving
+    function.
+13. The documentation line for ``main``
+14. Create the three categories.
+15. Create an instance of ``Window`` assigned to ``gui``.
+16. Set the title for ``gui``.
+17. Add a **ttRadiobox** box using the categories.
+18. Add a **ttCombobox** widget. This is a combination of a ttk Combobox contained in a ttk LabelFrame. This
+    widget will update its items list whenever the user clicks on a radiobox button. This is an example of using
+    the ``postcommand`` option for the combo widget. Normally, ``postcommand`` would be assigned to a single
+    method or function name. However, we need to include ``gui`` as an parameter. This is why ``lambda`` is there.
+    Do not fear ``lambda``. Just think of it as a special ``def`` command that defines a function in place.
+19. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
+20. Initialize the items widget entry widget to just three dots. This lets the user know there are selections
+    available in the pulldown.
+21. Plot the category widget in the first row.
+22. Plot the items widget in the second row.
+23. Plot the command buttons in the third row.
+24. Start the event processing loop and wait for the user to click on a button. Notice that as the user clicks
+    on a category button, the list in the items combobox changes and the event loop keeps running. We do not need
+    an infinite loop.
+25. If the user clicked on Ok by seeing if content is not empty.
+26. Retrieve the value of the category widget using the get method.
+27. Retrieve the value of the items widget that was selected or typed in.
+28. This where the actual processing code would start.
+29. Exit the program. Calling ``cancel`` is the same as clicking on the Cancel button.
+31. Call ``main``. Even though we defined ``main`` above, Python will not execute the function until we call it.
 
 Object-Oriented Dynamic Widgets
 ===============================
 
 While I told you to not fear lambda, if you write code in an object-oriented mode, you don't have to be
-concerned about lambda. One can write complex guis in tkintertoy
-without object-oriented style, which might be better for novice programmers, most guis
-should be oject-oriented once the programmer is ready. While, the details of writing
-object-oriented code is far beyond the scope of this tutorial, we will look at the previous
-example in an object-oriented mode using composition. You will see, it is not really
-complicated at all, just a little different. The GUI design did not change.
+concerned about lambda. One can write complex guis in tkintertoy without object-oriented style, which
+might be better for novice programmers, but most guis should be oject-oriented once the programmer is
+ready. While, the details of writing object-oriented code is far beyond the scope of this tutorial, we
+will look at the previous example in an object-oriented mode using composition. You will see, it is not
+really complicated at all, just a little different. The GUI design did not change.
 
 Below is the new code:
 
-  .. literalinclude:: examples/dynamic_widget2.py
+  .. literalinclude:: examples/dynamic_widget1.py
       :linenos:
       :language: python3
 
 And the line explanations:
 
-1. Import ``Window`` from tkintertoy.
-#. Blank line.
-#. Create a class called ``Gui``. This will contain all the code dealing with the interface. We are not
-   inheriting from a parent class in this example. We will see how to do this in another example below.
-#. This is a class documentation string. It is a great idea to document all classes, too.
-#. Blank line.
-#. Create an initialize method that will create the interface, called ``__init__``. This strange name
-   is required. Methods names that begin and end with double underscore are special in Python.
-#. This is the method documentation string.
-#. Create the three categories.
-#. Create an instance of ``Window`` assigned to ``self.gui``. This means that all methods in the class
-   will be able to access the ``Window`` through ``self.gui``.
-#. Set the title for ``self.gui``.
-#. Add a **ttRadiobox** using the categories.
-#. Add a **ttCombo** widget which will update its items list whenever the user clicks on a radiobox button.
-   Notice that the ``postcommand`` option now simply points to the callback method without ``lambda``
-   since ALL methods can access ``self.gui``. This is the major advantage to object-oriented code. It
-   reduces argument passing.
-#. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
-#. Initialize the category widget.
-#. Initialize the items widget.
-#. Plot the category widget in the first row.
-#. Plot the items widget in the second row.
-#. Plot the command buttons in the third row.
-#. Blank lines improve code readability.
-#. Create the callback method using the ``self`` parameter.
-#. This is the method documentation string.
-#. These next three lines define the lookup dictionary.
-#. Same as above.
-#. Same as above.
-#. Get the category the user clicked on.
-#. Using this category as a key, set all the items in the **ttcombobox** widget list to the list returned
-   by the lookup dictionary, rather than the entry widget, which is why the ``allValues`` option is used.
-#. Blank line.
-#. Create an instance of the ``Gui`` class labeled ``app``. Notice that ``app.gui`` will refer to the
-   ``Window`` created in the ``__init__`` method and ``app.gui.content`` will have the contents of the
-   window.
-#. Start the event processing loop and wait for the user to click on a button.
-#. Check to see if the user clicked on Ok by seeing if content is not empty.
-#. The user clicked on 'Ok'. Retrieve the value of the category using the get method.
-#. Retrieve the value of the entry part of the **ttcombobox**. Again, note the difference between this line
-   and line 26.
-#. Same as above.
-#. This where the actual processing code would start.
+1.  Import ``Window`` from tkintertoy.
+3.  Create a class called ``Gui``. This will contain all the code dealing with the interface. We are not
+    inheriting from a parent class in this example. We will see how to do this in another example below.
+4.  This is a class documentation string. It is a great idea to document all classes, too.
+6.  Create an initialize method that will create the interface, called ``__init__``. This strange name
+    is required. Methods names that begin and end with double underscore are special in Python.
+7.  This is the method documentation string.
+8.  Create the three categories.
+9.  Create an instance of ``Window`` assigned to ``self.gui``. This means that all methods in the class
+    will be able to access the ``Window`` through ``self.gui``.
+10. Set the title for ``self.gui``.
+11. Add a **ttRadiobox** using the categories.
+12. Add a **ttCombobox** widget which will update its items list whenever the user clicks on a radiobox button.
+    Notice that the ``postcommand`` option now simply points to the callback method without ``lambda``
+    since ALL methods can access ``self.gui``. This is the major advantage to object-oriented code. It
+    reduces argument passing.
+13. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
+14. Initialize the items widget.
+15. Plot the category widget in the first row.
+16. Plot the items widget in the second row.
+17. Plot the command buttons in the third row.
+19. Create the callback method using the ``self`` parameter.
+20. This is the method documentation string.
+21. These next three lines define the lookup dictionary.
+24. Get the category the user clicked on.
+25. Using this category as a key, set all the items in the combobox widget list to the list returned
+    by the lookup dictionary, rather than the entry widget, which is why allValues is True.
+26. Clear the items widget.
+28. Create the main driving function.
+29. Main documentation string. 
+30. Create an instance of the ``Gui`` class labeled ``app``. Notice that ``app.gui`` will refer to the
+    ``Window`` created in the ``__init__`` method and ``app.gui.content`` will have the contents of the
+    window.
+31. Start the event processing loop and wait for the user to click on a button.
+32. If the user clicked on Ok...
+33. Retrieve the value of the category.
+34. Retrieve the value of the entry part of the combobox.
+35. This where the actual processing code would start.
+37. Call main.
 
 Notice if the user clicks on 'Cancel' there is no more code to execute.
 
@@ -439,54 +427,50 @@ will be shown in the **ttCollector** widget. Here is the code:
 Here are the line explanations, notice the first steps are very similar to the 
 previous example:
 
-1. Import ``Window`` from tkintertoy.
-#. Blank lines improve code readability.
-#. Create a class called ``Gui``. This will contain all the code dealing with the interface.
-#. This is a class documentation string.
-#. Blank line.
-#. Create an initialize method that will create the interface. All methods in the class will have
-   access to ``self``.
-#. This is the method documentation string.
-#. Create a list of county names.
-#. Same as above.
-#. Create a list of damage levels.
-#. Create the parameter list for the date spinner. The first digit is the width, the  second is the
-   lower limit, the third is the upper limit.
-#. The initial date will be 1/1/1980.
-#. Set up the column headers for the **ttCollector** widget. The first value is the the header string,
-   the second is the width of the column in pixels.
-#. Create an instance of ``Window`` labeled ``self.gui``. Again, the ``self`` means that every method
-   in the class will have access. Notice, there are no other methods in this class so making gui an
-   attribute of self is unnecessary. However, it does no harm, other programmers expect it, and future
-   methods can be added easily.
-#. Set the title of ``self.gui`` to "Tornado Path Generator".
-#. Add a date **ttSpinbox**. This is a combination of 3 ttk Spinboxes seperated by a slash (/) contained
-   in a ttk LabelFrame. It will be labeled tdate in order to not cause any confusion with a common date
-   library.
-#. Set the date to the default. Notice to set and value of a spinbox you use a list or tuple of integers.
-#. Add a county **ttCombo**.
-#. Add a damage level **ttCheckbox**. This is a combination of 6 ttk Checkbuttons contained in a ttk
-   LabelFrame. Checkboxes are great for giving the user a fixed set of non-exclusive options.
-#. Add a **ttCollector**. The collector has a tag, the column header list from line 13, a list of the
-   widget tags it needs to collect, and the propmt. It also includes two buttons, 'Add' and 'Delete'.
-   Clicking on 'Add' with collect the values in the widgets and add them in a line in the treeview.
-   Clicking on 'Delete' will delete the currently selected line in the treeview.
-#. Add the command option to **ttButtonbox**.
-#. Plot the date widget in the first row, separating the widgets by 5 pixels.
-#. Plot the county widget in the second row, separating the widgets by 5 pixels.
-#. Plot the damage level widget in the third row, separating the widgets by 5 pixels.
-#. Plot the path widget in the fourth row, separating the widgets by 5 pixels.
-#. Plot the command widget in the fifth row, separating the widgets by 10 pixels.
-#. Blank line.
-#. Create a ``main`` function. This is the way most Python scripts work.
-#. This is the function documentation.
-#. Blank line.
-#. Create an instance of the ``Gui`` class which will create the GUI.
-#. Wait for the user to click a button.
-#. Get all the lines in the collector as a list of dictionaries.
-#. This is where the tornado path generation code would begin.
-#. Blank line.
-#. Call the driving function.
+1.  Import ``Window`` from tkintertoy.
+3.  Create a class called ``Gui``. This will contain all the code dealing with the interface.
+4.  This is a class documentation string.
+6.  Create an initialize method that will create the interface. All methods in the class will have
+    access to ``self``.
+7.  This is the method documentation string.
+8.  Create a list of county names.
+10. Create a list of damage levels.
+11. Create the parameter list for the date spinner. The first digit is the width, the  second is the
+    lower limit, the third is the upper limit.
+12. The initial date will be 1/1/1980.
+13. Set up the column headers for the **ttCollector** widget. The first value is the the header string,
+    the second is the width of the column in pixels.
+14. Create an instance of ``Window`` labeled ``self.gui``. Again, the ``self`` means that every method
+    in the class will have access. Notice, there are no other methods in this class so making gui an
+    attribute of self is unnecessary. However, it does no harm, other programmers expect it, and future
+    methods can be added easily.
+15. Set the title of ``self.gui`` to "Tornado Path Generator".
+16. Add a date **ttSpinbox**. This is a combination of 3 ttk Spinboxes seperated by a slash (/) contained
+    in a ttk LabelFrame. It will be labeled tdate in order to not cause any confusion with a common date
+    library.
+17. Set the date to the default. Notice to set and value of a spinbox you use a list or tuple of integers.
+18. Add a county **ttCombo**.
+19. Add a damage level **ttCheckbox**.
+20. Add a **ttCollector**. The collector has a tag, the column header list from line 13, a list of the
+    widget tags it needs to collect, and the propmt. It also includes two buttons, 'Add' and 'Delete'.
+    Clicking on 'Add' with collect the values in the widgets and add them in a line in the treeview.
+    Clicking on 'Delete' will delete the currently selected line in the treeview.
+22. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
+23. Plot the date widget in the first row, separating the widgets by 5 pixels.
+24. Plot the county widget in the second row, separating the widgets by 5 pixels.
+25. Plot the damage level widget in the third row, separating the widgets by 5 pixels.
+26. Plot the path widget in the fourth row, separating the widgets by 5 pixels.
+27. Plot the command widget in the fifth row, separating the widgets by 10 pixels.
+29. Create a ``main`` function.
+30. This is the function documentation.
+31. Create an instance of the ``Gui`` class which will create the GUI.
+32. Start the event processing loop
+33. If the user clicked on 'Ok'...
+34. Get all the lines in the collector as a list of dictionaries.
+35. This is where the tornado path generation code would begin but we are just going to print the data.
+    The example gives [{'Date': '4 3 2010', 'County': 'Clark', 'Damage': 'EF2'}, {'Date': '4 3 2010',
+    'County': 'Floyd', 'Damage': 'EF2'}].
+. Call the driving function.
 
 Note when you click on 'Add', the current selections in tdate, counties, and level will be added into
 the collector widget in a row. If you select a row and click on 'Delete', it will be removed. Thus

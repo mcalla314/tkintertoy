@@ -3,7 +3,7 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      5/26/2023
+# Created:      6/2/2023
 # Copyright:    (c) mike.callahan 2019 - 2023
 # License:      MIT
 #
@@ -91,11 +91,11 @@ class Window:
 
     # class variables
 
-    VER = 1.422                                              # version number
+    VERSION = '1.42'                                              # version number
         
     # basic class methods
 
-    def __init__(self, master=None, extra=False, **parms):
+    def __init__(self, master=None, extra=False, **tkparms):
         """ Set-up window and create content dictionary
 
         This creates the window and the content dictionary that all the methods
@@ -938,7 +938,7 @@ class Window:
         This widget allows a nice display of data in columns. It is a simplified
         version of the Collector widget. Due to a bug in ttk, sideways scrolling
         does not work correctly. If you need sideways scrolling use the Text widget.
-        Get/set uses list of str. There is no tk version.
+        Get/set uses list of dict. There is no tk version.
 
         Parameters:
             tag (str): Reference to widget
@@ -980,7 +980,7 @@ class Window:
 
         This collection of widgets allows the programmer to collect the contents
         of other widgets into a row. The user can add or delete rows as they
-        wish using the included buttons. Get/set uses list of str. There is no tk
+        wish using the included buttons. Get/set uses list of dict. There is no tk
         version.
 
         Parameters:

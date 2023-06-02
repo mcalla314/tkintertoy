@@ -17,7 +17,8 @@ class Gui(object):
         self.gui.set('tdate', initDate)
         self.gui.addCombo('county', 'Affected County', counties)
         self.gui.addRadio('level', 'Maximum EF Damage', damage)
-        self.gui.addCollector('paths', 10, cols, ['tdate','county','level'], 'Included Tornadoes')
+        self.gui.addCollector('paths', cols, ['tdate','county','level'], 'Included Tornadoes',
+            height=10)
         self.gui.addButton('command')
         self.gui.plot('tdate', row=0, pady=5)
         self.gui.plot('county', row=1, pady=5)
@@ -31,6 +32,7 @@ def main():
     app.gui.waitforUser()
     if app.gui.content:
         data = app.gui.get('paths', allValues=True)
+        print(data)
         #magic tornado path generation code
 
 main()

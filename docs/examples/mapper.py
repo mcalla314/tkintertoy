@@ -1,11 +1,10 @@
 import datetime
 from tkintertoy import Window
 
-class Gui(object):
+class Gui:
     """ the GUI for the script """
-    def __init__(self, mapper):
+    def __init__(self):
         """ create the interface """
-        self.mapper = mapper
         self.dialog = Window()
         self.dialog.setTitle('Mapper 1.0')
         # notebook
@@ -24,18 +23,18 @@ class Gui(object):
         self.routine.plot('outfile', row=1)
         jobs = ['Make KMLs', 'Make Maps']
         self.routine.addCheck('jobs', 'Jobs', jobs)
-        self.routine.set('jobs', jobs[:2])
+        self.routine.set('jobs', jobs)
         self.routine.plot('jobs', row=2)
         # accum pcpn page
         self.accum = pages[1]
-        parms = [[2, 1, 12], [2, 1, 31], [4, 2000, 2100]]
+        parms = [[3, 1, 12], [3, 1, 31], [5, 2000, 2100]]
         self.accum.addSpin('endDate', parms, '/', 'Ending Date',
             command=self.updateAccum)
-        self.accum.set('endDate', [today.month, today.day, today.year])
+        self.accum.set('endDate', f'{today.month}/{today.day}/{today.year}')
         self.accum.plot('endDate', row=0)
         self.accum.addSpin('daysBack', [[2, 1, 45]], '', 'Days back',
             command=self.updateAccum)
-        self.accum.set('daysBack', [2])
+        self.accum.set('daysBack', '2')
         self.accum.plot('daysBack', row=1)
         self.accum.addEntry('title', 'Title', width=60)
         self.accum.plot('title', row=2)
@@ -43,18 +42,18 @@ class Gui(object):
         self.accum.plot('outfile', row=3)
         self.updateAccum()
         # dialog
-        self.dialog.addText('messages', 70, 15, 'Messages')
+        self.dialog.addText('messages', 'Messages', width=70, height=15)
         self.dialog.plot('messages', row=1)
         self.dialog.addButton('commands', space=20)
-        self.dialog.changeWidget('commands', 0, command=self.go)
-        self.dialog.changeWidget('commands', 1, text='Exit')
+        self.dialog.setWidget('commands', 0, command=self.go)
+        self.dialog.setWidget('commands', 1, text='Exit')
         self.dialog.plot('commands', row=2)
         self.dialog.plot('notebook', row=0)
         self.dialog.set('notebook', 0)
 
     def updateAccum(self):
         """ update widgets on accum page """
-        end = self.accum.get('endDate')
+        end = [int(i) for i in self.accum.get('endDate').split('/')]
         endDate = datetime.date(end[2], end[0], end[1])
         endDateFmt = endDate.strftime('%d,%m,%Y,%B').split(',')
         daysBack = self.accum.get('daysBack')[0]
@@ -67,8 +66,8 @@ class Gui(object):
 
     def go(self):
         """ get current selected page and make map """
-        run = self.dialog.get('notebook')               # get selected tab
-        mapper = self.mapper(self)                      # create a Mapper instance using the Gui
+        run = self.dialog.get('notebook')               # get selected tab number
+        mapper = Mapper(self)                      # create a Mapper instance using the Gui
                                                         # instance which is self
         try:
             if run == 0:
@@ -78,7 +77,7 @@ class Gui(object):
         except:
             self.dialog.set('messages', self.dialog.catchExcept())
 
-class Mapper(object):
+class Mapper:
     """ contain all GIS methods """
 
     def __init__(self, gui):
@@ -90,18 +89,18 @@ class Mapper(object):
         """ make the routine precipitation maps """
         title = self.gui.routine.get('title')
         filename = self.gui.routine.get('outfile')
-        self.gui.dialog.set('messages', 'Making {}.\n'.format(filename))
+        self.gui.dialog.set('messages', f'Making {filename}.\n')
         # magic map making code goes here
 
     def runAccum(self):
         """ make the accumulate precipitation map """
         title = self.gui.accum.get('title')
         filename = self.gui.accum.get('outfile')
-        self.gui.dialog.set('messages', 'Making {}.\n'.format(filename))
+        self.gui.dialog.set('messages', f'Making {filename}.\n')
         # magic map making code goes here
 
 def main():
-    gui = Gui(Mapper) # create a Gui instance and pass Mapper class to it
+    gui = Gui() # create a Gui instance and pass Mapper class to it
     gui.dialog.waitforUser()
 
 if __name__ == '__main__':

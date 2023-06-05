@@ -98,7 +98,7 @@ class Gui:
         # Spinners
         adate = [[2,1,12],[2,1,31],[4,2000,2099]]
         self.simplePage.addSpin('ttspin', adate, '/', 'Date Box') # create a date entry box
-        self.simplePage.set('ttspin', [4,21,2023])               # set the initial date 
+        self.simplePage.set('ttspin', '4/21/2023')               # set the initial date 
         self.simplePage.plot('ttspin', row=10)
 
     def makeDialog(self):
@@ -238,7 +238,7 @@ class Gui:
         # Spinners
         adate = [[2,1,12],[2,1,31],[4,2000,2099]]
         self.gui2.addSpin('ttspin2', adate, '/', 'Date Box', usetk=True) # create a date entry box
-        self.gui2.set('ttspin2', [3,15,2001])               # set the initial date 
+        self.gui2.set('ttspin2', '3/15/2001')               # set the initial date 
         # Buttons
         cmd = [['Collect',self.secondCollect],['Exit', self.gui2.close]] # create two buttons
         self.gui2.addButton('ttbutton2', '', cmd, usetk=True)

@@ -3,7 +3,7 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      6/2/2023
+# Created:      6/4/2023
 # Copyright:    (c) mike.callahan 2019 - 2023
 # License:      MIT
 #
@@ -22,6 +22,7 @@
 # 1.41 - fix vertical alignment to addCheck and addRadio, add reset,
 #        fix changeState, rename change* to set*
 # 1.42 - fix __init__, clean up comments
+# 1.50 - fix get for ledger & collector, fix get & set for spin
 ###################################################################
 
 import tkinter as tk                               # support only Python 3
@@ -91,7 +92,7 @@ class Window:
 
     # class variables
 
-    VERSION = '1.42'                                              # version number
+    VERSION = '1.50'                                              # version number
         
     # basic class methods
 
@@ -561,13 +562,13 @@ class Window:
         self.content[tag]['widget'] = [scale, entry]
         return [scale, entry]
 
-    def addSpin(self, tag, parms, between='', prompt='', usetk=False, **tkparms):
+    def addSpin(self, tag, parms, between=' ', prompt='', usetk=False, **tkparms):
         """ Create a ttSpinbox.
 
         Spinboxes allow the user to enter a series of integers. It is best used
         for items like dates, time, etc. The keyword arguments will apply to EVERY
         spinbox. Since this is a Tk widget, there is no style keyword argument.
-        Get/set uses list of int.
+        Get/set uses str.
 
         Parameters:
             tag (str): Reference to widget
@@ -587,11 +588,12 @@ class Window:
         """
 
         t = tk if usetk else ttk   
-        self.content[tag] = {'type': 'spin', 'value': []}  # data is list
+        self.content[tag] = {'type': 'spin', 'value': []}  # data is list###
+        self.content[tag]['between'] = between             # save the between str
         if prompt:
             frame = t.LabelFrame(self.master, text=prompt)  # create titled frame
         else:
-            frame = t.Frame(self.master)             # no title
+            frame = t.Frame(self.master)               # no title
         col = 0                                        # set col
         spins = []
         for parm in parms:
@@ -938,7 +940,7 @@ class Window:
         This widget allows a nice display of data in columns. It is a simplified
         version of the Collector widget. Due to a bug in ttk, sideways scrolling
         does not work correctly. If you need sideways scrolling use the Text widget.
-        Get/set uses list of dict. There is no tk version.
+        Get/set uses list of str. There is no tk version.
 
         Parameters:
             tag (str): Reference to widget
@@ -980,7 +982,7 @@ class Window:
 
         This collection of widgets allows the programmer to collect the contents
         of other widgets into a row. The user can add or delete rows as they
-        wish using the included buttons. Get/set uses list of dict. There is no tk
+        wish using the included buttons. Get/set uses list of str. There is no tk
         version.
 
         Parameters:
@@ -1376,21 +1378,22 @@ class Window:
             if allValues:
                 for rid in widget.get_children():      # get all rows
                     row = widget.set(rid)              # get the items as a dict
-                    value.append(row)
+                    value.append(list(row.values()))
             else:
                 for rid in widget.selection():         # get the selected rows
                     row = widget.set(rid)
-                    value.append(row)
+                    value.append(list(row.values()))
         elif widgetType == 'collector':
             widget = widget[0]                         # get treeview
             value = []
             for rid in widget.get_children():          # get the top-level items
                 row = widget.set(rid)                  # get the dict
-                value.append(row)
+                value.append(list(row.values()))
         elif widgetType == 'spin':
-            value = []
+            values = []
             for item in self.content[tag]['value']:
-                value.append(item.get())               # get all tk variables
+                values.append(str(item.get()))         # get all tk.IntVars
+            value = self.content[tag]['between'].join(values) # create str    
         elif widgetType == 'text':
             value = widget.get('0.0', 'end')           # get all text
         elif widgetType == 'notebook':
@@ -1447,11 +1450,15 @@ class Window:
             for item in value:
                 widget.insert('', 'end', values=item)  # add to tree
         elif widgetType == 'spin':
-            for item in self.content[tag]['value']:    # for spinboxes
+            sep = self.content[tag]['between']
+            if not sep:                                # sep cannot be ''
+                sep = ' '
+            values = value.split(sep)                  # split input str
+            for item in self.content[tag]['value']:    # fill tk.IntVars
                 if value == '':
                     item.set('')                       # clear it
                 else:
-                    item.set(value.pop(0))             # set it and get next
+                    item.set(int(values.pop(0)))       # set it and get next
         elif widgetType == 'notebook':
             widget.select(value)                       # display that page
         elif widgetType == 'text':                     # unlike other widget this inserts!

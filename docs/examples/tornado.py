@@ -8,8 +8,8 @@ class Gui(object):
         counties = ['Clark','Crawford','Dubois','Floyd','Harrison','Jefferson',
             'Orange','Perry','Scott','Washigton']
         damage = ['EF0','EF1','EF2','EF3','EF4','EF5']
-        dateParms = [[2,1,12],[2,1,12],[4,1900,2100]]
-        initDate = [1,1,1980]
+        dateParms = [[2,1,12],[2,1,12],[5,1900,2100]]
+        initDate = '1/1/1980'
         cols = [['Date', 100],['County', 100],['Damage', 100]]
         self.gui = Window()
         self.gui.setTitle('Tornado Path Generator')
@@ -33,6 +33,7 @@ def main():
     if app.gui.content:
         data = app.gui.get('paths', allValues=True)
         print(data)
-        #magic tornado path generation code
+        # magic tornado path generation code
+        app.gui.cancel()
 
 main()

@@ -416,9 +416,13 @@ and two ttk Buttons. It acts as a dialog inside a dialog. Below is the screensho
 
   .. image:: images/tornado.png
 
-You can see for the date we will use a **ttSpinbox**, the county will be a
-**ttCombo** widget, the damage will use **ttCheckbox** and all choices
-will be shown in the **ttCollector** widget. Here is the code:
+You can see for the date we will use a **ttSpinbox**. A spinbox is a group of tk/ttk spinboxes that are
+limited to integers, separated by a string, and contained in a tk/ttk frame. This is a excellent widget for
+dates, times, social security numbers, etc. The ``get`` method will number the values of each box, with the
+separtor in between as a string. The ``set`` method also requires the separtor in the string.
+
+The county will be a **ttCombo** widget, the damage will use **ttCheckbox** and all choices will be shown
+in the **ttCollector** widget. Here is the code:
 
   .. literalinclude:: examples/tornado.py
       :linenos:
@@ -453,7 +457,7 @@ previous example:
 19. Add a damage level **ttCheckbox**.
 20. Add a **ttCollector**. The collector has a tag, the column header list from line 13, a list of the
     widget tags it needs to collect, and the propmt. It also includes two buttons, 'Add' and 'Delete'.
-    Clicking on 'Add' with collect the values in the widgets and add them in a line in the treeview.
+    Clicking on 'Add' will collect the values in the widgets and add them in a line in the treeview.
     Clicking on 'Delete' will delete the currently selected line in the treeview.
 22. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
 23. Plot the date widget in the first row, separating the widgets by 5 pixels.
@@ -466,15 +470,16 @@ previous example:
 31. Create an instance of the ``Gui`` class which will create the GUI.
 32. Start the event processing loop
 33. If the user clicked on 'Ok'...
-34. Get all the lines in the collector as a list of dictionaries.
+34. Get all the lines in the collector as a list of lists.
 35. This is where the tornado path generation code would begin but we are just going to print the data.
-    The example gives [{'Date': '4 3 2010', 'County': 'Clark', 'Damage': 'EF2'}, {'Date': '4 3 2010',
-    'County': 'Floyd', 'Damage': 'EF2'}].
-. Call the driving function.
+    The example gives [['4/3/2010', 'Clark', 'EF2'], ['4/3/2010', 'Floyd', 'EF2']].
+36. Call the driving function.
 
-Note when you click on 'Add', the current selections in tdate, counties, and level will be added into
+When you click on 'Add', the current selections in tdate, counties, and level will be added into
 the collector widget in a row. If you select a row and click on 'Delete', it will be removed. Thus
-the collector acts as a GUI inside of a GUI, being fed by other widgets.
+the collector acts as a GUI inside of a GUI, being fed by other widgets. If this was a real application,
+we would generate a tornado path map of the EF-2 tornadoes that moved through Clark and Floyd counties
+on April 4, 2010.
   
 Using the Notebook Container
 ============================
@@ -482,7 +487,8 @@ Using the Notebook Container
 *Tkintertoy* includes containers which are ``Windows`` within ``Windows`` in order to organize widgets.
 A very useful one is the **ttNotebook** which is a ttk Notebook. This example shows a notebook that
 combines two different map making methods into a single GUI. This will use the following widgets:
-**ttEntry**, **ttCheckbox**, **ttText**, **ttSpinbox**, and **ttButtonbox**.
+**ttEntry**, **ttCheckbox**, **ttText**, **ttSpinbox**, and **ttButtonbox**. The style of code will
+stay with composition.
 
 Below is a screenshot:
 
@@ -497,136 +503,119 @@ some simple error trapping:
 
 Here are the line explanations:
 
-1. Import datetime for automatic date functions
-#. Import ``Window`` from tkintertoy.
-#. Blank lines improve code readability.
-#. Create a class called ``Gui``. This will contain all the code dealing with the interface.
-#. This is a class documentation string.
-#. Create an initialize method that will create the interface. All methods in the class will have
-   access to ``self``. We are also going to pass Mapper class (not an instance) which will contain
-   all the non-interface code. In this case it will be stubs where real code would go. We will see
-   how this works in line 77.
-#. This is the method documentation string.
-#. This lets all methods in this class access the Mapper instance.
-#. Create an instance of ``Window`` that will be asignned to an attribute ``dialog``. All methods in this
-   class will have access.
-#. Set the title of the window to Mapper 1.0.
-#. This code section is for the notebook widget.
-#. Create a list which contains the names of the tabs in the notebook: ``Routine`` & ``Accumulate``.
-   ``Routine`` will make a map of one day's rainfall, ``Accumulate`` will add up several days worth
-   of rain.
-#. Add a **ttNotebook**. The notebook will return two ``Windows`` which will be used as a container for
-   each notebook page.
-#. This code section is for the ``Routine`` notebook page.
-#. Assign the first page (page[0]) of the notebook, which is a ``Window`` to an attribute ``routine``.
-#. Get today's date.
-#. Convert it to [date, month, year, month abr]; ex. [25, 12, 2018, 'Dec']
-#. Add a title **ttEntry** widget. This will be filled in dynamically.
-#. Set the title using today's date.
-#. Same as above.
-#. Plot the title in the first row.
-#. Add an output filename **ttEntry** widget. This will also filled in dynamically.
-#. Set the output filename using today's date.
-#. Plot the output filename widget in the second row.
-#. Create a list of two types of jobs: Make KMLs & Make Maps.
-#. Add a jobs **ttCheckbox**.
-#. Turn on both check boxes, by default.
-#. Plot the jobs widget in the third row.
-#. This code section is for the ``Accumulate`` notebook page.
-#. Assign the second page (page[1]) of the notebook, which is a ``Window`` to an attribute ``accum``.
-#. Create the list for the parameters of a date spinner.
-#. Add an ending date **ttSpinbox**, with the callback set to self.updateAccum().
-#. Same as above.
-#. Set the ending date to today.
-#. Plot the ending date widget in the first row.
-#. Add a single days back **ttSpinbox** with the callback set to self.updateAccum() as well.
-#. Same as above.
-#. Set the default days back to 2.
-#. Plot the days back widget in the second row.
-#. Add a title **ttEntry**. This will be filled in dynamically.
-#. Plot the title widget in the third row.
-#. Add an output filename **ttEntry**. This will be filled in dynamically.
-#. Plot the output filename widget in the fourth row.
-#. Fill in the title using the default values in the above widgets.
-#. This section of code is for the rest of the dialog window.
-#. Add a messages **ttText**. This is where all messages to the user will appear.
-#. Plot the messages widget in the second row of the dialog window. The notebook will be in the first row.
-#. Add a command **ttButtonbox**, the default are labeled Ok and Cancel.
-#. Set the callback for the first button to the ``go`` method. We are changing the *command* parameter.
-   This shows how easy it is to get to the more complex parts of Tk/ttk from tkintertoy.
-#. Set the label of the second button to ``Exit`` using the same method as above but changing the *text*
-   parameter.
-#. Plot the command buttons in the third row.
-#. Plot the notebook in the first row.
-#. Set the default notebook page to ``Routine``. This will be the page displayed when the application
-   first starts.
-#. Blank line.
-#. This method will update the widgets on the accumulate page expanding on dynamic widgets.
-#. This is the method documentation string.
-#. Get the ending date from the widget. It will come back as [month, day, year].
-#. This will turn the list of ints into a datetime object.
-#. Turn the object into a comma-separated string 'date-int, month-int, year, month-abrev' like
-   '27,12,2018,Dec'.
-#. Get the number of days back the user wanted.
-#. Set the title of the map in the title widget. As the user changes the dates and days back, this
-   title will dynamically change. The user can edit this one last time before they click on Ok.
-#. Same as above.
-#. Calculate the beginning date from the ending date and the days back.
-#. Convert the datetime into a list of strings ['date-int','month-int'] like ['25','12'].
-#. Set the title of the map file to something like 'accum1225-12272018'. Again, this will be dynamically
-   updated and can be overridden.
-#. Same as above.
-#. Blank line.
-#. This method will execute the correct the map generation code.
-#. This is the method documentation string.
-#. Get the selected notebook tab page, either 0 for the routine page or 1 for the accumulation page.
-#. Create an instance of a Mapper object. However, we have a chicken/egg type problem. Mapper must know
-   about the Gui instance in order to send messages to the user. That is why the Mapper instance must
-   be created after the Gui instance. However, the Gui instance must also know about the Mapper instance
-   in order to execute the map making code. That is why the Mapper instance is created inside of this
-   method and why we passed the Mapper class as an argument. The Gui instance ``self`` is used as an
-   argument to the Mapper initialization method. It looks funny but it works.
-#. Blank line.
-#. This code might fail so we place it in a try...except block.
-#. If the current page is the routine page...
-#. Run the routine map generation code.
-#. If the current page is the accumulation page...
-#. Run the accumulated map generation code.
-#. Catch any exceptions.
-#. Place all error messages into the messages widget.
-#. Blank line.
-#. Create a ``Mapper`` class which contains all the map generation code. This will be a stud here since
-   map generation code is well beyond the scope of this tutorial.
-#. Class documentation line.
-#. Blank line.
-#. Create an initialize method that will contain all the map making methods. For this example this will
-   be mainly stubs since actual GIS code is well beyond the scope of this tutorial.
-#. Method documentation lines.
-#. Same as above.
-#. Make the Gui object an attribute of the instance so all methods have access.
-#. Blank line.
-#. This method contains the code for making the routine daily precipitation map.
-#. Method documentation line.
-#. Get the desired map title. This will be used in the magic map making code section.
-#. Get the filename of the map.
-#. Send a message to the user that the magic map making has begun.
-#. This is well beyond the scope of this tutorial.
-#. Blank line.
-#. This method contains the code for making accumulated precipitation maps, that is, precipitation that
-   fell over several days.
-#. Method documentation line.
-#. Get the desired map title. This will be used in the magic map making code section.
-#. Get the filename of the map.
-#. Send a message to the user that the magic map making has begun.
-#. This is well beyond the scope of this tutorial.
-#. Blank lines improve code readability.
-#. Create the ``main`` function.
-#. Create the GUI.
-#. Run the GUI.
-#. Blank line.
-#. Standard Python. If you are executing this code from the command line, execute the main function.
-   If importing, don't.
-#. Same as above.
+1.  Import datetime for automatic date functions
+2.  Import ``Window`` from tkintertoy.
+4.  Create a class called ``Gui``. This will the code dealing with the interface.
+5.  This is a class documentation string.
+6.  Create an initialize method that will create the interface. All methods in the class will have
+    access to ``self``.
+7.  This is the method documentation string.
+8.  Create an instance of ``Window`` that will be asignned to an attribute ``dialog``. All methods in this
+    class will have access.
+9.  Set the title of the window to Mapper 1.0.
+10. This code section is for the notebook widget.
+11. Create a list which contains the names of the tabs in the notebook: ``Routine`` & ``Accumulate``.
+    ``Routine`` will make a map of one day's rainfall, ``Accumulate`` will add up several days worth
+    of rain.
+12. Add a **ttNotebook**. The notebook will return two ``Windows`` in a list which will be used as a
+    container for each notebook page.
+13. This code section is for the ``Routine`` notebook page.
+14. Assign the first page (page[0]) of the notebook, which is a ``Window`` to an attribute ``routine``.
+15. Get today's date.
+16. Convert it to [date, month, year, month abr]; ex. [24, 6, 2023, 'Jun']
+17. Add a title **ttEntry** widget. This will be filled in dynamically and be the title of the map.
+18. Set the title using today's date.
+20. Plot the title in the first row.
+21. Add an output filename **ttEntry** widget. This will also filled in dynamically.
+22. Set the output filename using today's date.
+23. Plot the output filename widget in the second row.
+24. Create a list of two types of jobs: Make KMLs & Make Maps.
+25. Add a jobs **ttCheckbox**.
+26. Turn on both check boxes, by default.
+27. Plot the jobs widget in the third row.
+28. This code section is for the ``Accumulate`` notebook page.
+29. Assign the second page (page[1]) of the notebook, which is a ``Window`` to an attribute ``accum``.
+30. Create the list for the parameters of a date spinner.
+31. Add an ending date **ttSpinbox**, with the callback set to self.updateAccum().
+33. Set the ending date to today.
+34. Plot the ending date widget in the first row.
+35. Add a single days back **ttSpinbox** with the callback set to self.updateAccum() as well.
+37. Set the default days back to 2.
+38. Plot the days back widget in the second row.
+39. Add a title **ttEntry**. This will be filled in dynamically.
+40. Plot the title widget in the third row.
+41. Add an output filename **ttEntry**. This will be filled in dynamically.
+42. Plot the output filename widget in the fourth row.
+43. Fill in the title using the default values in the above widgets.
+44. This section of code is for the rest of the dialog window.
+45. Add a messages **ttText**. This is where all messages to the user will appear.
+46. Plot the messages widget in the second row of the dialog window. The notebook will be in the first row.
+47. Add a command **ttButtonbox**, the default are labeled Ok and Cancel.
+48. Set the callback for the first button to the ``go`` method. We are changing the *command* parameter.
+    This shows how easy it is to get to the more complex parts of Tk/ttk from tkintertoy. The ``setWidget``
+    allows the programmer to change any of the tk/ttk options after the widget is created.
+49. Set the label of the second button to ``Exit`` using the same method as above but changing the *text*
+    parameter. This shows how options of buttons can be dynamic.
+50. Plot the command buttons in the third row.
+51. Plot the notebook in the first row.
+52. Set the default notebook page to ``Routine``. This will be the page displayed when the application
+    first starts. Note that ``set`` and ``get`` notebook page index numbers
+54. This method will update the widgets on the accumulate page expanding on dynamic widgets.
+55. This is the method documentation string.
+56. Get the ending date from the widget.  This is an example of a use of a list comprehension. The ``get``
+    method will return a date string. The ``split`` method will return a list of str, and the list comprehension
+    Convert the value to ints. The result will be [month, day, year].
+57. This will turn the list of ints into a datetime object.
+58. Turn the object into a comma-separated string 'date-int, month-int, year, month-abrev' like
+   '24,6,2023,Jun'.
+59. Get the number of days back the user wanted.
+60. Set the title of the map in the title widget. As the user changes the dates and days back, this
+    title will dynamically change. The user can edit this one last time before they click on Ok.
+61. Calculate the beginning date from the ending date and the days back.
+62. Convert the datetime into a list of strings ['date-int','month-int'] like ['22','6'].
+64. Set the title of the map file to something like 'accum06022-06242023'. Again, this will be dynamically
+    updated and can be overridden. Notice that one method is updating two widgets.
+67. This method will execute the correct the map generation code.
+68. This is the method documentation string.
+69. Get the selected notebook tab page, either 0 for the routine page or 1 for the accumulation page.
+70. Create an instance of a Mapper object. However, we have a chicken/egg type problem. Mapper must know
+    about the Gui instance in order to send messages to the user. That is why the Mapper instance must
+    be created after the Gui instance. However, the Gui instance must also know about the Mapper instance
+    in order to execute the map making code. That is why the Mapper instance is created inside of this
+    method. The Gui instance ``self`` is used as an argument to the Mapper initialization method. It
+    looks funny but it works.
+72. This code might fail so we place it in a try...except block.
+73. If the current page is the routine page...
+74. Run the routine map generation code.
+75. If the current page is the accumulation page...
+76. Run the accumulated map generation code.
+77. Catch any exceptions.
+78. Place all error messages into the messages widget.
+80. Create a ``Mapper`` class which contains all the map generation code. This will be a stud here since
+    map generation code is well beyond the scope of this tutorial.
+81. Class documentation line.
+83. Create an initialize method that will contain all the map making methods. For this example this will
+    be mainly stubs since actual GIS code is well beyond the scope of this tutorial.
+84. Method documentation lines.
+86. Make the Gui object an attribute of the instance so all methods have access.
+88. This method contains the code for making the routine daily precipitation map.
+89. Method documentation line.
+90. Get the desired map title. This will be used in the magic map making code section.
+91. Get the filename of the map.
+92. Send a message to the user that the magic map making has begun.
+93. This is well beyond the scope of this tutorial.
+95. This method contains the code for making accumulated precipitation maps, that is, precipitation that
+    fell over several days.
+96. Method documentation line.
+97. Get the desired map title. This will be used in the magic map making code section.
+98. Get the filename of the map.
+99. Send a message to the user that the magic map making has begun.
+100. This is well beyond the scope of this tutorial.
+102. The ``main`` function.
+103. Create the GUI.
+104. Run the GUI.
+106. Standard Python. If you are executing this code from the command line, execute the main function.
+     If importing, don't.
 
 Object-Oriented Style Using Inheritance
 =======================================
@@ -639,7 +628,7 @@ use just self. Think of composition as the application has a Window and inherita
 application is a Window.
 
 The example below is a pizza ordering system. It demostates several ttwidgets: **ttEntry**,
-**ttRadio**, **ttCombo**, two **ttChecks** with the indicator off and on, **ttList**, **ttText**,
+**ttRadio**, **ttCombo**, **ttLine**, two **ttChecks** with the indicator off and on, **ttList**, **ttText**,
 and several **ttButtons**.
 
 This application works as follows. The user first fills in the customer's name in the entry and
@@ -659,11 +648,90 @@ Below is a screenshot:
 Here is the code. We will also demonstrate to the set and get the contents of more widgets and introduce
 some simple error trapping:
 
-  .. literalinclude:: examples/pizza.py
+  .. literalinclude:: examples/pizzagui.py
       :linenos:
       :language: python3
 
 Here are the line explanations:
+
+1.  Import Window from tkintertoy.
+3.  Create a class *PizzaGui* that inherits from Window. You can think of PizzaGui as a child of Window.
+4.  Class documentation.
+6.  Create an instance of PizzaGui.
+7.  Method documentation.
+8.  Initial an instance of Window and assign it to self. This is how calls the initialzation code of the
+    parent class. This will make the instance of PizzaGui an instance of Window.
+10. This method will contain all the code to create the GUI.
+11. Method documetation.
+12. Set the title of the window.
+13. Create a toppings tuple. This could have been a list as well.
+15. Create a crust-type tuple.
+16. Create an order-type tuple
+17. Create a extra tuple.
+18. Create a size tuple.
+19. Create a command list for the command buttons.
+20. Add an entry for the customer name.
+21. Add a radiobox for the order type.
+22. Add a ttLine. This is a horizontal ttk.separtor which will strectch across the entire window. It
+    has no frame.
+23. Add a ttCombobox for the size selection.
+24. Add a ttRadiobox for the crust type. The oriention will be vertical. We want the entire box to light
+    up when selected so we are setting the indicatoron option to False, which is a tk feature.
+26. Add the ttListbox for toppings. We also want this to be vertical and we want to be able to select
+    multiple toppings without pressing the Control or Shift keys. This shows how a listbox can be used
+    instead of a checkbox.
+27. Add the ttCheckbox for extra cheese and/or sauce.
+28. Add a single command button to add the pizza to the order.
+30. Add a ttText widget to show the order.
+31. Add the two command buttons defined in line 19.
+32. Plot the 'name' entry in row 0, column 0, with a five pixel spacing.
+33. Plot the order 'type' radiobox in row 0, column 1, with a five pixel spacing.
+34. Plot the line across row 1 with a 10 pixel spacing. If we did not use the sticky='we' option, the
+    line would be a single point.
+35. Plot the 'size' combobox row 2, column 0, with a five pixel spacing.
+36. Plot the 'crust' radiobox in row 2, column 1, with a five pixel spacing.
+37. Plot the 'toppings' listbox in row 3, column 0, with a five pixel spacing.
+38. Plot the 'extras' radiobox in row 3, column 1, with a 5 pixel spacing.
+39. Plot the 'addpizza' button in row 4, column 0, spread across both columns, with a 10 pixel spacing.
+40. Plot the 'summary' text widget in row 5, column 0, spread across both columns, with a 5 pixel
+    spacing.
+41. Plot the 'command' buttons in row 6, column 0, spread across both columns, with a 10 pixel spacing.
+42. Set the 'size' combobox to 'Medium'.
+44. This method adds a pizza to the order.
+45. Method documentation
+46. Get the 'size' and the 'crust' selections and create an order str.
+47. Collect all the 'toppings' selection create a new str.
+48. Add the 'toppings' str to the order str.
+49. Collect the 'extras' selection and create a new str.
+50. Add the 'extras' selection to the order str.
+51. Add the 'order' str to the 'order' text widget.
+52. Call the ``clearPizza`` method.
+54. This method would send an order to another display or computer. Here we are just printing the order to
+    the console.
+55. Method documentation.
+56. Create a summary str with the customer 'name' and the order 'type'.
+57. Get the contents of the 'summary' text widget.
+58. Print the summary.
+59. Call the clearPizza method.
+60. Clear the 'name' entry.
+61. Clear the selections in the order 'type' radiobox.
+62. Clear the 'summary' text widget.
+64. This method will clear a pizza off of the widgets.
+65. Method documentation
+66. Set the 'size' combobox to 'Medium'
+67. Clear the selection in the 'crust' radiobox.
+68. Clear the selections in the 'toppings' listbox.
+69. Clear the selections in the 'extras' checkbox.
+71. The main function.
+72. Function documentation.
+73. Create an instance of *PizzaGui*.
+74. Create the GUI.
+75. Start the event loop.
+77. Run main if not importing.
+
+In this example, we see that the choice of which widget to use and how they appear is completely up to the
+programmer. Novice programmers are encouraged to try out different options to see which widgets meet their
+needs.
 
 Dynamically Changing Widgets
 ============================

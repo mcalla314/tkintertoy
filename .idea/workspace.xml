@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.42c 6/2/2023">
+    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.50 6/5/2023">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/examples/mapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/mapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/examples/tornado.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/tornado.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/images/tornado.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/images/tornado.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/examples/stopwatch.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/stopwatch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ttgallery.py" beforeDir="false" afterPath="$PROJECT_DIR$/ttgallery.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +39,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mcall/PycharmProjects/tkintertoy/docs/examples/pizzagui.py",
+    "last_opened_file_path": "C:/Users/mcall/PycharmProjects/tkintertoy/docs/tutorial.rst",
     "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
@@ -306,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685737478896</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update to version 1.50 6/5/2023">
+      <created>1685998610982</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1685998610982</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,6 +343,7 @@
     <MESSAGE value="Update to version 1.41c 5/19/2023" />
     <MESSAGE value="Update to version 1.42a 5/22/2023" />
     <MESSAGE value="Update to version 1.42c 6/2/2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update to version 1.42c 6/2/2023" />
+    <MESSAGE value="Update to version 1.50 6/5/2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update to version 1.50 6/5/2023" />
   </component>
 </project>

@@ -49,7 +49,7 @@ class Gui:
         self.dialog.setWidget('commands', 1, text='Exit')
         self.dialog.plot('commands', row=2)
         self.dialog.plot('notebook', row=0)
-        self.dialog.set('notebook', 0)
+        self.dialog.set('notebook', 'Routine')
 
     def updateAccum(self):
         """ update widgets on accum page """
@@ -70,9 +70,9 @@ class Gui:
         mapper = Mapper(self)                      # create a Mapper instance using the Gui
                                                         # instance which is self
         try:
-            if run == 0:
+            if run == 'Routine':
                 mapper.runRoutine()
-            elif run == 1:
+            elif run == 'Accumulate':
                 mapper.runAccum()
         except:
             self.dialog.set('messages', self.dialog.catchExcept())

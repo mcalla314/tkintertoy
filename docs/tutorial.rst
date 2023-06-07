@@ -754,146 +754,124 @@ Here is the code:
       :linenos:
       :language: python3
 
-Here are the line explanations:
+Here are the line explanations. We are going to use type hints for the first time in this example:
 
-1. File documentation.
-#. Blank lines improve code readability.
-#. We will need the time function from the time module
-#. Import ``Window`` from tkintertoy.
-#. Blank lines improve code readability.
-#. Define a function, ``sec2hmsc`` which will change decimal seconds into (hours, minutes, seconds,
-   centiseconds).
-#. Function documentation string.
-#. Same as above.
-#. Split decimal seconds into whole hours with a remainder.
-#. Split the remainder into whole minutes with a remainder.
-#. Split the remainder into whole seconds and centiseconds.
-#. Return the time values as a tuple.
-#. Blank lines improve code readability.
-#. Define the ``Stopwatch`` class which will encapsulate a stopwatch.
-#. This is the class documentation string.
-#. Blank lines improve code readability.
-#. Create the ``__init__`` method. This will initialize the stopwatch.
-#. This is the method documentation string.
-#. Create an attribute which will hold the beginning time.
-#. Create an attribute which will hold the time elapsed while stopped.
-#. Create an attribute which will hold the running flag.
-#. Blank lines improve code readability.
-#. Create the ``start`` method. This will start the stopwatch.
-#. This is the method documentation string.
-#. Get the current time and save it in the ``then`` attribute.
-#. Check to see if the ``elapsed`` attribute is non-zero.
-#. If so, the stopwatch has been stopped and ``then`` needs to be adjusted.
-#. Set the ``running`` attribute to True.
-#. Blank lines improve code readability.
-#. Create the ``check`` method. This method will return the elapsed time as a
-   tuple.
-#. This is the method documentation string.
-#. Same as above.
-#. Check to see if the stopwatch is running.
-#. If so, get the current time.
-#. Adjust ``elapsed`` with the current time.
-#. In any case, call convert the decimal seconds to a time tuple
-#. Return the time tuple.
-#. Blank lines improve code readability.
-#. Create the ``stop`` method. This will stop the stopwatch.
-#. This is the method documentation string.
-#. Update the elapsed time.
-#. Set ``running`` to False.
-#. This is the method documentation string.
-#. Create the ``reset`` method. This resets the stopwatch.
-#. This is the method documentation string.
-#. This method is the same as the ``__init__`` so just call it.
-#. Blank lines improve code readability.
-#. Create the ``Gui`` class. This class will contain the gui for the stopwatch.
-#. This is the class documentation string.
-#. Blank lines improve code readability.
-#. Create the ``__init__`` method which will initialize the gui.
-#. This is the method documentation string.
-#. Same as above
-#. Create an instance of a **Tkintertoy** window and save it as the ``win`` attribute.
-#. Save the inputted Stopwatch as the ``stopw`` attribute.
-#. Create the gui.
-#. Blank lines improve code readability.
-#. Create the ``makeGui`` method which will create the gui and begin a display loop.
-#. This is the method documentation string.
-#. Set the title of the window.
-#. Create a **ttstyle** which has large red characters. This is how we will color our
-   **ttlabel** in the stopped state. Due to operating system styles, **ttlabels**
-   seem to be the safest widgets to experiment with styles. Certain parameters might
-   be ignored by other widgets like **ttentry**. Notice that the style must be created
-   for each type of widget. Since this style is for **ttlabels**, the tag must end with
-   ``.TLabel``.
-#. Same as above.
-#. Create a **ttstyle** which has large green characters. The is how we will color our
-   **ttlabel** in the running state.
-#. Same as above.
-#. Create a **ttlabel** which will hold the elapsed time of the stopwatch.
-#. Create a list of button labels and commands, ``buttons``, for the buttons. Note the
-   commands are Gui methods.
-#. Same as above.
-#. Create a row of **ttbuttons** which will be initialized using the labels and commands
-   in ``buttons``.
-#. Plot the **ttlabel**
-#. PLot the **ttbutton** row.
-#. Update the gui. You will see that calling update will start an event processing loop
-   without the use of ``waitfoUser``.
-#. Blank lines improve code readability.
-#. Create the ``startstop`` method. Since the user will start and stop the stopwatch using
-   the same button, this method will have do handle both tasks.
-#. This is the method documentation string.
-#. Check to see if the stopwatch is running.
-#. If so, stop it.
-#. Retext the first button as Start. It was Stop.
-#. Change the color to red.
-#. Enable the Reset button. Reset should only be used while the stopwatch is stopped. The
-   ! means "not" so we are setting the state of the second button to "not disabled" which
-   enables it.
-#. Else, the stopwatch was stopped.
-#. Start the stopwatch.
-#. Retext the first button as Stop. It was Start.
-#. Change the color to green.
-#. Disable the Reset button.
-#. Blank lines improve code readability.
-#. Create the ``reset`` method, which will reset the stopwatch. Since this is connected
-   to the Reset button and this button is disabled unless the stopwatch is stopped,
-   this method can only be executed while the stopwatch is stopped.
-#. This is the method documentation string.
-#. Reset the stopwatch.
-#. Blank lines improve code readability.
-#. Create the ``update`` method which shows the elapsed time in the **ttlabel**.
-#. This is the method documentation string.
-#. Get the elapsed time and a time tuple, (hours, minutes, seconds, centiseconds).
-#. Create a template for the ``format`` string method that will convert each time
-   element as a two digit number with leading leading zero separated by colons. If
-   the time tuple was (0, 12, 6, 13) this template convert it to '00:12:06:13'.
-#. Using the template, convert the time tuple into a string.
-#. Update the **ttlabel** with the time string.
-#. After 0.01 seconds, call ``update`` again. This allows the stopwatch to update its
-   display every hundredth of a second. Every Tkintertoy window has a **master**
-   attribute which has many useful methods you can call. This line create an event
-   processing loop but it only executes every 0.01 second which makes sure that the
-   stopwatch is displaying the correct elapsed time.
-#. Blank lines improve code readability.
-#. Create the ``main`` function.
-#. This is the function documentation.
-#. Create a stopwatch.
-#. Create and run the gui. Note, that assigning the gui is unnecessary.
-#. Blank lines improve code readability.
-#. Standard Python. If you are executing this code from the command line, execute the
+1.  File documentation. While this is a first example, all files should have a some documentation on
+    first lines.
+3.  We will need the time function from the time module.
+4.  Import ``Window`` from tkintertoy.
+6.  Define a function, ``sec2hmsc`` which will change floating seconds into (hours, minutes, seconds,
+    centiseconds). Notice how type hints work. While the Python interpeter will take no action, other
+    tools might find a use for them.
+7.  Function documentation string.
+8.  Split decimal seconds into whole hours with a remainder. This is an example of tuple unpacking.
+9.  Split the remainder into whole minutes with a remainder.
+10. Split the remainder into whole seconds and centiseconds.
+11. Return the time values as a tuple.
+13. Define the ``Stopwatch`` class which will encapsulate a stopwatch. Since there is no suitable object
+    to inherit from, we will use compositon.
+14. Class documentation string.
+16. Create the ``__init__`` method. This will initialize the stopwatch by calling ``reset``.
+17. Method documentation string.
+18. Call ``reset``. Since this will be the first time this method was called it will create an attributes
+    which will hold the beginning time, the time elapsed while stopped, and the running flag.
+19. Create the ``start`` method. This will start the stopwatch.
+20. Method documentation string.
+21. Get the current time and save it in the ``then`` attribute.
+22. If the ``elapsed`` attribute is non-zero...
+23. The stopwatch has been stopped and ``then`` needs to be adjusted.
+24. Set the ``running`` attribute to True.
+27. Create the ``check`` method. This method will return the elapsed time as a tuple.
+28. Method documentation string.
+29. If the stopwatch is running...
+30. Get the current time.
+31. Adjust ``elapsed`` with the current time.
+32. In any case, call convert the decimal seconds to a time tuple
+33. Return the time tuple.
+35. Create the ``stop`` method. This will stop the stopwatch.
+36. This is the method documentation string.
+37. Update the elapsed time by calling ``check``..
+38. Set ``running`` to False.
+40. Create the ``reset`` method. This resets the stopwatch.
+41. Method documentation string.
+42. Reset all the attributes to the initial state.
+46. Create the ``Gui`` class. This class will contain the gui for the stopwatch. We will use inheritance.
+47. This is the class documentation string.
+49. Create the ``__init__`` method which will initialize the gui.
+50. Mehod documentation string.
+51. Create an instance of a **Tkintertoy** window which will be ``self``.
+52. Save the inputted Stopwatch as the ``stopw`` attribute.
+54. Create the ``makeGui`` method which will create the gui and begin a display loop.
+55. Method documentation string.
+56. Set the title of the window.
+57. Create a **ttStyle** which has large red characters. This is how we will color our **ttLabel** in
+    the stopped state. We don't want the user to input anything so a label is the correct choice of widget.
+    Notice that the style must be created for each type of widget. Since this style is for labels, the tag
+    must end with ``.TLabel``.
+59. Create a **ttStyle** which has large green characters. The is how we will color our label in the
+    running state.
+61. Create a **ttlabel** which will hold the elapsed time of the stopwatch.
+62  Create a list of button labels and commands, ``buttons``, for the buttons. Note the
+    commands are Gui methods.
+64. Create a row of **ttButtons** which will be initialized using the labels and commands
+    in ``buttons``.
+65. Plot the 'elapsed' in row 0.
+66. Plot the 'buttons' in row 1 with a 10 pixel spacing.
+67. Update the gui. You will see that calling update will start an event processing loop
+    without the use of ``waitfoUser``.
+69. Create the ``startstop`` method. Since the user will start and stop the stopwatch using
+    the same button, this method will have do handle both tasks.
+70. This is the method documentation string.
+71. If the stopwatch is running...
+72. Stop it.
+73. Retext the first button as Start. It was Stop. This is the method to use to change a widget
+    dynamically.
+74. Change the 'elapsed' color to red.
+75. Enable the Reset button. Reset should only be used while the stopwatch is stopped. The
+    ! means "not" so we are setting the state of the second button to "not disabled" which
+    enables it.
+76. Else, the stopwatch was stopped...
+77. Start the stopwatch.
+78. Retext the first button as Stop. It was Start.
+79. Change the 'elapsed' color to green.
+80. Disable the Reset button.
+82. Create the ``reset`` method, which will reset the stopwatch. Since this is connected
+    to the Reset button and this button is disabled unless the stopwatch is stopped,
+    this method can only be executed while the stopwatch is stopped.
+83. Method documentation string.
+84. Reset the stopwatch.
+86. Create the ``update`` method which shows the elapsed time in 'elapsed'.
+87. Method documentation string.
+88. Get the elapsed time as a time tuple, (hours, minutes, seconds, centiseconds).
+89. Create a template for the ``format`` string method that will convert each time
+    element as a two digit number with leading leading zero separated by colons. If
+    the time tuple was (0, 12, 6, 13) this template convert it to '00:12:06:13'.
+90. Using the template, convert the time tuple into a string.
+91. Update 'elapsed' with the time string.
+92. After 0.01 seconds, call ``update`` again. This allows the stopwatch to update its
+    display every hundredth of a second. Every Tkintertoy window has a **master**
+    attribute which has many useful methods you can call. This line creates an event
+    processing loop but it only executes every 0.01 second which makes sure that the
+    stopwatch is displaying the correct elapsed time.
+94. Create the ``main`` function.
+95. Function documentation.
+96. Create a stopwatch.
+97. Create the gui instance.
+98. Make and run the gui. Remember, calling ``update`` every 0.01 seconds is running the
+    event loop.
+100. Standard Python. If you are executing this code from the command line, execute the
    main function. If importing, don't.
-#. Same as above.
 
 Conclusion
 ==========
 
-It is hoped that with *Tkintertoy+ and these examples, a Python instructor can quickly lead a
+It is hoped that with **Tkintertoy** and the documentation, a Python instructor can quickly lead a
 novice Python programmer out of the boring world of command-line interfaces and join the fun world
-of GUI programming. To see all the widgets that *Tkintertoy* supports, run ttgallery.py. As always,
+of GUI programming. To see all the widgets that **Tkintertoy** supports, run ttgallery.py. As always,
 looking at the code can be very instructive.
 
 As a result of the classes I have been teaching, I have created a series of narrated slideshows
-on YouTube as *Programming on Purpose with Python* which features how to use *Tkintertoy* to
+on YouTube as *Programming on Purpose with Python* which features how to use **Tkintertoy** to
 develop complete applications. Just search for *Mike Callahan* and *programming*.
 
 

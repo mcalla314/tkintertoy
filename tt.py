@@ -3,7 +3,7 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      6/4/2023
+# Created:      6/6/2023
 # Copyright:    (c) mike.callahan 2019 - 2023
 # License:      MIT
 #
@@ -22,7 +22,8 @@
 # 1.41 - fix vertical alignment to addCheck and addRadio, add reset,
 #        fix changeState, rename change* to set*
 # 1.42 - fix __init__, clean up comments
-# 1.50 - fix get for ledger & collector, fix get & set for spin
+# 1.50 - fix get for ledger & collector,
+#        fix get & set for spin, notebook
 ###################################################################
 
 import tkinter as tk                               # support only Python 3
@@ -1178,6 +1179,7 @@ class Window:
         """
 
         self.content[tag] = {'type': 'notebook'}        # data is list of lists
+        self.content[tag]['tabs'] = tabs                # remember tabs
         pages = []                                     # pages will be other windows
         notebook = ttk.Notebook(self.master, **tkparms)  # create notebook
         for page in tabs:                              # each tab is a page
@@ -1397,7 +1399,8 @@ class Window:
         elif widgetType == 'text':
             value = widget.get('0.0', 'end')           # get all text
         elif widgetType == 'notebook':
-            value = widget.index('current')            # get current page
+            i = widget.index('current')                # get current page
+            value = self.content[tag]['tabs'][i]       # get tab            
         else:                                          # styles, menus, menubuttons
             value = widget                             # same as getWidget 
         return value
@@ -1460,8 +1463,9 @@ class Window:
                 else:
                     item.set(int(values.pop(0)))       # set it and get next
         elif widgetType == 'notebook':
-            widget.select(value)                       # display that page
-        elif widgetType == 'text':                     # unlike other widget this inserts!
+            i = self.content[tag]['tabs'].index(value)
+            widget.select(i)                           # display that page
+        elif widgetType == 'text':                     # unlike other widgets this inserts!
             if allValues:
                 widget.delete('1.0', 'end')            # clear everything
             widget.insert('end', value)                # add text

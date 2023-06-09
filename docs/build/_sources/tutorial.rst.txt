@@ -14,36 +14,34 @@ Introduction
 My students knew GIS but when it came time to put the workflows into a standalone
 application, they were stumped with the complexity of programming a GUI, even with
 *Tkinter*. So I developed an easy to use GUI library based on *Tkinter* that made it
-much simpler to code applications. After several trials, the result was *Tkintertoy*
+much simpler to code applications. After several trials the result was *Tkintertoy*
 which is easy to use, but also can be create more complex GUIs. I have been
-teaching a Python class in a local vocational technical college using *Tkintertoy*
-with great success.
+teaching using it locally and created a series of narrated Powerpoint slides using
+*Tkintertoy* in the development of easy applications on YouTube. With this version,
+I have fixed a few minor bugs, improved the documentation, improved the operation of
+the library, and cleaned up the code for version 1.4. Support for Python 2 was removed
+since the library is no longer tested using Python 2.
 
-With this version, I have fixed a few minor bugs, improved the documentation, improved
-the operation of the library, and cleaned up the code for version 1.5. Support for
-Python 2 was removed since the library is no longer tested using Python 2.
-
-Tkintertoy creates ``Windows`` which contain widgets. Almost every *tk* or *ttk*
+Tkintertoy creates Windows which contain widgets. Almost every *tk* or *ttk* 
 widget is supported and a few combined widgets are included. Most widgets 
 are contained in a ``Frame`` which can act as a prompt to the user. The widgets
-are referenced by string *tags* which are used to access the widget, its
+are referenced by string tags which are used to access the widget, its 
 contents, and its containing Frame. All this information is in the ``content`` 
 dictionary of the Window. The fact that the programmer does not need to keep
 track of every widget makes interfaces much simpler to write, one only needs
 to pass the window. Since the widgets are multipart, I call them **ttWidgets**.
 
-*Tkintertoy* makes it easy to create groups of widgets like radio buttons, check
-boxes, and control buttons. These groups are referenced by a single tag but
-individual widgets can be accessed through an index number. While the novice
-programmer does not need to be concerned with details of creating and assigning a
-tk/ttk widget, the more advanced programmer can access all the tk/ttk options and
-methods of the widgets. Tkintertoy makes sure that all aspects of tk/ttk are
-exposed when the programmer needs them. *Tkintertoy* is light-weight wrapper of
-*Tkinter* and can be used a gentle introduction to the complete library.
+*Tkintertoy* make it easy to create groups of widgets like radio buttons, check boxes,
+and control buttons. These groups are referenced by a single tag but individual
+widgets can be accessed through an index number. While the novice programmer does
+not need to be concerned with details of creating and assigning a tk/ttk widget,
+the more advanced programmer can access all the tk/ttk options and methods of the
+widgets. Tkintertoy makes sure that all aspects of tk/ttk are exposed when the
+programmer needs them.
 
-In the following examples below, one can see how the ideas in Tkintertoy can be used
-to create simple but useful GUIs. GUI programming can be fun, which puts the "toy" in
-*Tkintertoy*.
+In the following example below, one can see how the ideas in Tkintertoy can be used to
+create simple but useful GUIs. GUI programming can be fun, which puts the "toy" in
+Tkintertoy.
 
 A "Hello World" Example
 =======================
@@ -55,8 +53,8 @@ called applications.
 This GUI will ask for the user's name and use it in a welcome message. This example uses these
 widgets: **ttEntry**, **ttLabel**, and **ttButtonbox**.
 
-In relating this application to a command-line application, the entry replaces the ``input``
-function, the label replaces the ``print`` function, and the buttonbox replaces the Enter
+In relating this application to a command-line application, the entry replaces the ``input()``
+function, the label replaces the ``print()`` function, and the buttonbox replaces the Enter
 key. Below is the code followed by an explanation of every line:
 
   .. literalinclude:: examples/first.py
@@ -71,50 +69,48 @@ Here is an explanation of what each line does:
 
 1.  Import the ``Window`` code which is the foundation of Tkintertoy.
 2.  Create an instance of a ``Window`` object assigned to ``gui``. This will initialize Tk,
-    create a Toplevel window, create an application Frame, and create a ``content`` dictionary
+    create a Toplevel window, create an application Frame, and    create a ``content`` dictionary
     which will hold all the widgets.
-3.  Change the title of ``gui`` to "My First Tkintertoy GUI!". If you don't do this, the title
-    of the ``Window`` will default to "Tk". If you want no title, make the argument '' (a
-    null string) or None.
-4.  Add an **ttEntry** widget to ``gui``. This will be the combination of a ttk.Entry
-    in a ttk.LabelFrame. We are going to tag it with 'name' since that is what we
+3.  Change the title of ``Window`` to "My First Tkintertoy GUI!". If you don't do this, the title
+    of the ``Window`` will default to "Tk". If you want no title, make the argument '' or None.
+4.  Add an **ttEntry** widget to ``gui``. This will be the combination of a ttk Entry
+    in a ttk LabelFrame. We are going to tag it with 'name' since that is what we
     going to collect there. However, the tag can be any string. All Tkintertoy widgets
     must have a unique tag which acts as the key for the widget in the ``content``
     dictionary. However, most of the time the programmer does not access the ``content``
-    dictionary directly, *Tkintertoy* provides methods for this. The title of the Frame
-    surrounding the Entry widget will be 'Type in your name'. Entry frame titles are a
-    great place to put instructions to your user. If you don't want a title, just leave
-    off this argument. *Tkintertoy will use a plain ttk/tk.Frame instead. The default width
-    of the Entry widget is 20 characters, but this, like many other options can be changed.
-5.  Add a **ttLabel** widget to ``gui``. This will be the combination of a ttk.Label in a
-    ttk.LabelFrame. This tag will be 'welcome' since this where the welcome message will
+    dictionary directly. The title of the Frame surrounding the Entry widget will be
+    'Type in your name'. Entry frame titles are a great place to put instructions to your
+    user. If you don't want a title, just leave off this argument. The default width of
+    the Entry widget is 20 characters, but this, like many other options can be changed.
+5.  Add a **ttLabel** widget to ``gui``. This will be the combination of a ttk Label in a
+    ttk LabelFrame. This tag will be 'welcome' since this where the welcome message will
     appear. Labels are a good widget for one line information to appear that the user
-    cannot edit. The explanation to the user of the type of information displayed in the
-    **ttLabel** is displayed in the LabelFrame, just like in the **ttEntry**
-6.  Add a **ttButtonbox** row with a tag of 'commands'. It defaults to two ttk.Buttons,
-    labeled 'Ok' and 'Cancel' contained in a unlabeled ttk.Frame. Each button is connected
+    cannot edit. The explanation of the type of information displayed in the **ttLabel**
+    is displayed in the LabelFrame, just like in the **ttEntry**
+6.  Add a **ttButtonbox** row with a tag of 'commands'. It defaults to two ttk Buttons,
+    labeled 'Ok' and 'Cancel' contained in a unlabeled ttk Frame. Each button is connected
     to a function or method, called a "callback" which will execute when the user clicks on
-    that button. The default callback for the 'Ok' button is the ``breakout`` method which
-    exits the GUI processing loop but keeps displaying the window. This will be explained
-    below. The 'Cancel' button callback is the ``cancel`` method which exits the loop,
-    removes the window, and empties the ``content`` dictionary. Of course, the button labels
-    and these actions can be easily modified by the programmer, but by providing a default
-    pair of buttons and callbacks, even a novice programmer can create a working GUI application
-    quickly. No callback programming is necessary.
-7.  Place the 'name' ttwidget at row 0 (first row) of ``gui`` centered. The *row=0* argument
-    could have been left off since it is the default. The ``plot`` method is a synonym for the
-    tk ``grid`` method. All arguments to ``grid`` can be used in ``plot``. Plot was selected as
-    a better word for a novice. However, ``grid`` will also work. Until a widget is plotted, it
-    will not appear. However, the ``gui`` window is automatically plotted. Actually, you are
-    plotting the ttk.LabelFrame, the ttk.Entry widget is automatically plotting in the Frame
-    filling up the entire frame using *sticky='nswe'*.
+    that button. The callback for the 'Ok' button is the ``breakout()`` method which exits
+    the GUI processing loop but keeps displaying the window. This will be explained below.
+    The 'Cancel' button callback is the ``cancel()`` method which exits the loop, removes
+    the window, and empties the ``content`` dictionary. Of course, the button labels and
+    these actions can be easily modified by the programmer, but by providing a default pair
+    of buttons and callbacks, even a novice programmer can create a working GUI application.
+    No callback programming is necessary.
+7.  Place the 'name' ttwidget at row 0 (first row) of ``gui`` centered. The ``row=0``
+    parameter could have been left off since it is the default. The ``plot()`` method is
+    a synonym for the tk ``grid()`` method. All arguments to ``grid()`` can be used in ``plot()``.
+    Plot was selected as a better word for a novice. However,    ``grid()`` will also work.
+    Until a widget is plotted, it will not appear. However, the ``gui`` window is automatically
+    plotted. Actually, you are plotting the ttk LabelFrame, the ttk Entry widget is automatically
+    plotting in the Frame filling up the entire frame.
 8.  Place the 'welcome' widget at row 1 (second row) of ``gui`` centered. There is a 3 pixel
-    default vertical spacing between widget rows.
+    default vertical spacing between the Label widget and Entry widget.
 9.  Place the 'command' widget at row 2 (third row) of ``gui`` centered with a vertical
-    spacing of 10 pixels with *pady=10*.
+    spacing of 10 pixels.
 10. Begin an infinite loop.
-11. Wait for the user to press click on a button. The ``waitforUser`` method is a synonym
-    for the tk ``mainloop`` method. Again, the name was changed to help a novice programmer.
+11. Wait for the user to press click on a button. The ``waitforUser()`` method is a synonym
+    for the tk ``mainloop()`` method. Again, the name was changed to help a novice programmer.
     However, ``mainloop`` will also work. This method starts the event processing loop and is
     the heart of all GUIs. It handles all key presses and mouse clicks. Nothing will happen
     until this method is running. This loop will continue until the user clicks on the either the
@@ -124,18 +120,19 @@ Here is an explanation of what each line does:
     dictionary contains anything. If it does, the user clicked on the 'Ok' button. Otherwise,
     the user clicked on the 'Cancel' button.
 13. To get to this line of code, the user clicked on the 'Ok' button. Collect the contents of
-    'name' and add it to the "Welcome" string in 'welcome'. This shows how easy it is to get
-    and set the contents of a widget using the given methods. To get the value of a widget call
-    the ``get`` method. To change the value of any widget call the ``set`` method. The type of
-    widget does not matter, ``get`` and ``set`` work for all widgets. Since all widgets are
-    contained in the ``content`` directory of ``gui``, the programmer does not need to keep
-    track of individual widgets, only their containing frames or windows. Again, the usually
-    programmer does not access ``content`` directly, they should use ``get`` and ``set`` methods.
+    the 'name' ttwidget and add it to the "Welcome" string in the 'welcome' ttwidget. This
+    shows how easy it is to get and set the contents of a widget using the given methods. To
+    get the value of a widget call the ``get()`` method. To change the value of any widget
+    call the ``set()`` method. The type of widget does not matter, ``get()`` and ``set()``
+    work for all widgets. Since all widgets are contained in the ``content`` directory of
+    ``gui``, the programmer does not need to keep track of individual widgets, only their
+    containing frames or windows. Again, the usually programmer does not access ``content``
+    directly, they should use ``get`` and ``set`` methods.
 14. This line of code is reached only if the user clicked on 'Cancel' which emptied the
     ``content`` directory. In this case, the user is finished with the application.
 15. Break the infinite loop and exit the program. Notice the difference between the infinite
     application loop set up by the ``while`` statement and the event processing loop set up by
-    the ``waitforUser`` method. Also, note that when the user clicked on 'Cancel', the tkintertoy
+    the ``waitforUser()`` method. Also note that when the user clicked on 'Cancel', the tkintertoy
     code exited, but the Python code that called tkintertoy was still running. This is why you must
     break out of infinite loop.
 
@@ -169,20 +166,20 @@ Each line of code is explained below:
 1.  Import the ``Window`` object from tkintertoy.
 2.  Create an instance of a ``Window`` and label it ``gui``.
 3.  Set the title ``gui`` to "Create a Map".
-4.  We want to limit the input files to *.csv only. This list will be used in the method in the
+4.  We want to limit the input files to .csv only. This list will be used in the  method in the
     next line. Notice, you can filter multiple types.
-5.  Add an **ttOpen** dialog widget. This is a combination of a ttk.Entry widget, a 'Browse' ttk.
-    Button, and a ttk.LabelFrame. If the user clicks on the 'Browse' button, they will see a
-    directory limited to CSV files. To allow the user to see the entire path, we changed the width
+5.  Add an **ttOpen** dialog widget. This is a combination of a ttk Entry widget, a 'Browse' ttk
+    Button, and a ttk LabelFrame. If the user clicks on the 'Browse' button, they will see a
+    directory limited to CSV files. To allow the user to see the entire path, we change the width
     of the entry to 40 characters.
 6.  We want to limit our output to .png only.
-7.  Add a **ttSaveAs** dialog widget. This is a combination of a ttk.Entry widget, a 'Browse' ttk.
-    Button, and a ttk.LabelFrame. If the user clicks on the 'Browse' button, they will see a directory
+7.  Add a **ttSaveAs** dialog widget. This is a combination of a ttk Entry widget, a 'Browse' ttk
+    Button, and a ttk LabelFrame. If the user clicks on the 'Browse' button, they will see a directory
     limited to PNG files. If the file already exists, an overwrite confirmation dialog will pop up.
 8.  Add an **ttEntry** widget that is 40 characters wide to collect the map title.
-9.  Add a **ttText** widget, which is a combination of a ttk.Text widget, a vertical ttk.Scrollbar,
-    and a ttk.LabelFrame. It will have a width of 40 characters, a height of 5 lines, and will be used
-    for all status messages. The **ttText** widget is extremelly useful for many different purposes.
+9.  Add a **ttText** widget, which is a combination of a ttk Text widget, a ttk Scrollbar, and a ttk
+    LabelFrame. It will have a width of 40 characters, a height of 5 lines, and will be used for all
+    status messages. The **ttText** widget is extremelly useful for many different purposes.
 10. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
 11. Plot the 'input' widget in the first row (row 0), vertically separating widgets by 10 pixels.
 12. Plot the 'output' widget in the second row, vertically separating widgets by 10 pixels. Notice
@@ -191,8 +188,7 @@ Each line of code is explained below:
 14. Plot the 'status' widget in the fourth row, vertically separating widgets by 10 pixels.
 15. Plot the 'commands' widget in the fifth row, vertically separating widgets by 20 pixels. This
     will be 30 pixels from the status widget.
-16. Enter the event processing loop and exit when the user clicks on a button. This script will
-    execute once so there is no need for an infinte loop.
+16. Enter the event processing loop and exit when the user clicks on a button.
 17. If the user clicked on the OK button do the following:
 18. Create the status message.
 19. Display the status message.
@@ -208,18 +204,16 @@ Selection Widgets
 
 Many times you want to limit the user to a fixed set of options. This next example demonstrates
 widgets that are useful for this task. We will create a hamburger ordering application which will
-use three type of selection widgets: **ttRadiobox**, **ttCheckbox**, and **ttListbox**. We will stay
+use three type of selection widgets: **ttRadiobox**, **ttCheckbox**, and **ttList**. We will stay
 with imparative style programming.
 
 Radiobox widgets are great for showing the user an list of dependent options. Only one option in the
-group can be selected at a time. The name "radiobutton" comes from old-fashioned car radio tuner buttons,
-when you pushed one to change a station, the previous one selected poped-up.
-
-Checkboxes allow the user to select many independent options at a time. Listboxes can be programmed to do
+list can be selected at a time. The name radiobutton comes from old-fashioned car radio tuner buttons.
+Checkboxes allow the user to select many independent options at a time. Lists can be programmed to do
 both.
 
 We will use a radiobox to select whether the user want a single, double, or a triple burger. We will
-use a listbox to indicate which toppings the user wants, and a checkbox to indicate the desired condiments.
+user a list to indicate which toppings the user wants, and a checkbox to indicate the desired condiments.
 
 Below is a screenshot of the application:
 
@@ -235,25 +229,24 @@ Here is the code:
 2.  Create an instance of a ``Window`` and label it ``app``.
 3.  Set the title ``app`` to "Order a Hamburger".
 4.  Create a list of burger types.
-5.  Add a **ttRadiobox** which is a list of three ttk.Radiobuttons labeled with the type of burgers.
+5.  Add a **ttRadiobox** which is a list of three ttk Radiobuttons labeled with the type of burgers.
     These will be referenced with a single tag, 'type'. If we want to reference a single Radiobutton, we will
     use an index; [0], [1], or [2].
 6.  Create a list of burger toppings.
-7.  Add a **ttListbox** which is a tk.Listbox with a vertical tk.Scrollbar. The elements are the items in the
-    list of toppings. Notice that *selectmode='multiple'* so the user will be able to select multiple toppings
-    without pressing the control or shift keys. This is a good example of when a listbox is useful. While it
-    does take up screen space, it makes it easy to select many multiple options but restricts the user to a
-    fixed set of options.
+7.  Add a **ttListbox** which is a tk Listbox with a tk scrollbar. The elements are the items in the list of
+    toppings. Notice that selectmode is 'multiple' so the will be able to topping multiple toppings without pressing
+    the control key. This is a good example of when a listbox is useful. While it does take up screen space, it makes
+    it easy to select many multiple options and restricts the user to a fixed set of options.
 8.  Create a list of condiments.
-9.  Create a **ttCheckbox** which is a list of three ttk.Checkbuttons labeled with the condiments. The
-    orientation will be vertical. This is another widget where the user can select multiple options.
-    It is best used with a small number of options.
+9.  Create a **ttCheckbox** which is a list of three ttk Checkbuttons labeled with the condiments. The orientation
+    will be vertical. This is another widget where the user can select multiple options. It is best used with a
+    small number of options.
 10. Add a **ttText** with a height of 5. This is where the order will appear.    
 11. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
 12. Plot the 'type' widget in the first row, first column.
 13. Plot the 'toppings' widget in the first row, second column.
 14. Plot the 'condiments' widget in the first row, third column.
-15. Plot the 'order' widget in the second row, strectched across three columns with *colunmspan=3*.
+15. Plot the 'order' widget in the second row, strectched across three columns.
 16. Plot the 'commands' widget in the third row, also stretched across three columns.
 18. Begin a infinite loop.
 19. Enter the event processing loop and exit when the user clicks on a button.

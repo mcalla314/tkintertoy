@@ -3,7 +3,7 @@
 from time import time
 from tkintertoy import Window
 
-def sec2hmsc(secs: float) -> (int, int, int, int):
+def sec2hmsc(secs):
     """ convert seconds to (hours, minutes, seconds, cseconds) """
     hours, rem = divmod(secs, 3600)                    # extract hours
     minutes, rem = divmod(rem, 60)                     # extract minutes
@@ -13,18 +13,18 @@ def sec2hmsc(secs: float) -> (int, int, int, int):
 class Stopwatch:
     """ Encapsulate a simple stopwatch """
 
-    def __init__(self) -> None:
+    def __init__(self):
         """ initialize the stopwatch """
         self.reset()                                # clear everything
 
-    def start(self) -> None:
+    def start(self):
         """ start the stopwatch """
         self.then = time()                        # record starting time
         if self.elapsed > 0:                      
             self.then -= self.elapsed
         self.running = True                            # raise flag
 
-    def check(self) -> (int, int, int, int):
+    def check(self):
         """ check the elapsed time """
         if self.running:
             now = time()                          # get current time
@@ -32,12 +32,12 @@ class Stopwatch:
         elptup = sec2hmsc(self.elapsed)
         return elptup
 
-    def stop(self) -> None:
+    def stop(self):
         """ stop the stopwatch """
         self.check()                                   # update elapsed
         self.running = False                           # lower flag
         
-    def reset(self) -> None:
+    def reset(self):
         """ reset the stopwatch """
         self.then = 0.0  # starting time
         self.elapsed = 0.0  # elapsed time during stop
@@ -46,12 +46,12 @@ class Stopwatch:
 class Gui(Window):
     """ Gui for stopwatch """
 
-    def __init__(self, stopwatch: Stopwatch) -> None:
+    def __init__(self, stopwatch):
         """ init stopwatch gui """
         super().__init__()                             # create a window
         self.stopw = stopwatch                         # make stopwatch an attribute
 
-    def makeGui(self) -> None:
+    def makeGui(self):
         """ create the Gui """
         self.setTitle('Stopwatch v1.0')
         self.addStyle('r.TLabel', foreground='red',  # create the styles
@@ -66,7 +66,7 @@ class Gui(Window):
         self.plot('buttons', row=1, pady=10)
         self.update()                                  # update display
 
-    def startstop(self) -> None:
+    def startstop(self):
         """ start or stop the stopwatch """
         if self.stopw.running:
             self.stopw.stop()
@@ -79,11 +79,11 @@ class Gui(Window):
             self.setWidget('elapsed', style='g.TLabel')  # color display
             self.setState('buttons', ['disabled'], 1)  # disable Reset
         
-    def reset(self) -> None:
+    def reset(self):
         """ reset stopwatch """
         self.stopw.reset()                             # reset it
 
-    def update(self) -> None:
+    def update(self):
         """ update display """
         etime = self.stopw.check()                     # get elapsed time
         template = '{:02}:{:02}:{:02}.{:02}'           # 2 digits leading zero
@@ -96,6 +96,7 @@ def main():
     stopw = Stopwatch()                                 # create a stopwatch instance
     gui = Gui(stopw)                                    # create a window
     gui.makeGui()                                       # run the gui
+    gui.waitforUser()
 
 if __name__ == '__main__':
     main()

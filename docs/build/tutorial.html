@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tkintertoy 1.5 Tutorial &mdash; Tkintertoy 1.5.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="tkintertoy module" href="tkintertoy.html" />
+    <link rel="prev" title="Welcome to Tkintertoy’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tkintertoy
+          </a>
+              <div class="version">
+                1.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tkintertoy 1.5 Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-hello-world-example">A “Hello World” Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simple-map-creation-dialog">Simple Map Creation Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selection-widgets">Selection Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-widgets">Dynamic Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-oriented-dynamic-widgets">Object-Oriented Dynamic Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-collector-widget">Using the Collector Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-notebook-container">Using the Notebook Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-oriented-style-using-inheritance">Object-Oriented Style Using Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamically-changing-widgets">Dynamically Changing Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkintertoy.html">tkintertoy module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tkintertoy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tkintertoy 1.5 Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tkintertoy-1-5-tutorial">
+<h1>Tkintertoy 1.5 Tutorial<a class="headerlink" href="#tkintertoy-1-5-tutorial" title="Permalink to this heading"></a></h1>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jun 07, 2023</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Mike Callahan</strong></p>
+</dd>
+</dl>
+</div></blockquote>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p><em>Tkintertoy</em> grew out of a GIS Python (mapping) class I taught at a local college.
+My students knew GIS but when it came time to put the workflows into a standalone
+application, they were stumped with the complexity of programming a GUI, even with
+<em>Tkinter</em>. So I developed an easy to use GUI library based on <em>Tkinter</em> that made it
+much simpler to code applications. After several trials the result was <em>Tkintertoy</em>
+which is easy to use, but also can be create more complex GUIs. I have been
+teaching using it locally and created a series of narrated Powerpoint slides using
+<em>Tkintertoy</em> in the development of easy applications on YouTube. With this version,
+I have fixed a few minor bugs, improved the documentation, improved the operation of
+the library, and cleaned up the code for version 1.4. Support for Python 2 was removed
+since the library is no longer tested using Python 2.</p>
+<p>Tkintertoy creates Windows which contain widgets. Almost every <em>tk</em> or <em>ttk</em>
+widget is supported and a few combined widgets are included. Most widgets
+are contained in a <code class="docutils literal notranslate"><span class="pre">Frame</span></code> which can act as a prompt to the user. The widgets
+are referenced by string tags which are used to access the widget, its
+contents, and its containing Frame. All this information is in the <code class="docutils literal notranslate"><span class="pre">content</span></code>
+dictionary of the Window. The fact that the programmer does not need to keep
+track of every widget makes interfaces much simpler to write, one only needs
+to pass the window. Since the widgets are multipart, I call them <strong>ttWidgets</strong>.</p>
+<p><em>Tkintertoy</em> make it easy to create groups of widgets like radio buttons, check boxes,
+and control buttons. These groups are referenced by a single tag but individual
+widgets can be accessed through an index number. While the novice programmer does
+not need to be concerned with details of creating and assigning a tk/ttk widget,
+the more advanced programmer can access all the tk/ttk options and methods of the
+widgets. Tkintertoy makes sure that all aspects of tk/ttk are exposed when the
+programmer needs them.</p>
+<p>In the following example below, one can see how the ideas in Tkintertoy can be used to
+create simple but useful GUIs. GUI programming can be fun, which puts the “toy” in
+Tkintertoy.</p>
+</section>
+<section id="a-hello-world-example">
+<h2>A “Hello World” Example<a class="headerlink" href="#a-hello-world-example" title="Permalink to this heading"></a></h2>
+<p>Let’s look at a bare bones example of a complete GUI using imparative style. Imparative code
+are sometimes called scripts since their structure is simple. More complex code are ususally
+called applications.</p>
+<p>This GUI will ask for the user’s name and use it in a welcome message. This example uses these
+widgets: <strong>ttEntry</strong>, <strong>ttLabel</strong>, and <strong>ttButtonbox</strong>.</p>
+<p>In relating this application to a command-line application, the entry replaces the <code class="docutils literal notranslate"><span class="pre">input()</span></code>
+function, the label replaces the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, and the buttonbox replaces the Enter
+key. Below is the code followed by an explanation of every line:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos"> 2</span><span class="n">gui</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="n">gui</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;My First Tkintertoy GUI!&#39;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">gui</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Type in your name&#39;</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="n">gui</span><span class="o">.</span><span class="n">addLabel</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="s1">&#39;Welcome message&#39;</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">10</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">12</span>    <span class="k">if</span> <span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="s1">&#39;Welcome &#39;</span> <span class="o">+</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">))</span>
+<span class="linenos">14</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">15</span>        <span class="k">break</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Here is a screen shot of the resulting GUI:</p>
+<blockquote>
+<div><img alt="_images/first.png" src="_images/first.png" />
+</div></blockquote>
+<p>Here is an explanation of what each line does:</p>
+<ol class="arabic simple">
+<li><p>Import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> code which is the foundation of Tkintertoy.</p></li>
+<li><p>Create an instance of a <code class="docutils literal notranslate"><span class="pre">Window</span></code> object assigned to <code class="docutils literal notranslate"><span class="pre">gui</span></code>. This will initialize Tk,
+create a Toplevel window, create an application Frame, and    create a <code class="docutils literal notranslate"><span class="pre">content</span></code> dictionary
+which will hold all the widgets.</p></li>
+<li><p>Change the title of <code class="docutils literal notranslate"><span class="pre">Window</span></code> to “My First Tkintertoy GUI!”. If you don’t do this, the title
+of the <code class="docutils literal notranslate"><span class="pre">Window</span></code> will default to “Tk”. If you want no title, make the argument ‘’ or None.</p></li>
+<li><p>Add an <strong>ttEntry</strong> widget to <code class="docutils literal notranslate"><span class="pre">gui</span></code>. This will be the combination of a ttk Entry
+in a ttk LabelFrame. We are going to tag it with ‘name’ since that is what we
+going to collect there. However, the tag can be any string. All Tkintertoy widgets
+must have a unique tag which acts as the key for the widget in the <code class="docutils literal notranslate"><span class="pre">content</span></code>
+dictionary. However, most of the time the programmer does not access the <code class="docutils literal notranslate"><span class="pre">content</span></code>
+dictionary directly. The title of the Frame surrounding the Entry widget will be
+‘Type in your name’. Entry frame titles are a great place to put instructions to your
+user. If you don’t want a title, just leave off this argument. The default width of
+the Entry widget is 20 characters, but this, like many other options can be changed.</p></li>
+<li><p>Add a <strong>ttLabel</strong> widget to <code class="docutils literal notranslate"><span class="pre">gui</span></code>. This will be the combination of a ttk Label in a
+ttk LabelFrame. This tag will be ‘welcome’ since this where the welcome message will
+appear. Labels are a good widget for one line information to appear that the user
+cannot edit. The explanation of the type of information displayed in the <strong>ttLabel</strong>
+is displayed in the LabelFrame, just like in the <strong>ttEntry</strong></p></li>
+<li><p>Add a <strong>ttButtonbox</strong> row with a tag of ‘commands’. It defaults to two ttk Buttons,
+labeled ‘Ok’ and ‘Cancel’ contained in a unlabeled ttk Frame. Each button is connected
+to a function or method, called a “callback” which will execute when the user clicks on
+that button. The callback for the ‘Ok’ button is the <code class="docutils literal notranslate"><span class="pre">breakout()</span></code> method which exits
+the GUI processing loop but keeps displaying the window. This will be explained below.
+The ‘Cancel’ button callback is the <code class="docutils literal notranslate"><span class="pre">cancel()</span></code> method which exits the loop, removes
+the window, and empties the <code class="docutils literal notranslate"><span class="pre">content</span></code> dictionary. Of course, the button labels and
+these actions can be easily modified by the programmer, but by providing a default pair
+of buttons and callbacks, even a novice programmer can create a working GUI application.
+No callback programming is necessary.</p></li>
+<li><p>Place the ‘name’ ttwidget at row 0 (first row) of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered. The <code class="docutils literal notranslate"><span class="pre">row=0</span></code>
+parameter could have been left off since it is the default. The <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method is
+a synonym for the tk <code class="docutils literal notranslate"><span class="pre">grid()</span></code> method. All arguments to <code class="docutils literal notranslate"><span class="pre">grid()</span></code> can be used in <code class="docutils literal notranslate"><span class="pre">plot()</span></code>.
+Plot was selected as a better word for a novice. However,    <code class="docutils literal notranslate"><span class="pre">grid()</span></code> will also work.
+Until a widget is plotted, it will not appear. However, the <code class="docutils literal notranslate"><span class="pre">gui</span></code> window is automatically
+plotted. Actually, you are plotting the ttk LabelFrame, the ttk Entry widget is automatically
+plotting in the Frame filling up the entire frame.</p></li>
+<li><p>Place the ‘welcome’ widget at row 1 (second row) of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered. There is a 3 pixel
+default vertical spacing between the Label widget and Entry widget.</p></li>
+<li><p>Place the ‘command’ widget at row 2 (third row) of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered with a vertical
+spacing of 10 pixels.</p></li>
+<li><p>Begin an infinite loop.</p></li>
+<li><p>Wait for the user to press click on a button. The <code class="docutils literal notranslate"><span class="pre">waitforUser()</span></code> method is a synonym
+for the tk <code class="docutils literal notranslate"><span class="pre">mainloop()</span></code> method. Again, the name was changed to help a novice programmer.
+However, <code class="docutils literal notranslate"><span class="pre">mainloop</span></code> will also work. This method starts the event processing loop and is
+the heart of all GUIs. It handles all key presses and mouse clicks. Nothing will happen
+until this method is running. This loop will continue until the user clicks on the either the
+‘Ok’ or ‘Cancel’ button. Clicking on close window system widget will have the same action as
+clicking on the ‘Cancel’ button. This action is built-in to all <em>Tkintertoy</em> windows.</p></li>
+<li><p>To get to this line of code, the user clicked on a button. Test to see if the <code class="docutils literal notranslate"><span class="pre">content</span></code>
+dictionary contains anything. If it does, the user clicked on the ‘Ok’ button. Otherwise,
+the user clicked on the ‘Cancel’ button.</p></li>
+<li><p>To get to this line of code, the user clicked on the ‘Ok’ button. Collect the contents of
+the ‘name’ ttwidget and add it to the “Welcome” string in the ‘welcome’ ttwidget. This
+shows how easy it is to get and set the contents of a widget using the given methods. To
+get the value of a widget call the <code class="docutils literal notranslate"><span class="pre">get()</span></code> method. To change the value of any widget
+call the <code class="docutils literal notranslate"><span class="pre">set()</span></code> method. The type of widget does not matter, <code class="docutils literal notranslate"><span class="pre">get()</span></code> and <code class="docutils literal notranslate"><span class="pre">set()</span></code>
+work for all widgets. Since all widgets are contained in the <code class="docutils literal notranslate"><span class="pre">content</span></code> directory of
+<code class="docutils literal notranslate"><span class="pre">gui</span></code>, the programmer does not need to keep track of individual widgets, only their
+containing frames or windows. Again, the usually programmer does not access <code class="docutils literal notranslate"><span class="pre">content</span></code>
+directly, they should use <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span></code> methods.</p></li>
+<li><p>This line of code is reached only if the user clicked on ‘Cancel’ which emptied the
+<code class="docutils literal notranslate"><span class="pre">content</span></code> directory. In this case, the user is finished with the application.</p></li>
+<li><p>Break the infinite loop and exit the program. Notice the difference between the infinite
+application loop set up by the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement and the event processing loop set up by
+the <code class="docutils literal notranslate"><span class="pre">waitforUser()</span></code> method. Also note that when the user clicked on ‘Cancel’, the tkintertoy
+code exited, but the Python code that called tkintertoy was still running. This is why you must
+break out of infinite loop.</p></li>
+</ol>
+<p>So you can see, with 15 lines of code, Tkintertoy gives you a complete GUI driven application,
+which will run on any platform Tkinter runs on with little concern of the particular host.
+Most <em>Tkintertoy</em> code is cross platform.</p>
+</section>
+<section id="simple-map-creation-dialog">
+<h2>Simple Map Creation Dialog<a class="headerlink" href="#simple-map-creation-dialog" title="Permalink to this heading"></a></h2>
+<p>Below is the code to create a simple dialog window which might be useful for a GIS tool which creates
+a map. This example was also written in imparative style in order to help the typical GIS or novice
+Python script writer. Procedure and object-oriented style coding will be demonstrated later.</p>
+<p>We will need the filename of the input CSV file, the output PNG map image, and the title for the map.
+We will use the following widgets: <strong>ttOpen</strong>, <strong>ttSaveAs</strong>, <strong>ttEntry</strong>, and <strong>ttText</strong> as a status
+window.</p>
+<p>We want the layout for the dialog to look like this:</p>
+<blockquote>
+<div><img alt="_images/map1.png" src="_images/map1.png" />
+</div></blockquote>
+<p>Here is the code (we will not worry not the code that actually creates the map!):</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos"> 2</span><span class="n">gui</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="n">gui</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Create a Map&#39;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">csv</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;CSV files&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;*.csv&#39;</span><span class="p">))]</span>
+<span class="linenos"> 5</span><span class="n">gui</span><span class="o">.</span><span class="n">addOpen</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;Input CSV filename&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">filetypes</span><span class="o">=</span><span class="n">csv</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">png</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;PNG files&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;*.png&#39;</span><span class="p">))]</span>
+<span class="linenos"> 7</span><span class="n">gui</span><span class="o">.</span><span class="n">addSaveAs</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="s1">&#39;Output PNG filename&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">filetypes</span><span class="o">=</span><span class="n">png</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">gui</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Map Title&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">gui</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s1">&#39;Status:&#39;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">17</span><span class="k">if</span> <span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+<span class="linenos">18</span>    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Converting </span><span class="si">{</span><span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> into </span><span class="si">{</span><span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">...</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="linenos">19</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">gui</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>  <span class="c1"># pause 5 seconds</span>
+<span class="linenos">21</span>    <span class="c1"># magic map making code goes here...</span>
+<span class="linenos">22</span>    <span class="n">gui</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Each line of code is explained below:</p>
+<ol class="arabic simple">
+<li><p>Import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> object from tkintertoy.</p></li>
+<li><p>Create an instance of a <code class="docutils literal notranslate"><span class="pre">Window</span></code> and label it <code class="docutils literal notranslate"><span class="pre">gui</span></code>.</p></li>
+<li><p>Set the title <code class="docutils literal notranslate"><span class="pre">gui</span></code> to “Create a Map”.</p></li>
+<li><p>We want to limit the input files to .csv only. This list will be used in the  method in the
+next line. Notice, you can filter multiple types.</p></li>
+<li><p>Add an <strong>ttOpen</strong> dialog widget. This is a combination of a ttk Entry widget, a ‘Browse’ ttk
+Button, and a ttk LabelFrame. If the user clicks on the ‘Browse’ button, they will see a
+directory limited to CSV files. To allow the user to see the entire path, we change the width
+of the entry to 40 characters.</p></li>
+<li><p>We want to limit our output to .png only.</p></li>
+<li><p>Add a <strong>ttSaveAs</strong> dialog widget. This is a combination of a ttk Entry widget, a ‘Browse’ ttk
+Button, and a ttk LabelFrame. If the user clicks on the ‘Browse’ button, they will see a directory
+limited to PNG files. If the file already exists, an overwrite confirmation dialog will pop up.</p></li>
+<li><p>Add an <strong>ttEntry</strong> widget that is 40 characters wide to collect the map title.</p></li>
+<li><p>Add a <strong>ttText</strong> widget, which is a combination of a ttk Text widget, a ttk Scrollbar, and a ttk
+LabelFrame. It will have a width of 40 characters, a height of 5 lines, and will be used for all
+status messages. The <strong>ttText</strong> widget is extremelly useful for many different purposes.</p></li>
+<li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
+<li><p>Plot the ‘input’ widget in the first row (row 0), vertically separating widgets by 10 pixels.</p></li>
+<li><p>Plot the ‘output’ widget in the second row, vertically separating widgets by 10 pixels. Notice
+this will cause a 20 pixel separation between the input and output widgets.</p></li>
+<li><p>Plot the ‘title’ widget in the third row, vertically separating widgets by 10 pixels.</p></li>
+<li><p>Plot the ‘status’ widget in the fourth row, vertically separating widgets by 10 pixels.</p></li>
+<li><p>Plot the ‘commands’ widget in the fifth row, vertically separating widgets by 20 pixels. This
+will be 30 pixels from the status widget.</p></li>
+<li><p>Enter the event processing loop and exit when the user clicks on a button.</p></li>
+<li><p>If the user clicked on the OK button do the following:</p></li>
+<li><p>Create the status message.</p></li>
+<li><p>Display the status message.</p></li>
+<li><p>Pretend we are making a map but in reality just pause for 5 seconds so the user can see the status
+message.</p></li>
+<li><p>This is where the actual map making code would begin.</p></li>
+<li><p>Exit the program.</p></li>
+</ol>
+<p>Notice, if the user clicks on the Cancel button, the program exits at line 17.</p>
+</section>
+<section id="selection-widgets">
+<h2>Selection Widgets<a class="headerlink" href="#selection-widgets" title="Permalink to this heading"></a></h2>
+<p>Many times you want to limit the user to a fixed set of options. This next example demonstrates
+widgets that are useful for this task. We will create a hamburger ordering application which will
+use three type of selection widgets: <strong>ttRadiobox</strong>, <strong>ttCheckbox</strong>, and <strong>ttList</strong>. We will stay
+with imparative style programming.</p>
+<p>Radiobox widgets are great for showing the user an list of dependent options. Only one option in the
+list can be selected at a time. The name radiobutton comes from old-fashioned car radio tuner buttons.
+Checkboxes allow the user to select many independent options at a time. Lists can be programmed to do
+both.</p>
+<p>We will use a radiobox to select whether the user want a single, double, or a triple burger. We will
+user a list to indicate which toppings the user wants, and a checkbox to indicate the desired condiments.</p>
+<p>Below is a screenshot of the application:</p>
+<blockquote>
+<div><img alt="_images/burger.png" src="_images/burger.png" />
+</div></blockquote>
+<p>Here is the code:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos"> 2</span><span class="n">app</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="n">app</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Order a Hamburger&#39;</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="n">burgerType</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Single&#39;</span><span class="p">,</span> <span class="s1">&#39;Double&#39;</span><span class="p">,</span> <span class="s1">&#39;Triple&#39;</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="n">app</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;Type of Hamburger&#39;</span><span class="p">,</span> <span class="n">burgerType</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">toppings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cheese&#39;</span><span class="p">,</span> <span class="s1">&#39;Lettuce&#39;</span><span class="p">,</span> <span class="s1">&#39;Onions&#39;</span><span class="p">,</span> <span class="s1">&#39;Pickles&#39;</span><span class="p">,</span> <span class="s1">&#39;Tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;Relish&#39;</span><span class="p">]</span>
+<span class="linenos"> 7</span><span class="n">app</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">,</span> <span class="s1">&#39;Select Toppings&#39;</span><span class="p">,</span> <span class="n">toppings</span><span class="p">,</span> <span class="n">selectmode</span><span class="o">=</span><span class="s1">&#39;multiple&#39;</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">condiments</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ketchup&#39;</span><span class="p">,</span> <span class="s1">&#39;Mayonaise&#39;</span><span class="p">,</span> <span class="s1">&#39;Mustard&#39;</span><span class="p">,</span> <span class="s1">&#39;BBQ&#39;</span><span class="p">]</span>
+<span class="linenos"> 9</span><span class="n">app</span><span class="o">.</span><span class="n">addCheck</span><span class="p">(</span><span class="s1">&#39;condiments&#39;</span><span class="p">,</span> <span class="s1">&#39;Condiments&#39;</span><span class="p">,</span> <span class="n">condiments</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">app</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39;Order Up&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">app</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;condiments&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="n">app</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">20</span>    <span class="k">if</span> <span class="n">app</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+<span class="linenos">21</span>        <span class="n">btype</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>        <span class="n">toppings</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">)</span>
+<span class="linenos">23</span>        <span class="n">condiments</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;condiments&#39;</span><span class="p">)</span>
+<span class="linenos">24</span>        <span class="n">app</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;A </span><span class="si">{</span><span class="n">btype</span><span class="si">}</span><span class="s1"> hamburger&#39;</span><span class="p">,</span> <span class="n">allValues</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">25</span>        <span class="k">if</span> <span class="n">toppings</span><span class="p">:</span>
+<span class="linenos">26</span>            <span class="n">app</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39; - with: &#39;</span><span class="p">)</span>
+<span class="linenos">27</span>            <span class="n">tops</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">toppings</span><span class="p">)</span>
+<span class="linenos">28</span>            <span class="n">app</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;  </span><span class="si">{</span><span class="n">tops</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">29</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">30</span>            <span class="n">app</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39; - plain</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>        
+<span class="linenos">31</span>        <span class="k">if</span> <span class="n">condiments</span><span class="p">:</span>
+<span class="linenos">32</span>            <span class="n">app</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39; - add: &#39;</span><span class="p">)</span>
+<span class="linenos">33</span>            <span class="n">conds</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">condiments</span><span class="p">)</span>
+<span class="linenos">34</span>            <span class="n">app</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;  </span><span class="si">{</span><span class="n">conds</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">35</span>        <span class="n">app</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+<span class="linenos">36</span>        <span class="n">app</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">)</span>
+<span class="linenos">37</span>        <span class="n">app</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="s1">&#39;condiments&#39;</span><span class="p">)</span>        
+<span class="linenos">38</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">39</span>        <span class="k">break</span>
+<span class="linenos">40</span>    
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> object from tkintertoy.</p></li>
+<li><p>Create an instance of a <code class="docutils literal notranslate"><span class="pre">Window</span></code> and label it <code class="docutils literal notranslate"><span class="pre">app</span></code>.</p></li>
+<li><p>Set the title <code class="docutils literal notranslate"><span class="pre">app</span></code> to “Order a Hamburger”.</p></li>
+<li><p>Create a list of burger types.</p></li>
+<li><p>Add a <strong>ttRadiobox</strong> which is a list of three ttk Radiobuttons labeled with the type of burgers.
+These will be referenced with a single tag, ‘type’. If we want to reference a single Radiobutton, we will
+use an index; [0], [1], or [2].</p></li>
+<li><p>Create a list of burger toppings.</p></li>
+<li><p>Add a <strong>ttListbox</strong> which is a tk Listbox with a tk scrollbar. The elements are the items in the list of
+toppings. Notice that selectmode is ‘multiple’ so the will be able to topping multiple toppings without pressing
+the control key. This is a good example of when a listbox is useful. While it does take up screen space, it makes
+it easy to select many multiple options and restricts the user to a fixed set of options.</p></li>
+<li><p>Create a list of condiments.</p></li>
+<li><p>Create a <strong>ttCheckbox</strong> which is a list of three ttk Checkbuttons labeled with the condiments. The orientation
+will be vertical. This is another widget where the user can select multiple options. It is best used with a
+small number of options.</p></li>
+<li><p>Add a <strong>ttText</strong> with a height of 5. This is where the order will appear.</p></li>
+<li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
+<li><p>Plot the ‘type’ widget in the first row, first column.</p></li>
+<li><p>Plot the ‘toppings’ widget in the first row, second column.</p></li>
+<li><p>Plot the ‘condiments’ widget in the first row, third column.</p></li>
+<li><p>Plot the ‘order’ widget in the second row, strectched across three columns.</p></li>
+</ol>
+<p>16. Plot the ‘commands’ widget in the third row, also stretched across three columns.
+18. Begin a infinite loop.
+19. Enter the event processing loop and exit when the user clicks on a button.
+20. If the user clicked on the OK button do the following:
+21. Get the burger type.
+22. Get the toppings list.
+23. Get the condiments list.
+24. Start the order message. The allValue=True clears the text widget of any previous orders.
+25. If the user selected any toppings…
+26. Add the toppings phrase in the ‘orders’ widget.
+27. Create a string containing the selected toppings separated by a comma.
+28. Add it to the ‘orders’ widget.
+29. If the user selected no toppings…
+30. Mark the burger as plain.
+31. If the user selected any condiments…
+32. Add the condiments phrase.
+33. Create a string containing the selected condiments separated by a comma.
+34. Add it to the order.
+35. Reset the ‘type’ widget.
+36. Reset the ‘toppings’ widget.
+37. Reset the ‘condiments’ widget.
+38. If the user clicked on the ‘Cancel’ button…
+39. Break the infinate loop. The <em>Tkintertoy</em> application was automatically canceled.</p>
+<p>This is a example showed some of the selection widgets that are available in <em>Tkintertoy</em>.
+The best one to use is up to the programmer’s discretion. As you can see, this code is getting
+too long for imparative style. We will use procedure style in the next example.</p>
+</section>
+<section id="dynamic-widgets">
+<h2>Dynamic Widgets<a class="headerlink" href="#dynamic-widgets" title="Permalink to this heading"></a></h2>
+<p>A very useful technique is to create a widget which is dependent on the contents of another widget.
+The code below shows a <strong>ttCombobox</strong> which is dependent on a <strong>ttRadiobox</strong> row.</p>
+<p>The trick to have the contents of a combobox be dependent on a radiobox, is to create a combo widget
+and then create a callback function which looks at the contents of the radiobox and then sets the item
+list attribute of the combo widget. This time we will use procedure style code which is a more advanced
+style but still accessable to the novice programmer. We will also do a better job in adding comments
+to the code.</p>
+<p>Here is the screenshot:</p>
+<blockquote>
+<div><img alt="_images/dynamic_widget1.png" src="_images/dynamic_widget1.png" />
+</div></blockquote>
+<p>The callback function will have to know the widget that called it which is included when the Window is
+passes as an argument, which will lead to some strange looking code. This complexity can be eliminated
+by writing in an object-oriented fashion, which will be covered in the next example.</p>
+<p>Below is the code:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">gui</span><span class="p">):</span> <span class="c1"># callback function</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; set the alist attribute by what is in the radio button box &quot;&quot;&quot;</span>
+<span class="linenos"> 5</span>    <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Trees&#39;</span><span class="p">:[</span><span class="s1">&#39;Oak&#39;</span><span class="p">,</span><span class="s1">&#39;Maple&#39;</span><span class="p">,</span><span class="s1">&#39;Beech&#39;</span><span class="p">],</span>
+<span class="linenos"> 6</span>        <span class="s1">&#39;Birds&#39;</span><span class="p">:[</span><span class="s1">&#39;Cardinal&#39;</span><span class="p">,</span><span class="s1">&#39;Robin&#39;</span><span class="p">,</span><span class="s1">&#39;Sparrow&#39;</span><span class="p">],</span>
+<span class="linenos"> 7</span>        <span class="s1">&#39;Flowers&#39;</span><span class="p">:[</span><span class="s1">&#39;Rose&#39;</span><span class="p">,</span><span class="s1">&#39;Petunia&#39;</span><span class="p">,</span><span class="s1">&#39;Daylily&#39;</span><span class="p">]}</span>
+<span class="linenos"> 8</span>    <span class="n">select</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">lookup</span><span class="p">[</span><span class="n">select</span><span class="p">],</span> <span class="n">allValues</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">13</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; main driving function &quot;&quot;&quot;</span>
+<span class="linenos">14</span>    <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Trees&#39;</span><span class="p">,</span><span class="s1">&#39;Birds&#39;</span><span class="p">,</span><span class="s1">&#39;Flowers&#39;</span><span class="p">]</span>
+<span class="linenos">15</span>    <span class="n">gui</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+<span class="linenos">16</span>    <span class="n">gui</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Dynamic Widget Demo&#39;</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;Item Types&#39;</span><span class="p">,</span> <span class="n">categories</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addCombo</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;Items&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">postcommand</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="n">update</span><span class="p">(</span><span class="n">gui</span><span class="p">)))</span>
+<span class="linenos">19</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">25</span>    <span class="k">if</span> <span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+<span class="linenos">26</span>        <span class="n">selected</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="linenos">27</span>        <span class="n">item</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">)</span>
+<span class="linenos">28</span>        <span class="c1"># more code would go here...</span>
+<span class="linenos">29</span>        <span class="n">gui</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Below explains every line:</p>
+<p>1.  Import <code class="docutils literal notranslate"><span class="pre">Window</span></code> from tkintertoy.
+3.  Define the callback function, <code class="docutils literal notranslate"><span class="pre">update</span></code>. It will have a single parameter, the calling <code class="docutils literal notranslate"><span class="pre">Window</span></code>.
+4.  This is the function documentation string. It is a great idea to have a documentation string for every</p>
+<blockquote>
+<div><p>function and method. Since we are using the triple quote our comment can exceed a single line.</p>
+</div></blockquote>
+<p>5.  These next three lines define the lookup dictionary.
+8.  Get the category the user clicked on. This shows an advantage of <em>Tkintertoy’s</em> content directory. All</p>
+<blockquote>
+<div><p>widgets are included in the window. The programmer does not have to pass individual widgets.</p>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li><p>Using this category as a key, set all the values in the <strong>ttCombobox</strong> widget list to the list returned.
+by the lookup dictionary, rather than the entry widget. This is why the allValues is True.</p></li>
+<li><p>Change the entry value of ‘items’ to ‘…’ which is why allValues is False. This will overwrite any
+selection the user had made.</p></li>
+</ol>
+<ol class="arabic simple" start="12">
+<li><p>Create the main function, <code class="docutils literal notranslate"><span class="pre">main</span></code>. It will have no parameters. Most Python applications have a main driving
+function.</p></li>
+<li><p>The documentation line for <code class="docutils literal notranslate"><span class="pre">main</span></code></p></li>
+<li><p>Create the three categories.</p></li>
+<li><p>Create an instance of <code class="docutils literal notranslate"><span class="pre">Window</span></code> assigned to <code class="docutils literal notranslate"><span class="pre">gui</span></code>.</p></li>
+<li><p>Set the title for <code class="docutils literal notranslate"><span class="pre">gui</span></code>.</p></li>
+<li><p>Add a <strong>ttRadiobox</strong> box using the categories.</p></li>
+<li><p>Add a <strong>ttCombobox</strong> widget. This is a combination of a ttk Combobox contained in a ttk LabelFrame. This
+widget will update its items list whenever the user clicks on a radiobox button. This is an example of using
+the <code class="docutils literal notranslate"><span class="pre">postcommand</span></code> option for the combo widget. Normally, <code class="docutils literal notranslate"><span class="pre">postcommand</span></code> would be assigned to a single
+method or function name. However, we need to include <code class="docutils literal notranslate"><span class="pre">gui</span></code> as an parameter. This is why <code class="docutils literal notranslate"><span class="pre">lambda</span></code> is there.
+Do not fear <code class="docutils literal notranslate"><span class="pre">lambda</span></code>. Just think of it as a special <code class="docutils literal notranslate"><span class="pre">def</span></code> command that defines a function in place.</p></li>
+<li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
+<li><p>Initialize the items widget entry widget to just three dots. This lets the user know there are selections
+available in the pulldown.</p></li>
+<li><p>Plot the category widget in the first row.</p></li>
+<li><p>Plot the items widget in the second row.</p></li>
+<li><p>Plot the command buttons in the third row.</p></li>
+<li><p>Start the event processing loop and wait for the user to click on a button. Notice that as the user clicks
+on a category button, the list in the items combobox changes and the event loop keeps running. We do not need
+an infinite loop.</p></li>
+<li><p>If the user clicked on Ok by seeing if content is not empty.</p></li>
+<li><p>Retrieve the value of the category widget using the get method.</p></li>
+<li><p>Retrieve the value of the items widget that was selected or typed in.</p></li>
+<li><p>This where the actual processing code would start.</p></li>
+</ol>
+<p>29. Exit the program. Calling <code class="docutils literal notranslate"><span class="pre">cancel</span></code> is the same as clicking on the Cancel button.
+31. Call <code class="docutils literal notranslate"><span class="pre">main</span></code>. Even though we defined <code class="docutils literal notranslate"><span class="pre">main</span></code> above, Python will not execute the function until we call it.</p>
+</section>
+<section id="object-oriented-dynamic-widgets">
+<h2>Object-Oriented Dynamic Widgets<a class="headerlink" href="#object-oriented-dynamic-widgets" title="Permalink to this heading"></a></h2>
+<p>While I told you to not fear lambda, if you write code in an object-oriented mode, you don’t have to be
+concerned about lambda. One can write complex guis in tkintertoy without object-oriented style, which
+might be better for novice programmers, but most guis should be oject-oriented once the programmer is
+ready. While, the details of writing object-oriented code is far beyond the scope of this tutorial, we
+will look at the previous example in an object-oriented mode using composition. You will see, it is not
+really complicated at all, just a little different. The GUI design did not change.</p>
+<p>Below is the new code:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">gui</span><span class="p">):</span> <span class="c1"># callback function</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; set the alist attribute by what is in the radio button box &quot;&quot;&quot;</span>
+<span class="linenos"> 5</span>    <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Trees&#39;</span><span class="p">:[</span><span class="s1">&#39;Oak&#39;</span><span class="p">,</span><span class="s1">&#39;Maple&#39;</span><span class="p">,</span><span class="s1">&#39;Beech&#39;</span><span class="p">],</span>
+<span class="linenos"> 6</span>        <span class="s1">&#39;Birds&#39;</span><span class="p">:[</span><span class="s1">&#39;Cardinal&#39;</span><span class="p">,</span><span class="s1">&#39;Robin&#39;</span><span class="p">,</span><span class="s1">&#39;Sparrow&#39;</span><span class="p">],</span>
+<span class="linenos"> 7</span>        <span class="s1">&#39;Flowers&#39;</span><span class="p">:[</span><span class="s1">&#39;Rose&#39;</span><span class="p">,</span><span class="s1">&#39;Petunia&#39;</span><span class="p">,</span><span class="s1">&#39;Daylily&#39;</span><span class="p">]}</span>
+<span class="linenos"> 8</span>    <span class="n">select</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">lookup</span><span class="p">[</span><span class="n">select</span><span class="p">],</span> <span class="n">allValues</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">13</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; main driving function &quot;&quot;&quot;</span>
+<span class="linenos">14</span>    <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Trees&#39;</span><span class="p">,</span><span class="s1">&#39;Birds&#39;</span><span class="p">,</span><span class="s1">&#39;Flowers&#39;</span><span class="p">]</span>
+<span class="linenos">15</span>    <span class="n">gui</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+<span class="linenos">16</span>    <span class="n">gui</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Dynamic Widget Demo&#39;</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;Item Types&#39;</span><span class="p">,</span> <span class="n">categories</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addCombo</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;Items&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">postcommand</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="n">update</span><span class="p">(</span><span class="n">gui</span><span class="p">)))</span>
+<span class="linenos">19</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">25</span>    <span class="k">if</span> <span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+<span class="linenos">26</span>        <span class="n">selected</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="linenos">27</span>        <span class="n">item</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">)</span>
+<span class="linenos">28</span>        <span class="c1"># more code would go here...</span>
+<span class="linenos">29</span>        <span class="n">gui</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>And the line explanations:</p>
+<p>1.  Import <code class="docutils literal notranslate"><span class="pre">Window</span></code> from tkintertoy.
+3.  Create a class called <code class="docutils literal notranslate"><span class="pre">Gui</span></code>. This will contain all the code dealing with the interface. We are not</p>
+<blockquote>
+<div><p>inheriting from a parent class in this example. We will see how to do this in another example below.</p>
+</div></blockquote>
+<p>4.  This is a class documentation string. It is a great idea to document all classes, too.
+6.  Create an initialize method that will create the interface, called <code class="docutils literal notranslate"><span class="pre">__init__</span></code>. This strange name</p>
+<blockquote>
+<div><p>is required. Methods names that begin and end with double underscore are special in Python.</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>This is the method documentation string.</p></li>
+<li><p>Create the three categories.</p></li>
+<li><p>Create an instance of <code class="docutils literal notranslate"><span class="pre">Window</span></code> assigned to <code class="docutils literal notranslate"><span class="pre">self.gui</span></code>. This means that all methods in the class
+will be able to access the <code class="docutils literal notranslate"><span class="pre">Window</span></code> through <code class="docutils literal notranslate"><span class="pre">self.gui</span></code>.</p></li>
+<li><p>Set the title for <code class="docutils literal notranslate"><span class="pre">self.gui</span></code>.</p></li>
+<li><p>Add a <strong>ttRadiobox</strong> using the categories.</p></li>
+<li><p>Add a <strong>ttCombobox</strong> widget which will update its items list whenever the user clicks on a radiobox button.
+Notice that the <code class="docutils literal notranslate"><span class="pre">postcommand</span></code> option now simply points to the callback method without <code class="docutils literal notranslate"><span class="pre">lambda</span></code>
+since ALL methods can access <code class="docutils literal notranslate"><span class="pre">self.gui</span></code>. This is the major advantage to object-oriented code. It
+reduces argument passing.</p></li>
+<li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
+<li><p>Initialize the items widget.</p></li>
+<li><p>Plot the category widget in the first row.</p></li>
+<li><p>Plot the items widget in the second row.</p></li>
+</ol>
+<p>17. Plot the command buttons in the third row.
+19. Create the callback method using the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter.
+20. This is the method documentation string.
+21. These next three lines define the lookup dictionary.
+24. Get the category the user clicked on.
+25. Using this category as a key, set all the items in the combobox widget list to the list returned</p>
+<blockquote>
+<div><p>by the lookup dictionary, rather than the entry widget, which is why allValues is True.</p>
+</div></blockquote>
+<p>26. Clear the items widget.
+28. Create the main driving function.
+29. Main documentation string.
+30. Create an instance of the <code class="docutils literal notranslate"><span class="pre">Gui</span></code> class labeled <code class="docutils literal notranslate"><span class="pre">app</span></code>. Notice that <code class="docutils literal notranslate"><span class="pre">app.gui</span></code> will refer to the</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Window</span></code> created in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method and <code class="docutils literal notranslate"><span class="pre">app.gui.content</span></code> will have the contents of the
+window.</p>
+</div></blockquote>
+<ol class="arabic simple" start="31">
+<li><p>Start the event processing loop and wait for the user to click on a button.</p></li>
+<li><p>If the user clicked on Ok…</p></li>
+<li><p>Retrieve the value of the category.</p></li>
+<li><p>Retrieve the value of the entry part of the combobox.</p></li>
+</ol>
+<p>35. This where the actual processing code would start.
+37. Call main.</p>
+<p>Notice if the user clicks on ‘Cancel’ there is no more code to execute.</p>
+<p>There are very good reasons for learning this style of programming. It should be used
+for all except the simplest guis code. You will quickly get use to typing “self.” All future
+examples in this tutorial will use this style of coding.</p>
+</section>
+<section id="using-the-collector-widget">
+<h2>Using the Collector Widget<a class="headerlink" href="#using-the-collector-widget" title="Permalink to this heading"></a></h2>
+<p>This next example is the interface to a tornado path generator. Assume that we have a database that has
+tornado paths stored by date, counties that the tornado moved through, and the maximum damaged caused
+by the tornado (called the Enhanced Fajita or EF scale).</p>
+<p>This will demonstrate the use of the <strong>ttCollector</strong> widget, which is a combination of a ttk Treeview,
+and two ttk Buttons. It acts as a dialog inside a dialog. Below is the screenshot:</p>
+<blockquote>
+<div><img alt="_images/tornado.png" src="_images/tornado.png" />
+</div></blockquote>
+<p>You can see for the date we will use a <strong>ttSpinbox</strong>. A spinbox is a group of tk/ttk spinboxes that are
+limited to integers, separated by a string, and contained in a tk/ttk frame. This is a excellent widget for
+dates, times, social security numbers, etc. The <code class="docutils literal notranslate"><span class="pre">get</span></code> method will number the values of each box, with the
+separtor in between as a string. The <code class="docutils literal notranslate"><span class="pre">set</span></code> method also requires the separtor in the string.</p>
+<p>The county will be a <strong>ttCombo</strong> widget, the damage will use <strong>ttCheckbox</strong> and all choices will be shown
+in the <strong>ttCollector</strong> widget. Here is the code:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">class</span> <span class="nc">Gui</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; The Tornado Path Plotting GUI &quot;&quot;&quot;</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; create the GUI &quot;&quot;&quot;</span>
+<span class="linenos"> 8</span>        <span class="n">counties</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Clark&#39;</span><span class="p">,</span><span class="s1">&#39;Crawford&#39;</span><span class="p">,</span><span class="s1">&#39;Dubois&#39;</span><span class="p">,</span><span class="s1">&#39;Floyd&#39;</span><span class="p">,</span><span class="s1">&#39;Harrison&#39;</span><span class="p">,</span><span class="s1">&#39;Jefferson&#39;</span><span class="p">,</span>
+<span class="linenos"> 9</span>            <span class="s1">&#39;Orange&#39;</span><span class="p">,</span><span class="s1">&#39;Perry&#39;</span><span class="p">,</span><span class="s1">&#39;Scott&#39;</span><span class="p">,</span><span class="s1">&#39;Washigton&#39;</span><span class="p">]</span>
+<span class="linenos">10</span>        <span class="n">damage</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EF0&#39;</span><span class="p">,</span><span class="s1">&#39;EF1&#39;</span><span class="p">,</span><span class="s1">&#39;EF2&#39;</span><span class="p">,</span><span class="s1">&#39;EF3&#39;</span><span class="p">,</span><span class="s1">&#39;EF4&#39;</span><span class="p">,</span><span class="s1">&#39;EF5&#39;</span><span class="p">]</span>
+<span class="linenos">11</span>        <span class="n">dateParms</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1900</span><span class="p">,</span><span class="mi">2100</span><span class="p">]]</span>
+<span class="linenos">12</span>        <span class="n">initDate</span> <span class="o">=</span> <span class="s1">&#39;1/1/1980&#39;</span>
+<span class="linenos">13</span>        <span class="n">cols</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">],[</span><span class="s1">&#39;County&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">],[</span><span class="s1">&#39;Damage&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">]]</span>
+<span class="linenos">14</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+<span class="linenos">15</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Tornado Path Generator&#39;</span><span class="p">)</span>
+<span class="linenos">16</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addSpin</span><span class="p">(</span><span class="s1">&#39;tdate&#39;</span><span class="p">,</span> <span class="n">dateParms</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Date of Tornado&#39;</span><span class="p">)</span>
+<span class="linenos">17</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;tdate&#39;</span><span class="p">,</span> <span class="n">initDate</span><span class="p">)</span>
+<span class="linenos">18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addCombo</span><span class="p">(</span><span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="s1">&#39;Affected County&#39;</span><span class="p">,</span> <span class="n">counties</span><span class="p">)</span>
+<span class="linenos">19</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum EF Damage&#39;</span><span class="p">,</span> <span class="n">damage</span><span class="p">)</span>
+<span class="linenos">20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addCollector</span><span class="p">(</span><span class="s1">&#39;paths&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;tdate&#39;</span><span class="p">,</span><span class="s1">&#39;county&#39;</span><span class="p">,</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;Included Tornadoes&#39;</span><span class="p">,</span>
+<span class="linenos">21</span>            <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">)</span>
+<span class="linenos">23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;tdate&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">24</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;paths&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">30</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; the driving function &quot;&quot;&quot;</span>
+<span class="linenos">31</span>    <span class="n">app</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">()</span>
+<span class="linenos">32</span>    <span class="n">app</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">33</span>    <span class="k">if</span> <span class="n">app</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+<span class="linenos">34</span>        <span class="n">data</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;paths&#39;</span><span class="p">,</span> <span class="n">allValues</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">35</span>        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">36</span>        <span class="c1"># magic tornado path generation code</span>
+<span class="linenos">37</span>        <span class="n">app</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Here are the line explanations, notice the first steps are very similar to the
+previous example:</p>
+<p>1.  Import <code class="docutils literal notranslate"><span class="pre">Window</span></code> from tkintertoy.
+3.  Create a class called <code class="docutils literal notranslate"><span class="pre">Gui</span></code>. This will contain all the code dealing with the interface.
+4.  This is a class documentation string.
+6.  Create an initialize method that will create the interface. All methods in the class will have</p>
+<blockquote>
+<div><p>access to <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>This is the method documentation string.</p></li>
+</ol>
+<p>8.  Create a list of county names.
+10. Create a list of damage levels.
+11. Create the parameter list for the date spinner. The first digit is the width, the  second is the</p>
+<blockquote>
+<div><p>lower limit, the third is the upper limit.</p>
+</div></blockquote>
+<ol class="arabic simple" start="12">
+<li><p>The initial date will be 1/1/1980.</p></li>
+<li><p>Set up the column headers for the <strong>ttCollector</strong> widget. The first value is the the header string,
+the second is the width of the column in pixels.</p></li>
+<li><p>Create an instance of <code class="docutils literal notranslate"><span class="pre">Window</span></code> labeled <code class="docutils literal notranslate"><span class="pre">self.gui</span></code>. Again, the <code class="docutils literal notranslate"><span class="pre">self</span></code> means that every method
+in the class will have access. Notice, there are no other methods in this class so making gui an
+attribute of self is unnecessary. However, it does no harm, other programmers expect it, and future
+methods can be added easily.</p></li>
+<li><p>Set the title of <code class="docutils literal notranslate"><span class="pre">self.gui</span></code> to “Tornado Path Generator”.</p></li>
+<li><p>Add a date <strong>ttSpinbox</strong>. This is a combination of 3 ttk Spinboxes seperated by a slash (/) contained
+in a ttk LabelFrame. It will be labeled tdate in order to not cause any confusion with a common date
+library.</p></li>
+<li><p>Set the date to the default. Notice to set and value of a spinbox you use a list or tuple of integers.</p></li>
+<li><p>Add a county <strong>ttCombo</strong>.</p></li>
+<li><p>Add a damage level <strong>ttCheckbox</strong>.</p></li>
+<li><p>Add a <strong>ttCollector</strong>. The collector has a tag, the column header list from line 13, a list of the
+widget tags it needs to collect, and the propmt. It also includes two buttons, ‘Add’ and ‘Delete’.
+Clicking on ‘Add’ will collect the values in the widgets and add them in a line in the treeview.
+Clicking on ‘Delete’ will delete the currently selected line in the treeview.</p></li>
+</ol>
+<ol class="arabic simple" start="22">
+<li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
+<li><p>Plot the date widget in the first row, separating the widgets by 5 pixels.</p></li>
+<li><p>Plot the county widget in the second row, separating the widgets by 5 pixels.</p></li>
+<li><p>Plot the damage level widget in the third row, separating the widgets by 5 pixels.</p></li>
+<li><p>Plot the path widget in the fourth row, separating the widgets by 5 pixels.</p></li>
+</ol>
+<p>27. Plot the command widget in the fifth row, separating the widgets by 10 pixels.
+29. Create a <code class="docutils literal notranslate"><span class="pre">main</span></code> function.
+30. This is the function documentation.
+31. Create an instance of the <code class="docutils literal notranslate"><span class="pre">Gui</span></code> class which will create the GUI.
+32. Start the event processing loop
+33. If the user clicked on ‘Ok’…
+34. Get all the lines in the collector as a list of lists.
+35. This is where the tornado path generation code would begin but we are just going to print the data.</p>
+<blockquote>
+<div><p>The example gives [[‘4/3/2010’, ‘Clark’, ‘EF2’], [‘4/3/2010’, ‘Floyd’, ‘EF2’]].</p>
+</div></blockquote>
+<ol class="arabic simple" start="36">
+<li><p>Call the driving function.</p></li>
+</ol>
+<p>When you click on ‘Add’, the current selections in tdate, counties, and level will be added into
+the collector widget in a row. If you select a row and click on ‘Delete’, it will be removed. Thus
+the collector acts as a GUI inside of a GUI, being fed by other widgets. If this was a real application,
+we would generate a tornado path map of the EF-2 tornadoes that moved through Clark and Floyd counties
+on April 4, 2010.</p>
+</section>
+<section id="using-the-notebook-container">
+<h2>Using the Notebook Container<a class="headerlink" href="#using-the-notebook-container" title="Permalink to this heading"></a></h2>
+<p><em>Tkintertoy</em> includes containers which are <code class="docutils literal notranslate"><span class="pre">Windows</span></code> within <code class="docutils literal notranslate"><span class="pre">Windows</span></code> in order to organize widgets.
+A very useful one is the <strong>ttNotebook</strong> which is a ttk Notebook. This example shows a notebook that
+combines two different map making methods into a single GUI. This will use the following widgets:
+<strong>ttEntry</strong>, <strong>ttCheckbox</strong>, <strong>ttText</strong>, <strong>ttSpinbox</strong>, and <strong>ttButtonbox</strong>. The style of code will
+stay with composition.</p>
+<p>Below is a screenshot:</p>
+<blockquote>
+<div><img alt="_images/mapper.png" src="_images/mapper.png" />
+</div></blockquote>
+<p>Here is the code. We will also demonstrate to the set and get the contents of more widgets and introduce
+some simple error trapping:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="linenos">  2</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="k">class</span> <span class="nc">Gui</span><span class="p">:</span>
+<span class="linenos">  5</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; the GUI for the script &quot;&quot;&quot;</span>
+<span class="linenos">  6</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">  7</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; create the interface &quot;&quot;&quot;</span>
+<span class="linenos">  8</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+<span class="linenos">  9</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Mapper 1.0&#39;</span><span class="p">)</span>
+<span class="linenos"> 10</span>        <span class="c1"># notebook</span>
+<span class="linenos"> 11</span>        <span class="n">tabs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Routine&#39;</span><span class="p">,</span> <span class="s1">&#39;Accumulate&#39;</span><span class="p">]</span>
+<span class="linenos"> 12</span>        <span class="n">pages</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">addNotebook</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">tabs</span><span class="p">)</span>
+<span class="linenos"> 13</span>        <span class="c1"># routine page</span>
+<span class="linenos"> 14</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 15</span>        <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="linenos"> 16</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">,%m,%Y,%B&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="linenos"> 17</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Map Title&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos"> 18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;24 Hour Precipitation Ending 7 AM </span><span class="si">{0[3]}</span><span class="s1"> </span><span class="si">{0[0]}</span><span class="s1">, </span><span class="si">{0[2]}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="linenos"> 19</span>            <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">))</span>
+<span class="linenos"> 20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 21</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="s1">&#39;Output Filename&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos"> 22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="s1">&#39;pcpn</span><span class="si">{0[1]}{0[0]}{0[2]}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">))</span>
+<span class="linenos"> 23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 24</span>        <span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Make KMLs&#39;</span><span class="p">,</span> <span class="s1">&#39;Make Maps&#39;</span><span class="p">]</span>
+<span class="linenos"> 25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">addCheck</span><span class="p">(</span><span class="s1">&#39;jobs&#39;</span><span class="p">,</span> <span class="s1">&#39;Jobs&#39;</span><span class="p">,</span> <span class="n">jobs</span><span class="p">)</span>
+<span class="linenos"> 26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;jobs&#39;</span><span class="p">,</span> <span class="n">jobs</span><span class="p">)</span>
+<span class="linenos"> 27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;jobs&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 28</span>        <span class="c1"># accum pcpn page</span>
+<span class="linenos"> 29</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos"> 30</span>        <span class="n">parms</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2100</span><span class="p">]]</span>
+<span class="linenos"> 31</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">addSpin</span><span class="p">(</span><span class="s1">&#39;endDate&#39;</span><span class="p">,</span> <span class="n">parms</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Ending Date&#39;</span><span class="p">,</span>
+<span class="linenos"> 32</span>            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">updateAccum</span><span class="p">)</span>
+<span class="linenos"> 33</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;endDate&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 34</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;endDate&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 35</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">addSpin</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">]],</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Days back&#39;</span><span class="p">,</span>
+<span class="linenos"> 36</span>            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">updateAccum</span><span class="p">)</span>
+<span class="linenos"> 37</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
+<span class="linenos"> 38</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 39</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="linenos"> 40</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 41</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="s1">&#39;Output Filename&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos"> 42</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 43</span>        <span class="bp">self</span><span class="o">.</span><span class="n">updateAccum</span><span class="p">()</span>
+<span class="linenos"> 44</span>        <span class="c1"># dialog</span>
+<span class="linenos"> 45</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="s1">&#39;Messages&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="linenos"> 46</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 47</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos"> 48</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">go</span><span class="p">)</span>
+<span class="linenos"> 49</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Exit&#39;</span><span class="p">)</span>
+<span class="linenos"> 50</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 51</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 52</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Routine&#39;</span><span class="p">)</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span>    <span class="k">def</span> <span class="nf">updateAccum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 55</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; update widgets on accum page &quot;&quot;&quot;</span>
+<span class="linenos"> 56</span>        <span class="n">end</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;endDate&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]</span>
+<span class="linenos"> 57</span>        <span class="n">endDate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos"> 58</span>        <span class="n">endDateFmt</span> <span class="o">=</span> <span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">,%m,%Y,%B&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="linenos"> 59</span>        <span class="n">daysBack</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 60</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> Day Precipitation Total Ending </span><span class="si">{1[3]}</span><span class="s1"> </span><span class="si">{1[0]}</span><span class="s1">, </span><span class="si">{1[2]}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="linenos"> 61</span>            <span class="nb">int</span><span class="p">(</span><span class="n">daysBack</span><span class="p">),</span> <span class="n">endDateFmt</span><span class="p">))</span>
+<span class="linenos"> 62</span>        <span class="n">begDate</span> <span class="o">=</span> <span class="n">endDate</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 63</span>        <span class="n">begDateFmt</span> <span class="o">=</span> <span class="n">begDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">,%m&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="linenos"> 64</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="s1">&#39;accum</span><span class="si">{0[1]}{0[0]}</span><span class="s1">-</span><span class="si">{1[1]}{1[0]}{1[2]}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="linenos"> 65</span>            <span class="n">begDateFmt</span><span class="p">,</span> <span class="n">endDateFmt</span><span class="p">))</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span>    <span class="k">def</span> <span class="nf">go</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 68</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; get current selected page and make map &quot;&quot;&quot;</span>
+<span class="linenos"> 69</span>        <span class="n">run</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">)</span>               <span class="c1"># get selected tab number</span>
+<span class="linenos"> 70</span>        <span class="n">mapper</span> <span class="o">=</span> <span class="n">Mapper</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>                      <span class="c1"># create a Mapper instance using the Gui</span>
+<span class="linenos"> 71</span>                                                        <span class="c1"># instance which is self</span>
+<span class="linenos"> 72</span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 73</span>            <span class="k">if</span> <span class="n">run</span> <span class="o">==</span> <span class="s1">&#39;Routine&#39;</span><span class="p">:</span>
+<span class="linenos"> 74</span>                <span class="n">mapper</span><span class="o">.</span><span class="n">runRoutine</span><span class="p">()</span>
+<span class="linenos"> 75</span>            <span class="k">elif</span> <span class="n">run</span> <span class="o">==</span> <span class="s1">&#39;Accumulate&#39;</span><span class="p">:</span>
+<span class="linenos"> 76</span>                <span class="n">mapper</span><span class="o">.</span><span class="n">runAccum</span><span class="p">()</span>
+<span class="linenos"> 77</span>        <span class="k">except</span><span class="p">:</span>
+<span class="linenos"> 78</span>            <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">catchExcept</span><span class="p">())</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span><span class="k">class</span> <span class="nc">Mapper</span><span class="p">:</span>
+<span class="linenos"> 81</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; contain all GIS methods &quot;&quot;&quot;</span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gui</span><span class="p">):</span>
+<span class="linenos"> 84</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; create Mapper instance</span>
+<span class="linenos"> 85</span><span class="sd">            gui: Gui object &quot;&quot;&quot;</span>
+<span class="linenos"> 86</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="n">gui</span>
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span>    <span class="k">def</span> <span class="nf">runRoutine</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 89</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; make the routine precipitation maps &quot;&quot;&quot;</span>
+<span class="linenos"> 90</span>        <span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+<span class="linenos"> 91</span>        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">)</span>
+<span class="linenos"> 92</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Making </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 93</span>        <span class="c1"># magic map making code goes here</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span>    <span class="k">def</span> <span class="nf">runAccum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 96</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; make the accumulate precipitation map &quot;&quot;&quot;</span>
+<span class="linenos"> 97</span>        <span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+<span class="linenos"> 98</span>        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">)</span>
+<span class="linenos"> 99</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Making </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">100</span>        <span class="c1"># magic map making code goes here</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">103</span>    <span class="n">gui</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">()</span> <span class="c1"># create a Gui instance and pass Mapper class to it</span>
+<span class="linenos">104</span>    <span class="n">gui</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">105</span>
+<span class="linenos">106</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">107</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Here are the line explanations:</p>
+<ol class="arabic simple">
+<li><p>Import datetime for automatic date functions</p></li>
+</ol>
+<p>2.  Import <code class="docutils literal notranslate"><span class="pre">Window</span></code> from tkintertoy.
+4.  Create a class called <code class="docutils literal notranslate"><span class="pre">Gui</span></code>. This will the code dealing with the interface.
+5.  This is a class documentation string.
+6.  Create an initialize method that will create the interface. All methods in the class will have</p>
+<blockquote>
+<div><p>access to <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>This is the method documentation string.</p></li>
+<li><p>Create an instance of <code class="docutils literal notranslate"><span class="pre">Window</span></code> that will be asignned to an attribute <code class="docutils literal notranslate"><span class="pre">dialog</span></code>. All methods in this
+class will have access.</p></li>
+<li><p>Set the title of the window to Mapper 1.0.</p></li>
+<li><p>This code section is for the notebook widget.</p></li>
+<li><p>Create a list which contains the names of the tabs in the notebook: <code class="docutils literal notranslate"><span class="pre">Routine</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Accumulate</span></code>.
+<code class="docutils literal notranslate"><span class="pre">Routine</span></code> will make a map of one day’s rainfall, <code class="docutils literal notranslate"><span class="pre">Accumulate</span></code> will add up several days worth
+of rain.</p></li>
+<li><p>Add a <strong>ttNotebook</strong>. The notebook will return two <code class="docutils literal notranslate"><span class="pre">Windows</span></code> in a list which will be used as a
+container for each notebook page.</p></li>
+<li><p>This code section is for the <code class="docutils literal notranslate"><span class="pre">Routine</span></code> notebook page.</p></li>
+<li><p>Assign the first page (page[0]) of the notebook, which is a <code class="docutils literal notranslate"><span class="pre">Window</span></code> to an attribute <code class="docutils literal notranslate"><span class="pre">routine</span></code>.</p></li>
+<li><p>Get today’s date.</p></li>
+<li><p>Convert it to [date, month, year, month abr]; ex. [24, 6, 2023, ‘Jun’]</p></li>
+<li><p>Add a title <strong>ttEntry</strong> widget. This will be filled in dynamically and be the title of the map.</p></li>
+</ol>
+<p>18. Set the title using today’s date.
+20. Plot the title in the first row.
+21. Add an output filename <strong>ttEntry</strong> widget. This will also filled in dynamically.
+22. Set the output filename using today’s date.
+23. Plot the output filename widget in the second row.
+24. Create a list of two types of jobs: Make KMLs &amp; Make Maps.
+25. Add a jobs <strong>ttCheckbox</strong>.
+26. Turn on both check boxes, by default.
+27. Plot the jobs widget in the third row.
+28. This code section is for the <code class="docutils literal notranslate"><span class="pre">Accumulate</span></code> notebook page.
+29. Assign the second page (page[1]) of the notebook, which is a <code class="docutils literal notranslate"><span class="pre">Window</span></code> to an attribute <code class="docutils literal notranslate"><span class="pre">accum</span></code>.
+30. Create the list for the parameters of a date spinner.
+31. Add an ending date <strong>ttSpinbox</strong>, with the callback set to self.updateAccum().
+33. Set the ending date to today.
+34. Plot the ending date widget in the first row.
+35. Add a single days back <strong>ttSpinbox</strong> with the callback set to self.updateAccum() as well.
+37. Set the default days back to 2.
+38. Plot the days back widget in the second row.
+39. Add a title <strong>ttEntry</strong>. This will be filled in dynamically.
+40. Plot the title widget in the third row.
+41. Add an output filename <strong>ttEntry</strong>. This will be filled in dynamically.
+42. Plot the output filename widget in the fourth row.
+43. Fill in the title using the default values in the above widgets.
+44. This section of code is for the rest of the dialog window.
+45. Add a messages <strong>ttText</strong>. This is where all messages to the user will appear.
+46. Plot the messages widget in the second row of the dialog window. The notebook will be in the first row.
+47. Add a command <strong>ttButtonbox</strong>, the default are labeled Ok and Cancel.
+48. Set the callback for the first button to the <code class="docutils literal notranslate"><span class="pre">go</span></code> method. We are changing the <em>command</em> parameter.</p>
+<blockquote>
+<div><p>This shows how easy it is to get to the more complex parts of Tk/ttk from tkintertoy. The <code class="docutils literal notranslate"><span class="pre">setWidget</span></code>
+allows the programmer to change any of the tk/ttk options after the widget is created.</p>
+</div></blockquote>
+<ol class="arabic simple" start="49">
+<li><p>Set the label of the second button to <code class="docutils literal notranslate"><span class="pre">Exit</span></code> using the same method as above but changing the <em>text</em>
+parameter. This shows how options of buttons can be dynamic.</p></li>
+<li><p>Plot the command buttons in the third row.</p></li>
+<li><p>Plot the notebook in the first row.</p></li>
+<li><p>Set the default notebook page to <code class="docutils literal notranslate"><span class="pre">Routine</span></code>. This will be the page displayed when the application
+first starts. Note that <code class="docutils literal notranslate"><span class="pre">set</span></code> and <code class="docutils literal notranslate"><span class="pre">get</span></code> notebook page index numbers</p></li>
+</ol>
+<ol class="arabic simple" start="54">
+<li><p>This method will update the widgets on the accumulate page expanding on dynamic widgets.</p></li>
+<li><p>This is the method documentation string.</p></li>
+<li><p>Get the ending date from the widget.  This is an example of a use of a list comprehension. The <code class="docutils literal notranslate"><span class="pre">get</span></code>
+method will return a date string. The <code class="docutils literal notranslate"><span class="pre">split</span></code> method will return a list of str, and the list comprehension
+Convert the value to ints. The result will be [month, day, year].</p></li>
+<li><p>This will turn the list of ints into a datetime object.</p></li>
+<li><p>Turn the object into a comma-separated string ‘date-int, month-int, year, month-abrev’ like</p></li>
+</ol>
+<blockquote>
+<div><p>‘24,6,2023,Jun’.</p>
+</div></blockquote>
+<ol class="arabic simple" start="59">
+<li><p>Get the number of days back the user wanted.</p></li>
+<li><p>Set the title of the map in the title widget. As the user changes the dates and days back, this
+title will dynamically change. The user can edit this one last time before they click on Ok.</p></li>
+<li><p>Calculate the beginning date from the ending date and the days back.</p></li>
+</ol>
+<p>62. Convert the datetime into a list of strings [‘date-int’,’month-int’] like [‘22’,’6’].
+64. Set the title of the map file to something like ‘accum06022-06242023’. Again, this will be dynamically</p>
+<blockquote>
+<div><p>updated and can be overridden. Notice that one method is updating two widgets.</p>
+</div></blockquote>
+<ol class="arabic simple" start="67">
+<li><p>This method will execute the correct the map generation code.</p></li>
+<li><p>This is the method documentation string.</p></li>
+<li><p>Get the selected notebook tab page, either 0 for the routine page or 1 for the accumulation page.</p></li>
+<li><p>Create an instance of a Mapper object. However, we have a chicken/egg type problem. Mapper must know
+about the Gui instance in order to send messages to the user. That is why the Mapper instance must
+be created after the Gui instance. However, the Gui instance must also know about the Mapper instance
+in order to execute the map making code. That is why the Mapper instance is created inside of this
+method. The Gui instance <code class="docutils literal notranslate"><span class="pre">self</span></code> is used as an argument to the Mapper initialization method. It
+looks funny but it works.</p></li>
+</ol>
+<ol class="arabic simple" start="72">
+<li><p>This code might fail so we place it in a try…except block.</p></li>
+<li><p>If the current page is the routine page…</p></li>
+<li><p>Run the routine map generation code.</p></li>
+<li><p>If the current page is the accumulation page…</p></li>
+<li><p>Run the accumulated map generation code.</p></li>
+<li><p>Catch any exceptions.</p></li>
+</ol>
+<p>78. Place all error messages into the messages widget.
+80. Create a <code class="docutils literal notranslate"><span class="pre">Mapper</span></code> class which contains all the map generation code. This will be a stud here since</p>
+<blockquote>
+<div><p>map generation code is well beyond the scope of this tutorial.</p>
+</div></blockquote>
+<p>81. Class documentation line.
+83. Create an initialize method that will contain all the map making methods. For this example this will</p>
+<blockquote>
+<div><p>be mainly stubs since actual GIS code is well beyond the scope of this tutorial.</p>
+</div></blockquote>
+<p>84. Method documentation lines.
+86. Make the Gui object an attribute of the instance so all methods have access.
+88. This method contains the code for making the routine daily precipitation map.
+89. Method documentation line.
+90. Get the desired map title. This will be used in the magic map making code section.
+91. Get the filename of the map.
+92. Send a message to the user that the magic map making has begun.
+93. This is well beyond the scope of this tutorial.
+95. This method contains the code for making accumulated precipitation maps, that is, precipitation that</p>
+<blockquote>
+<div><p>fell over several days.</p>
+</div></blockquote>
+<ol class="arabic simple" start="96">
+<li><p>Method documentation line.</p></li>
+<li><p>Get the desired map title. This will be used in the magic map making code section.</p></li>
+<li><p>Get the filename of the map.</p></li>
+<li><p>Send a message to the user that the magic map making has begun.</p></li>
+</ol>
+<p>100. This is well beyond the scope of this tutorial.
+102. The <code class="docutils literal notranslate"><span class="pre">main</span></code> function.
+103. Create the GUI.
+104. Run the GUI.
+106. Standard Python. If you are executing this code from the command line, execute the main function.</p>
+<blockquote>
+<div><p>If importing, don’t.</p>
+</div></blockquote>
+</section>
+<section id="object-oriented-style-using-inheritance">
+<h2>Object-Oriented Style Using Inheritance<a class="headerlink" href="#object-oriented-style-using-inheritance" title="Permalink to this heading"></a></h2>
+<p>This example gets away from map maiking and is a demonstation of writting in an object-oriented
+style using inheritance. This is the style most textbooks will use when explaining GUI creation.
+Inheritance means that the application window will inherit all the features of a Tkintertoy
+<code class="docutils literal notranslate"><span class="pre">Window</span></code>. So instead of refering to the tkintertoy window in the class as self.gui you would
+use just self. Think of composition as the application has a Window and inheritance as the
+application is a Window.</p>
+<p>The example below is a pizza ordering system. It demostates several ttwidgets: <strong>ttEntry</strong>,
+<strong>ttRadio</strong>, <strong>ttCombo</strong>, <strong>ttLine</strong>, two <strong>ttChecks</strong> with the indicator off and on, <strong>ttList</strong>, <strong>ttText</strong>,
+and several <strong>ttButtons</strong>.</p>
+<p>This application works as follows. The user first fills in the customer’s name in the entry and
+how they are going to get their pizzas in a radio button group with the indicator on. Next, for
+every pizza, the user selects a size using a combo and crest type using a radio group with the
+indicator off. Next they click on the the toppings the customer asked for using a scrolling list.
+Now, the user add extra cheese or extra sauce of both using a check group. Once the order for
+the pizza is complete. The user clicks on the <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">to</span> <span class="pre">Order</span></code> button. This sends the pizza
+order to the text box and clears the pizza option widgets, making ready to enter the next pizza.
+When all the pizzas are entered. The user clicks on <code class="docutils literal notranslate"><span class="pre">Print</span> <span class="pre">Order</span></code>, which here just prints
+the user’s name, their delivery method, and their pizzas on the terminal.</p>
+<p>Below is a screenshot:</p>
+<blockquote>
+<div><img alt="_images/pizza.png" src="_images/pizza.png" />
+</div></blockquote>
+<p>Here is the code. We will also demonstrate to the set and get the contents of more widgets and introduce
+some simple error trapping:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">class</span> <span class="nc">PizzaGui</span><span class="p">(</span><span class="n">Window</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; Create a pizza ordering GUI &quot;&quot;&quot;</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Create an instance of PizzaGui &quot;&quot;&quot;</span>
+<span class="linenos"> 8</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="k">def</span> <span class="nf">makeGui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">11</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Make the GUI &quot;&quot;&quot;</span>
+<span class="linenos">12</span>        <span class="bp">self</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Pizza Order&#39;</span><span class="p">)</span>
+<span class="linenos">13</span>        <span class="n">toppings</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Pepperoni&#39;</span><span class="p">,</span><span class="s1">&#39;Sausage&#39;</span><span class="p">,</span><span class="s1">&#39;Mushrooms&#39;</span><span class="p">,</span><span class="s1">&#39;Bacon&#39;</span><span class="p">,</span><span class="s1">&#39;Green Peppers&#39;</span><span class="p">,</span>
+<span class="linenos">14</span>                    <span class="s1">&#39;Black Olives&#39;</span><span class="p">,</span> <span class="s1">&#39;Bannana Peppers&#39;</span><span class="p">,</span> <span class="s1">&#39;Jalapano Peppers&#39;</span><span class="p">)</span>
+<span class="linenos">15</span>        <span class="n">crusts</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Thin&#39;</span><span class="p">,</span> <span class="s1">&#39;Hand tossed&#39;</span><span class="p">,</span> <span class="s1">&#39;Deep dish&#39;</span><span class="p">)</span>
+<span class="linenos">16</span>        <span class="n">orderType</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Dine In&#39;</span><span class="p">,</span> <span class="s1">&#39;Pickup&#39;</span><span class="p">,</span> <span class="s1">&#39;Delivery&#39;</span><span class="p">)</span>
+<span class="linenos">17</span>        <span class="n">extras</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Extra Cheese&#39;</span><span class="p">,</span> <span class="s1">&#39;Extra Sauce&#39;</span><span class="p">)</span>
+<span class="linenos">18</span>        <span class="n">sizes</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Personal&#39;</span><span class="p">,</span><span class="s1">&#39;Small&#39;</span><span class="p">,</span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span><span class="s1">&#39;Large&#39;</span><span class="p">,</span><span class="s1">&#39;Extra Large&#39;</span><span class="p">)</span>
+<span class="linenos">19</span>        <span class="n">command</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Print Order&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">printOrder</span><span class="p">),(</span><span class="s1">&#39;Exit&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">cancel</span><span class="p">)]</span>
+<span class="linenos">20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;Customer Name&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="linenos">21</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="s1">&#39;Order Type&#39;</span><span class="p">,</span> <span class="n">orderType</span><span class="p">)</span>
+<span class="linenos">22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
+<span class="linenos">23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addCombo</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;Size&#39;</span><span class="p">,</span> <span class="n">sizes</span><span class="p">)</span>
+<span class="linenos">24</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;crust&#39;</span><span class="p">,</span> <span class="s1">&#39;Crust&#39;</span><span class="p">,</span> <span class="n">crusts</span><span class="p">,</span> <span class="n">usetk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indicatoron</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">25</span>             <span class="n">width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">,</span> <span class="s1">&#39;Toppings&#39;</span><span class="p">,</span> <span class="n">toppings</span><span class="p">,</span> <span class="n">selectmode</span><span class="o">=</span><span class="s1">&#39;multiple&#39;</span><span class="p">)</span>
+<span class="linenos">27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addCheck</span><span class="p">(</span><span class="s1">&#39;extras&#39;</span><span class="p">,</span> <span class="s1">&#39;Extra toppings&#39;</span><span class="p">,</span> <span class="n">extras</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="linenos">28</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;addpizza&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;Add to Order&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">addOrder</span><span class="p">)],</span>
+<span class="linenos">29</span>            <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="linenos">30</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="s1">&#39;Order Summary&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">31</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="linenos">32</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">33</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">34</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;we&#39;</span><span class="p">)</span>
+<span class="linenos">35</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">36</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;crust&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">37</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">38</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;extras&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">39</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;addpizza&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>               
+<span class="linenos">40</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">41</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">42</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">)</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span>    <span class="k">def</span> <span class="nf">addOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">45</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Collect the widgets and add a pizza to the order &quot;&quot;&quot;</span>
+<span class="linenos">46</span>        <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; : &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crust&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos">47</span>        <span class="n">toppings</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">))</span>
+<span class="linenos">48</span>        <span class="n">order</span> <span class="o">+=</span> <span class="s1">&#39;    &#39;</span> <span class="o">+</span> <span class="n">toppings</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos">49</span>        <span class="n">extras</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;extras&#39;</span><span class="p">))</span>                     
+<span class="linenos">50</span>        <span class="n">order</span> <span class="o">+=</span> <span class="s1">&#39;    &#39;</span> <span class="o">+</span> <span class="n">extras</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos">51</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
+<span class="linenos">52</span>        <span class="bp">self</span><span class="o">.</span><span class="n">clearPizza</span><span class="p">()</span>
+<span class="linenos">53</span>       
+<span class="linenos">54</span>    <span class="k">def</span> <span class="nf">printOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">55</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Print the order to the console &quot;&quot;&quot;</span>
+<span class="linenos">56</span>        <span class="n">summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; : &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos">57</span>        <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">)</span>
+<span class="linenos">58</span>        <span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
+<span class="linenos">59</span>        <span class="bp">self</span><span class="o">.</span><span class="n">clearPizza</span><span class="p">()</span>
+<span class="linenos">60</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos">61</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+<span class="linenos">62</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">allValues</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">63</span>
+<span class="linenos">64</span>    <span class="k">def</span> <span class="nf">clearPizza</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">65</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Clear a pizza &quot;&quot;&quot;</span>
+<span class="linenos">66</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">)</span>
+<span class="linenos">67</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="s1">&#39;crust&#39;</span><span class="p">)</span>
+<span class="linenos">68</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">)</span>
+<span class="linenos">69</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="s1">&#39;extras&#39;</span><span class="p">)</span>
+<span class="linenos">70</span>       
+<span class="linenos">71</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">72</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; The driving function &quot;&quot;&quot;</span>
+<span class="linenos">73</span>    <span class="n">app</span> <span class="o">=</span> <span class="n">PizzaGui</span><span class="p">()</span>
+<span class="linenos">74</span>    <span class="n">app</span><span class="o">.</span><span class="n">makeGui</span><span class="p">()</span>
+<span class="linenos">75</span>    <span class="n">app</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">76</span>
+<span class="linenos">77</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">78</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">79</span>
+<span class="linenos">80</span>        
+</pre></div>
+</div>
+</div></blockquote>
+<p>Here are the line explanations:</p>
+<p>1.  Import Window from tkintertoy.
+3.  Create a class <em>PizzaGui</em> that inherits from Window. You can think of PizzaGui as a child of Window.
+4.  Class documentation.
+6.  Create an instance of PizzaGui.
+7.  Method documentation.
+8.  Initial an instance of Window and assign it to self. This is how calls the initialzation code of the</p>
+<blockquote>
+<div><p>parent class. This will make the instance of PizzaGui an instance of Window.</p>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li><p>This method will contain all the code to create the GUI.</p></li>
+<li><p>Method documetation.</p></li>
+<li><p>Set the title of the window.</p></li>
+</ol>
+<p>13. Create a toppings tuple. This could have been a list as well.
+15. Create a crust-type tuple.
+16. Create an order-type tuple
+17. Create a extra tuple.
+18. Create a size tuple.
+19. Create a command list for the command buttons.
+20. Add an entry for the customer name.
+21. Add a radiobox for the order type.
+22. Add a ttLine. This is a horizontal ttk.separtor which will strectch across the entire window. It</p>
+<blockquote>
+<div><p>has no frame.</p>
+</div></blockquote>
+<ol class="arabic simple" start="23">
+<li><p>Add a ttCombobox for the size selection.</p></li>
+<li><p>Add a ttRadiobox for the crust type. The oriention will be vertical. We want the entire box to light
+up when selected so we are setting the indicatoron option to False, which is a tk feature.</p></li>
+</ol>
+<ol class="arabic simple" start="26">
+<li><p>Add the ttListbox for toppings. We also want this to be vertical and we want to be able to select
+multiple toppings without pressing the Control or Shift keys. This shows how a listbox can be used
+instead of a checkbox.</p></li>
+<li><p>Add the ttCheckbox for extra cheese and/or sauce.</p></li>
+</ol>
+<p>28. Add a single command button to add the pizza to the order.
+30. Add a ttText widget to show the order.
+31. Add the two command buttons defined in line 19.
+32. Plot the ‘name’ entry in row 0, column 0, with a five pixel spacing.
+33. Plot the order ‘type’ radiobox in row 0, column 1, with a five pixel spacing.
+34. Plot the line across row 1 with a 10 pixel spacing. If we did not use the sticky=’we’ option, the</p>
+<blockquote>
+<div><p>line would be a single point.</p>
+</div></blockquote>
+<ol class="arabic simple" start="35">
+<li><p>Plot the ‘size’ combobox row 2, column 0, with a five pixel spacing.</p></li>
+<li><p>Plot the ‘crust’ radiobox in row 2, column 1, with a five pixel spacing.</p></li>
+<li><p>Plot the ‘toppings’ listbox in row 3, column 0, with a five pixel spacing.</p></li>
+<li><p>Plot the ‘extras’ radiobox in row 3, column 1, with a 5 pixel spacing.</p></li>
+<li><p>Plot the ‘addpizza’ button in row 4, column 0, spread across both columns, with a 10 pixel spacing.</p></li>
+<li><p>Plot the ‘summary’ text widget in row 5, column 0, spread across both columns, with a 5 pixel
+spacing.</p></li>
+<li><p>Plot the ‘command’ buttons in row 6, column 0, spread across both columns, with a 10 pixel spacing.</p></li>
+</ol>
+<p>42. Set the ‘size’ combobox to ‘Medium’.
+44. This method adds a pizza to the order.
+45. Method documentation
+46. Get the ‘size’ and the ‘crust’ selections and create an order str.
+47. Collect all the ‘toppings’ selection create a new str.
+48. Add the ‘toppings’ str to the order str.
+49. Collect the ‘extras’ selection and create a new str.
+50. Add the ‘extras’ selection to the order str.
+51. Add the ‘order’ str to the ‘order’ text widget.
+52. Call the <code class="docutils literal notranslate"><span class="pre">clearPizza</span></code> method.
+54. This method would send an order to another display or computer. Here we are just printing the order to</p>
+<blockquote>
+<div><p>the console.</p>
+</div></blockquote>
+<ol class="arabic simple" start="55">
+<li><p>Method documentation.</p></li>
+<li><p>Create a summary str with the customer ‘name’ and the order ‘type’.</p></li>
+<li><p>Get the contents of the ‘summary’ text widget.</p></li>
+<li><p>Print the summary.</p></li>
+<li><p>Call the clearPizza method.</p></li>
+<li><p>Clear the ‘name’ entry.</p></li>
+<li><p>Clear the selections in the order ‘type’ radiobox.</p></li>
+</ol>
+<p>62. Clear the ‘summary’ text widget.
+64. This method will clear a pizza off of the widgets.
+65. Method documentation
+66. Set the ‘size’ combobox to ‘Medium’
+67. Clear the selection in the ‘crust’ radiobox.
+68. Clear the selections in the ‘toppings’ listbox.
+69. Clear the selections in the ‘extras’ checkbox.
+71. The main function.
+72. Function documentation.
+73. Create an instance of <em>PizzaGui</em>.
+74. Create the GUI.
+75. Start the event loop.
+77. Run <code class="docutils literal notranslate"><span class="pre">main</span></code> if not importing.</p>
+<p>In this example, we see that the choice of which widget to use and how they appear is completely up to the
+programmer. Novice programmers are encouraged to try out different options to see which widgets meet their
+needs.</p>
+</section>
+<section id="dynamically-changing-widgets">
+<h2>Dynamically Changing Widgets<a class="headerlink" href="#dynamically-changing-widgets" title="Permalink to this heading"></a></h2>
+<p>The next example is a simple implementation of a digital stopwatch that demonstrates
+how to change a widget dynamically. Tkintertoy uses both tk and ttk widgets. The appearance
+of ttk widgets are changed using the concept of <strong>ttstyles</strong> which will be shown. In addition,
+this example will show how to change a widget state from enabled to disabled. This example
+will also show how to separate the implementation and the gui code into two separate classes.
+Lastly, this code will demonstrate how a complete application based on Tkintertoy could be
+written. We will stay with inheritance style coding.</p>
+<p>Below is a screenshot:</p>
+<blockquote>
+<div><img alt="_images/stopwatch.png" src="_images/stopwatch.png" />
+</div></blockquote>
+<p>Here is the code:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># stopwatch.py - A single stopwatch - Mike Callahan - 1/7/2020</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+<span class="linenos">  4</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos">  5</span>
+<span class="linenos">  6</span><span class="k">def</span> <span class="nf">sec2hmsc</span><span class="p">(</span><span class="n">secs</span><span class="p">):</span>
+<span class="linenos">  7</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; convert seconds to (hours, minutes, seconds, cseconds) &quot;&quot;&quot;</span>
+<span class="linenos">  8</span>    <span class="n">hours</span><span class="p">,</span> <span class="n">rem</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">secs</span><span class="p">,</span> <span class="mi">3600</span><span class="p">)</span>                    <span class="c1"># extract hours</span>
+<span class="linenos">  9</span>    <span class="n">minutes</span><span class="p">,</span> <span class="n">rem</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">rem</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>                     <span class="c1"># extract minutes</span>
+<span class="linenos"> 10</span>    <span class="n">seconds</span><span class="p">,</span> <span class="n">cseconds</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">rem</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>           <span class="c1"># extract seconds, cseconds </span>
+<span class="linenos"> 11</span>    <span class="k">return</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">hours</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">minutes</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">seconds</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">cseconds</span><span class="p">))</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span><span class="k">class</span> <span class="nc">Stopwatch</span><span class="p">:</span>
+<span class="linenos"> 14</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; Encapsulate a simple stopwatch &quot;&quot;&quot;</span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 17</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; initialize the stopwatch &quot;&quot;&quot;</span>
+<span class="linenos"> 18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>                                <span class="c1"># clear everything</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 21</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; start the stopwatch &quot;&quot;&quot;</span>
+<span class="linenos"> 22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">then</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>                        <span class="c1"># record starting time</span>
+<span class="linenos"> 23</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">elapsed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>                      
+<span class="linenos"> 24</span>            <span class="bp">self</span><span class="o">.</span><span class="n">then</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elapsed</span>
+<span class="linenos"> 25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>                            <span class="c1"># raise flag</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 28</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; check the elapsed time &quot;&quot;&quot;</span>
+<span class="linenos"> 29</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+<span class="linenos"> 30</span>            <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>                          <span class="c1"># get current time</span>
+<span class="linenos"> 31</span>            <span class="bp">self</span><span class="o">.</span><span class="n">elapsed</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">then</span>             <span class="c1"># update elapsed </span>
+<span class="linenos"> 32</span>        <span class="n">elptup</span> <span class="o">=</span> <span class="n">sec2hmsc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elapsed</span><span class="p">)</span>
+<span class="linenos"> 33</span>        <span class="k">return</span> <span class="n">elptup</span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 36</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; stop the stopwatch &quot;&quot;&quot;</span>
+<span class="linenos"> 37</span>        <span class="bp">self</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>                                   <span class="c1"># update elapsed</span>
+<span class="linenos"> 38</span>        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>                           <span class="c1"># lower flag</span>
+<span class="linenos"> 39</span>        
+<span class="linenos"> 40</span>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 41</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; reset the stopwatch &quot;&quot;&quot;</span>
+<span class="linenos"> 42</span>        <span class="bp">self</span><span class="o">.</span><span class="n">then</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># starting time</span>
+<span class="linenos"> 43</span>        <span class="bp">self</span><span class="o">.</span><span class="n">elapsed</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># elapsed time during stop</span>
+<span class="linenos"> 44</span>        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># running flag</span>
+<span class="linenos"> 45</span>
+<span class="linenos"> 46</span><span class="k">class</span> <span class="nc">Gui</span><span class="p">(</span><span class="n">Window</span><span class="p">):</span>
+<span class="linenos"> 47</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; Gui for stopwatch &quot;&quot;&quot;</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stopwatch</span><span class="p">):</span>
+<span class="linenos"> 50</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; init stopwatch gui &quot;&quot;&quot;</span>
+<span class="linenos"> 51</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>                             <span class="c1"># create a window</span>
+<span class="linenos"> 52</span>        <span class="bp">self</span><span class="o">.</span><span class="n">stopw</span> <span class="o">=</span> <span class="n">stopwatch</span>                         <span class="c1"># make stopwatch an attribute</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span>    <span class="k">def</span> <span class="nf">makeGui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 55</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; create the Gui &quot;&quot;&quot;</span>
+<span class="linenos"> 56</span>        <span class="bp">self</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Stopwatch v1.0&#39;</span><span class="p">)</span>
+<span class="linenos"> 57</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addStyle</span><span class="p">(</span><span class="s1">&#39;r.TLabel&#39;</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>  <span class="c1"># create the styles</span>
+<span class="linenos"> 58</span>            <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Helvetica&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">))</span>
+<span class="linenos"> 59</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addStyle</span><span class="p">(</span><span class="s1">&#39;g.TLabel&#39;</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
+<span class="linenos"> 60</span>            <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Helvetica&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">))</span>
+<span class="linenos"> 61</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addLabel</span><span class="p">(</span><span class="s1">&#39;elapsed&#39;</span><span class="p">,</span> <span class="s1">&#39;Elapsed Time&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;r.TLabel&#39;</span><span class="p">)</span>
+<span class="linenos"> 62</span>        <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">startstop</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Reset&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">),</span>
+<span class="linenos"> 63</span>            <span class="p">(</span><span class="s1">&#39;Exit&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cancel</span><span class="p">)]</span>                 <span class="c1"># label and assign buttons</span>
+<span class="linenos"> 64</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="n">buttons</span><span class="p">)</span>     <span class="c1"># create buttons</span>
+<span class="linenos"> 65</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;elapsed&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 66</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos"> 67</span>        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>                                  <span class="c1"># update display</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span>    <span class="k">def</span> <span class="nf">startstop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 70</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; start or stop the stopwatch &quot;&quot;&quot;</span>
+<span class="linenos"> 71</span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopw</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+<span class="linenos"> 72</span>            <span class="bp">self</span><span class="o">.</span><span class="n">stopw</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="linenos"> 73</span>            <span class="bp">self</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Start&#39;</span><span class="p">)</span>  <span class="c1"># relabel button</span>
+<span class="linenos"> 74</span>            <span class="bp">self</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="s1">&#39;elapsed&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;r.TLabel&#39;</span><span class="p">)</span>  <span class="c1"># color display</span>
+<span class="linenos"> 75</span>            <span class="bp">self</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;!disabled&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># enable Reset</span>
+<span class="linenos"> 76</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 77</span>            <span class="bp">self</span><span class="o">.</span><span class="n">stopw</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="linenos"> 78</span>            <span class="bp">self</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Stop&#39;</span><span class="p">)</span>  <span class="c1"># relabel button</span>
+<span class="linenos"> 79</span>            <span class="bp">self</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="s1">&#39;elapsed&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;g.TLabel&#39;</span><span class="p">)</span>  <span class="c1"># color display</span>
+<span class="linenos"> 80</span>            <span class="bp">self</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;disabled&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># disable Reset</span>
+<span class="linenos"> 81</span>        
+<span class="linenos"> 82</span>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 83</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; reset stopwatch &quot;&quot;&quot;</span>
+<span class="linenos"> 84</span>        <span class="bp">self</span><span class="o">.</span><span class="n">stopw</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>                             <span class="c1"># reset it</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 87</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; update display &quot;&quot;&quot;</span>
+<span class="linenos"> 88</span>        <span class="n">etime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopw</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>                     <span class="c1"># get elapsed time</span>
+<span class="linenos"> 89</span>        <span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:02}</span><span class="s1">:</span><span class="si">{:02}</span><span class="s1">:</span><span class="si">{:02}</span><span class="s1">.</span><span class="si">{:02}</span><span class="s1">&#39;</span>           <span class="c1"># 2 digits leading zero</span>
+<span class="linenos"> 90</span>        <span class="n">stime</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">etime</span><span class="p">)</span>                <span class="c1"># format as hh:mm:ss.cc</span>
+<span class="linenos"> 91</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;elapsed&#39;</span><span class="p">,</span> <span class="n">stime</span><span class="p">)</span>                 <span class="c1"># update display</span>
+<span class="linenos"> 92</span>        <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">)</span>         <span class="c1"># call again after .01 sec</span>
+<span class="linenos"> 93</span>
+<span class="linenos"> 94</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos"> 95</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; the main function &quot;&quot;&quot;</span>
+<span class="linenos"> 96</span>    <span class="n">stopw</span> <span class="o">=</span> <span class="n">Stopwatch</span><span class="p">()</span>                                 <span class="c1"># create a stopwatch instance</span>
+<span class="linenos"> 97</span>    <span class="n">gui</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">(</span><span class="n">stopw</span><span class="p">)</span>                                    <span class="c1"># create a window</span>
+<span class="linenos"> 98</span>    <span class="n">gui</span><span class="o">.</span><span class="n">makeGui</span><span class="p">()</span>                                       <span class="c1"># run the gui</span>
+<span class="linenos"> 99</span>    <span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">102</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">103</span>            
+</pre></div>
+</div>
+</div></blockquote>
+<p>Here are the line explanations:</p>
+<ol class="arabic simple">
+<li><p>File documentation. While this is a first example, all files should have a some documentation on
+first lines.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>We will need the time function from the time module.</p></li>
+</ol>
+<p>4.  Import <code class="docutils literal notranslate"><span class="pre">Window</span></code> from tkintertoy.
+6.  Define a function, <code class="docutils literal notranslate"><span class="pre">sec2hmsc</span></code> which will change floating seconds into (hours, minutes, seconds,</p>
+<blockquote>
+<div><p>centiseconds). Notice how type hints work. While the Python interpeter will take no action, other
+tools might find a use for them.</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>Function documentation string.</p></li>
+<li><p>Split decimal seconds into whole hours with a remainder. This is an example of tuple unpacking.</p></li>
+<li><p>Split the remainder into whole minutes with a remainder.</p></li>
+<li><p>Split the remainder into whole seconds and centiseconds.</p></li>
+</ol>
+<p>11. Return the time values as a tuple.
+13. Define the <code class="docutils literal notranslate"><span class="pre">Stopwatch</span></code> class which will encapsulate a stopwatch. Since there is no suitable object</p>
+<blockquote>
+<div><p>to inherit from, we will use compositon.</p>
+</div></blockquote>
+<p>14. Class documentation string.
+16. Create the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method. This will initialize the stopwatch by calling <code class="docutils literal notranslate"><span class="pre">reset</span></code>.
+17. Method documentation string.
+18. Call <code class="docutils literal notranslate"><span class="pre">reset</span></code>. Since this will be the first time this method was called it will create an attributes</p>
+<blockquote>
+<div><p>which will hold the beginning time, the time elapsed while stopped, and the running flag.</p>
+</div></blockquote>
+<ol class="arabic simple" start="19">
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">start</span></code> method. This will start the stopwatch.</p></li>
+<li><p>Method documentation string.</p></li>
+<li><p>Get the current time and save it in the <code class="docutils literal notranslate"><span class="pre">then</span></code> attribute.</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">elapsed</span></code> attribute is non-zero…</p></li>
+<li><p>The stopwatch has been stopped and <code class="docutils literal notranslate"><span class="pre">then</span></code> needs to be adjusted.</p></li>
+</ol>
+<p>24. Set the <code class="docutils literal notranslate"><span class="pre">running</span></code> attribute to True.
+27. Create the <code class="docutils literal notranslate"><span class="pre">check</span></code> method. This method will return the elapsed time as a tuple.
+28. Method documentation string.
+29. If the stopwatch is running…
+30. Get the current time.
+31. Adjust <code class="docutils literal notranslate"><span class="pre">elapsed</span></code> with the current time.
+32. In any case, call convert the decimal seconds to a time tuple
+33. Return the time tuple.
+35. Create the <code class="docutils literal notranslate"><span class="pre">stop</span></code> method. This will stop the stopwatch.
+36. This is the method documentation string.
+37. Update the elapsed time by calling <code class="docutils literal notranslate"><span class="pre">check</span></code>..
+38. Set <code class="docutils literal notranslate"><span class="pre">running</span></code> to False.
+40. Create the <code class="docutils literal notranslate"><span class="pre">reset</span></code> method. This resets the stopwatch.
+41. Method documentation string.
+42. Reset all the attributes to the initial state.
+46. Create the <code class="docutils literal notranslate"><span class="pre">Gui</span></code> class. This class will contain the gui for the stopwatch. We will use inheritance.
+47. This is the class documentation string.
+49. Create the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method which will initialize the gui.
+50. Mehod documentation string.
+51. Create an instance of a <strong>Tkintertoy</strong> window which will be <code class="docutils literal notranslate"><span class="pre">self</span></code>.
+52. Save the inputted Stopwatch as the <code class="docutils literal notranslate"><span class="pre">stopw</span></code> attribute.
+54. Create the <code class="docutils literal notranslate"><span class="pre">makeGui</span></code> method which will create the gui and begin a display loop.
+55. Method documentation string.
+56. Set the title of the window.
+57. Create a <strong>ttStyle</strong> which has large red characters. This is how we will color our <strong>ttLabel</strong> in</p>
+<blockquote>
+<div><p>the stopped state. We don’t want the user to input anything so a label is the correct choice of widget.
+Notice that the style must be created for each type of widget. Since this style is for labels, the tag
+must end with <code class="docutils literal notranslate"><span class="pre">.TLabel</span></code>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="59">
+<li><p>Create a <strong>ttStyle</strong> which has large green characters. The is how we will color our label in the
+running state.</p></li>
+</ol>
+<p>61. Create a <strong>ttlabel</strong> which will hold the elapsed time of the stopwatch.
+62  Create a list of button labels and commands, <code class="docutils literal notranslate"><span class="pre">buttons</span></code>, for the buttons. Note the</p>
+<blockquote>
+<div><p>commands are Gui methods.</p>
+</div></blockquote>
+<ol class="arabic simple" start="64">
+<li><p>Create a row of <strong>ttButtons</strong> which will be initialized using the labels and commands
+in <code class="docutils literal notranslate"><span class="pre">buttons</span></code>.</p></li>
+<li><p>Plot the ‘elapsed’ in row 0.</p></li>
+<li><p>Plot the ‘buttons’ in row 1 with a 10 pixel spacing.</p></li>
+<li><p>Update the gui. You will see that calling update will start an event processing loop
+without the use of <code class="docutils literal notranslate"><span class="pre">waitfoUser</span></code>.</p></li>
+</ol>
+<ol class="arabic simple" start="69">
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">startstop</span></code> method. Since the user will start and stop the stopwatch using
+the same button, this method will have do handle both tasks.</p></li>
+<li><p>This is the method documentation string.</p></li>
+<li><p>If the stopwatch is running…</p></li>
+<li><p>Stop it.</p></li>
+<li><p>Retext the first button as Start. It was Stop. This is the method to use to change a widget
+dynamically.</p></li>
+<li><p>Change the ‘elapsed’ color to red.</p></li>
+<li><p>Enable the Reset button. Reset should only be used while the stopwatch is stopped. The
+! means “not” so we are setting the state of the second button to “not disabled” which
+enables it.</p></li>
+<li><p>Else, the stopwatch was stopped…</p></li>
+<li><p>Start the stopwatch.</p></li>
+<li><p>Retext the first button as Stop. It was Start.</p></li>
+<li><p>Change the ‘elapsed’ color to green.</p></li>
+</ol>
+<p>80. Disable the Reset button.
+82. Create the <code class="docutils literal notranslate"><span class="pre">reset</span></code> method, which will reset the stopwatch. Since this is connected</p>
+<blockquote>
+<div><p>to the Reset button and this button is disabled unless the stopwatch is stopped,
+this method can only be executed while the stopwatch is stopped.</p>
+</div></blockquote>
+<ol class="arabic simple" start="83">
+<li><p>Method documentation string.</p></li>
+</ol>
+<p>84. Reset the stopwatch.
+86. Create the <code class="docutils literal notranslate"><span class="pre">update</span></code> method which shows the elapsed time in ‘elapsed’.
+87. Method documentation string.
+88. Get the elapsed time as a time tuple, (hours, minutes, seconds, centiseconds).
+89. Create a template for the <code class="docutils literal notranslate"><span class="pre">format</span></code> string method that will convert each time</p>
+<blockquote>
+<div><p>element as a two digit number with leading leading zero separated by colons. If
+the time tuple was (0, 12, 6, 13) this template convert it to ‘00:12:06:13’.</p>
+</div></blockquote>
+<ol class="arabic simple" start="90">
+<li><p>Using the template, convert the time tuple into a string.</p></li>
+<li><p>Update ‘elapsed’ with the time string.</p></li>
+<li><p>After 0.01 seconds, call <code class="docutils literal notranslate"><span class="pre">update</span></code> again. This allows the stopwatch to update its
+display every hundredth of a second. Every Tkintertoy window has a <strong>master</strong>
+attribute which has many useful methods you can call. This line interrupts the
+event processing loop every 0.01 second which makes sure that the stopwatch is
+displaying the correct elapsed time.</p></li>
+</ol>
+<ol class="arabic simple" start="94">
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">main</span></code> function.</p></li>
+<li><p>Function documentation.</p></li>
+<li><p>Create a stopwatch.</p></li>
+<li><p>Create the gui instance.</p></li>
+<li><p>Make the gui.</p></li>
+<li><p>Start the event processing loop.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">main</span></code> if not importing.</p></li>
+</ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading"></a></h2>
+<p>It is hoped that with <strong>Tkintertoy</strong> and the included documentation, a Python instructor can quickly
+lead a novice Python programmer out of the boring world of command-line interfaces and join the fun
+world of GUI programming. To see all the widgets that <strong>Tkintertoy</strong> supports, run ttgallery.py. As
+always, looking at the code can be very instructive.</p>
+<p>As a result of the classes I have been teaching, I have created a series of narrated slideshows
+on YouTube as <em>Programming on Purpose with Python</em> which features how to use <strong>Tkintertoy</strong> to
+develop complete applications. Just search for <em>Mike Callahan</em> and <em>programming</em>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Tkintertoy’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tkintertoy.html" class="btn btn-neutral float-right" title="tkintertoy module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2023, Mike Callahan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -326,6 +326,7 @@ Below explains every line:
     by the lookup dictionary, rather than the entry widget. This is why *allValues=True*.
 10. Change the entry value of 'items' to '...' which is why *allValues=False*. This will overwrite any
     selection the user had made. The allValues option has different effects depending on the widget type.
+11. Blank line.
 12. Create the main function, ``main``. It will have no parameters. Most Python applications have a main driving
     function.
 13. The documentation line for ``main``
@@ -591,6 +592,7 @@ Here are the line explanations:
 51. Plot the notebook in the first row.
 52. Set the default notebook page to 'Routine'. This will be the page displayed when the application
     first starts. Note that ``set`` and ``get`` use the notebook tab names.
+53. Blank line.
 54. This method will update the widgets on the 'Accumulate' tab.
 55. This is the method documentation string.
 56. Get the ending date from the widget.  This is an example of a use of a list comprehension. The ``get``

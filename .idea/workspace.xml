@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.41b 5/15/2023">
-      <change afterPath="$PROJECT_DIR$/docs/examples/burger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/examples/dynamic_widget2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
-    </list>
+    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.50d 06/11/2023" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,14 +25,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mcall/PycharmProjects/tkintertoy/docs/examples/tornado.py",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mcall/PycharmProjects/tkintertoy/docs/examples/tornado.py&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mcall\PycharmProjects\tkintertoy\docs\examples" />

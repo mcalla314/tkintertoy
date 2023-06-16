@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.50d 06/11/2023">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2693468e-a012-42e2-adaf-b63ebc52768e" name="Default Changelist" comment="Update to version 1.50c 06/11/2023">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/tkintertoy.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/tkintertoy.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/tutorial.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/tutorial.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/_images/burger.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_images/burger.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/_sources/tutorial.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_sources/tutorial.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/tkintertoy.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/tkintertoy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/tutorial.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/tutorial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tutorial.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/tutorial.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +24,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="1.4" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/docs/tutorial.rst" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
@@ -33,6 +48,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/mcall/PycharmProjects/tkintertoy/docs/examples/tornado.py&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mcall/PycharmProjects/tkintertoy/docs/examples/stopwatch.py&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -44,7 +61,7 @@
       <recent name="C:\Users\mcall\Documents\deploy\tkintertoy\tkintertoy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.dynamic_widget2">
+  <component name="RunManager" selected="Python.stopwatch">
     <configuration name="dynamic_widget2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tkintertoy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,7 +83,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mapper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="first" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tkintertoy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -78,7 +95,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/examples/mapper.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/examples/first.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="map1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tkintertoy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/docs/examples" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/examples/map1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,27 +138,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/examples/stopwatch.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tkintertoy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/docs" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/tt.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.stopwatch" />
+        <item itemvalue="Python.map1" />
+        <item itemvalue="Python.first" />
         <item itemvalue="Python.dynamic_widget2" />
         <item itemvalue="Python.ttgallery" />
-        <item itemvalue="Python.stopwatch" />
-        <item itemvalue="Python.tt" />
-        <item itemvalue="Python.mapper" />
       </list>
     </recent_temporary>
   </component>
@@ -283,6 +300,56 @@
       <updated>1686578303822</updated>
     </task>
     <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00014" summary="Update to version 1.41c 5/19/2023">
+      <created>1684506468598</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1684506468598</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update to version 1.42a 5/22/2023">
+      <created>1684803877329</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684803877329</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update to version 1.42c 6/2/2023">
+      <created>1685737478896</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685737478896</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update to version 1.50 6/5/2023">
+      <created>1685998610982</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1685998610982</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update to version 1.50a 6/7/2023">
+      <created>1686173489072</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686173489072</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update to version 1.50b 6/9/2023">
+      <created>1686346131508</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686346131508</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Update to version 1.50c 06/11/2023">
+      <created>1686516016248</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686516016248</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -313,5 +380,13 @@
     <MESSAGE value="Update to version 1.41b 5/15/2023" />
     <MESSAGE value="Update to version 1.50d 06/11/2023" />
     <option name="LAST_COMMIT_MESSAGE" value="Update to version 1.50d 06/11/2023" />
+    <MESSAGE value="Update to version 1.41c 5/19/2023" />
+    <MESSAGE value="Update to version 1.42a 5/22/2023" />
+    <MESSAGE value="Update to version 1.42c 6/2/2023" />
+    <MESSAGE value="Update to version 1.50 6/5/2023" />
+    <MESSAGE value="Update to version 1.50a 6/7/2023" />
+    <MESSAGE value="Update to version 1.50b 6/9/2023" />
+    <MESSAGE value="Update to version 1.50c 06/11/2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update to version 1.50c 06/11/2023" />
   </component>
 </project>

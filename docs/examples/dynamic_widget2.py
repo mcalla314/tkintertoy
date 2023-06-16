@@ -11,7 +11,6 @@ class Gui:
         self.gui.addRadio('category', 'Item Types', categories)
         self.gui.addCombo('items', 'Items', None, postcommand=self.update)
         self.gui.addButton('command')
-        self.gui.set('category', 'Trees')
         self.gui.set('items', '...')
         self.gui.plot('category', row=0)
         self.gui.plot('items', row=1, pady=20)
@@ -31,7 +30,7 @@ def main():
     app = Gui()
     app.gui.waitforUser()
     if app.gui.content:
-        selected_cat = app.gui.get('category')
+        selected = app.gui.get('category')
         item = app.gui.get('items')
         # more code would go here...
 

@@ -3,7 +3,7 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      5/14/2023
+# Created:      6/6/2023
 # Copyright:    (c) mike.callahan 2019 - 2023
 # License:      MIT
 #
@@ -21,6 +21,9 @@
 #        add tk & ttk class variable, clean up code in many functions
 # 1.41 - fix vertical alignment to addCheck and addRadio, add reset,
 #        fix changeState, rename change* to set*
+# 1.42 - fix __init__, clean up comments
+# 1.50 - fix get for ledger & collector,
+#        fix get & set for spin, notebook
 ###################################################################
 
 import tkinter as tk                               # support only Python 3
@@ -35,21 +38,20 @@ class Window:
     Tkinter.
 
     This will create a Tk window with a contents dictionary. The programmer
-    adds "ttwidgets" to the window using the add* methods where the programmer
-    assigns a string tag to a widget. Almost all ttk and most tk widgets are included
-    including some useful combined widgets. I call these ttwidgets because they are
-    not really complex enough to be called "megawidgets". Most tk/ttk widgets are
-    placed in a frame which can act as a prompt of the ttwidget to the user. The
-    programmer places the ttwidgets using the plot method which is a synonym for
-    the tkinter grid geometry manager. Contents of the widget are assigned and
-    retrieved by using the tags to the set and get methods. This greatly simplifies
-    working with GUIs. Also, all ttwidgets are bundled into the window object so
-    individual ttwidgets do not need to be passed to other routines, which simplifies
-    interfaces. However, more experienced Python programmers can access the tk/ttk
-    widget and frames directly and take advantage of the full power of Tk and ttk.
+    adds "ttWidgets" to the window using the add* methods where the programmer
+    assigns a string tag to a widget. Almost all ttk and most tk widgets are included,
+    with some useful combined widgets. Most tk/ttk widgets are placed in a frame which
+    can act as a prompt of the ttWidget to the user. The programmer places the ttWidgets
+    using the plot method which is a synonym for the tkinter grid geometry manager.
+    Contents of the widget are assigned and retrieved by using the tags to the set and
+    get methods. This greatly simplifies working with GUIs. Also, all ttWidgets are
+    bundled into the window object so individual ttWidgets do not need to be passed
+    to other routines, which simplifies interfaces. However, more experienced Python
+    programmers can access the tk/ttk widget and frames directly and take advantage
+    of the full power of Tk and ttk.
 
     In the below methods, not all the possible keyword arguments are listed, only
-    the most common ones were selected. The Tk documentation lists all for every
+    the most common ones were selected. The Tkinter documentation lists all for every
     widget. However, tk control variables should NOT be used since they might
     interfere on how the set and get methods work. Default values are shown in
     brackets [].
@@ -58,17 +60,20 @@ class Window:
     widgets. For this reason, all ttk widgets have an option to use the older
     tk widget by setting the usetk argument to True.
 
+    Due to problems with textvariable in nested frames with ttk, the textvariable
+    option is not used in any of the below methods.
+
     After creating a Window object, the master attribute will either be a Tk
-    application window or a Toplevel window.
+    Frame or a Toplevel window.
 
     Here is a summary of the methods:
-        add* - add a new ttwidget to a window
-        get* - get the contents or an part of the ttwidget
+        add* - add a new ttWidget to a window
+        get* - get the contents or an part of the ttWidget
         set* - change the contents or an attribute of the widget
         pop* - pop-up a dialog window
 
     Parameters:
-        master (tk.Toplevel): Toplevel window
+        master (tk.Toplevel or tk.Frame): The containing window
         extra (bool): True if this is an extra window apart from the main
 
     Keyword Arguments:
@@ -78,11 +83,17 @@ class Window:
         relief (str): ['flat'],'raised','sunken','groove', or 'ridge'
         style (ttk.Style): Style used for ttk.Frame or ttk.LabelFrame
         width (int): Width of frame (pixels)
+
+    Included in the installation is a copy of John Shipman's "Tkinter 8.5 reference:
+    a GUI for Python" from New Mexico Tech, which is the best printed version known
+    to the author. Unfortunately, Dr. Shipman has passed away and it is getting harder
+    to find. When the code references Tkinter documentation it is referring to Dr.
+    Shipman's work.
     """
 
     # class variables
 
-    VER = 1.41                                                # version number
+    VERSION = '1.50'                                              # version number
         
     # basic class methods
 
@@ -96,16 +107,17 @@ class Window:
 
         if not master:
             if not extra:
-                self.master = tk.Tk()                  # first window
+                self.master = tk.Tk()                         # first window
+                self.master.configure(**tkparms)              # tk.Tk() doesn't accept **tkparm
             else:
-                self.master = tk.Toplevel(**tkparms)   # extra window
-            self.topwin = self.master.winfo_toplevel()      # get topwindow info
+                self.master = tk.Toplevel(**tkparms)          # extra window
+            self.topwin = self.master.winfo_toplevel()        # get topwindow info
             if 'destroy' in self.topwin.protocol(name='WM_DELETE_WINDOW'):  # set close window to cancel
                 self.topwin.protocol(name='WM_DELETE_WINDOW', func=self.cancel)
         else:
             self.master = master
-        self.content = dict()                          # create the content dict
-        self.style = ttk.Style()                       # access Style database
+        self.content = dict()                                 # create the content dict
+        self.style = ttk.Style()                              # access Style database
 
     def __repr__(self):
         """ Display content dictionary structure, useful for debugging.
@@ -166,12 +178,11 @@ class Window:
         self.master.title(prompt)
 
     def addLabel(self, tag, prompt='', effects='', usetk=False, **tkpamrs):
-        """ Create a ttlabel.
+        """ Create a ttLabel.
 
-        Labels are used to display simple messages to the user. Due to problems
-        with textvariable in nested frames with ttk, the textvariable is not used.
-        An effects parameter is included for the simplest font types but this
-        will override the font keyword argument. Get/set uses str.
+        Labels are used to display simple messages to the user. An effects parameter
+        is included for the simplest font types but this will override the font
+        keyword argument. Get/set uses str.
 
         Parameters:
             tag (str): Reference to widget
@@ -193,7 +204,7 @@ class Window:
             wraplength (int): Character position to word wrap
 
         Returns:
-            ttk/tk.label 
+            ttk/tk.Label
         """
 
         t = tk if usetk else ttk
@@ -217,7 +228,7 @@ class Window:
         return label
 
     def addLine(self, tag, **tkparms):
-        """ Create a horizontal or vertical ttline across the entire frame.
+        """ Create a horizontal or vertical ttLine across the entire frame.
 
         Lines are useful for visually separating areas of widgets. They have no
         frame. There is no tk version. Be sure to use the sticky keyword when
@@ -231,7 +242,7 @@ class Window:
             style (ttk.Style): Style to use for line
 
         Returns:
-            ttk.separator 
+            ttk.Separator
         """
 
         self.content[tag] = {'type': 'line'}
@@ -240,12 +251,11 @@ class Window:
         return line
 
     def addMessage(self, tag, prompt, **tkparms):
-        """ Create a ttmessage which is like multiline label.
+        """ Create a ttMessage which is like multiline label.
 
         Messages are used to display multiline messages to the user. This is a
-        tk widget so the list of options is extensive. Due to problems with
-        textvariables in nested ttk windows, they are not used. This widget's
-        behavior is a little strange so you might prefer the Text or Label widgets.
+        tk widget so the list of options is extensive. This widget's behavior
+        is a little strange so you might prefer the Text or Label widgets.
         Get/set uses str.
 
         Parameters:
@@ -266,7 +276,7 @@ class Window:
             width (int): Width of message (pixels)
 
         Returns:
-            tk.message
+            tk.Message
         """
 
         self.content[tag] = {'type': 'message'}         # init content to tk var
@@ -281,10 +291,9 @@ class Window:
         return message
 
     def addEntry(self, tag, prompt='', usetk=False, **tkparms):
-        """ Create an ttentry.
+        """ Create an ttEntry.
 
-        Entries are the widget to get string input from the user. Due to problems
-        with textvariables in nested frames with ttk, they are not used. Get/set
+        Entries are the widget to get string input from the user. Get/set
         uses str.
 
         Parameters:
@@ -299,7 +308,7 @@ class Window:
             width (int): Width of label [20] (chars)
 
         Returns:
-            ttk/tk.entry
+            ttk/tk.Entry
         """
 
         t = tk if usetk else ttk
@@ -315,12 +324,12 @@ class Window:
         return entry
 
     def addList(self, tag, prompt='', alist=[], **tkparms):
-        """ Create a ttlistbox.
+        """ Create a ttListbox.
 
-        Listboxes allow the user to select a series of options in a vertical list.
-        It is best for long titled options but does take up some screen space. This
-        implementation avoids the listvariable. Since this is a Tk widget, there
-        is no style keyword argument. Get/set uses list of str.
+        Lists allow the user to select a series of options in a vertical list.
+        It is best for long titled options but does take up some screen space.
+        Since this is a Tk widget, there is no style keyword argument. Get/set
+        uses list of str.
 
         Parameters:
             tag (str): Reference to widget
@@ -358,12 +367,11 @@ class Window:
         return listbox
 
     def addCombo(self, tag, prompt='', values=None, **tkparms):
-        """ Create a ttcombobox.
+        """ Create a ttCombobox.
 
         Comboboxes combine features of Entry and Listbox into a single widget. The
         user can select one option out of the list or even type in their own. It is
-        better than listboxes for a large number of options. Due to problems with
-        textvariable in nested frames with ttk, they are not used. Get/set uses
+        better than lists for a large number of options. Get/set uses str or list of
         str. There is no tk version.
 
         Parameters:
@@ -379,7 +387,7 @@ class Window:
             width (int): Width of label (chars) [20]
 
         Returns:
-            ttk.combobox 
+            ttk.Combobox
         """
 
         self.content[tag] = {'type': 'combo'}
@@ -394,7 +402,7 @@ class Window:
         return combobox
 
     def addCheck(self, tag, prompt='', alist=[], orient='horizontal', usetk=False, **tkparms):
-        """ Create a ttcheckbutton box.
+        """ Create a ttCheckbutton box.
 
         Checkboxes are used to collect options from the user, similar to a listbox.
         Checkboxes might be better for short titled options because they don't take
@@ -416,7 +424,7 @@ class Window:
             width (int): Width of max checkbox label (chars), negative sets minimum
 
         Returns:
-            [ttk/tk.checkbuttons]  
+            list of ttk/tk.Checkbuttons
         """
 
         t = tk if usetk else ttk
@@ -442,7 +450,7 @@ class Window:
         return cbuttons
 
     def addRadio(self, tag, prompt='', alist=[], orient='horizontal', usetk=False, **tkparms):
-        """ Create a ttradiobutton box.
+        """ Create a ttRadiobutton box.
 
         Radiobuttons allow the user to select only one option. If they change options,
         the previous option is unselected. This was the way old car radios worked
@@ -464,7 +472,7 @@ class Window:
             width (int): Width of max label (chars), negative sets minimun
 
         Returns:
-            [ttk/tk.radiobuttons] 
+            list of ttk/tk.Radiobuttons
         """
 
         t = tk if usetk else ttk
@@ -487,7 +495,7 @@ class Window:
         return rbuttons
 
     def addOption(self, tag, prompt='', alist=[]):
-        """ Create an ttoptionmenu.
+        """ Create an ttOptionmenu.
 
         Option menus allow the user to select one fixed option, similar to
         Radiobutton. However, option menu returns a tk.Menu and is more difficult
@@ -500,7 +508,7 @@ class Window:
             alist (list): (str1, str2, ...)
 
         Returns:
-            tk.optionmenu 
+            tk.OptionMenu
         """
 
         self.content[tag] = {'type': 'option', 'value': tk.StringVar()}  # init var to tk var
@@ -515,7 +523,7 @@ class Window:
         return option
 
     def addScale(self, tag, parms, prompt='', width=4, usetk=False, **tkparms):
-        """ Create a ttscale which is an integer scale with entry box.
+        """ Create a ttScale which is an integer scale with entry box.
 
         Scale allows the user to enter an integer value using a sliding scale. The
         user can also type in a value directly in the entry box. Get/set uses int.
@@ -535,7 +543,7 @@ class Window:
             style (str): Style to use for ttk.Scale
 
         Returns:
-            list(ttk/tk.scale, ttk/tk.entry)  
+            list of ttk/tk.Scale and ttk/tk.Entry
         """
 
         t = tk if usetk else ttk
@@ -555,13 +563,13 @@ class Window:
         self.content[tag]['widget'] = [scale, entry]
         return [scale, entry]
 
-    def addSpin(self, tag, parms, between='', prompt='', usetk=False, **tkparms):
-        """ Create a ttspinbox.
+    def addSpin(self, tag, parms, between=' ', prompt='', usetk=False, **tkparms):
+        """ Create a ttSpinbox.
 
         Spinboxes allow the user to enter a series of integers. It is best used
         for items like dates, time, etc. The keyword arguments will apply to EVERY
         spinbox. Since this is a Tk widget, there is no style keyword argument.
-        Get/set uses list of int.
+        Get/set uses str.
 
         Parameters:
             tag (str): Reference to widget
@@ -577,15 +585,16 @@ class Window:
             wrap (bool): Arrow clicks wrap around
 
         Returns:
-            list(ttk/tk.spinboxes) 
+            list of ttk/tk.Spinboxes
         """
 
         t = tk if usetk else ttk   
-        self.content[tag] = {'type': 'spin', 'value': []}  # data is list
+        self.content[tag] = {'type': 'spin', 'value': []}  # data is list###
+        self.content[tag]['between'] = between             # save the between str
         if prompt:
             frame = t.LabelFrame(self.master, text=prompt)  # create titled frame
         else:
-            frame = t.Frame(self.master)             # no title
+            frame = t.Frame(self.master)               # no title
         col = 0                                        # set col
         spins = []
         for parm in parms:
@@ -604,12 +613,12 @@ class Window:
         return spins                                   # list of spinboxes
 
     def addProgress(self, tag, prompt='', **tkparms):
-        """ Create a ttprogressbar.
+        """ Create a ttProgressbar.
 
         This indicates to the user how an action is progressing. The included method
         supports a determinate mode where the programmer tells the user exactly how
         far they have progressed. Ttk also supports a indeterminate mode where a rectangle
-        bounces back a forth. See the Tk documentation. Get/set uses int. There is no
+        bounces back a forth. See the Tkinter documentation. Get/set uses int. There is no
         tk version.
 
         Parameters:
@@ -624,7 +633,7 @@ class Window:
             orient (str): 'horizontal' or 'vertical'
 
         Returns:
-            ttk.progressbar 
+            ttk.Progressbar
         """
 
         self.content[tag] = {'type': 'progress', 'value': tk.IntVar()}
@@ -639,7 +648,7 @@ class Window:
         return progress
 
     def addButton(self, tag, prompt='', cmd=[], space=3, orient='horizontal', usetk=False, **tkparms):
-        """ Create a ttbuttonbox, defaults to Ok - Cancel.
+        """ Create a ttButtonbox, defaults to Ok - Cancel.
 
         This widget is where one would place most of the command buttons for a GUI,
         usually at the bottom of the window. Clicking on a button will execute a
@@ -661,7 +670,7 @@ class Window:
             width (int): Width of label (chars)
 
         Returns:
-            list(ttk/tk.buttons) 
+            list of ttk/tk.Buttons
         """
 
         t = tk if usetk else ttk 
@@ -689,12 +698,12 @@ class Window:
         return buttons
 
     def addText(self, tag, prompt='', **tkparms):
-        """ Create a tttext window.
+        """ Create a ttText window.
 
         The tk.Text widget is an extremely powerful widget that can do many things,
         other than just displaying text. It is almost a mini editor. The default
         method allow the programmer to add and delete text. Be sure to read the
-        Tk documentation to discover all the features of this widget. Since this
+        Tkinter documentation to discover all the features of this widget. Since this
         is a Tk widget, there is no style keyword argument. Get/set uses str.
 
         Parameters:
@@ -710,7 +719,7 @@ class Window:
             height (int): Height of window (chars)
 
         Returns:
-            tk.text
+            tk.Text
         """
 
         self.content[tag] = {'type': 'text'}
@@ -719,19 +728,19 @@ class Window:
         else:
             frame = ttk.Frame(self.master)             # no title
         text = tk.Text(frame, **tkparms)               # create text widget
-        text.grid(row=0, sticky='wens')                # fill entire frame
+        text.grid(row=0, sticky='nsew')                # fill entire frame
         vbar = ttk.Scrollbar(frame)                    # create scrollbar
         text['yscrollcommand'] = vbar.set              # connect text to scrollbar
         vbar['command'] = text.yview                   # connect scrollbar to text
         if 'font' not in tkparms:
             text['font'] = ('Helvetica', '10')         # default font
-        vbar.grid(row=0, column=1, sticky='ns')        # grid scrollbar
+        vbar.grid(row=0, column=1, sticky='nse')        # grid scrollbar
         self.content[tag]['frame'] = frame
         self.content[tag]['widget'] = text
         return text
 
     def addCanvas(self, tag, prompt='', scrollbars=False, **tkparms):
-        """ Create a ttcanvas window.
+        """ Create a ttCanvas window.
 
         The tk.Canvas is another extremely powerful widget that displays graphics.
         Again, read the Tkinter documentation to discover all the features of this
@@ -752,7 +761,7 @@ class Window:
             scrollregion (list of int): w, n, e, s bondaries of scrolling region
 
         Returns:
-            tk.canvas 
+            tk.Canvas
         """
 
         self.content[tag] = {'type': 'canvas'}
@@ -778,14 +787,15 @@ class Window:
     # file/directory dialogs
 
     def addOpen(self, tag, prompt='', width=20, **tkparms):
-        """ Create a ttopen box which is a file entry and a browse button.
+        """ Create a ttOpenbox which is a file entry and a browse button.
 
         This has all the widgets needed to open a file. When the user clicks on
         the Browse button, a standard Open dialog box pops up. There are many
-        tkparms that are useful for limiting choices, see the Tk documentation.
+        tkparms that are useful for limiting choices, see the Tkinter documentation.
         Get/set uses str. Normally, this widget would be in a dialog. For a menu
         command use popOpen. Width is a necessary option since **tkparms is for
-        the askopenfilename widget.
+        the askopenfilename widget. If the programmer as an icon, they can replace
+        the 'Browse' text.
 
         Parameters:
             tag (str): Reference to widget
@@ -801,7 +811,7 @@ class Window:
             title (str): Pop-up window's title
 
         Returns:
-            list(ttk/tk.entry, ttk/tk.button) 
+            list of ttk/tk.Entry and ttk/tk.Button
         """
 
         self.content[tag] = {'type': 'open', 'value': tk.StringVar()}  # init var to tk var
@@ -829,15 +839,15 @@ class Window:
             self.set(tag, fn)                          # store it in content
 
     def addSaveAs(self, tag, prompt='', width=20, **tkparms):
-        """ Create an ttsaveas box which is a file entry with a browse button.
+        """ Create an ttSaveasbox which is a file entry with a browse button.
 
         This has all the widgets needed to save a file. When the user clicks on
         the Browse button, a standard SaveAs dialog box pops up. If the user
         selects an existing file, it will pop up a overwrite confirmation box.
-        There are many tkparms that are useful for limiting choices, see the Tk
+        There are many tkparms that are useful for limiting choices, see the Tkinter
         documentation. Get/set uses str. Normally, this widget would be in a
-        dialog. For a menu command, use popSaveAs. Width is a necessary option since **tkparms is for
-        the asksaveasfilename widget.
+        dialog. For a menu command, use popSaveAs. Width is a necessary option
+        since **tkparms is for the asksaveasfilename widget.
 
         Parameters:
             tag (str): Reference to widget
@@ -852,7 +862,7 @@ class Window:
             title (str): Pop-up window's title
 
         Returns:
-            list(ttk/tk.entry, ttk/tk.button) 
+            list of ttk/tk.Entry and ttk/tk.Button
         """
 
         self.content[tag] = {'type': 'saveas', 'value': tk.StringVar()}  # very similar to addOpen
@@ -878,11 +888,11 @@ class Window:
             self.set(tag, fn)
 
     def addChooseDir(self, tag, prompt='', width=20, **tkparms):
-        """ Create a ttchoosedir box which is a directory entry with a browse button.
+        """ Create a ttChoosedirbox which is a directory entry with a browse button.
 
         This has all the widgets needed to select a directory. When the user clicks
         on the Browse button, a standard Choose Directory dialog box pops up. There
-        are many tkparms that are useful for limiting choices, see the Tk
+        are many tkparms that are useful for limiting choices, see the Tkinter
         documentation. Get/set uses str. Normally, this would be use in a dialog.
         For a menu command use popChooseDir. Width is a necessary option since **tkparms is for
         the askopenfilename widget.
@@ -897,7 +907,7 @@ class Window:
             title (str): Pop-up window's title
 
         Returns:
-            list(ttk/tk.entry, ttk/tk.button) 
+            list of ttk/tk.Entry and ttk/tk.Button
         """
 
         self.content[tag] = {'type': 'choosedir', 'value': tk.StringVar()}  # init var to tk var
@@ -925,7 +935,7 @@ class Window:
     # treeview based widgets
 
     def addLedger(self, tag, columns, prompt='', **tkparms):
-        """ Create a ttledger which is based on a treeview that displays a simple
+        """ Create a ttLedger which is based on a treeview that displays a simple
         list with column headers.
 
         This widget allows a nice display of data in columns. It is a simplified
@@ -945,7 +955,7 @@ class Window:
             style (ttk:Style): Style used for ttk.Treeview
 
         Returns:
-            ttk.treeview
+            ttk.Treeview
         """
 
         self.content[tag] = {'type': 'ledger'}
@@ -968,7 +978,7 @@ class Window:
         return tree
 
     def addCollector(self, tag, columns, widgets, prompt='', **tkparms):
-        """ Create a ttcollector which is based on a treeview that collects contents
+        """ Create a ttCollectorbox which is based on a treeview that collects contents
         of other widgets.
 
         This collection of widgets allows the programmer to collect the contents
@@ -988,7 +998,7 @@ class Window:
             style (ttk.Style): Style used for ttk.Treeview
 
         Returns:
-            [ttk.treeview, ttk.button, ttk.button] 
+            list of ttk.Treeview and two ttk.Buttons
         """
 
         self.content[tag] = {'type': 'collector'}
@@ -1052,7 +1062,7 @@ class Window:
     # widgets added for completeness
 
     def addSizegrip(self, tag, **tkparms):
-        """ Add a sizegrip widget to the window.
+        """ Add a ttSizegrip widget to the window.
 
         This places a sizegrip in the bottom right corner of the window. It is
         not needed since most platforms add this automatically. The programmer
@@ -1067,7 +1077,7 @@ class Window:
             style (ttk.Style): Style used for ttk.Sizegrip, mainly background
 
         Returns:
-            ttk.sizegrip  
+            ttk.Sizegrip
         """
 
         self.content[tag] = {'type': 'sizegrip'}
@@ -1077,7 +1087,7 @@ class Window:
         return sizegrip
 
     def addScrollbar(self, tag, widgetTag, orient='horizontal', usetk=False, **tkparms):
-        """ Add a scrollbar to a widget.
+        """ Add a ttScrollbar to a widget.
 
         This is usually this is done automatically. There is no frame. In order
         to plot the programmer must get the widget frame and use the correct sticky
@@ -1092,7 +1102,7 @@ class Window:
             style (ttk.Style): Style used for ttk.Scrollbar
 
         Returns:
-            ttk/tk.scrollbar
+            ttk/tk.Scrollbar
         """
 
         t = tk if usetk else ttk 
@@ -1130,7 +1140,7 @@ class Window:
             width (int): Width of frame (pixels)
 
         Returns:
-            tt.window
+            tt.Window
         """
 
         t = tk if usetk else ttk    
@@ -1165,10 +1175,11 @@ class Window:
             width (int): Width of frame (pixels)
 
         Returns:
-            list(tt.windows)
+            list of tt.Windows
         """
 
         self.content[tag] = {'type': 'notebook'}        # data is list of lists
+        self.content[tag]['tabs'] = tabs                # remember tabs
         pages = []                                     # pages will be other windows
         notebook = ttk.Notebook(self.master, **tkparms)  # create notebook
         for page in tabs:                              # each tab is a page
@@ -1181,8 +1192,8 @@ class Window:
     def addPanes(self, tag, titles, usetk=False, **tkparms):
         """ Create a multipaned window with user adjustable columns.
 
-        This is like a notebook but all the windows are visible. There is no
-        frame.
+        This is like a notebook but all the windows are visible and the
+        widths are adjustable. There is no frame.
 
         Parameters:
             tag (str): Reference to container
@@ -1197,7 +1208,7 @@ class Window:
             width (int): Width of frame (pixels)
 
         Returns:
-            [tt.windows]
+            list of tt.Windows
         """
 
         t = tk if usetk else ttk
@@ -1214,20 +1225,20 @@ class Window:
     # menus
 
     def addMenuButton(self, tag, usetk=False, **tkparms):
-        """ Add a menu button
+        """ Add a ttMenubutton
 
-        A menubuuton always stays on the screen and is what the user clicks on. A menu
-        is attached to the menubutton. Menus are complex so read the Tk documentation
+        A menubutton always stays on the screen and is what the user clicks on. A menu
+        is attached to the menubutton. Menus are complex so read the Tkinter documentation
         carefully.
 
         Parameters:
             tag (str): Reference to menubutton
 
         Keyword Arguments:
-            Varies (dict): see Tk documentation
+            Varies (dict): see Tkinter documentation
 
         Returns:
-            ttk/tk.menubutton
+            ttk/tk.Menubutton
         """
 
         t = tk if usetk else ttk 
@@ -1237,21 +1248,21 @@ class Window:
         return menubutton
 
     def addMenu(self, tag, parent, items=None, **tkparms):
-        """ Add a menu
+        """ Add a tt.Menu
 
-        Menus are complex so read the Tk documentation carefully.
+        Menus are complex so read the Tkinter documentation carefully.
 
         Parameters:
             tag (str): Reference to menu
             parent (ttk.Menubutton or tk.Frame): What menu is attached to
             items (list): ('cascade' or 'checkbutton' or 'command' or
-                'radiobutton' or 'separator', coptions) (see Tk Documentation)
+                'radiobutton' or 'separator', coptions) (see Tkinter Documentation)
  
         Keyword Arguments:
-            Varies (dict): see Tk documentation
+            Varies (dict): see Tkinter documentation
 
         Returns:
-            tk.menu 
+            tk.Menu
         """
 
         self.content[tag] = {'type': 'menu'}
@@ -1314,13 +1325,13 @@ class Window:
         """ Add a ttk.Style to be used for other widgets.
 
         This is the method for changing the appearance of ttk widgets. Styles are
-        strictly defined strings so look at the Tk documentation.
+        strictly defined strings so look at the Tkinter documentation.
 
         Parameter:
             tag (str): Reference to style, must follow ttk naming
 
         Keyword Arguments:
-            Varies with widget, see Tk documentation
+            Varies with widget, see Tkinter documentation
         """
 
         self.style.configure(tag, **tkparms)
@@ -1334,7 +1345,7 @@ class Window:
             allValues (bool): if true return all the values
 
         Returns:
-            Contents of ttwidget
+            Contents of ttWidget
         """
 
         widgetType = self.getType(tag)                 # get type
@@ -1369,25 +1380,27 @@ class Window:
             if allValues:
                 for rid in widget.get_children():      # get all rows
                     row = widget.set(rid)              # get the items as a dict
-                    value.append(row)
+                    value.append(list(row.values()))
             else:
                 for rid in widget.selection():         # get the selected rows
                     row = widget.set(rid)
-                    value.append(row)
+                    value.append(list(row.values()))
         elif widgetType == 'collector':
             widget = widget[0]                         # get treeview
             value = []
             for rid in widget.get_children():          # get the top-level items
                 row = widget.set(rid)                  # get the dict
-                value.append(row)
+                value.append(list(row.values()))
         elif widgetType == 'spin':
-            value = []
+            values = []
             for item in self.content[tag]['value']:
-                value.append(item.get())               # get all tk variables
+                values.append(str(item.get()))         # get all tk.IntVars
+            value = self.content[tag]['between'].join(values) # create str    
         elif widgetType == 'text':
             value = widget.get('0.0', 'end')           # get all text
         elif widgetType == 'notebook':
-            value = widget.index('current')            # get current page
+            i = widget.index('current')                # get current page
+            value = self.content[tag]['tabs'][i]       # get tab            
         else:                                          # styles, menus, menubuttons
             value = widget                             # same as getWidget 
         return value
@@ -1440,14 +1453,19 @@ class Window:
             for item in value:
                 widget.insert('', 'end', values=item)  # add to tree
         elif widgetType == 'spin':
-            for item in self.content[tag]['value']:    # for spinboxes
+            sep = self.content[tag]['between']
+            if not sep:                                # sep cannot be ''
+                sep = ' '
+            values = value.split(sep)                  # split input str
+            for item in self.content[tag]['value']:    # fill tk.IntVars
                 if value == '':
                     item.set('')                       # clear it
                 else:
-                    item.set(value.pop(0))             # set it and get next
+                    item.set(int(values.pop(0)))       # set it and get next
         elif widgetType == 'notebook':
-            widget.select(value)                       # display that page
-        elif widgetType == 'text':                     # unlike other widget this inserts!
+            i = self.content[tag]['tabs'].index(value)
+            widget.select(i)                           # display that page
+        elif widgetType == 'text':                     # unlike other widgets this inserts!
             if allValues:
                 widget.delete('1.0', 'end')            # clear everything
             widget.insert('end', value)                # add text
@@ -1455,10 +1473,10 @@ class Window:
         self.refresh()                                 # update display
 
     def reset(self, tag):
-        """ Reset the selection in a widget 
+        """ Reset the selections in a widget 
 
         This clears any selections in a widget. This was created mainly for
-        lists but is useful for all selection widgets.
+        listboxes but is useful for all selection widgets.
 
         Parameter:
             tag (str): - Reference to widget
@@ -1475,11 +1493,11 @@ class Window:
             widget.selection_remove(items)
         
     def plot(self, tag=None, **tkparms):
-        """ Plot the ttwidget.
+        """ Plot the ttWidget.
 
         Place a frame and widget in a cell of a window using the row and column.
-        Plot was selected as an easier name for beginners than grid. Other tkparms
-        are extremely useful here and should be understood. Look at the Tk
+        Plot was selected as an easier name for beginners than grid. Tkparms
+        are extremely useful here and should be understood. Look at the Tkinter
         documentation.
 
         Parameters:
@@ -1491,8 +1509,6 @@ class Window:
             rowspan (int): the number of rows to span
             columnspan (int): the number of columns to span
             sticky (str): the directions to fill the cell for the widget
-            rowconfigure (int): rate widget expands in vertical if resized
-            columnconfigure (int): rate widget expands in horizontal
             padx (int): horizontal space between widget cells (pixels)
             pady (int): vertical space between widget cells (pixels)
             ipadx (int): horizontal space within cell (pixels)
@@ -1500,16 +1516,16 @@ class Window:
         """
 
         if not tag:
-            self.master.grid(**tkparms)
+            self.master.grid(**tkparms)  #
         elif self.content[tag]['type'] in ('line', 'notebook', 'panes', 'menubutton'):  # no frames
             self.content[tag]['widget'].grid(**tkparms)  # grid widget
         else:
             self.content[tag]['frame'].grid(**tkparms)  # grid frame
 
     def grid(self, tag=None, **tkparms):
-        """ Synonym for plot """
+        """ Some instructors prefer grid """
 
-        self.plot(self, tag, **tkparms)
+        self.plot(tag, **tkparms)
 
     def getWidget(self, tag):
         """ Get the tk/ttk widget if present.
@@ -1521,7 +1537,7 @@ class Window:
             tag (str): - Reference to widget
 
         Returns:
-            The ttk/tk widget
+            ttk/tk.Widget
         """
 
         return self.content[tag].get('widget')
@@ -1546,7 +1562,7 @@ class Window:
 
          Change the underlying tk or ttk widget appearance using
          tkparms. Index parameter allows you to change an individual
-         element in multipart widget. See Tk documentation.
+         element in multipart widget. See Tkinter documentation.
 
          Parameters:
              tag (str): Reference to widget
@@ -1564,7 +1580,7 @@ class Window:
             widget = widget[index]                     # get element
         widget.configure(**tkparms)                    # configure tkparms
 
-    def setState(self, tag, *states, index=None):
+    def setState(self, tag, states, index=None):
         """ Set or clear ttk or tk widget states
 
          Change the underlying ttk or tk widget states. For ttk widgets
@@ -1572,11 +1588,12 @@ class Window:
          'focus', 'invalid', 'pressed', 'readonly', and 'selected'.
          Preceding a state with '!' clears it. For tk widgets use 'disabled',
          'normal', or 'readonly'. Index parameter allows you to change an
-         individual element in multipart widget. See Tk documentation.
+         individual element in multipart widget. See Tkinter documentation.
 
          Parameters:
              tag (str): Reference to widget
-             states (list): States of widget, usually ['disabled'] or ['!disabled'] for ttk
+             states (list): States of widget, usually 'disabled' or
+                 '!disabled' for ttk
              index (int): Index to element in multipart widget
          """
 
@@ -1584,9 +1601,9 @@ class Window:
         if index is not None:                          # if multiwidget...
             widget = widget[index]                     # get element
         try:    
-            widget.state(*states)                      # clear/set states
+            widget.state(states)                       # clear/set states
         except AttributeError:                         # tk widget   
-            widget.configure(state=states[0])          # 'disabled','normal','readonly'
+            widget.configure(states[0])                # 'disabled','normal','readonly'
 
     def getType(self, tag):
         """ Get the type of widget.
@@ -1611,7 +1628,7 @@ class Window:
         self.master.mainloop()
 
     def mainloop(self):
-        """ Synonym for waitforUser """
+        """ Some instructors prefer mainloop """
 
         self.waitforUser()
 

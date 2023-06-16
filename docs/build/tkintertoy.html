@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tkintertoy module &mdash; Tkintertoy 1.5.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tkintertoy 1.5 Tutorial" href="tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tkintertoy
+          </a>
+              <div class="version">
+                1.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tkintertoy 1.5 Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">tkintertoy module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tt.Window"><code class="docutils literal notranslate"><span class="pre">Window</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.VERSION"><code class="docutils literal notranslate"><span class="pre">Window.VERSION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.__contains__"><code class="docutils literal notranslate"><span class="pre">Window.__contains__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.__len__"><code class="docutils literal notranslate"><span class="pre">Window.__len__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.__repr__"><code class="docutils literal notranslate"><span class="pre">Window.__repr__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addButton"><code class="docutils literal notranslate"><span class="pre">Window.addButton()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addCanvas"><code class="docutils literal notranslate"><span class="pre">Window.addCanvas()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addCheck"><code class="docutils literal notranslate"><span class="pre">Window.addCheck()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addChooseDir"><code class="docutils literal notranslate"><span class="pre">Window.addChooseDir()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addCollector"><code class="docutils literal notranslate"><span class="pre">Window.addCollector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addCombo"><code class="docutils literal notranslate"><span class="pre">Window.addCombo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addEntry"><code class="docutils literal notranslate"><span class="pre">Window.addEntry()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addFrame"><code class="docutils literal notranslate"><span class="pre">Window.addFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addLabel"><code class="docutils literal notranslate"><span class="pre">Window.addLabel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addLedger"><code class="docutils literal notranslate"><span class="pre">Window.addLedger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addLine"><code class="docutils literal notranslate"><span class="pre">Window.addLine()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addList"><code class="docutils literal notranslate"><span class="pre">Window.addList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addMenu"><code class="docutils literal notranslate"><span class="pre">Window.addMenu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addMenuButton"><code class="docutils literal notranslate"><span class="pre">Window.addMenuButton()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addMessage"><code class="docutils literal notranslate"><span class="pre">Window.addMessage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addNotebook"><code class="docutils literal notranslate"><span class="pre">Window.addNotebook()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addOpen"><code class="docutils literal notranslate"><span class="pre">Window.addOpen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addOption"><code class="docutils literal notranslate"><span class="pre">Window.addOption()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addPanes"><code class="docutils literal notranslate"><span class="pre">Window.addPanes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addProgress"><code class="docutils literal notranslate"><span class="pre">Window.addProgress()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addRadio"><code class="docutils literal notranslate"><span class="pre">Window.addRadio()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addSaveAs"><code class="docutils literal notranslate"><span class="pre">Window.addSaveAs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addScale"><code class="docutils literal notranslate"><span class="pre">Window.addScale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addScrollbar"><code class="docutils literal notranslate"><span class="pre">Window.addScrollbar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addSizegrip"><code class="docutils literal notranslate"><span class="pre">Window.addSizegrip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addSpin"><code class="docutils literal notranslate"><span class="pre">Window.addSpin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addStyle"><code class="docutils literal notranslate"><span class="pre">Window.addStyle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.addText"><code class="docutils literal notranslate"><span class="pre">Window.addText()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.breakout"><code class="docutils literal notranslate"><span class="pre">Window.breakout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.cancel"><code class="docutils literal notranslate"><span class="pre">Window.cancel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.catchExcept"><code class="docutils literal notranslate"><span class="pre">Window.catchExcept()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.close"><code class="docutils literal notranslate"><span class="pre">Window.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.focus"><code class="docutils literal notranslate"><span class="pre">Window.focus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.get"><code class="docutils literal notranslate"><span class="pre">Window.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.getFrame"><code class="docutils literal notranslate"><span class="pre">Window.getFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.getType"><code class="docutils literal notranslate"><span class="pre">Window.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.getWidget"><code class="docutils literal notranslate"><span class="pre">Window.getWidget()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.grid"><code class="docutils literal notranslate"><span class="pre">Window.grid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.mainloop"><code class="docutils literal notranslate"><span class="pre">Window.mainloop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.plot"><code class="docutils literal notranslate"><span class="pre">Window.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.popDialog"><code class="docutils literal notranslate"><span class="pre">Window.popDialog()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.popMessage"><code class="docutils literal notranslate"><span class="pre">Window.popMessage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.refresh"><code class="docutils literal notranslate"><span class="pre">Window.refresh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.reset"><code class="docutils literal notranslate"><span class="pre">Window.reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.set"><code class="docutils literal notranslate"><span class="pre">Window.set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.setState"><code class="docutils literal notranslate"><span class="pre">Window.setState()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.setTitle"><code class="docutils literal notranslate"><span class="pre">Window.setTitle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.setWidget"><code class="docutils literal notranslate"><span class="pre">Window.setWidget()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.waitforUser"><code class="docutils literal notranslate"><span class="pre">Window.waitforUser()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tkintertoy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">tkintertoy module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tkintertoy.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-tt">
+<span id="tkintertoy-module"></span><h1>tkintertoy module<a class="headerlink" href="#module-tt" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="tt.Window">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tt.</span></span><span class="sig-name descname"><span class="pre">Window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An easy GUI creator intended for novice Python programmers, built upon
+Tkinter.</p>
+<p>This will create a Tk window with a contents dictionary. The programmer
+adds “ttWidgets” to the window using the add* methods where the programmer
+assigns a string tag to a widget. Almost all ttk and most tk widgets are included,
+with some useful combined widgets. Most tk/ttk widgets are placed in a frame which
+can act as a prompt of the ttWidget to the user. The programmer places the ttWidgets
+using the plot method which is a synonym for the tkinter grid geometry manager.
+Contents of the widget are assigned and retrieved by using the tags to the set and
+get methods. This greatly simplifies working with GUIs. Also, all ttWidgets are
+bundled into the window object so individual ttWidgets do not need to be passed
+to other routines, which simplifies interfaces. However, more experienced Python
+programmers can access the tk/ttk widget and frames directly and take advantage
+of the full power of Tk and ttk.</p>
+<p>In the below methods, not all the possible keyword arguments are listed, only
+the most common ones were selected. The Tkinter documentation lists all for every
+widget. However, tk control variables should NOT be used since they might
+interfere on how the set and get methods work. Default values are shown in
+brackets [].</p>
+<p>In some themes, certain parameters (like background) will not work in ttk
+widgets. For this reason, all ttk widgets have an option to use the older
+tk widget by setting the usetk argument to True.</p>
+<p>Due to problems with textvariable in nested frames with ttk, the textvariable
+option is not used in any of the below methods.</p>
+<p>After creating a Window object, the master attribute will either be a Tk
+Frame or a Toplevel window.</p>
+<dl class="simple">
+<dt>Here is a summary of the methods:</dt><dd><p>add* - add a new ttWidget to a window
+get* - get the contents or an part of the ttWidget
+set* - change the contents or an attribute of the widget
+pop* - pop-up a dialog window</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>master</strong> (<em>tk.Toplevel</em><em> or </em><em>tk.Frame</em>) – The containing window</p></li>
+<li><p><strong>extra</strong> (<em>bool</em>) – True if this is an extra window apart from the main</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>borderwidth</strong> (<em>int</em>) – Width of border (pixels)</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of frame (pixels)</p></li>
+<li><p><strong>padding</strong> (<em>int</em>) – Spaces between frame and widgets (pixels)</p></li>
+<li><p><strong>relief</strong> (<em>str</em>) – [‘flat’],’raised’,’sunken’,’groove’, or ‘ridge’</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style used for ttk.Frame or ttk.LabelFrame</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of frame (pixels)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Included in the installation is a copy of John Shipman’s “Tkinter 8.5 reference:
+a GUI for Python” from New Mexico Tech, which is the best printed version known
+to the author. Unfortunately, Dr. Shipman has passed away and it is getting harder
+to find. When the code references Tkinter documentation it is referring to Dr.
+Shipman’s work.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tt.Window.VERSION">
+<span class="sig-name descname"><span class="pre">VERSION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1.50'</span></em><a class="headerlink" href="#tt.Window.VERSION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.__contains__">
+<span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.__contains__" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if widget tag is in window.</p>
+<p>Called using the in operator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if ‘tag’ is in window</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.__len__" title="Permalink to this definition"></a></dt>
+<dd><p>Return number of widgets in window.</p>
+<p>Called using the builtin len() function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of widgets in window</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.__repr__" title="Permalink to this definition"></a></dt>
+<dd><p>Display content dictionary structure, useful for debugging.</p>
+<p>Called using the builtin repr() function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String of self.master, self.content</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addButton">
+<span class="sig-name descname"><span class="pre">addButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'horizontal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addButton" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttButtonbox, defaults to Ok - Cancel.</p>
+<p>This widget is where one would place most of the command buttons for a GUI,
+usually at the bottom of the window. Clicking on a button will execute a
+method usually called a callback. Two basic ones are included; Ok and
+Cancel. The keyword arguments will apply to EVERY button.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>cmd</strong> (<em>list</em>) – (label:str, callback:function) for each button</p></li>
+<li><p><strong>space</strong> (<em>int</em>) – space (pixels) between buttons</p></li>
+<li><p><strong>orient</strong> (<em>str</em>) – [‘horizontal’] or ‘vertical’</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>compound</strong> (<em>str</em>) – Display both image and text, see ttk docs</p></li>
+<li><p><strong>image</strong> (<em>tk.PhotoImage</em>) – GIF/PNG image to display</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style to use for checkboxes</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of label (chars)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk/tk.Buttons</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addCanvas">
+<span class="sig-name descname"><span class="pre">addCanvas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scrollbars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addCanvas" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttCanvas window.</p>
+<p>The tk.Canvas is another extremely powerful widget that displays graphics.
+Again, read the Tkinter documentation to discover all the features of this
+widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>scrollbars</strong> (<em>bool</em>) – True if scrollbars are added</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of window (pixels)</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of window (pixels)</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Background color</p></li>
+<li><p><strong>closeenough</strong> (<em>float</em>) – Mouse threshold</p></li>
+<li><p><strong>confine</strong> (<em>bool</em>) – Canvas cannot be scrolled ourside scrolling region</p></li>
+<li><p><strong>cursor</strong> (<em>str</em>) – Mouse cursor</p></li>
+<li><p><strong>scrollregion</strong> (<em>list</em><em> of </em><em>int</em>) – w, n, e, s bondaries of scrolling region</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Canvas</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addCheck">
+<span class="sig-name descname"><span class="pre">addCheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'horizontal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addCheck" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttCheckbutton box.</p>
+<p>Checkboxes are used to collect options from the user, similar to a listbox.
+Checkboxes might be better for short titled options because they don’t take
+up as much screen space. The keyword arguments will apply to EVERY checkbutton.
+Get/set uses list of str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>alist</strong> (<em>list</em>) – (str1, str2, …)</p></li>
+<li><p><strong>orient</strong> (<em>str</em>) – [‘horizontal’] or ‘vertical’</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>command</strong> (<em>callback</em>) – Function to execute when boxes are toggled</p></li>
+<li><p><strong>compound</strong> (<em>str</em>) – Display both image and text, see ttk docs</p></li>
+<li><p><strong>image</strong> (<em>tk.PhotoImage</em>) – GIF image to display</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style to use for checkboxes</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of max checkbox label (chars), negative sets minimum</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk/tk.Checkbuttons</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addChooseDir">
+<span class="sig-name descname"><span class="pre">addChooseDir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addChooseDir" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttChooseDirbox which is a directory entry with a browse button.</p>
+<p>This has all the widgets needed to select a directory. When the user clicks
+on the Browse button, a standard Choose Directory dialog box pops up. There
+are many tkparms that are useful for limiting choices, see the Tkinter
+documentation. Get/set uses str. Normally, this would be use in a dialog.
+For a menu command use popChooseDir. Width is a necessary option since
+<a href="#id1"><span class="problematic" id="id2">**</span></a>tkparms is for the askopenfilename widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of entry widget</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>initialdir</strong> (<em>str</em>) – Initial directory (space, ‘ ‘ remembers last directory)</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Pop-up window’s title</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk/tk.Entry and ttk/tk.Button</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addCollector">
+<span class="sig-name descname"><span class="pre">addCollector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widgets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addCollector" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttCollectorbox which is based on a treeview that collects contents
+of other widgets.</p>
+<p>This collection of widgets allows the programmer to collect the contents
+of other widgets into a row. The user can add or delete rows as they
+wish using the included buttons. Get/set uses list of str. There is no tk
+version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>columns</strong> (<em>list</em>) – (Column headers, width (pixels))</p></li>
+<li><p><strong>widgets</strong> (<em>list</em>) – (Tags) for simple or (window, tag) for embedded widgets</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>height</strong> (<em>int</em>) – Height of widget</p></li>
+<li><p><strong>padding</strong> (<em>int</em>) – Spaces around values</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style used for ttk.Treeview</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk.Treeview and two ttk.Buttons</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addCombo">
+<span class="sig-name descname"><span class="pre">addCombo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addCombo" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttCombobox.</p>
+<p>Comboboxes combine features of Entry and Listbox into a single widget. The
+user can select one option out of the list or even type in their own. It is
+better than lists for a large number of options. Get/set uses str or list of
+str. There is no tk version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>values</strong> (<em>list</em>) – (str1, str2, …)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>height</strong> (<em>int</em>) – Maximum number of rows in dropdown [10]</p></li>
+<li><p><strong>justify</strong> (<em>str</em>) – Justification of text ([‘left’], ‘right’, ‘center’)</p></li>
+<li><p><strong>postcommand</strong> (<em>callback</em>) – Function to call when user clicks on downarrow</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style to use for widget</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of label (chars) [20]</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk.Combobox</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addEntry">
+<span class="sig-name descname"><span class="pre">addEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addEntry" title="Permalink to this definition"></a></dt>
+<dd><p>Create an ttEntry.</p>
+<p>Entries are the widget to get string input from the user. Get/set
+uses str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>justify</strong> (<em>str</em>) – Justification of text (‘left’ [def], ‘right’, ‘center’)</p></li>
+<li><p><strong>show</strong> (<em>str</em>) – Char to display instead of actual text</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style to use for widget</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of label [20] (chars)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk/tk.Entry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addFrame">
+<span class="sig-name descname"><span class="pre">addFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addFrame" title="Permalink to this definition"></a></dt>
+<dd><p>Create a labeled or unlabeled frame container.</p>
+<p>This allows the programmer to group widgets into a new window.
+The window can have either a title or a relief style, but not both.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to container</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>boarderwidth</strong> (<em>int</em>) – width of border (for relief styles only)</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of frame (pixels)</p></li>
+<li><p><strong>padding</strong> (<em>int</em>) – Spaces between frame and widgets (pixels)</p></li>
+<li><p><strong>relief</strong> (<em>str</em>) – ‘flat’,’raised’,’sunken’,’groove’, or ‘ridge’</p></li>
+<li><p><strong>style</strong> (<em>int</em>) – Style used for ttk.Frame or ttk.LabelFrame</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of frame (pixels)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tt.Window</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addLabel">
+<span class="sig-name descname"><span class="pre">addLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkpamrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addLabel" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttLabel.</p>
+<p>Labels are used to display simple messages to the user. An effects parameter
+is included for the simplest font types but this will override the font
+keyword argument. Get/set uses str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>effects</strong> (<em>str</em>) – ‘bold’ and/or ‘italic’</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>anchor</strong> (<em>str</em>) – Position in widget; [‘c’], ‘w’, ‘e’)</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Background color</p></li>
+<li><p><strong>compound</strong> (<em>str</em>) – Display both image and text, see ttk docs</p></li>
+<li><p><strong>font</strong> (<em>tkfont.Font</em>) – Font for label</p></li>
+<li><p><strong>foreground</strong> (<em>str</em>) – Text color</p></li>
+<li><p><strong>image</strong> (<em>tk.PhotoImage</em>) – GIF image to display</p></li>
+<li><p><strong>justify</strong> (<em>str</em>) – Justification of text; [‘left’], ‘right’, ‘center’</p></li>
+<li><p><strong>padding</strong> (<em>list</em>) – Spacing (left, top, right, bottom) around widget (pixels)</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The text inside the widget</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of label (chars)</p></li>
+<li><p><strong>wraplength</strong> (<em>int</em>) – Character position to word wrap</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk/tk.Label</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addLedger">
+<span class="sig-name descname"><span class="pre">addLedger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addLedger" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttLedger which is based on a treeview that displays a simple
+list with column headers.</p>
+<p>This widget allows a nice display of data in columns. It is a simplified
+version of the Collector widget. Due to a bug in ttk, sideways scrolling
+does not work correctly. If you need sideways scrolling use the Text widget.
+Get/set uses list of str. There is no tk version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>columns</strong> (<em>list</em>) – (Column headers, width (pixels))</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>height</strong> (<em>int</em>) – Height of widget</p></li>
+<li><p><strong>padding</strong> (<em>int</em>) – Spaces around values</p></li>
+<li><p><strong>selectmode</strong> (<em>str</em>) – [‘browse’] or ‘extended’</p></li>
+<li><p><strong>(</strong><strong>ttk</strong> (<em>style</em>) – Style): Style used for ttk.Treeview</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk.Treeview</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addLine">
+<span class="sig-name descname"><span class="pre">addLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addLine" title="Permalink to this definition"></a></dt>
+<dd><p>Create a horizontal or vertical ttLine across the entire frame.</p>
+<p>Lines are useful for visually separating areas of widgets. They have no
+frame. There is no tk version. Be sure to use the sticky keyword when
+plotting or it will be a single dot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>orient</strong> (<em>str</em>) – [‘horizontal’] or ‘vertical’</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style to use for line</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk.Separator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addList">
+<span class="sig-name descname"><span class="pre">addList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addList" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttListbox.</p>
+<p>Lists allow the user to select a series of options in a vertical list.
+It is best for long titled options but does take up some screen space.
+Since this is a Tk widget, there is no style keyword argument. Get/set
+uses list of str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>alist</strong> (<em>list</em>) – (str1, str2, …)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>background</strong> (<em>str</em>) – Background color</p></li>
+<li><p><strong>font</strong> (<em>tkfont.Font</em>) – Font for label</p></li>
+<li><p><strong>foreground</strong> (<em>str</em>) – Text color</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of listbox (chars) [10]</p></li>
+<li><p><strong>selectmode</strong> (<em>str</em>) – [‘browse’], ‘single’, ‘multiple’, or ‘extended’</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of label (chars) [20]</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.listbox</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addMenu">
+<span class="sig-name descname"><span class="pre">addMenu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addMenu" title="Permalink to this definition"></a></dt>
+<dd><p>Add a tt.Menu</p>
+<p>Menus are complex so read the Tkinter documentation carefully.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to menu</p></li>
+<li><p><strong>parent</strong> (<em>ttk.Menubutton</em><em> or </em><em>tk.Frame</em>) – What menu is attached to</p></li>
+<li><p><strong>items</strong> (<em>list</em>) – (‘cascade’ or ‘checkbutton’ or ‘command’ or
+‘radiobutton’ or ‘separator’, coptions) (see Tkinter Documentation)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Varies</strong> (<em>dict</em>) – see Tkinter documentation</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Menu</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addMenuButton">
+<span class="sig-name descname"><span class="pre">addMenuButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addMenuButton" title="Permalink to this definition"></a></dt>
+<dd><p>Add a ttMenubutton</p>
+<p>A menubutton always stays on the screen and is what the user clicks on. A menu
+is attached to the menubutton. Menus are complex so read the Tkinter documentation
+carefully.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – Reference to menubutton</p>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Varies</strong> (<em>dict</em>) – see Tkinter documentation</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk/tk.Menubutton</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addMessage">
+<span class="sig-name descname"><span class="pre">addMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addMessage" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttMessage which is like multiline label.</p>
+<p>Messages are used to display multiline messages to the user. This is a
+tk widget so the list of options is extensive. This widget’s behavior
+is a little strange so you might prefer the Text or Label widgets.
+Get/set uses str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>aspect</strong> (<em>int</em>) – Ratio of width to height</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Background color</p></li>
+<li><p><strong>borderwidth</strong> (<em>int</em>) – Width of border (pixels)</p></li>
+<li><p><strong>font</strong> (<em>tkfont.Font</em>) – Font for label</p></li>
+<li><p><strong>foreground</strong> (<em>str</em>) – Text color</p></li>
+<li><p><strong>justify</strong> (<em>str</em>) – Justification of text; [‘left’], ‘right’, ‘center’</p></li>
+<li><p><strong>padx</strong> (<em>int</em>) – Horizontal spaces to place around widget (pixels)</p></li>
+<li><p><strong>pady</strong> (<em>int</em>) – Vertical spaces to place around widget (pixels)</p></li>
+<li><p><strong>relief</strong> (<em>str</em>) – ‘flat’,’raised’,’sunken’,’groove’, or ‘ridge’</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The text inside the widget</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of message (pixels)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addNotebook">
+<span class="sig-name descname"><span class="pre">addNotebook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addNotebook" title="Permalink to this definition"></a></dt>
+<dd><p>Create a tabbed notebook container.</p>
+<p>This allows the programmer to group similar pages into a series of new windows.
+The user selected the active window by clicking on the tab. Assignment allows
+the program to display a page number (counting from 0), and return the
+currently selected page number. There is no frame. Get/set uses int. Ther is no
+tk version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to container</p></li>
+<li><p><strong>tabs</strong> (<em>list</em>) – (Tab Titles)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>height</strong> (<em>int</em>) – Height of frame (pixels)</p></li>
+<li><p><strong>padding</strong> (<em>int</em>) – Spaces between frame and widgets (pixels)</p></li>
+<li><p><strong>style</strong> (<em>int</em>) – Style used for ttk.Frame or ttk.LabelFrame</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of frame (pixels)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of tt.Windows</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addOpen">
+<span class="sig-name descname"><span class="pre">addOpen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addOpen" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttOpenbox which is a file entry and a browse button.</p>
+<p>This has all the widgets needed to open a file. When the user clicks on
+the Browse button, a standard Open dialog box pops up. There are many
+tkparms that are useful for limiting choices, see the Tkinter documentation.
+Get/set uses str. Normally, this widget would be in a dialog. For a menu
+command use popOpen. Width is a necessary option since <a href="#id3"><span class="problematic" id="id4">**</span></a>tkparms is for
+the askopenfilename widget. If the programmer as an icon, they can replace
+the ‘Browse’ text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of the entry widget</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>defaultextension</strong> (<em>str</em>) – extention added to filename (must strat with .)</p></li>
+<li><p><strong>filetypes</strong> (<em>list</em>) – entrys in file listing ((label1, pattern1), (…))</p></li>
+<li><p><strong>initialdir</strong> (<em>str</em>) – Initial directory (space, ‘ ‘ remembers last directory)</p></li>
+<li><p><strong>initialfile</strong> (<em>str</em>) – Default filename</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Pop-up window’s title</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk/tk.Entry and ttk/tk.Button</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addOption">
+<span class="sig-name descname"><span class="pre">addOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addOption" title="Permalink to this definition"></a></dt>
+<dd><p>Create an ttOptionmenu.</p>
+<p>Option menus allow the user to select one fixed option, similar to
+Radiobutton. However, option menu returns a tk.Menu and is more difficult
+to manipulate. There are no keyword arguments in tk.OptionMenu. Get/set
+uses str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>alist</strong> (<em>list</em>) – (str1, str2, …)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tk.OptionMenu</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addPanes">
+<span class="sig-name descname"><span class="pre">addPanes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addPanes" title="Permalink to this definition"></a></dt>
+<dd><p>Create a multipaned window with user adjustable columns.</p>
+<p>This is like a notebook but all the windows are visible and the
+widths are adjustable. There is no frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to container</p></li>
+<li><p><strong>titles</strong> (<em>list</em>) – (titles) of all embedded windows</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>height</strong> (<em>int</em>) – Height of frame (pixels)</p></li>
+<li><p><strong>orient</strong> (<em>str</em>) – [‘horizontal’] or ‘vertical’</p></li>
+<li><p><strong>padding</strong> (<em>int</em>) – Spaces between frame and widgets (pixels)</p></li>
+<li><p><strong>style</strong> (<em>int</em>) – Style used for ttk.Frame or ttk.LabelFrame</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of frame (pixels)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of tt.Windows</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addProgress">
+<span class="sig-name descname"><span class="pre">addProgress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addProgress" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttProgressbar.</p>
+<p>This indicates to the user how an action is progressing. The included method
+supports a determinate mode where the programmer tells the user exactly how
+far they have progressed. Ttk also supports a indeterminate mode where a rectangle
+bounces back a forth. See the Tkinter documentation. Get/set uses int. There is no
+tk version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>maximum</strong> (<em>int</em>) – Maximum value [100]</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – [‘determinate’] or ‘indeterminate’</p></li>
+<li><p><strong>style</strong> (<em>str</em>) – Style to use for ttk.Progressbar</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – Length of widget (pixels)</p></li>
+<li><p><strong>orient</strong> (<em>str</em>) – ‘horizontal’ or ‘vertical’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk.Progressbar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addRadio">
+<span class="sig-name descname"><span class="pre">addRadio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'horizontal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addRadio" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttRadiobutton box.</p>
+<p>Radiobuttons allow the user to select only one option. If they change options,
+the previous option is unselected. This was the way old car radios worked
+hence its name. They are better for short titled options. The keyword
+arguments will apply to EVERY radiobutton. Get/set uses str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>int</em>) – Text of frame label</p></li>
+<li><p><strong>alist</strong> (<em>list</em>) – (str1, str2, …)</p></li>
+<li><p><strong>orient</strong> (<em>str</em>) – ‘horizontal’ or ‘vertical’</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>command</strong> (<em>callback</em>) – Function to execute when boxes are toggled</p></li>
+<li><p><strong>compound</strong> (<em>str</em>) – Display both image and text, see ttk docs</p></li>
+<li><p><strong>image</strong> (<em>tk.PhotoImage</em>) – GIF image to display</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style to use for checkboxes</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of max label (chars), negative sets minimun</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk/tk.Radiobuttons</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addSaveAs">
+<span class="sig-name descname"><span class="pre">addSaveAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addSaveAs" title="Permalink to this definition"></a></dt>
+<dd><p>Create an ttSaveasbox which is a file entry with a browse button.</p>
+<p>This has all the widgets needed to save a file. When the user clicks on
+the Browse button, a standard SaveAs dialog box pops up. If the user
+selects an existing file, it will pop up a overwrite confirmation box.
+There are many tkparms that are useful for limiting choices, see the Tkinter
+documentation. Get/set uses str. Normally, this widget would be in a
+dialog. For a menu command, use popSaveAs. Width is a necessary option
+since <a href="#id5"><span class="problematic" id="id6">**</span></a>tkparms is for the asksaveasfilename widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of the entry widget</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>defaultextension</strong> (<em>str</em>) – extention added to filename (must strat with .)</p></li>
+<li><p><strong>filetypes</strong> (<em>list</em>) – entrys in file listing ((label1, pattern1), (…))</p></li>
+<li><p><strong>initialdir</strong> (<em>str</em>) – Initial directory (space, ‘ ‘ remembers last directory)</p></li>
+<li><p><strong>initialfile</strong> (<em>str</em>) – Default filename</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Pop-up window’s title</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk/tk.Entry and ttk/tk.Button</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addScale">
+<span class="sig-name descname"><span class="pre">addScale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addScale" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttScale which is an integer scale with entry box.</p>
+<p>Scale allows the user to enter an integer value using a sliding scale. The
+user can also type in a value directly in the entry box. Get/set uses int.
+The tk widget has many more options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>parms</strong> (<em>list</em>) – Limits of scale (from, to)</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of entry widget (chars)</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>command</strong> (<em>callback</em>) – Function to call when scale changes</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – Length of scale (pixels) [100]</p></li>
+<li><p><strong>orient</strong> (<em>str</em>) – ‘horizontal’ or ‘vertical’</p></li>
+<li><p><strong>style</strong> (<em>str</em>) – Style to use for ttk.Scale</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk/tk.Scale and ttk/tk.Entry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addScrollbar">
+<span class="sig-name descname"><span class="pre">addScrollbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widgetTag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'horizontal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addScrollbar" title="Permalink to this definition"></a></dt>
+<dd><p>Add a ttScrollbar to a widget.</p>
+<p>This is usually this is done automatically. There is no frame. In order
+to plot the programmer must get the widget frame and use the correct sticky
+option. It was included for completeness.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>widgetTag</strong> (<em>str</em>) – Tag of connected widget</p></li>
+<li><p><strong>orient</strong> (<em>str</em>) – [‘horizontal’] or ‘vertical’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>style</strong> (<em>ttk.Style</em>) – Style used for ttk.Scrollbar</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk/tk.Scrollbar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addSizegrip">
+<span class="sig-name descname"><span class="pre">addSizegrip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addSizegrip" title="Permalink to this definition"></a></dt>
+<dd><p>Add a ttSizegrip widget to the window.</p>
+<p>This places a sizegrip in the bottom right corner of the window. It is
+not needed since most platforms add this automatically. The programmer
+must use the configurerow and configurecolumn options when plotting
+widgets for this to work correctly. There is no frame. It was included
+for completeness. There is no tk version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>style</strong> (<em>ttk.Style</em>) – Style used for ttk.Sizegrip, mainly background</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk.Sizegrip</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addSpin">
+<span class="sig-name descname"><span class="pre">addSpin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">between</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usetk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addSpin" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttSpinbox.</p>
+<p>Spinboxes allow the user to enter a series of integers. It is best used
+for items like dates, time, etc. The keyword arguments will apply to EVERY
+spinbox. Since this is a Tk widget, there is no style keyword argument.
+Get/set uses str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>parms</strong> (<em>list</em>) – Parmeters for each spinbox ((width, from, to),…)</p></li>
+<li><p><strong>between</strong> (<em>str</em>) – Label between each box</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+<li><p><strong>usetk</strong> (<em>bool</em>) – Use tk instead of ttk</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>command</strong> (<em>callback</em>) – Function to call when arrows are clicked</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style to use for widget</p></li>
+<li><p><strong>justify</strong> (<em>str</em>) – Text justification; [‘left’], ‘right’, ‘center’</p></li>
+<li><p><strong>wrap</strong> (<em>bool</em>) – Arrow clicks wrap around</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of ttk/tk.Spinboxes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addStyle">
+<span class="sig-name descname"><span class="pre">addStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addStyle" title="Permalink to this definition"></a></dt>
+<dd><p>Add a ttk.Style to be used for other widgets.</p>
+<p>This is the method for changing the appearance of ttk widgets. Styles are
+strictly defined strings so look at the Tkinter documentation.</p>
+<dl class="simple">
+<dt>Parameter:</dt><dd><p>tag (str): Reference to style, must follow ttk naming</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>documentation</strong> (<em>Varies with widget</em><em>, </em><em>see Tkinter</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.addText">
+<span class="sig-name descname"><span class="pre">addText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addText" title="Permalink to this definition"></a></dt>
+<dd><p>Create a ttText window.</p>
+<p>The tk.Text widget is an extremely powerful widget that can do many things,
+other than just displaying text. It is almost a mini editor. The default
+method allow the programmer to add and delete text. Be sure to read the
+Tkinter documentation to discover all the features of this widget. Since this
+is a Tk widget, there is no style keyword argument. Get/set uses str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – Text of frame label</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>background</strong> (<em>str</em>) – Background color</p></li>
+<li><p><strong>font</strong> (<em>tkfont.Font</em>) – Text font</p></li>
+<li><p><strong>foreground</strong> (<em>str</em>) – Text color</p></li>
+<li><p><strong>wrap</strong> (<em>str</em>) – Wordwrap method; [‘char’], ‘word’, or ‘none’</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of window (chars)</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of window (chars)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.breakout">
+<span class="sig-name descname"><span class="pre">breakout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.breakout" title="Permalink to this definition"></a></dt>
+<dd><p>Exit the mainloop but don’t destroy the master.</p>
+<p>This stops the event loop, but window remains displayed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.cancel">
+<span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.cancel" title="Permalink to this definition"></a></dt>
+<dd><p>Clear contents and exit mainloop.</p>
+<p>This stops the event loop, removes the window, and deletes the widget
+structure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.catchExcept">
+<span class="sig-name descname"><span class="pre">catchExcept</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.catchExcept" title="Permalink to this definition"></a></dt>
+<dd><p>Catch the exception messages.</p>
+<p>Use this in a try/except block to catch any errors:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The exception message</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.close" title="Permalink to this definition"></a></dt>
+<dd><p>Close the window.</p>
+<p>This stops the event loop and removes the window. However, the window
+structure can still be referenced, and the window can be redisplayed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.focus">
+<span class="sig-name descname"><span class="pre">focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.focus" title="Permalink to this definition"></a></dt>
+<dd><p>Switch focus to the desired widget.</p>
+<p>This is useful to select the desired widget at the beginning so the user
+does not have to click.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allValues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get the contents of the ttwidget. With more complex widgets the programmer
+can choose to get all the values rather than user selected values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget, created in add*</p></li>
+<li><p><strong>allValues</strong> (<em>bool</em>) – if true return all the values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Contents of ttWidget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.getFrame">
+<span class="sig-name descname"><span class="pre">getFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.getFrame" title="Permalink to this definition"></a></dt>
+<dd><p>Get the ttk frame if present.</p>
+<p>Get the ttk.Frame or ttk.LabelFrame of the widget so the programmer can
+use more advanced methods.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ttk/tk.Frame or ttk/tk.LabelFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.getType" title="Permalink to this definition"></a></dt>
+<dd><p>Get the type of widget.</p>
+<p>Get the type of widget as a string. All widgets have a type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of widget as str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.getWidget">
+<span class="sig-name descname"><span class="pre">getWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.getWidget" title="Permalink to this definition"></a></dt>
+<dd><p>Get the tk/ttk widget if present.</p>
+<p>Get the underlying tk or ttk widget so the programmer can use more advanced
+methods.</p>
+<dl class="simple">
+<dt>Parameter:</dt><dd><p>tag (str): - Reference to widget</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ttk/tk.Widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.grid">
+<span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.grid" title="Permalink to this definition"></a></dt>
+<dd><p>Some instructors prefer grid</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.mainloop">
+<span class="sig-name descname"><span class="pre">mainloop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.mainloop" title="Permalink to this definition"></a></dt>
+<dd><p>Some instructors prefer mainloop</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the ttWidget.</p>
+<p>Place a frame and widget in a cell of a window using the row and column.
+Plot was selected as an easier name for beginners than grid. Tkparms
+are extremely useful here and should be understood. Look at the Tkinter
+documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>row</strong> (<em>int</em>) – the row number counting from 0</p></li>
+<li><p><strong>column</strong> (<em>int</em>) – the column number</p></li>
+<li><p><strong>rowspan</strong> (<em>int</em>) – the number of rows to span</p></li>
+<li><p><strong>columnspan</strong> (<em>int</em>) – the number of columns to span</p></li>
+<li><p><strong>sticky</strong> (<em>str</em>) – the directions to fill the cell for the widget</p></li>
+<li><p><strong>padx</strong> (<em>int</em>) – horizontal space between widget cells (pixels)</p></li>
+<li><p><strong>pady</strong> (<em>int</em>) – vertical space between widget cells (pixels)</p></li>
+<li><p><strong>ipadx</strong> (<em>int</em>) – horizontal space within cell (pixels)</p></li>
+<li><p><strong>ipady</strong> (<em>int</em>) – vertical space within cell (pixels)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.popDialog">
+<span class="sig-name descname"><span class="pre">popDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'askopenfilename'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.popDialog" title="Permalink to this definition"></a></dt>
+<dd><p>Popup a standard dialog.</p>
+<p>This pops up a standard tk dialog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dtype</strong> (<em>str</em>) – ‘askopenfilename’ or ‘asksaveasfilename’ or ‘askdirectory’
+or ‘askcolor’message (str): Message in box</p>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>defaultextension</strong> (<em>str</em>) – extention added to filename (must strat with .)</p></li>
+<li><p><strong>filetypes</strong> (<em>list</em>) – entrys in file listing ((label1, pattern1), (…))</p></li>
+<li><p><strong>initialdir</strong> (<em>str</em>) – Initial directory (space, ‘ ‘ remembers last directory)</p></li>
+<li><p><strong>initialfile</strong> (<em>str</em>) – Default filename</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Pop-up window’s title</p></li>
+<li><p><strong>color</strong> (<em>str</em>) – Initial color (for askcolor)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or (red, green, blue) for askcolor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.popMessage">
+<span class="sig-name descname"><span class="pre">popMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'showinfo'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Information'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.popMessage" title="Permalink to this definition"></a></dt>
+<dd><p>Popup a tk message window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>str</em>) – Message in box</p></li>
+<li><p><strong>mtype</strong> (<em>str</em>) – ‘showinfo’ or ‘showwarning’ or ‘showerror’ or ‘askyesno’
+or ‘askokcancel’ or ‘askretrycancel’</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Title of window</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>default</strong> (<em>str</em>) – ‘OK’ or ‘Cancel’ or ‘Yes’ or ‘No’  or ‘Retry’</p></li>
+<li><p><strong>icon</strong> (<em>str</em>) – ‘error’ or ‘info’ or ‘question’ or ‘warning’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>‘ok’ for show*, bool for ask*</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.refresh" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for update_idletasks, better label for beginners.</p>
+<p>This refreshes the appearance of all widgets. Usually this is called
+automatically after a widget contents are changed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Reset the selections in a widget</p>
+<p>This clears any selections in a widget. This was created mainly for
+listboxes but is useful for all selection widgets.</p>
+<dl class="simple">
+<dt>Parameter:</dt><dd><p>tag (str): - Reference to widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allValues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.set" title="Permalink to this definition"></a></dt>
+<dd><p>Set the contents of the widget. The programmer has the option to replace
+all the values or just add new values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – <ul>
+<li><p>Reference to widget</p></li>
+</ul>
+</p></li>
+<li><p><strong>value</strong> (<em>object</em>) – <ul>
+<li><p>Value to set</p></li>
+</ul>
+</p></li>
+<li><p><strong>allValues</strong> (<em>bool</em>) – if True, replace all values</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.setState">
+<span class="sig-name descname"><span class="pre">setState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.setState" title="Permalink to this definition"></a></dt>
+<dd><p>Set or clear ttk or tk widget states</p>
+<p>Change the underlying ttk or tk widget states. For ttk widgets
+the states are ‘active’, ‘alternate’, background’, ‘disabled’,
+‘focus’, ‘invalid’, ‘pressed’, ‘readonly’, and ‘selected’.
+Preceding a state with ‘!’ clears it. For tk widgets use ‘disabled’,
+‘normal’, or ‘readonly’. Index parameter allows you to change an
+individual element in multipart widget. See Tkinter documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>states</strong> (<em>list</em>) – States of widget, usually ‘disabled’ or
+‘!disabled’ for ttk</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index to element in multipart widget</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.setTitle">
+<span class="sig-name descname"><span class="pre">setTitle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.setTitle" title="Permalink to this definition"></a></dt>
+<dd><p>Set the title for a window</p>
+<p>This allows the programmer to set the title of the window. If this method
+is not used, the title will be Tk. This only works with top level windows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>prompt</strong> (<em>str</em>) – The title of the window</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.setWidget">
+<span class="sig-name descname"><span class="pre">setWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.setWidget" title="Permalink to this definition"></a></dt>
+<dd><p>Change a tk/ttk widget attribute</p>
+<p>Change the underlying tk or ttk widget appearance using
+tkparms. Index parameter allows you to change an individual
+element in multipart widget. See Tkinter documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index to element in multipart widget</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>justify</strong> (<em>str</em>) – Justification of text (‘left’ [def], ‘right’, ‘center’)</p></li>
+<li><p><strong>show</strong> (<em>str</em>) – Char to display instead of actual text</p></li>
+<li><p><strong>style</strong> (<em>ttk.Style</em>) – Style to use for widget</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – Text inside widget</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.waitforUser">
+<span class="sig-name descname"><span class="pre">waitforUser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.waitforUser" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for mainloop, better label for beginners.</p>
+<p>This starts the event loop so the user can interact with window.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tkintertoy 1.5 Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2023, Mike Callahan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -8,8 +8,8 @@ class Gui(object):
         counties = ['Clark','Crawford','Dubois','Floyd','Harrison','Jefferson',
             'Orange','Perry','Scott','Washigton']
         damage = ['EF0','EF1','EF2','EF3','EF4','EF5']
-        dateParms = [[2,1,12],[2,1,12],[4,1900,2100]]
-        initDate = [1,1,1980]
+        dateParms = [[2,1,12],[2,1,12],[5,1900,2100]]
+        initDate = '1/1/1980'
         cols = [['Date', 100],['County', 100],['Damage', 100]]
         self.gui = Window()
         self.gui.setTitle('Tornado Path Generator')
@@ -17,7 +17,8 @@ class Gui(object):
         self.gui.set('tdate', initDate)
         self.gui.addCombo('county', 'Affected County', counties)
         self.gui.addRadio('level', 'Maximum EF Damage', damage)
-        self.gui.addCollector('paths', 10, cols, ['tdate','county','level'], 'Included Tornadoes')
+        self.gui.addCollector('paths', cols, ['tdate','county','level'], 'Included Tornadoes',
+            height=10)
         self.gui.addButton('command')
         self.gui.plot('tdate', row=0, pady=5)
         self.gui.plot('county', row=1, pady=5)
@@ -31,6 +32,8 @@ def main():
     app.gui.waitforUser()
     if app.gui.content:
         data = app.gui.get('paths', allValues=True)
-        #magic tornado path generation code
+        print(data)
+        # magic tornado path generation code
+        app.gui.cancel()
 
 main()

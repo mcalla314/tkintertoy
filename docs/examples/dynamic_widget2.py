@@ -12,9 +12,9 @@ class Gui:
         self.gui.addCombo('items', 'Items', None, postcommand=self.update)
         self.gui.addButton('command')
         self.gui.set('items', '...')
-        self.gui.plot('category', row=0)
-        self.gui.plot('items', row=1, pady=20)
-        self.gui.plot('command', row=2)
+        self.gui.plotxy('category', 0, 0)
+        self.gui.plotxy('items', 0, 1, pady=20)
+        self.gui.plotxy('command', 0, 2)
 
     def update(self): # callback function
         """ set the combobox values by what is in the radio button box """

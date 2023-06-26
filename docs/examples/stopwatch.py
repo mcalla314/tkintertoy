@@ -62,8 +62,8 @@ class Gui(Window):
         buttons = [('Start', self.startstop), ('Reset', self.reset),
             ('Exit', self.cancel)]                 # label and assign buttons
         self.addButton('buttons', cmd=buttons)     # create buttons
-        self.plot('elapsed', row=0)
-        self.plot('buttons', row=1, pady=10)
+        self.plotxy('elapsed', 0, 0)
+        self.plotxy('buttons', 0, 1, pady=10)
         self.update()                                  # update display
 
     def startstop(self):

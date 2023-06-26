@@ -18,9 +18,9 @@ def main():
     gui.addCombo('items', 'Items', None, postcommand=(lambda : update(gui)))
     gui.addButton('command')
     gui.set('items', '...')
-    gui.plot('category', row=0)
-    gui.plot('items', row=1, pady=20)
-    gui.plot('command', row=2)
+    gui.plotxy('category', 0, 0)
+    gui.plotxy('items', 0, 1, pady=20)
+    gui.plotxy('command', 0, 2)
     gui.waitforUser()
     if gui.content:
         selected = gui.get('category')

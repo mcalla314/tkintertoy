@@ -9,11 +9,11 @@ condiments = ['Ketchup', 'Mayonaise', 'Mustard', 'BBQ']
 app.addCheck('condiments', 'Condiments', condiments, orient='vertical')
 app.addText('order', 'Order Up', height=5)
 app.addButton('commands')
-app.plot('type', row=0, column=0)
-app.plot('toppings', row=0, column=1)
-app.plot('condiments', row=0, column=2)
-app.plot('order', row=1, column=0, columnspan=3)
-app.plot('commands', row=2, column=0, columnspan=3, pady=10)
+app.plotxy('type', 0, 0)
+app.plotxy('toppings', 1, 0)
+app.plotxy('condiments', 2, 0)
+app.plotxy('order', 0, 1, columnspan=3)
+app.plotxy('commands', 0, 2, columnspan=3, pady=10)
 
 while True:
     app.waitforUser()

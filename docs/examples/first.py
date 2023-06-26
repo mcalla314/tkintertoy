@@ -4,9 +4,9 @@ gui.setTitle('My First Tkintertoy GUI!')
 gui.addEntry('name', 'Type in your name')
 gui.addLabel('welcome', 'Welcome message')
 gui.addButton('commands')
-gui.plot('name', row=0)
-gui.plot('welcome', row=1)
-gui.plot('commands', row=2, pady=10)
+gui.plotxy('name', 0, 0)
+gui.plotxy('welcome', 0, 1)
+gui.plotxy('commands', 0, 2, pady=10)
 while True:
     gui.waitforUser()
     if gui.content:

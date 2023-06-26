@@ -1,9 +1,9 @@
-# Name:         tkintertoy.py - Mike Callahan - Python 3.4 or later
+# Name:         tkintertoy.py - Python 3.4 or later
 # Purpose:      Makes it easier to create tk/ttk guis
 #
 # Author:       Mike Callahan
 #
-# Created:      6/6/2023
+# Created:      6/28/2023
 # Copyright:    (c) mike.callahan 2019 - 2023
 # License:      MIT
 #
@@ -22,8 +22,8 @@
 # 1.41 - fix vertical alignment to addCheck and addRadio, add reset,
 #        fix changeState, rename change* to set*
 # 1.42 - fix __init__, clean up comments
-# 1.50 - fix get for ledger & collector,
-#        fix get & set for spin, notebook
+# 1.50 - fix get for ledger & collector, fix get & set for spin, notebook
+# 1.60 - add plotxy
 ###################################################################
 
 import tkinter as tk                               # support only Python 3
@@ -93,7 +93,7 @@ class Window:
 
     # class variables
 
-    VERSION = '1.50'                                              # version number
+    VERSION = '1.60'                                              # version number
         
     # basic class methods
 
@@ -1159,14 +1159,13 @@ class Window:
         """ Create a tabbed notebook container.
 
         This allows the programmer to group similar pages into a series of new windows.
-        The user selected the active window by clicking on the tab. Assignment allows
-        the program to display a page number (counting from 0), and return the
-        currently selected page number. There is no frame. Get/set uses int. Ther is no
-        tk version.
+        The user selects the active window by clicking on the tab. Assignment allows
+        the program to display a page tab, and return the currently selected page.
+        There is no containing frame. Get/set uses int. There is no tk version.
 
         Parameters:
             tag (str): Reference to container
-            tabs (list): (Tab Titles)
+            tabs (list): (Tab Titles), each page must be unique
 
         Keyword Arguments:
             height (int): Height of frame (pixels)
@@ -1184,7 +1183,7 @@ class Window:
         notebook = ttk.Notebook(self.master, **tkparms)  # create notebook
         for page in tabs:                              # each tab is a page
             window = self.addFrame(page)               # create frame
-            notebook.add(self.getFrame(page), text=page, sticky='wens')  # fill up the entire page
+            notebook.add(self.getFrame(page), text=page, sticky='nswe')  # fill up the entire page
             pages.append(window)                       # remember created windows
         self.content[tag]['widget'] = notebook         # add widget
         return pages
@@ -1463,9 +1462,9 @@ class Window:
                 else:
                     item.set(int(values.pop(0)))       # set it and get next
         elif widgetType == 'notebook':
-            i = self.content[tag]['tabs'].index(value)
+            i = self.content[tag]['tabs'].index(value) # get the page number
             widget.select(i)                           # display that page
-        elif widgetType == 'text':                     # unlike other widgets this inserts!
+        elif widgetType == 'text':                     # unlike other widget this inserts!
             if allValues:
                 widget.delete('1.0', 'end')            # clear everything
             widget.insert('end', value)                # add text
@@ -1495,9 +1494,10 @@ class Window:
     def plot(self, tag=None, **tkparms):
         """ Plot the ttWidget.
 
+        Deprecated, use plotxy.
         Place a frame and widget in a cell of a window using the row and column.
-        Plot was selected as an easier name for beginners than grid. Tkparms
-        are extremely useful here and should be understood. Look at the Tkinter
+        Plot was selected as an easier name for novices than grid. Tkparms are
+        extremely useful here and should be understood. Look at the Tkinter
         documentation.
 
         Parameters:
@@ -1516,16 +1516,66 @@ class Window:
         """
 
         if not tag:
-            self.master.grid(**tkparms)  #
+            self.master.grid(**tkparms)  # grid master
         elif self.content[tag]['type'] in ('line', 'notebook', 'panes', 'menubutton'):  # no frames
             self.content[tag]['widget'].grid(**tkparms)  # grid widget
         else:
             self.content[tag]['frame'].grid(**tkparms)  # grid frame
 
-    def grid(self, tag=None, **tkparms):
-        """ Some instructors prefer grid """
+    def plotxy(self, tag=None, column=0, row=0, **tkparms):
+        """ Plot the ttWidget at column x, row y.
 
-        self.plot(tag, **tkparms)
+        Place a frame and widget in a cell of a window using the column (x) and
+        row (y). Plot was selected as an easy name for novice programmers since
+        they are plotting widgets in a xy grid. Tkparms are extremely useful here
+        and should be understood. Look at the Tkinter documentation.
+
+        Parameters:
+            tag (str): Reference to widget
+            column (int): the column number counting from 0
+            row (int): the row number
+
+        Keyword Arguments:
+            rowspan (int): the number of rows to span
+            columnspan (int): the number of columns to span
+            sticky (str): the directions to fill the cell for the widget
+            padx (int): horizontal space between widget cells (pixels)
+            pady (int): vertical space between widget cells (pixels)
+            ipadx (int): horizontal space within cell (pixels)
+            ipady (int): vertical space within cell (pixels)
+        """
+
+        if not tag:
+            self.master.grid(column=column, row=row, **tkparms)  # grid master
+        elif self.content[tag]['type'] in ('line', 'notebook', 'panes', 'menubutton'):  # no frames
+            self.content[tag]['widget'].grid(column=column, row=row, **tkparms)  # grid widget
+        else:
+            self.content[tag]['frame'].grid(column=column, row=row, **tkparms)  # grid frame        
+
+    def grid(self, tag=None, **tkparms):
+        """ Same as plot, some instructors prefer grid which is standard tk.
+
+        Parameters:
+            tag (str): Reference to widget
+
+        Keyword Arguments:
+            row (int): the row number counting from 0
+            column (int): the column number
+            rowspan (int): the number of rows to span
+            columnspan (int): the number of columns to span
+            sticky (str): the directions to fill the cell for the widget
+            padx (int): horizontal space between widget cells (pixels)
+            pady (int): vertical space between widget cells (pixels)
+            ipadx (int): horizontal space within cell (pixels)
+            ipady (int): vertical space within cell (pixels)
+        """
+
+        if not tag:
+            self.master.grid(**tkparms)  # grid master
+        elif self.content[tag]['type'] in ('line', 'notebook', 'panes', 'menubutton'):  # no frames
+            self.content[tag]['widget'].grid(**tkparms)  # grid widget
+        else:
+            self.content[tag]['frame'].grid(**tkparms)  # grid frame
 
     def getWidget(self, tag):
         """ Get the tk/ttk widget if present.

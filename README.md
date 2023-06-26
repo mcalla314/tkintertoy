@@ -14,9 +14,9 @@ reach the more complex features of Tkinter easily. Here is a short example:
     gui.addLabel('welcome', 'Welcome message')
     gui.addButton('commands')
     # plot the widgets
-    gui.plot('name', row=0)
-    gui.plot('welcome', row=1)
-    gui.plot('commands', row=2, pady=10)
+    gui.plotxy('name', 0, 0)
+    gui.plotxy('welcome', 0, 1)
+    gui.plotxy('commands', 0, 2, pady=10)
     # start the event processing loop
     while True:
         gui.waitforUser()
@@ -32,7 +32,7 @@ label. The user exits the code by clicking on Cancel.
 
 ![Simple GUI](http://tkintertoy.readthedocs.io/en/latest/_images/first.png)
 
-As you can see in orgder to create a simple GUI, you create a window, add widgets,
+As you can see in order to create a simple GUI, you create a window, add widgets,
 plot the widgets in the desired location, and then call waitforUser.
 
 While Tkintertoy was designed to be an GUI library for simple interfaces it

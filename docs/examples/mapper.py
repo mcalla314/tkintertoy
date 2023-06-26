@@ -17,38 +17,38 @@ class Gui:
         self.routine.addEntry('title', 'Map Title', width=60)
         self.routine.set('title', '24 Hour Precipitation Ending 7 AM {0[3]} {0[0]}, {0[2]}'.format(
             self.dt))
-        self.routine.plot('title', row=0)
+        self.routine.plotxy('title', 0, 0)
         self.routine.addEntry('outfile', 'Output Filename', width=40)
         self.routine.set('outfile', 'pcpn{0[1]}{0[0]}{0[2]}.png'.format(self.dt))
-        self.routine.plot('outfile', row=1)
+        self.routine.plotxy('outfile', 0, 1)
         jobs = ['Make KMLs', 'Make Maps']
         self.routine.addCheck('jobs', 'Jobs', jobs)
         self.routine.set('jobs', jobs)
-        self.routine.plot('jobs', row=2)
+        self.routine.plotxy('jobs', 0, 2)
         # accum pcpn page
         self.accum = pages[1]
         parms = [[3, 1, 12], [3, 1, 31], [5, 2000, 2100]]
         self.accum.addSpin('endDate', parms, '/', 'Ending Date',
             command=self.updateAccum)
         self.accum.set('endDate', f'{today.month}/{today.day}/{today.year}')
-        self.accum.plot('endDate', row=0)
+        self.accum.plotxy('endDate', 0, 0)
         self.accum.addSpin('daysBack', [[2, 1, 45]], '', 'Days back',
             command=self.updateAccum)
         self.accum.set('daysBack', '2')
-        self.accum.plot('daysBack', row=1)
+        self.accum.plotxy('daysBack', 0, 1)
         self.accum.addEntry('title', 'Title', width=60)
-        self.accum.plot('title', row=2)
+        self.accum.plotxy('title', 0, 2)
         self.accum.addEntry('outfile', 'Output Filename', width=40)
-        self.accum.plot('outfile', row=3)
+        self.accum.plotxy('outfile', 0, 3)
         self.updateAccum()
         # dialog
         self.dialog.addText('messages', 'Messages', width=70, height=15)
-        self.dialog.plot('messages', row=1)
+        self.dialog.plotxy('messages', 0, 1)
         self.dialog.addButton('commands', space=20)
         self.dialog.setWidget('commands', 0, command=self.go)
         self.dialog.setWidget('commands', 1, text='Exit')
-        self.dialog.plot('commands', row=2)
-        self.dialog.plot('notebook', row=0)
+        self.dialog.plotxy('commands', 0, 2)
+        self.dialog.plotxy('notebook', 0, 0)
         self.dialog.set('notebook', 'Routine')
 
     def updateAccum(self):

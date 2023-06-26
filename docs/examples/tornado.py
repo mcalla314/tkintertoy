@@ -20,11 +20,11 @@ class Gui(object):
         self.gui.addCollector('paths', cols, ['tdate','county','level'], 'Included Tornadoes',
             height=10)
         self.gui.addButton('command')
-        self.gui.plot('tdate', row=0, pady=5)
-        self.gui.plot('county', row=1, pady=5)
-        self.gui.plot('level', row=2, pady=5)
-        self.gui.plot('paths', row=3, pady=5)
-        self.gui.plot('command', row=4, pady=10)
+        self.gui.plotxy('tdate', 0, 0, pady=5)
+        self.gui.plotxy('county', 0, 1, pady=5)
+        self.gui.plotxy('level', 0, 2, pady=5)
+        self.gui.plotxy('paths', 0, 3, pady=5)
+        self.gui.plotxy('command', 0, 4, pady=10)
 
 def main():
     """ the driving function """

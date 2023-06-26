@@ -3,7 +3,7 @@
 #
 # Author:       Mike Callahan
 #
-# Created:      6/6/2023
+# Created:      6/18/2023
 # Copyright:    (c) mike.callahan 2019 - 2023
 # License:      MIT
 #
@@ -22,8 +22,8 @@
 # 1.41 - fix vertical alignment to addCheck and addRadio, add reset,
 #        fix changeState, rename change* to set*
 # 1.42 - fix __init__, clean up comments
-# 1.50 - fix get for ledger & collector,
-#        fix get & set for spin, notebook
+# 1.50 - fix get for ledger & collector, fix get & set for spin
+# 1.60 - add plotxy
 ###################################################################
 
 import tkinter as tk                               # support only Python 3
@@ -93,7 +93,7 @@ class Window:
 
     # class variables
 
-    VERSION = '1.50'                                              # version number
+    VERSION = '1.60'                                              # version number
         
     # basic class methods
 
@@ -888,14 +888,14 @@ class Window:
             self.set(tag, fn)
 
     def addChooseDir(self, tag, prompt='', width=20, **tkparms):
-        """ Create a ttChooseDirbox which is a directory entry with a browse button.
+        """ Create a ttChoosedirbox which is a directory entry with a browse button.
 
         This has all the widgets needed to select a directory. When the user clicks
         on the Browse button, a standard Choose Directory dialog box pops up. There
         are many tkparms that are useful for limiting choices, see the Tkinter
         documentation. Get/set uses str. Normally, this would be use in a dialog.
-        For a menu command use popChooseDir. Width is a necessary option since
-        **tkparms is for the askopenfilename widget.
+        For a menu command use popChooseDir. Width is a necessary option since **tkparms is for
+        the askopenfilename widget.
 
         Parameters:
             tag (str): Reference to widget
@@ -1179,7 +1179,6 @@ class Window:
         """
 
         self.content[tag] = {'type': 'notebook'}        # data is list of lists
-        self.content[tag]['tabs'] = tabs                # remember tabs
         pages = []                                     # pages will be other windows
         notebook = ttk.Notebook(self.master, **tkparms)  # create notebook
         for page in tabs:                              # each tab is a page
@@ -1399,8 +1398,7 @@ class Window:
         elif widgetType == 'text':
             value = widget.get('0.0', 'end')           # get all text
         elif widgetType == 'notebook':
-            i = widget.index('current')                # get current page
-            value = self.content[tag]['tabs'][i]       # get tab            
+            value = widget.index('current')            # get current page
         else:                                          # styles, menus, menubuttons
             value = widget                             # same as getWidget 
         return value
@@ -1463,9 +1461,8 @@ class Window:
                 else:
                     item.set(int(values.pop(0)))       # set it and get next
         elif widgetType == 'notebook':
-            i = self.content[tag]['tabs'].index(value)
-            widget.select(i)                           # display that page
-        elif widgetType == 'text':                     # unlike other widgets this inserts!
+            widget.select(value)                       # display that page
+        elif widgetType == 'text':                     # unlike other widget this inserts!
             if allValues:
                 widget.delete('1.0', 'end')            # clear everything
             widget.insert('end', value)                # add text
@@ -1495,9 +1492,10 @@ class Window:
     def plot(self, tag=None, **tkparms):
         """ Plot the ttWidget.
 
+        Deprecated, use plotxy.
         Place a frame and widget in a cell of a window using the row and column.
-        Plot was selected as an easier name for beginners than grid. Tkparms
-        are extremely useful here and should be understood. Look at the Tkinter
+        Plot was selected as an easier name for novices than grid. Tkparms are
+        extremely useful here and should be understood. Look at the Tkinter
         documentation.
 
         Parameters:
@@ -1516,16 +1514,66 @@ class Window:
         """
 
         if not tag:
-            self.master.grid(**tkparms)  #
+            self.master.grid(**tkparms)  # grid master
         elif self.content[tag]['type'] in ('line', 'notebook', 'panes', 'menubutton'):  # no frames
             self.content[tag]['widget'].grid(**tkparms)  # grid widget
         else:
             self.content[tag]['frame'].grid(**tkparms)  # grid frame
 
-    def grid(self, tag=None, **tkparms):
-        """ Some instructors prefer grid """
+    def plotxy(self, tag=None, column=0, row=0, **tkparms):
+        """ Plot the ttWidget at column x, row y.
 
-        self.plot(tag, **tkparms)
+        Place a frame and widget in a cell of a window using the column (x) and
+        row (y). Plot was selected as an easy name for novice programmers since
+        they are plotting widgets in a xy grid. Tkparms are extremely useful here
+        and should be understood. Look at the Tkinter documentation.
+
+        Parameters:
+            tag (str): Reference to widget
+            column (int): the column number counting from 0
+            row (int): the row number
+
+        Keyword Arguments:
+            rowspan (int): the number of rows to span
+            columnspan (int): the number of columns to span
+            sticky (str): the directions to fill the cell for the widget
+            padx (int): horizontal space between widget cells (pixels)
+            pady (int): vertical space between widget cells (pixels)
+            ipadx (int): horizontal space within cell (pixels)
+            ipady (int): vertical space within cell (pixels)
+        """
+
+        if not tag:
+            self.master.grid(column=column, row=row, **tkparms)  # grid master
+        elif self.content[tag]['type'] in ('line', 'notebook', 'panes', 'menubutton'):  # no frames
+            self.content[tag]['widget'].grid(column=column, row=row, **tkparms)  # grid widget
+        else:
+            self.content[tag]['frame'].grid(column=column, row=row, **tkparms)  # grid frame        
+
+    def grid(self, tag=None, **tkparms):
+        """ Same as plot, some instructors prefer grid which is standard tk.
+
+        Parameters:
+            tag (str): Reference to widget
+
+        Keyword Arguments:
+            row (int): the row number counting from 0
+            column (int): the column number
+            rowspan (int): the number of rows to span
+            columnspan (int): the number of columns to span
+            sticky (str): the directions to fill the cell for the widget
+            padx (int): horizontal space between widget cells (pixels)
+            pady (int): vertical space between widget cells (pixels)
+            ipadx (int): horizontal space within cell (pixels)
+            ipady (int): vertical space within cell (pixels)
+        """
+
+        if not tag:
+            self.master.grid(**tkparms)  # grid master
+        elif self.content[tag]['type'] in ('line', 'notebook', 'panes', 'menubutton'):  # no frames
+            self.content[tag]['widget'].grid(**tkparms)  # grid widget
+        else:
+            self.content[tag]['frame'].grid(**tkparms)  # grid frame
 
     def getWidget(self, tag):
         """ Get the tk/ttk widget if present.

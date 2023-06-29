@@ -12,6 +12,7 @@ Welcome to Tkintertoy's documentation!
 
    tutorial
    tkintertoy
+   ttgallery
 
 
 

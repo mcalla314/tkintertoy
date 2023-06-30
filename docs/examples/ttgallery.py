@@ -59,6 +59,7 @@ class Gui:
         self.secondWin()
 
     def makeSimple(self):
+        """ Create the Simple page """
         self.simplePage = self.pages[0]
         # Label
         self.simplePage.addLabel('ttlabel', '', 'bold',         # create a label with an    
@@ -81,7 +82,7 @@ class Gui:
         self.simplePage.addOption('ttoption', 'Option List', alist) # create an option list
         self.simplePage.set('ttoption', 'Option1')
         self.simplePage.plotxy('ttoption', 0, 4)
-        # Combobox and Style
+        # Combobox
         acombo = ['ComboOption1','ComboOption2','ComboOption3']
         self.simplePage.addCombo('ttcombo', 'Combo Box', acombo) # create combobox
         self.simplePage.plotxy('ttcombo', 0, 5)
@@ -105,6 +106,7 @@ class Gui:
         self.simplePage.plotxy('ttspin', 0, 9)
 
     def makeDialog(self):
+        """ Create the dialog page """
         self.dialogPage = self.pages[1]
         # Open
         self.dialogPage.addOpen('ttopen', 'Open', width=40)      # open dialog
@@ -115,29 +117,6 @@ class Gui:
         # ChooseDir
         self.dialogPage.addChooseDir('ttchoosedir', 'Choose Dir', width=40) # choose dir dialog
         self.dialogPage.plotxy('ttchoosedir', 0, 2)
-
-    def popOpen(self):
-        # open dialog
-        self.gui.set('ttext', self.gui.popDialog(title='Open a File')+'\n')
-
-    def popSaveAs(self):
-        # save as dialog
-        self.gui.set('ttext', self.gui.popDialog('asksaveasfilename',
-            title='Save a File')+'\n')
-
-    def popChooseDir(self):
-        # choose dir dialog
-        self.gui.set('ttext', self.gui.popDialog('askdirectory',
-            title='Select a Directory')+'\n')
-
-    def popColor(self):
-        # Color Chooser
-        self.gui.set('ttext', str(self.gui.popDialog('askcolor',
-            title='Select a Color'))+'\n')
-
-    def popAbout(self):
-        # Pop Up Message Box
-        self.gui.popMessage('Tkintertoy Gallery')
 
     def makeMulti(self):
         self.multiPage = self.pages[2]
@@ -185,6 +164,29 @@ class Gui:
             panes[i].set(tag, 'Inner label {}'.format(i+1))
             panes[i].plotxy(tag)
         self.otherPage.plotxy('ttpane', 0, 1)
+
+    def popOpen(self):
+        # open dialog
+        self.gui.set('ttext', self.gui.popDialog(title='Open a File')+'\n')
+
+    def popSaveAs(self):
+        # save as dialog
+        self.gui.set('ttext', self.gui.popDialog('asksaveasfilename',
+            title='Save a File')+'\n')
+
+    def popChooseDir(self):
+        # choose dir dialog
+        self.gui.set('ttext', self.gui.popDialog('askdirectory',
+            title='Select a Directory')+'\n')
+
+    def popColor(self):
+        # Color Chooser
+        self.gui.set('ttext', str(self.gui.popDialog('askcolor',
+            title='Select a Color'))+'\n')
+
+    def popAbout(self):
+        # Pop Up Message Box
+        self.gui.popMessage('Tkintertoy Gallery')
 
     def collect(self):
         # show contents of all widgets

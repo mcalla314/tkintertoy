@@ -59,7 +59,7 @@ class Gui:
         self.secondWin()
 
     def makeSimple(self):
-        """ Create the Simple page """
+        """ Create the page with the most common widgets """
         self.simplePage = self.pages[0]
         # Label
         self.simplePage.addLabel('ttlabel', '', 'bold',         # create a label with an    
@@ -68,20 +68,11 @@ class Gui:
         # Line
         self.simplePage.addLine('ttline')                       # create a horizontal line
         self.simplePage.plotxy('ttline', 0, 1, sticky='we')     # stretch it horizontally
-        # Message
-        self.simplePage.addMessage('ttmessage', 'Message', justify='center') # create a message
-        self.simplePage.set('ttmessage', 'Useful for multi-line messages') # add the text
-        self.simplePage.plotxy('ttmessage', 0, 2)
         # Entry
         self.simplePage.addStyle('g.TEntry', foreground='green') # create a green entry
         self.simplePage.addEntry('ttentry', 'Entry', style='g.TEntry')
         self.simplePage.set('ttentry', 'Green Text')            # add the text
         self.simplePage.plotxy('ttentry', 0, 3)
-        # Option
-        alist = ['Option1','Option2','Option3']
-        self.simplePage.addOption('ttoption', 'Option List', alist) # create an option list
-        self.simplePage.set('ttoption', 'Option1')
-        self.simplePage.plotxy('ttoption', 0, 4)
         # Combobox
         acombo = ['ComboOption1','ComboOption2','ComboOption3']
         self.simplePage.addCombo('ttcombo', 'Combo Box', acombo) # create combobox
@@ -106,7 +97,7 @@ class Gui:
         self.simplePage.plotxy('ttspin', 0, 9)
 
     def makeDialog(self):
-        """ Create the dialog page """
+        """ Create the dialog widget page """
         self.dialogPage = self.pages[1]
         # Open
         self.dialogPage.addOpen('ttopen', 'Open', width=40)      # open dialog
@@ -119,19 +110,20 @@ class Gui:
         self.dialogPage.plotxy('ttchoosedir', 0, 2)
 
     def makeMulti(self):
+        """ Create the multi use widget page """
         self.multiPage = self.pages[2]
-        # List
+        # Listbox
         alist = ['ListOption1','ListOption2','ListOption3']
         self.multiPage.addList('ttlist', 'List', alist, height=4) # create list
         self.multiPage.plotxy('ttlist', 0, 0)
         # Ledger
         cols = [['column1',100],['column2',80],['column3',80]]
         self.multiPage.addLedger('ttledger', cols, 'Ledger', height=4) # create ledger
-        self.multiPage.set('ttledger', [['header1','item1-1','item1-2']])
-        self.multiPage.set('ttledger', [['header2','item2-1','item2-2']])
-        self.multiPage.set('ttledger', [['header3','tiem3-1','item2-3']])
+        self.multiPage.set('ttledger', [['item0-0','item1-0','item2-0']])
+        self.multiPage.set('ttledger', [['item0-1','item1-1','item2-1']])
+        self.multiPage.set('ttledger', [['item0-2','item1-2','item2-2']])
         self.multiPage.plotxy('ttledger', 0, 1)
-        # Collector Frame
+        # Collector
         self.subwin = self.multiPage.addFrame('ttframe', '', relief='groove')
         # -Combobox
         acombo = ['ComboOption2-1','ComboOption2-2','ComboOption2-3']
@@ -238,6 +230,14 @@ class Gui:
         aradio = ['RadioOption1','RadioOption2','RadioOption3']
         self.gui2.addRadio('ttradio3', 'RadioButton Box', aradio, usetk=True) # create 3 radiobuttons
         self.gui2.set('ttradio3', 'RadioOption3')
+        # Message
+        self.gui2.addMessage('ttmessage', 'Message', justify='center') # create a message
+        self.gui2.set('ttmessage', 'Useful for multi-line messages,\n'
+            'like this one.')                                          # add the text
+        # Option
+        alist = ['Option1','Option2','Option3']
+        self.gui2.addOption('ttoption', 'Option List', alist) # create an option list
+        self.gui2.set('ttoption', 'Option1')
         # Scale
         self.gui2.addScale('ttscale2', [1,10], 'Scale', width=2, usetk=True,
             orient='horizontal', length=200)                                         # create a scale
@@ -253,9 +253,11 @@ class Gui:
         self.gui2.plotxy('ttentry2', 0, 1)
         self.gui2.plotxy('ttchecks2', 0, 2)
         self.gui2.plotxy('ttradio3', 0, 3)
-        self.gui2.plotxy('ttscale2', 0, 4)
-        self.gui2.plotxy('ttspin2', 0, 5)
-        self.gui2.plotxy('ttbutton2', 0, 6, pady=10)
+        self.gui2.plotxy('ttmessage', 0, 4)
+        self.gui2.plotxy('ttoption', 0, 5)
+        self.gui2.plotxy('ttscale2', 0, 6)
+        self.gui2.plotxy('ttspin2', 0, 7)
+        self.gui2.plotxy('ttbutton2', 0, 8, pady=10)
 
     def secondCollect(self):
         # collect the infomation from the second window and place in ttext

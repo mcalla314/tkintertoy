@@ -25,16 +25,16 @@ class Gui:
         """ Create the main (ttk) window """
         # a simple menu
         mymenu = self.gui.addMenu('ttmainmenu', self.gui.master) # create a main menu
-        fmenu = [['command', {'label':'Open...', 'command':self.popOpen}], # create a file menu
+        fmenul = [['command', {'label':'Open...', 'command':self.popOpen}], # create a file menu
             ['command', {'label':'Save As...', 'command':self.popSaveAs}],
             ['command', {'label':'Choose Directory...', 'command':self.popChooseDir}],
             ['command', {'label':'Exit', 'command':self.gui.cancel}]]
-        mmenu = [['command', {'label':'About', 'command':self.popAbout}], # create a misc menu
+        mmenul = [['command', {'label':'About', 'command':self.popAbout}], # create a misc menu
             ['command', {'label':'ChooseColor', 'command':self.popColor}]]
-        self.gui.addMenu('ttfmenu', mymenu, fmenu)               # create sub menus
-        self.gui.addMenu('ttmmenu', mymenu, mmenu)
-        mymenu.add('cascade', label='File', menu=self.gui.get('ttfmenu')) # add them to the main menu
-        mymenu.add('cascade', label='Misc', menu=self.gui.get('ttmmenu'))
+        fmenuc = self.gui.addMenu('ttfmenu', mymenu, fmenul)               # create sub menus
+        mmenuc = self.gui.addMenu('ttmmenu', mymenu, mmenul)
+        mymenu.add('cascade', label='File', menu=fmenuc) # add them to the main menu
+        mymenu.add('cascade', label='Misc', menu=mmenuc)
         self.gui.master['menu'] = mymenu                         # connect the main menu to the window
         # Notebook
         tabs = ['Simple','Dialog','Multi','Other']               # label the tabs
@@ -56,7 +56,7 @@ class Gui:
         self.makeOther()
         self.gui.plotxy('ttnotebook', 0, 0)
         self.gui.set('ttnotebook', 'Simple')                    # select first page
-        self.secondWin()
+        self.makeGui2()
 
     def makeSimple(self):
         """ Create the page with the most common widgets """
@@ -141,10 +141,12 @@ class Gui:
         self.multiPage.plotxy('ttframe', 0, 2)
 
     def makeOther(self):
+        """ Create page with the leftover widgets """  
         self.otherPage = self.pages[3]
         # Canvas
-        self.otherPage.addCanvas('ttcanvas', 'Canvas', width=300, height=100) # create canvas
-        self.otherPage.get('ttcanvas').create_oval(10, 10, 290, 90, fill='green')
+        canvas = self.otherPage.addCanvas('ttcanvas', 'Canvas', width=300,
+            height=100) # create canvas
+        canvas.create_oval(10, 10, 290, 90, fill='green')
         self.otherPage.plotxy('ttcanvas', 0, 0)
         # Multipane
         paneTitles = ['Pane 1','Pane 2','Pane 3']
@@ -153,35 +155,81 @@ class Gui:
             # -Label
             tag = 'ttlabel' + str(i)
             panes[i].addLabel(tag)
-            panes[i].set(tag, 'Inner label {}'.format(i+1))
+            panes[i].set(tag, f'Inner label {i+1}')
             panes[i].plotxy(tag)
         self.otherPage.plotxy('ttpane', 0, 1)
 
     def popOpen(self):
-        # open dialog
-        self.gui.set('ttext', self.gui.popDialog(title='Open a File')+'\n')
+        """ Open dialog """
+        self.gui.set('ttext', self.gui.popDialog('askopenfilename',
+            title='Open a File')+'\n')
 
     def popSaveAs(self):
-        # save as dialog
+        """ Save As dialog """
         self.gui.set('ttext', self.gui.popDialog('asksaveasfilename',
             title='Save a File')+'\n')
 
     def popChooseDir(self):
-        # choose dir dialog
+        """ Choose Directory dialog """
         self.gui.set('ttext', self.gui.popDialog('askdirectory',
             title='Select a Directory')+'\n')
 
     def popColor(self):
-        # Color Chooser
+        """ Choose Color dialog """
         self.gui.set('ttext', str(self.gui.popDialog('askcolor',
             title='Select a Color'))+'\n')
 
     def popAbout(self):
-        # Pop Up Message Box
-        self.gui.popMessage('Tkintertoy Gallery')
+        """ Pop Up an About window """
+        self.gui.popMessage('Tkintertoy Gallery\nMost of the widgets in Tkintertoy.')
 
+    def makeGui2(self):
+        """ Fill a second independent window using tk widgets only """
+        # Label
+        self.gui2.addLabel('ttlabel2',usetk=True, text='These are Tk widgets.',
+             effects='bold')
+        # Entry
+        self.gui2.addEntry('ttentry2','Type something here', usetk=True,
+             foreground='blue', background='yellow')
+        # Checkboxes
+        achecks = ['CheckOption1','CheckOption2','CheckOption3']
+        self.gui2.addCheck('ttchecks2', 'Check Box', achecks, usetk=True) # create 3 checkboxes
+        self.gui2.set('ttchecks2','CheckOption3')          # preselect first checkbox
+        # Radio Buttons
+        aradio = ['RadioOption1','RadioOption2','RadioOption3']
+        self.gui2.addRadio('ttradio3', 'RadioButton Box', aradio, usetk=True) # create 3 radiobuttons
+        self.gui2.set('ttradio3', 'RadioOption2')
+        # Message
+        self.gui2.addMessage('ttmessage', 'Message', justify='center') # create a message
+        self.gui2.set('ttmessage', 'Useful for multi-line messages,\n'
+            'like this one.')                                          # add the text
+        # Option
+        alist = ['Option1','Option2','Option3']
+        self.gui2.addOption('ttoption', 'Option List', alist) # create an option list
+        self.gui2.set('ttoption', 'Option1')
+        # Scale
+        self.gui2.addScale('ttscale2', [1,10], 'Scale', width=2, usetk=True,
+            orient='horizontal', length=200)                                         # create a scale
+        # Spinners
+        adate = [[2,1,12],[2,1,31],[4,2000,2099]]
+        self.gui2.addSpin('ttspin2', adate, '/', 'Date Box', usetk=True) # create a date entry box
+        self.gui2.set('ttspin2', '3/15/2001')               # set the initial date 
+        # Buttons
+        cmd = [['Collect',self.collect2],['Exit', self.gui2.close]] # create two buttons
+        self.gui2.addButton('ttbutton2', '', cmd, usetk=True)
+        # Plot widgets
+        self.gui2.plotxy('ttlabel2', 0, 0, padx=30)
+        self.gui2.plotxy('ttentry2', 0, 1)
+        self.gui2.plotxy('ttchecks2', 0, 2)
+        self.gui2.plotxy('ttradio3', 0, 3)
+        self.gui2.plotxy('ttmessage', 0, 4)
+        self.gui2.plotxy('ttoption', 0, 5)
+        self.gui2.plotxy('ttscale2', 0, 6)
+        self.gui2.plotxy('ttspin2', 0, 7)
+        self.gui2.plotxy('ttbutton2', 0, 8, pady=10)
+        
     def collect(self):
-        # show contents of all widgets
+        """ Show contents of all widgets on the main (ttk) page """  
         result = '\nMain Window\n  Simple Page:\n    '
         result += self.simplePage.get('ttlabel') + '\n    '
         result += self.simplePage.get('ttmessage') + '\n    '
@@ -214,52 +262,7 @@ class Gui:
         self.gui.master.after(1000) # wait 1 sec
         self.gui.set('ttprogress', 0)
 
-    def secondWin(self):
-        # pop up a second independent window using tk widgets only
-        # Label
-        self.gui2.addLabel('ttlabel2',usetk=True, text='These are Tk widgets.',
-             effects='bold')
-        # Entry
-        self.gui2.addEntry('ttentry2','Type something here', usetk=True,
-             foreground='blue', background='yellow')
-        # Checkboxes
-        achecks = ['CheckOption1','CheckOption2','CheckOption3']
-        self.gui2.addCheck('ttchecks2', 'Check Box', achecks, usetk=True) # create 3 checkboxes
-        self.gui2.set('ttchecks2','CheckOption3')          # preselect first checkbox
-        # Radio Buttons
-        aradio = ['RadioOption1','RadioOption2','RadioOption3']
-        self.gui2.addRadio('ttradio3', 'RadioButton Box', aradio, usetk=True) # create 3 radiobuttons
-        self.gui2.set('ttradio3', 'RadioOption3')
-        # Message
-        self.gui2.addMessage('ttmessage', 'Message', justify='center') # create a message
-        self.gui2.set('ttmessage', 'Useful for multi-line messages,\n'
-            'like this one.')                                          # add the text
-        # Option
-        alist = ['Option1','Option2','Option3']
-        self.gui2.addOption('ttoption', 'Option List', alist) # create an option list
-        self.gui2.set('ttoption', 'Option1')
-        # Scale
-        self.gui2.addScale('ttscale2', [1,10], 'Scale', width=2, usetk=True,
-            orient='horizontal', length=200)                                         # create a scale
-        # Spinners
-        adate = [[2,1,12],[2,1,31],[4,2000,2099]]
-        self.gui2.addSpin('ttspin2', adate, '/', 'Date Box', usetk=True) # create a date entry box
-        self.gui2.set('ttspin2', '3/15/2001')               # set the initial date 
-        # Buttons
-        cmd = [['Collect',self.secondCollect],['Exit', self.gui2.close]] # create two buttons
-        self.gui2.addButton('ttbutton2', '', cmd, usetk=True)
-        # Plot widgets
-        self.gui2.plotxy('ttlabel2', 0, 0, padx=30)
-        self.gui2.plotxy('ttentry2', 0, 1)
-        self.gui2.plotxy('ttchecks2', 0, 2)
-        self.gui2.plotxy('ttradio3', 0, 3)
-        self.gui2.plotxy('ttmessage', 0, 4)
-        self.gui2.plotxy('ttoption', 0, 5)
-        self.gui2.plotxy('ttscale2', 0, 6)
-        self.gui2.plotxy('ttspin2', 0, 7)
-        self.gui2.plotxy('ttbutton2', 0, 8, pady=10)
-
-    def secondCollect(self):
+    def collect2(self):
         # collect the infomation from the second window and place in ttext
         result = '\nSecond Window:\n'
         result += self.gui2.get('ttlabel2')+'\n'

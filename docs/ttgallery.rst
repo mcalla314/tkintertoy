@@ -1,4 +1,4 @@
-.. ttgallery.rst 06/26/23
+.. ttgallery.rst 07/05/23
 
 =============================
 Tkintertoy ttgallery Tutorial
@@ -63,7 +63,10 @@ Here is an explanation of what each line does:
     options in a pulldown structure. These can be quite complex so this is a
     simple example. Read the Tkinter documentation for more information.
 27. Create a **ttMenu** as the main menu, ``mymenu`` attached to the ``master``
-    attribute to the main window, ``gui``.
+    attribute to the main window, ``gui``. This shows in general how to add a
+    *Tkintertoy* widget to a window. The first argument is a unique tag for the
+    widget, 'ttmainmenu'. You will use this tag to work with the widget. In this
+    application all tags start with 'tt' but tags can be any string. 
 28. Create a file menu list, ``fmenul``, the first option is 'Open...' which is
     connected to the ``popOpen`` method...
 29. The second option is 'Save AS...' which is attached to the ``popSaveAs``
@@ -95,14 +98,12 @@ Here is an explanation of what each line does:
     the replacement for the ``print`` function in command-line scripts. Text is a
     tk only widget. Read the Tkinter documentation for more information.
 43. Add a **ttText** widget 60 characters wide by 10 characters high to ``gui``.
-    This show in general how to add a *Tkintertoy* widget to a window. The first
-    argument is a unique tag for the widget, 'ttext'. You will use this tag to work
-    with the widget. In this application all tags start with 'tt' but tags can be
-    any string. The second argument is the text for the widget frame. Most
-    *Tkintertoy* widgets have frames in which you can change the appearance. 
-    The other arguments are optional keyword arguments which define the widget.
-    Note, in most cases, we do not need to save the widget in a variable, the
-    tag does this for us.
+    The first argument is tag the widget, 'ttext'. The second argument is the
+    text for the widget frame. Most *Tkintertoy* widgets have frames (menus and
+    notebooks do not have frames) in which you can change the appearance. frames
+    are a great place for user prompts. The other arguments are optional keyword
+    arguments which define the widget. Note, in most cases, we do not need to
+    save the widget in a variable, the tag does this for us.
 44. Plot it at column 0, row 1. The notebook will be at 0, 0. This shows how to
     place a **ttWidget** in a window. The first argument is the widget tag, the
     second argument in the column or x position, and the third argument is the
@@ -259,8 +260,10 @@ Here is an explanation of what each line does:
 128. This is the **ttCombobox** section for the collector.
 129. Create a list of combobox options, ``acombo``.
 130. Add a **ttCombobox** using ``acombo`` with a tag of 'ttcombo2'. Note, While
-     we could reuse ``acombo`` for a different list of options, the tag 'ttcombo2'
-     be be unique.
+     we reused ``acombo`` for a different list of options, the tag 'ttcombo2'
+     is unique. We are doing this to eliminate any confusion in the code when
+     we collect the widgets. However, we could have used the same tag since each
+     window keeps its own dictionary of tags.  
 131. Plot it at column 0, row 0 in ``subframe``.
 132. This is the **ttRadiobox** section for the collector.
 133. Create a list of radiobox options, ``aradio``.
@@ -387,11 +390,12 @@ Here is an explanation of what each line does:
 215. Add a **ttSpinbox** for dates that runs from 1/1/2000 to 12/31/2099 with a tag of
      'ttspin2'.
 216. Set the date to 3/15/2021
-217. This is the **ttButtonbox** creation section. Buttonboxes are groups
-     of buttons connected to commands. These are the widgets that make
-     actions happen when user click on them.
-218. Create a button list, ``cmd``, which has two labels ('Collect' and 'Exit') and the
-     linked methods (``collect2`` and ``cancel``).
+217. This is the **ttButtonbox** creation section. Buttonboxes are groups of buttons
+     connected to commands. These are the widgets that make actions happen when user
+     clicks on them.
+218. Create a button list, ``cmd``, which has two labels ('Collect' and 'Close') and the
+     linked methods (``collect2`` and ``close``). Unlike ``cancel``, ``close`` will close
+     the window but the apllication will contune to run. 
 219. Create a **ttButtonbox** using ``cmd`` with a tag of 'ttbutton2'.
 220. This is the widget plotting section. In ``makeGui`` we plotted the widgets as soon
      as we created them. Here we are going the plot all the widgets at the end of the
@@ -407,10 +411,102 @@ Here is an explanation of what each line does:
 228. Plot 'ttspin2' at column 0, row 7.
 229. Plot 'ttbutton2' at column 0, row 8, with a 10 pixel vertical spacing.
 230. Blank line.
-231. This method collects all the contents of the ``gui`` window.
+231. This method collects all the contents of the ``gui`` window. To get the contents
+     of any widget, you call the ``get`` method on the window witht the tag as the
+     argument. You don't have to worry about the type of widget, ``get`` handles this
+     automatically.
 232. Method documentation.
-232. Build a string that will contain the widget contents, ``result``.
-233. Get the contents of 
+233. Build a string that will contain the widget contents, ``result``. The header
+     will indication that these are widgets from ``simplePage``.
+234. Get the contents of 'ttlabel' and add to ``result``.
+235. Get the contents of 'ttentry' and add to ``result``.
+236. Get the contents of 'ttcombo' and add to ``result``.
+237. Get the contents of 'ttchecks' and add to ``result``. Note, since checkboxes
+     can have multiple values, ``get`` returns a list, so we must convert it to
+     a string.
+238. Get the contents of 'ttradio' and add to ``result``.
+239. Get the contents of 'ttscale' and add to ``result``. Note, since ``get``
+     returns a int we must convert it to a string.
+240. Get the contents of 'ttspin' and add to ``result``.
+241. We have collected about a third of the widgets so lets move the ''ttprogress'
+     to the 33% position. To change the contents of any widget you use the ``set``
+     method on the window with the tag as the first argument and the value as the
+     second argument. Again, you don't have to worry about the type of widget, ``set``
+     handles this automatically.
+242. Update 'ttext' with ``result``.
+243. Wait one second so the user can see the 'ttprogress' change. The ``after``
+     method of the master attribute has a number of very important uses. Read
+     the Tkinter documentation for more information.
+244. Create a new ``result`` for ``dialogPage``.
+245. Get the contents of 'ttopen' and add to ``result``.
+246. Get the contents of 'ttsaveas' and add to ``result``.
+247. Get the contents of 'ttchoosedir' and add to ``result``.
+248. We have collected about two-thirds of the widgets so lets move the ''ttprogress'
+     to the 66% position.
+249. Update 'ttext' with ``result``.
+250. Wait one second so the user can see the 'ttprogress' change.
+251. Create a new ``result`` for ``multiPage``.
+252. Get the contents of 'ttlist' and add to ``result``. Note, since listboxes
+     can have multiple values, ``get`` returns a list, so we must convert it to
+     a string.
+253. Get the contents of 'ttledger' and add to ``result``. Note, since ledgers
+     can have multiple values, ``get`` returns a list, so we must convert it to
+     a string.
+254. Get the contents of 'ttcollector' and add to ``result``. Collector can be
+     a single or multi value widget. We want a multi-value so the keyword argument
+     is *allValues=True*, Note, since ``get`` returns a list, so we must convert it
+     to a string.
+255. Get the displayed page from 'ttnotebook' and add to ``result``.
+256. Complete ``result``.
+257. We have collected all of the widgets so lets move the ''ttprogress'
+     to the 100% position.
+258. Update 'ttext' with ``result``.
+259. Wait one second so the user can see the 'ttprogress' change.
+260. Result 'ttprogess' back to 0%.
+261. Blank page.
+262. This method collects all the contents of the ``gui2`` window.
+263. Method documentation.
+264. Build a string that will contain the widget contents, ``result``. The header
+     will indication that these are widgets from ``gui2``.
+265. Get the contents of 'ttlabel2' and add to ``result``.
+266. Get the contents of 'ttentry2' and add to ``result``.
+267. Get the contents of 'ttchecks2' and add to ``result``. Note, since checkboxes
+     can have multiple values, ``get`` returns a list, so we must convert it to
+     a string.
+268. Get the contents of 'ttradio3' and add to ``result``.
+269. Get the contents of 'ttmessage' and add to ``result``.
+270. Get the contents of 'ttoption' and add to ``result``.
+271. Get the contents of 'ttscale2' and add to ``result``.  Note, since ``get``
+     returns a int we must convert it to a string.
+272. Get the contents of 'ttspin2' and add to ``result``.
+273. 249. Update 'ttext' with ``result``.
+274. Blank line.
+275. Common Python. This is the main driving functon.
+276. Function documentation.
+277. Create an instance of Gui, ``app``. Note, that this will build all the
+     windows.
+278. Begin a try block. This part of the application could crash and we want
+     to capture any error messages.     
+279. Start the application loop and wait for the user to press a command button.
+     This will continue to run until the user clicks on 'Exit'.
+280. If an error occurs...
+281. Catch the error message in ``errorMessage``. The ``catchExcept`` method is
+     included in all *Tkintertoy* windows.
+282. Pop-up an message box containing ``errorMessage``.
+283. After the user click on 'Ok' in the message box, exit the program.
+284. Blank line.
+285. Standard Python. If you are not importing, excute ``main``.
+286. Same.
+
+By looking this this code the novice programmer should be able to use most of
+the *Tkintertoy* widgets for their own application. Be sure to also see the code
+examples in the tutorial for more information.
+
+
+
+
+
+
 
 
 

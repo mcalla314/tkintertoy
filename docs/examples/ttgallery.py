@@ -215,7 +215,7 @@ class Gui:
         self.gui2.addSpin('ttspin2', adate, '/', 'Date Box', usetk=True) # create a date entry box
         self.gui2.set('ttspin2', '3/15/2001')               # set the initial date 
         # Buttons
-        cmd = [['Collect',self.collect2],['Exit', self.gui2.close]] # create two buttons
+        cmd = [['Collect',self.collect2],['Close', self.gui2.close]] # create two buttons
         self.gui2.addButton('ttbutton2', '', cmd, usetk=True)
         # Plot widgets
         self.gui2.plotxy('ttlabel2', 0, 0, padx=30)
@@ -232,9 +232,7 @@ class Gui:
         """ Show contents of all widgets on the main (ttk) page """  
         result = '\nMain Window\n  Simple Page:\n    '
         result += self.simplePage.get('ttlabel') + '\n    '
-        result += self.simplePage.get('ttmessage') + '\n    '
         result += self.simplePage.get('ttentry') + '\n    '
-        result += self.simplePage.get('ttoption') + '\n    '
         result += self.simplePage.get('ttcombo') + '\n    '
         result += str(self.simplePage.get('ttchecks')) + '\n    '
         result += self.simplePage.get('ttradio') + '\n    '
@@ -242,38 +240,40 @@ class Gui:
         result += self.simplePage.get('ttspin') + '\n    '
         self.gui.set('ttprogress', 33)
         self.gui.set('ttext', result)
-        self.gui.master.after(500) # wait .5 sec
-        result = '  File Page:\n    '
+        self.gui.master.after(1000) # wait one sec
+        result = '  Dialog Page:\n    '
         result += self.dialogPage.get('ttopen') + '\n    '
         result += self.dialogPage.get('ttsaveas') + '\n    '
         result += self.dialogPage.get('ttchoosedir') + '\n    '
         self.gui.set('ttprogress', 66)
         self.gui.set('ttext', result)
-        self.gui.master.after(500) # wait .5 sec
+        self.gui.master.after(1000) # wait one sec
         result = '  Multi Page:\n    '
         result += str(self.multiPage.get('ttlist')) + '\n    '
         result += str(self.multiPage.get('ttledger')) + '\n    '
         result += str(self.subwin.get('ttcollector', allValues=True)) + '\n    '
         result += f"{self.gui.get('ttnotebook')} page selected\n"
         result += '\n\n' 
-        # Progress Bar
         self.gui.set('ttprogress', 100)
         self.gui.set('ttext', result)
-        self.gui.master.after(1000) # wait 1 sec
+        self.gui.master.after(1000) # wait one sec
         self.gui.set('ttprogress', 0)
 
     def collect2(self):
-        # collect the infomation from the second window and place in ttext
+        """ Collect the infomation from the second window and place in ttext """
         result = '\nSecond Window:\n'
         result += self.gui2.get('ttlabel2')+'\n'
         result += self.gui2.get('ttentry2')+'\n'
         result += str(self.gui2.get('ttchecks2'))+'\n'
         result += self.gui2.get('ttradio3')+'\n'
+        result += self.gui2.get('ttmessage') + '\n    '
+        result += self.gui2.get('ttoption') + '\n    '
         result += str(self.gui2.get('ttscale2'))+'\n'
-        result += str(self.gui2.get('ttspin2'))+'\n\n'
+        result += self.gui2.get('ttspin2')+'\n\n'
         self.gui.set('ttext', result)
 
 def main():
+    """ main driving function """
     app = Gui()
     try:
         app.gui.waitforUser()

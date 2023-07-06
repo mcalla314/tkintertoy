@@ -20,7 +20,7 @@ teaching a Python class in a local vocational technical college using *Tkinterto
 with great success.
 
 With this version, I have fixed a few minor bugs, improved the documentation, improved
-the operation of the library, and cleaned up the code for version 1.5. Support for
+the operation of the library, and cleaned up the code for version 1.6. Support for
 Python 2 was removed since the library is no longer tested using Python 2.
 
 Tkintertoy creates ``Windows`` which contain widgets. Almost every *tk* or *ttk*
@@ -40,6 +40,17 @@ tk/ttk widget, the more advanced programmer can access all the tk/ttk options an
 methods of the widgets. Tkintertoy makes sure that all aspects of tk/ttk are
 exposed when the programmer needs them. *Tkintertoy* is light-weight wrapper of
 *Tkinter* and can be used a gentle introduction to the complete library.
+
+The Zen of Tkintertoy
+=====================
+
+1. It must be very simple to use. Not much more complicated than ``input`` or ``print``.
+2. It must produce well-balanced and clean, if simple, interfaces.
+3. It must be very light-weight and easy to install. Everything is basically in one file,
+   tt.py.
+4. It must be based on Tkinter. Tkinter is still the default Gui library for Python. After
+   working in Tkintertoy, the student can easily move into more complex Tkinter.
+5. The source code should be easy to follow.   
 
 In the following examples below, one can see how the ideas in Tkintertoy can be used
 to create simple but useful GUIs. GUI programming can be fun, which puts the "toy" in
@@ -84,7 +95,7 @@ Here is an explanation of what each line does:
     dictionary directly, *Tkintertoy* provides methods for this. The title of the Frame
     surrounding the Entry widget will be 'Type in your name'. Entry frame titles are a
     great place to put instructions to your user. If you don't want a title, just leave
-    off this argument. *Tkintertoy will use a plain ttk/tk.Frame instead. The default width
+    off this argument. *Tkintertoy* will use a plain ttk/tk.Frame instead. The default width
     of the Entry widget is 20 characters, but this, like many other options can be changed.
 5.  Add a **ttLabel** widget to ``gui``. This will be the combination of a ttk.Label in a
     ttk.LabelFrame. This tag will be 'welcome' since this where the welcome message will
@@ -171,7 +182,7 @@ Each line of code is explained below:
 1.  Import the ``Window`` object from tkintertoy.
 2.  Create an instance of a ``Window`` and label it ``gui``.
 3.  Set the title ``gui`` to "Create a Map".
-4.  We want to limit the input files to *.csv only. This list will be used in the method in the
+4.  We want to limit the input files to *.csv only*. This list will be used in the method in the
     next line. Notice, you can filter multiple types.
 5.  Add an **ttOpen** dialog widget. This is a combination of a ttk.Entry widget, a 'Browse' ttk.
     Button, and a ttk.LabelFrame. If the user clicks on the 'Browse' button, they will see a

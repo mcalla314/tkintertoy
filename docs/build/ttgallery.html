@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tkintertoy Gallery &mdash; Tkintertoy 1.6.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="tkintertoy module" href="tkintertoy.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tkintertoy
+          </a>
+              <div class="version">
+                1.6.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tkintertoy 1.6 Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkintertoy.html">tkintertoy module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tkintertoy Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-gallery-of-ttwidgets">A Gallery of <strong>ttWidgets</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-collection-of-screenshots">A Collection of Screenshots</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tkintertoy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tkintertoy Gallery</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ttgallery.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tkintertoy-gallery">
+<h1>Tkintertoy Gallery<a class="headerlink" href="#tkintertoy-gallery" title="Permalink to this heading"></a></h1>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jul 06, 2023</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Mike Callahan</strong></p>
+</dd>
+</dl>
+</div></blockquote>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>In order to demostrate the capabilities of <em>Tkintertoy</em>, I wrote an sampler-type
+application that demonstrates how to use most of the widgets in the library, <em>ttgallery</em>.
+This application is a simple modify and collect program where and user interacts with
+the widgets and sees their selections in a text widget. It also shows two independent windows,
+one that uses ttk widgets, the other uses older tk widgets.</p>
+</section>
+<section id="a-gallery-of-ttwidgets">
+<h2>A Gallery of <strong>ttWidgets</strong><a class="headerlink" href="#a-gallery-of-ttwidgets" title="Permalink to this heading"></a></h2>
+<p>Below is the code followed by an explanation of every line:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="linenos">  2</span><span class="c1"># Name:        ttgallery.py</span>
+<span class="linenos">  3</span><span class="c1"># Purpose:     Demostrate use of tkintertoy widgets</span>
+<span class="linenos">  4</span><span class="c1">#</span>
+<span class="linenos">  5</span><span class="c1"># Author:      mike.callahan</span>
+<span class="linenos">  6</span><span class="c1">#</span>
+<span class="linenos">  7</span><span class="c1"># Created:     7/5/2023</span>
+<span class="linenos">  8</span><span class="c1"># Copyright:   (c) mike.callahan 2019 - 2023</span>
+<span class="linenos">  9</span><span class="c1"># License:     MIT</span>
+<span class="linenos"> 10</span><span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="linenos"> 11</span>
+<span class="linenos"> 12</span><span class="kn">from</span> <span class="nn">tkintertoy</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span><span class="k">class</span> <span class="nc">Gui</span><span class="p">:</span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 17</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Create the windows  &quot;&quot;&quot;</span>
+<span class="linenos"> 18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span> <span class="o">=</span> <span class="n">Window</span><span class="p">()</span>
+<span class="linenos"> 19</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">extra</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Tkintertoy Gallery&#39;</span><span class="p">)</span>
+<span class="linenos"> 21</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s1">&#39;Tk Only Window&#39;</span><span class="p">)</span>
+<span class="linenos"> 22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">makeGui</span><span class="p">()</span>
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span>    <span class="k">def</span> <span class="nf">makeGui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 25</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Create the main (ttk) window &quot;&quot;&quot;</span>
+<span class="linenos"> 26</span>        <span class="c1"># a simple menu</span>
+<span class="linenos"> 27</span>        <span class="n">mymenu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">&#39;ttmainmenu&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">master</span><span class="p">)</span> <span class="c1"># create a main menu</span>
+<span class="linenos"> 28</span>        <span class="n">fmenul</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;Open...&#39;</span><span class="p">,</span> <span class="s1">&#39;command&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">popOpen</span><span class="p">}],</span> <span class="c1"># create a file menu</span>
+<span class="linenos"> 29</span>            <span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;Save As...&#39;</span><span class="p">,</span> <span class="s1">&#39;command&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">popSaveAs</span><span class="p">}],</span>
+<span class="linenos"> 30</span>            <span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;Choose Directory...&#39;</span><span class="p">,</span> <span class="s1">&#39;command&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">popChooseDir</span><span class="p">}],</span>
+<span class="linenos"> 31</span>            <span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;Exit&#39;</span><span class="p">,</span> <span class="s1">&#39;command&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">cancel</span><span class="p">}]]</span>
+<span class="linenos"> 32</span>        <span class="n">mmenul</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;About&#39;</span><span class="p">,</span> <span class="s1">&#39;command&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">popAbout</span><span class="p">}],</span> <span class="c1"># create a misc menu</span>
+<span class="linenos"> 33</span>            <span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;ChooseColor&#39;</span><span class="p">,</span> <span class="s1">&#39;command&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">popColor</span><span class="p">}]]</span>
+<span class="linenos"> 34</span>        <span class="n">fmenuc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">&#39;ttfmenu&#39;</span><span class="p">,</span> <span class="n">mymenu</span><span class="p">,</span> <span class="n">fmenul</span><span class="p">)</span>               <span class="c1"># create sub menus</span>
+<span class="linenos"> 35</span>        <span class="n">mmenuc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">&#39;ttmmenu&#39;</span><span class="p">,</span> <span class="n">mymenu</span><span class="p">,</span> <span class="n">mmenul</span><span class="p">)</span>
+<span class="linenos"> 36</span>        <span class="n">mymenu</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;cascade&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;File&#39;</span><span class="p">,</span> <span class="n">menu</span><span class="o">=</span><span class="n">fmenuc</span><span class="p">)</span> <span class="c1"># add them to the main menu</span>
+<span class="linenos"> 37</span>        <span class="n">mymenu</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;cascade&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Misc&#39;</span><span class="p">,</span> <span class="n">menu</span><span class="o">=</span><span class="n">mmenuc</span><span class="p">)</span>
+<span class="linenos"> 38</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">master</span><span class="p">[</span><span class="s1">&#39;menu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mymenu</span>                         <span class="c1"># connect the main menu to the window</span>
+<span class="linenos"> 39</span>        <span class="c1"># Notebook</span>
+<span class="linenos"> 40</span>        <span class="n">tabs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Simple&#39;</span><span class="p">,</span><span class="s1">&#39;Dialog&#39;</span><span class="p">,</span><span class="s1">&#39;Multi&#39;</span><span class="p">,</span><span class="s1">&#39;Other&#39;</span><span class="p">]</span>               <span class="c1"># label the tabs</span>
+<span class="linenos"> 41</span>        <span class="bp">self</span><span class="o">.</span><span class="n">pages</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addNotebook</span><span class="p">(</span><span class="s1">&#39;ttnotebook&#39;</span><span class="p">,</span> <span class="n">tabs</span><span class="p">)</span>    <span class="c1"># create the notebook</span>
+<span class="linenos"> 42</span>        <span class="c1"># Text Box</span>
+<span class="linenos"> 43</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="s1">&#39;Text Box&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># create text area</span>
+<span class="linenos"> 44</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 45</span>        <span class="c1"># Progress Bar</span>
+<span class="linenos"> 46</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addProgress</span><span class="p">(</span><span class="s1">&#39;ttprogress&#39;</span><span class="p">,</span> <span class="s1">&#39;Progress Bar&#39;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span> <span class="c1"># create progrees bar</span>
+<span class="linenos"> 47</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttprogress&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 48</span>        <span class="c1"># Command Buttons</span>
+<span class="linenos"> 49</span>        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Collect&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">collect</span><span class="p">],[</span><span class="s1">&#39;Exit&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">cancel</span><span class="p">]]</span> <span class="c1"># create two buttons</span>
+<span class="linenos"> 50</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;ttbutton&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">cmd</span><span class="p">)</span>
+<span class="linenos"> 51</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttbutton&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 52</span>        <span class="c1"># Notebook Pages</span>
+<span class="linenos"> 53</span>        <span class="bp">self</span><span class="o">.</span><span class="n">makeSimple</span><span class="p">()</span>
+<span class="linenos"> 54</span>        <span class="bp">self</span><span class="o">.</span><span class="n">makeDialog</span><span class="p">()</span>
+<span class="linenos"> 55</span>        <span class="bp">self</span><span class="o">.</span><span class="n">makeMulti</span><span class="p">()</span>
+<span class="linenos"> 56</span>        <span class="bp">self</span><span class="o">.</span><span class="n">makeOther</span><span class="p">()</span>
+<span class="linenos"> 57</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttnotebook&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 58</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttnotebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Simple&#39;</span><span class="p">)</span>                    <span class="c1"># select first page</span>
+<span class="linenos"> 59</span>        <span class="bp">self</span><span class="o">.</span><span class="n">makeGui2</span><span class="p">()</span>
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span>    <span class="k">def</span> <span class="nf">makeSimple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 62</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Create the page with the most common widgets &quot;&quot;&quot;</span>
+<span class="linenos"> 63</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 64</span>        <span class="c1"># Label</span>
+<span class="linenos"> 65</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addLabel</span><span class="p">(</span><span class="s1">&#39;ttlabel&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>         <span class="c1"># create a label with an    </span>
+<span class="linenos"> 66</span>            <span class="n">text</span><span class="o">=</span><span class="s1">&#39;This is a BOLD label&#39;</span><span class="p">)</span>                        <span class="c1"># initial text</span>
+<span class="linenos"> 67</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttlabel&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 68</span>        <span class="c1"># Line</span>
+<span class="linenos"> 69</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="s1">&#39;ttline&#39;</span><span class="p">)</span>                       <span class="c1"># create a horizontal line</span>
+<span class="linenos"> 70</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttline&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;we&#39;</span><span class="p">)</span>     <span class="c1"># stretch it horizontally</span>
+<span class="linenos"> 71</span>        <span class="c1"># Entry</span>
+<span class="linenos"> 72</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addStyle</span><span class="p">(</span><span class="s1">&#39;g.TEntry&#39;</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="c1"># create a green entry</span>
+<span class="linenos"> 73</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;ttentry&#39;</span><span class="p">,</span> <span class="s1">&#39;Entry&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;g.TEntry&#39;</span><span class="p">)</span>
+<span class="linenos"> 74</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttentry&#39;</span><span class="p">,</span> <span class="s1">&#39;Green Text&#39;</span><span class="p">)</span>            <span class="c1"># add the text</span>
+<span class="linenos"> 75</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttentry&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 76</span>        <span class="c1"># Combobox</span>
+<span class="linenos"> 77</span>        <span class="n">acombo</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ComboOption1&#39;</span><span class="p">,</span><span class="s1">&#39;ComboOption2&#39;</span><span class="p">,</span><span class="s1">&#39;ComboOption3&#39;</span><span class="p">]</span>
+<span class="linenos"> 78</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addCombo</span><span class="p">(</span><span class="s1">&#39;ttcombo&#39;</span><span class="p">,</span> <span class="s1">&#39;Combo Box&#39;</span><span class="p">,</span> <span class="n">acombo</span><span class="p">)</span> <span class="c1"># create combobox</span>
+<span class="linenos"> 79</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttcombo&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="linenos"> 80</span>        <span class="c1"># Checkboxes</span>
+<span class="linenos"> 81</span>        <span class="n">achecks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CheckOption1&#39;</span><span class="p">,</span><span class="s1">&#39;CheckOption2&#39;</span><span class="p">,</span><span class="s1">&#39;CheckOption3&#39;</span><span class="p">]</span>
+<span class="linenos"> 82</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addCheck</span><span class="p">(</span><span class="s1">&#39;ttchecks&#39;</span><span class="p">,</span> <span class="s1">&#39;Check Box&#39;</span><span class="p">,</span> <span class="n">achecks</span><span class="p">)</span> <span class="c1"># create 3 checkboxes</span>
+<span class="linenos"> 83</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttchecks&#39;</span><span class="p">,</span><span class="s1">&#39;checkOption1&#39;</span><span class="p">)</span>          <span class="c1"># preselect first checkbox</span>
+<span class="linenos"> 84</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttchecks&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="linenos"> 85</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="s1">&#39;ttchecks&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;disabled&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># disable CheckOption2</span>
+<span class="linenos"> 86</span>        <span class="c1"># Radio Buttons</span>
+<span class="linenos"> 87</span>        <span class="n">aradio</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RadioOption1&#39;</span><span class="p">,</span><span class="s1">&#39;RadioOption2&#39;</span><span class="p">,</span><span class="s1">&#39;RadioOption3&#39;</span><span class="p">]</span>
+<span class="linenos"> 88</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;ttradio&#39;</span><span class="p">,</span> <span class="s1">&#39;RadioButton Box&#39;</span><span class="p">,</span> <span class="n">aradio</span><span class="p">)</span> <span class="c1"># create 3 radiobuttons</span>
+<span class="linenos"> 89</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttradio&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="linenos"> 90</span>        <span class="c1"># Scale</span>
+<span class="linenos"> 91</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addScale</span><span class="p">(</span><span class="s1">&#39;ttscale&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;Scale&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span> <span class="c1"># create a scale</span>
+<span class="linenos"> 92</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttscale&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="linenos"> 93</span>        <span class="c1"># Spinners</span>
+<span class="linenos"> 94</span>        <span class="n">adate</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2099</span><span class="p">]]</span>
+<span class="linenos"> 95</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">addSpin</span><span class="p">(</span><span class="s1">&#39;ttspin&#39;</span><span class="p">,</span> <span class="n">adate</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Date Box&#39;</span><span class="p">)</span> <span class="c1"># create a date entry box</span>
+<span class="linenos"> 96</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttspin&#39;</span><span class="p">,</span> <span class="s1">&#39;4/21/2023&#39;</span><span class="p">)</span>               <span class="c1"># set the initial date </span>
+<span class="linenos"> 97</span>        <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttspin&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span>    <span class="k">def</span> <span class="nf">makeDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">100</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Create the dialog widget page &quot;&quot;&quot;</span>
+<span class="linenos">101</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">102</span>        <span class="c1"># Open</span>
+<span class="linenos">103</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">addOpen</span><span class="p">(</span><span class="s1">&#39;ttopen&#39;</span><span class="p">,</span> <span class="s1">&#39;Open&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>      <span class="c1"># open dialog</span>
+<span class="linenos">104</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttopen&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">105</span>        <span class="c1"># SaveAs</span>
+<span class="linenos">106</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">addSaveAs</span><span class="p">(</span><span class="s1">&#39;ttsaveas&#39;</span><span class="p">,</span> <span class="s1">&#39;Save As&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> <span class="c1"># save as dialog</span>
+<span class="linenos">107</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttsaveas&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">108</span>        <span class="c1"># ChooseDir</span>
+<span class="linenos">109</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">addChooseDir</span><span class="p">(</span><span class="s1">&#39;ttchoosedir&#39;</span><span class="p">,</span> <span class="s1">&#39;Choose Dir&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> <span class="c1"># choose dir dialog</span>
+<span class="linenos">110</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttchoosedir&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">111</span>
+<span class="linenos">112</span>    <span class="k">def</span> <span class="nf">makeMulti</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">113</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Create the multi use widget page &quot;&quot;&quot;</span>
+<span class="linenos">114</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos">115</span>        <span class="c1"># Listbox</span>
+<span class="linenos">116</span>        <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ListOption1&#39;</span><span class="p">,</span><span class="s1">&#39;ListOption2&#39;</span><span class="p">,</span><span class="s1">&#39;ListOption3&#39;</span><span class="p">]</span>
+<span class="linenos">117</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="s1">&#39;ttlist&#39;</span><span class="p">,</span> <span class="s1">&#39;List&#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="linenos">118</span>            <span class="n">selectmode</span><span class="o">=</span><span class="s1">&#39;multiple&#39;</span><span class="p">)</span> <span class="c1"># create list</span>
+<span class="linenos">119</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttlist&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">120</span>        <span class="c1"># Ledger</span>
+<span class="linenos">121</span>        <span class="n">cols</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;column1&#39;</span><span class="p">,</span><span class="mi">100</span><span class="p">],[</span><span class="s1">&#39;column2&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">],[</span><span class="s1">&#39;column3&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">]]</span>
+<span class="linenos">122</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">addLedger</span><span class="p">(</span><span class="s1">&#39;ttledger&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="s1">&#39;Ledger&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># create ledger</span>
+<span class="linenos">123</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttledger&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="s1">&#39;item0-0&#39;</span><span class="p">,</span><span class="s1">&#39;item1-0&#39;</span><span class="p">,</span><span class="s1">&#39;item2-0&#39;</span><span class="p">]])</span>
+<span class="linenos">124</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttledger&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="s1">&#39;item0-1&#39;</span><span class="p">,</span><span class="s1">&#39;item1-1&#39;</span><span class="p">,</span><span class="s1">&#39;item2-1&#39;</span><span class="p">]])</span>
+<span class="linenos">125</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttledger&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="s1">&#39;item0-2&#39;</span><span class="p">,</span><span class="s1">&#39;item1-2&#39;</span><span class="p">,</span><span class="s1">&#39;item2-2&#39;</span><span class="p">]])</span>
+<span class="linenos">126</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttledger&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">127</span>        <span class="c1"># Collector</span>
+<span class="linenos">128</span>        <span class="bp">self</span><span class="o">.</span><span class="n">subwin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">addFrame</span><span class="p">(</span><span class="s1">&#39;ttframe&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">relief</span><span class="o">=</span><span class="s1">&#39;groove&#39;</span><span class="p">)</span>
+<span class="linenos">129</span>        <span class="c1"># -Combobox</span>
+<span class="linenos">130</span>        <span class="n">acombo</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ComboOption2-1&#39;</span><span class="p">,</span><span class="s1">&#39;ComboOption2-2&#39;</span><span class="p">,</span><span class="s1">&#39;ComboOption2-3&#39;</span><span class="p">]</span>
+<span class="linenos">131</span>        <span class="bp">self</span><span class="o">.</span><span class="n">subwin</span><span class="o">.</span><span class="n">addCombo</span><span class="p">(</span><span class="s1">&#39;ttcombo2&#39;</span><span class="p">,</span> <span class="s1">&#39;Combo Box 2&#39;</span><span class="p">,</span> <span class="n">acombo</span><span class="p">)</span>
+<span class="linenos">132</span>        <span class="bp">self</span><span class="o">.</span><span class="n">subwin</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttcombo2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">133</span>        <span class="c1"># -Radio Button</span>
+<span class="linenos">134</span>        <span class="n">aradio</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Radio2-1&#39;</span><span class="p">,</span><span class="s1">&#39;Radio2-2&#39;</span><span class="p">,</span><span class="s1">&#39;Radio2-3&#39;</span><span class="p">]</span>
+<span class="linenos">135</span>        <span class="bp">self</span><span class="o">.</span><span class="n">subwin</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;ttradio2&#39;</span><span class="p">,</span> <span class="s1">&#39;RadioButton Box 2&#39;</span><span class="p">,</span> <span class="n">aradio</span><span class="p">)</span>
+<span class="linenos">136</span>        <span class="bp">self</span><span class="o">.</span><span class="n">subwin</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttradio2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">137</span>        <span class="c1"># -Collector</span>
+<span class="linenos">138</span>        <span class="n">cols</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Combo&#39;</span><span class="p">,</span><span class="mi">110</span><span class="p">],[</span><span class="s1">&#39;Radio&#39;</span><span class="p">,</span> <span class="mi">90</span><span class="p">]]</span>
+<span class="linenos">139</span>        <span class="bp">self</span><span class="o">.</span><span class="n">subwin</span><span class="o">.</span><span class="n">addCollector</span><span class="p">(</span><span class="s1">&#39;ttcollector&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ttcombo2&#39;</span><span class="p">,</span><span class="s1">&#39;ttradio2&#39;</span><span class="p">],</span>
+<span class="linenos">140</span>            <span class="s1">&#39;Collector&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos">141</span>        <span class="bp">self</span><span class="o">.</span><span class="n">subwin</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttcollector&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">142</span>        <span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttframe&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">143</span>
+<span class="linenos">144</span>    <span class="k">def</span> <span class="nf">makeOther</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">145</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Create page with the leftover widgets &quot;&quot;&quot;</span>  
+<span class="linenos">146</span>        <span class="bp">self</span><span class="o">.</span><span class="n">otherPage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="linenos">147</span>        <span class="c1"># Canvas</span>
+<span class="linenos">148</span>        <span class="n">canvas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">otherPage</span><span class="o">.</span><span class="n">addCanvas</span><span class="p">(</span><span class="s1">&#39;ttcanvas&#39;</span><span class="p">,</span> <span class="s1">&#39;Canvas&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span class="linenos">149</span>            <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># create canvas</span>
+<span class="linenos">150</span>        <span class="n">canvas</span><span class="o">.</span><span class="n">create_oval</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">290</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="linenos">151</span>        <span class="bp">self</span><span class="o">.</span><span class="n">otherPage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttcanvas&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">152</span>        <span class="c1"># Multipane</span>
+<span class="linenos">153</span>        <span class="n">paneTitles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pane 1&#39;</span><span class="p">,</span><span class="s1">&#39;Pane 2&#39;</span><span class="p">,</span><span class="s1">&#39;Pane 3&#39;</span><span class="p">]</span>
+<span class="linenos">154</span>        <span class="n">panes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">otherPage</span><span class="o">.</span><span class="n">addPanes</span><span class="p">(</span><span class="s1">&#39;ttpane&#39;</span><span class="p">,</span> <span class="n">paneTitles</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="linenos">155</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos">156</span>            <span class="c1"># -Label</span>
+<span class="linenos">157</span>            <span class="n">tag</span> <span class="o">=</span> <span class="s1">&#39;ttlabel&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos">158</span>            <span class="n">panes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">addLabel</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+<span class="linenos">159</span>            <span class="n">panes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Inner label </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">160</span>            <span class="n">panes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+<span class="linenos">161</span>        <span class="bp">self</span><span class="o">.</span><span class="n">otherPage</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttpane&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">162</span>
+<span class="linenos">163</span>    <span class="k">def</span> <span class="nf">popOpen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">164</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Open dialog &quot;&quot;&quot;</span>
+<span class="linenos">165</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">popDialog</span><span class="p">(</span><span class="s1">&#39;askopenfilename&#39;</span><span class="p">,</span>
+<span class="linenos">166</span>            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Open a File&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">167</span>
+<span class="linenos">168</span>    <span class="k">def</span> <span class="nf">popSaveAs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">169</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Save As dialog &quot;&quot;&quot;</span>
+<span class="linenos">170</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">popDialog</span><span class="p">(</span><span class="s1">&#39;asksaveasfilename&#39;</span><span class="p">,</span>
+<span class="linenos">171</span>            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Save a File&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">172</span>
+<span class="linenos">173</span>    <span class="k">def</span> <span class="nf">popChooseDir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">174</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Choose Directory dialog &quot;&quot;&quot;</span>
+<span class="linenos">175</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">popDialog</span><span class="p">(</span><span class="s1">&#39;askdirectory&#39;</span><span class="p">,</span>
+<span class="linenos">176</span>            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select a Directory&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">177</span>
+<span class="linenos">178</span>    <span class="k">def</span> <span class="nf">popColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">179</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Choose Color dialog &quot;&quot;&quot;</span>
+<span class="linenos">180</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">popDialog</span><span class="p">(</span><span class="s1">&#39;askcolor&#39;</span><span class="p">,</span>
+<span class="linenos">181</span>            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select a Color&#39;</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">182</span>
+<span class="linenos">183</span>    <span class="k">def</span> <span class="nf">popAbout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">184</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Pop Up an About window &quot;&quot;&quot;</span>
+<span class="linenos">185</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">popMessage</span><span class="p">(</span><span class="s1">&#39;Tkintertoy Gallery</span><span class="se">\n</span><span class="s1">Most of the widgets in Tkintertoy.&#39;</span><span class="p">)</span>
+<span class="linenos">186</span>
+<span class="linenos">187</span>    <span class="k">def</span> <span class="nf">makeGui2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">188</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Fill a second independent window using tk widgets only &quot;&quot;&quot;</span>
+<span class="linenos">189</span>        <span class="c1"># Label</span>
+<span class="linenos">190</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addLabel</span><span class="p">(</span><span class="s1">&#39;ttlabel2&#39;</span><span class="p">,</span><span class="n">usetk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;These are Tk widgets.&#39;</span><span class="p">,</span>
+<span class="linenos">191</span>             <span class="n">effects</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="linenos">192</span>        <span class="c1"># Entry</span>
+<span class="linenos">193</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;ttentry2&#39;</span><span class="p">,</span><span class="s1">&#39;Type something here&#39;</span><span class="p">,</span> <span class="n">usetk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">194</span>             <span class="n">foreground</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="linenos">195</span>        <span class="c1"># Checkboxes</span>
+<span class="linenos">196</span>        <span class="n">achecks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CheckOption1&#39;</span><span class="p">,</span><span class="s1">&#39;CheckOption2&#39;</span><span class="p">,</span><span class="s1">&#39;CheckOption3&#39;</span><span class="p">]</span>
+<span class="linenos">197</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addCheck</span><span class="p">(</span><span class="s1">&#39;ttchecks2&#39;</span><span class="p">,</span> <span class="s1">&#39;Check Box&#39;</span><span class="p">,</span> <span class="n">achecks</span><span class="p">,</span> <span class="n">usetk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># create 3 checkboxes</span>
+<span class="linenos">198</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttchecks2&#39;</span><span class="p">,</span><span class="s1">&#39;CheckOption3&#39;</span><span class="p">)</span>          <span class="c1"># preselect first checkbox</span>
+<span class="linenos">199</span>        <span class="c1"># Radio Buttons</span>
+<span class="linenos">200</span>        <span class="n">aradio</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RadioOption1&#39;</span><span class="p">,</span><span class="s1">&#39;RadioOption2&#39;</span><span class="p">,</span><span class="s1">&#39;RadioOption3&#39;</span><span class="p">]</span>
+<span class="linenos">201</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addRadio</span><span class="p">(</span><span class="s1">&#39;ttradio3&#39;</span><span class="p">,</span> <span class="s1">&#39;RadioButton Box&#39;</span><span class="p">,</span> <span class="n">aradio</span><span class="p">,</span> <span class="n">usetk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># create 3 radiobuttons</span>
+<span class="linenos">202</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttradio3&#39;</span><span class="p">,</span> <span class="s1">&#39;RadioOption2&#39;</span><span class="p">)</span>
+<span class="linenos">203</span>        <span class="c1"># Message</span>
+<span class="linenos">204</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addMessage</span><span class="p">(</span><span class="s1">&#39;ttmessage&#39;</span><span class="p">,</span> <span class="s1">&#39;Message&#39;</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span> <span class="c1"># create a message</span>
+<span class="linenos">205</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttmessage&#39;</span><span class="p">,</span> <span class="s1">&#39;Useful for multi-line messages,</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos">206</span>            <span class="s1">&#39;like this one.&#39;</span><span class="p">)</span>                                          <span class="c1"># add the text</span>
+<span class="linenos">207</span>        <span class="c1"># Option</span>
+<span class="linenos">208</span>        <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Option1&#39;</span><span class="p">,</span><span class="s1">&#39;Option2&#39;</span><span class="p">,</span><span class="s1">&#39;Option3&#39;</span><span class="p">]</span>
+<span class="linenos">209</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addOption</span><span class="p">(</span><span class="s1">&#39;ttoption&#39;</span><span class="p">,</span> <span class="s1">&#39;Option List&#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span> <span class="c1"># create an option list</span>
+<span class="linenos">210</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttoption&#39;</span><span class="p">,</span> <span class="s1">&#39;Option1&#39;</span><span class="p">)</span>
+<span class="linenos">211</span>        <span class="c1"># Scale</span>
+<span class="linenos">212</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addScale</span><span class="p">(</span><span class="s1">&#39;ttscale2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;Scale&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usetk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">213</span>            <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>                                         <span class="c1"># create a scale</span>
+<span class="linenos">214</span>        <span class="c1"># Spinners</span>
+<span class="linenos">215</span>        <span class="n">adate</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2099</span><span class="p">]]</span>
+<span class="linenos">216</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addSpin</span><span class="p">(</span><span class="s1">&#39;ttspin2&#39;</span><span class="p">,</span> <span class="n">adate</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Date Box&#39;</span><span class="p">,</span> <span class="n">usetk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># create a date entry box</span>
+<span class="linenos">217</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttspin2&#39;</span><span class="p">,</span> <span class="s1">&#39;3/15/2001&#39;</span><span class="p">)</span>               <span class="c1"># set the initial date </span>
+<span class="linenos">218</span>        <span class="c1"># Buttons</span>
+<span class="linenos">219</span>        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Collect&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">collect2</span><span class="p">],[</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">close</span><span class="p">]]</span> <span class="c1"># create two buttons</span>
+<span class="linenos">220</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;ttbutton2&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">usetk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">221</span>        <span class="c1"># Plot widgets</span>
+<span class="linenos">222</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttlabel2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="linenos">223</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttentry2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">224</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttchecks2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos">225</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttradio3&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">226</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttmessage&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos">227</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttoption&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="linenos">228</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttscale2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="linenos">229</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttspin2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="linenos">230</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;ttbutton2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">231</span>        
+<span class="linenos">232</span>    <span class="k">def</span> <span class="nf">collect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">233</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Show contents of all widgets on the main (ttk) page &quot;&quot;&quot;</span>  
+<span class="linenos">234</span>        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Main Window</span><span class="se">\n</span><span class="s1">  Simple Page:</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">235</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttlabel&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">236</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttentry&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">237</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttcombo&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">238</span>        <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttchecks&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">239</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttradio&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">240</span>        <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttscale&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">241</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simplePage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttspin&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">242</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttprogress&#39;</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
+<span class="linenos">243</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="linenos">244</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># wait one sec</span>
+<span class="linenos">245</span>        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;  Dialog Page:</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">246</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttopen&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">247</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttsaveas&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">248</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialogPage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttchoosedir&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">249</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttprogress&#39;</span><span class="p">,</span> <span class="mi">66</span><span class="p">)</span>
+<span class="linenos">250</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="linenos">251</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># wait one sec</span>
+<span class="linenos">252</span>        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;  Multi Page:</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">253</span>        <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttlist&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">254</span>        <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">multiPage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttledger&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">255</span>        <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subwin</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttcollector&#39;</span><span class="p">,</span> <span class="n">allValues</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">256</span>        <span class="n">result</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttnotebook&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> page selected</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="linenos">257</span>        <span class="n">result</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span> 
+<span class="linenos">258</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttprogress&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos">259</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="linenos">260</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># wait one sec</span>
+<span class="linenos">261</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttprogress&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">262</span>
+<span class="linenos">263</span>    <span class="k">def</span> <span class="nf">collect2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">264</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Collect the infomation from the second window and place in ttext &quot;&quot;&quot;</span>
+<span class="linenos">265</span>        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Second Window:</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">266</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttlabel2&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">267</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttentry2&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">268</span>        <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttchecks2&#39;</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">269</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttradio3&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">270</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttmessage&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">271</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttoption&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">272</span>        <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttscale2&#39;</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span>
+<span class="linenos">273</span>        <span class="n">result</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gui2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ttspin2&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>
+<span class="linenos">274</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ttext&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="linenos">275</span>
+<span class="linenos">276</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="linenos">277</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; main driving function &quot;&quot;&quot;</span>
+<span class="linenos">278</span>    <span class="n">app</span> <span class="o">=</span> <span class="n">Gui</span><span class="p">()</span>
+<span class="linenos">279</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">280</span>        <span class="n">app</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
+<span class="linenos">281</span>    <span class="k">except</span><span class="p">:</span>                                                      <span class="c1"># trap all Exceptions</span>
+<span class="linenos">282</span>        <span class="n">errorMessage</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">catchExcept</span><span class="p">()</span>
+<span class="linenos">283</span>        <span class="n">app</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">popMessage</span><span class="p">(</span><span class="n">errorMessage</span><span class="p">,</span> <span class="s1">&#39;showwarning&#39;</span><span class="p">,</span> <span class="s1">&#39;Error&#39;</span><span class="p">)</span>
+<span class="linenos">284</span>        <span class="n">app</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+<span class="linenos">285</span>
+<span class="linenos">286</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">287</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Here is an explanation of what each line does:</p>
+<ol class="arabic simple">
+<li><p>Documentation of application.</p></li>
+<li><p>Same.</p></li>
+<li><p>Same.</p></li>
+<li><p>Same.</p></li>
+<li><p>Same.</p></li>
+<li><p>Same.</p></li>
+<li><p>Same.</p></li>
+<li><p>Same</p></li>
+<li><p>Same.</p></li>
+<li><p>Same.</p></li>
+<li><p>Blank line.</p></li>
+<li><p>Import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> code which is the foundation of Tkintertoy.</p></li>
+<li><p>Blank line.</p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">Gui</span></code> class. We will use composition style so we are not inheriting
+from any other class. <code class="docutils literal notranslate"><span class="pre">self</span></code> will be the application.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>__init__</strong>. This method creates the windows, sets the
+titles, then calls the <code class="docutils literal notranslate"><span class="pre">makegui</span></code> method.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Create a <strong>Window</strong> and assign it as an attribute, <code class="docutils literal notranslate"><span class="pre">gui</span></code>.</p></li>
+<li><p>Create a second independent <strong>Window</strong> and assign it as an attribute, <code class="docutils literal notranslate"><span class="pre">gui2</span></code>.</p></li>
+<li><p>Set the title of <code class="docutils literal notranslate"><span class="pre">gui</span></code>.</p></li>
+<li><p>Set the title of <code class="docutils literal notranslate"><span class="pre">gui2</span></code>.</p></li>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">makeGui</span></code> which will fill the windows with widgets.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>makeGui</strong>. This method creates and places all the widgets in the main (ttk)
+window and then calls <code class="docutils literal notranslate"><span class="pre">makeGui2</span></code>.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>This is the <strong>ttMenu</strong> creation section. Menus are good for placing command
+options in a pulldown structure. These can be quite complex so this is a
+simple example. Read the Tkinter documentation for more information.</p></li>
+<li><p>Create a <strong>ttMenu</strong> as the main menu, <code class="docutils literal notranslate"><span class="pre">mymenu</span></code> attached to the <code class="docutils literal notranslate"><span class="pre">master</span></code>
+attribute to the main window, <code class="docutils literal notranslate"><span class="pre">gui</span></code>. This shows in general how to add a
+<em>Tkintertoy</em> widget to a window. The first argument is a unique tag for the
+widget, ‘ttmainmenu’. You will use this tag to work with the widget. In this
+application all tags start with ‘tt’ but tags can be any string.</p></li>
+<li><p>Create a file menu list, <code class="docutils literal notranslate"><span class="pre">fmenul</span></code>, the first option is ‘Open…’ which is
+connected to the <code class="docutils literal notranslate"><span class="pre">popOpen</span></code> method…</p></li>
+<li><p>The second option is ‘Save AS…’ which is attached to the <code class="docutils literal notranslate"><span class="pre">popSaveAs</span></code>
+method…</p></li>
+<li><p>The third option is ‘Choose Directory’ which is connected to the <code class="docutils literal notranslate"><span class="pre">popChooseDir</span></code>
+method…</p></li>
+<li><p>The fourth option is ‘Exit’ whic is attached to the <code class="docutils literal notranslate"><span class="pre">cancel</span></code> method of <code class="docutils literal notranslate"><span class="pre">gui</span></code>.
+This method is included with all <em>Tkintertoy</em> windows.</p></li>
+<li><p>Create a misc menu list, <code class="docutils literal notranslate"><span class="pre">mmenul</span></code>, the first option is ‘About’ which is attached
+to the <code class="docutils literal notranslate"><span class="pre">popAbout</span></code> method…</p></li>
+<li><p>The second option is ‘ChooseColor’ which is attached to the <code class="docutils literal notranslate"><span class="pre">popColor</span></code>
+method.</p></li>
+<li><p>Create the file menu, <code class="docutils literal notranslate"><span class="pre">fmenuc</span></code>, attached to the main menu using <code class="docutils literal notranslate"><span class="pre">fmenul</span></code>.</p></li>
+<li><p>Create the misc menu, <code class="docutils literal notranslate"><span class="pre">mmenuc</span></code>, attached to the main menu using <code class="docutils literal notranslate"><span class="pre">mmenul</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">fmenuc</span></code> as a cascade (pulldown) under the ‘File’ label of <code class="docutils literal notranslate"><span class="pre">mymenu</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">mmenuc</span></code> as a cascade under the ‘Misc’ label of <code class="docutils literal notranslate"><span class="pre">mymenu</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">mymenu</span></code> to the <code class="docutils literal notranslate"><span class="pre">menu</span></code> option of the master attribute of <code class="docutils literal notranslate"><span class="pre">gui</span></code>.
+This will make the ‘File’ and ‘Misc’ labels appear at the top of the
+window.</p></li>
+<li><p>This is the <strong>ttNotebook</strong> creation section. Notebooks are a collection
+of windows, called pages, stacked on top of each other accessed by a tab
+at the top of the window. It is a good way to save on screen space and
+hide groups of widgets. Notebooks are a ttk only widget which have no frame.</p></li>
+<li><p>Create a list of tabs, <code class="docutils literal notranslate"><span class="pre">tabs</span></code>.</p></li>
+<li><p>Create a <strong>ttNotebook</strong> using <code class="docutils literal notranslate"><span class="pre">tabs</span></code> with a tag of ‘ttnotebook’. Store the
+list of pages in the <code class="docutils literal notranslate"><span class="pre">pages</span></code> attribute. Each tab will create its own page.</p></li>
+<li><p>This is the <strong>ttText</strong> section. The text widget includes vertical scrollbars
+and is an extremely powerful widget with lots of uses. You can think of it as
+the replacement for the <code class="docutils literal notranslate"><span class="pre">print</span></code> function in command-line scripts. Text is a
+tk only widget. Read the Tkinter documentation for more information.</p></li>
+<li><p>Add a <strong>ttText</strong> widget 60 characters wide by 10 characters high to <code class="docutils literal notranslate"><span class="pre">gui</span></code>.
+The first argument is tag, ‘ttext’. The second argument is the text for the
+widget frame. Most <em>Tkintertoy</em> widgets have frames (menus and notebooks do
+not have frames) in which you can change the appearance. Frames are a great
+place for user prompts. The other arguments are keyword arguments which define
+the widget. In most cases, we do not need to save the widget in a variable,
+the tag does this for us.</p></li>
+<li><p>Plot it at column 0, row 1. The notebook will be at 0, 0. This shows how to
+place a <strong>ttWidget</strong> in a window. The first argument is the widget tag, the
+second argument in the column or x position, and the third argument is the
+row or y position. Following this are keyword arguments that modify the placement
+of the widgets. Widgets will not appear until they are plotted. Note, in
+<em>Tkintertoy</em>, widget creation and widget placement are two different method
+calls. You can plot the widgets immediately after creation like this method,
+or you can collect all the <code class="docutils literal notranslate"><span class="pre">plotxy</span></code> calls at the end of the method as you
+will see in a later method.</p></li>
+<li><p>This is the <strong>ttProgressbar</strong> creation section. Progress bars show the
+user what percentage of time is left elapsed during a long operation. Progress
+bars are a ttk only widget. We will see how to update a progress bar in the
+data collection method.</p></li>
+<li><p>Create a <strong>ttProgressbar</strong> that is 200 pixels wide with a tag of ‘ttprogress’.</p></li>
+<li><p>Plot it at column 0, row 2.</p></li>
+<li><p>This is the <strong>ttButtonbox</strong> creation section. Buttonboxes are groups
+of buttons connected to commands. These are the widgets that make
+actions happen when user click on them.</p></li>
+<li><p>Create a button list, <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, which has two labels (‘Collect’ and ‘Exit’)
+and the linked methods (<code class="docutils literal notranslate"><span class="pre">collect</span></code> and <code class="docutils literal notranslate"><span class="pre">cancel</span></code>).</p></li>
+<li><p>Create a <strong>ttButtonbox</strong> using <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, with a tag of ‘ttbutton’.</p></li>
+<li><p>Plot it at column 0, row 3.</p></li>
+<li><p>This is the <strong>ttNotebook</strong> pages creator section. Each page has its
+own creation method.</p></li>
+<li><p>Create the first page, ‘Simple’.</p></li>
+<li><p>Create the second page, ‘Dialog’.</p></li>
+<li><p>Create the third page, ‘Multi’.</p></li>
+<li><p>Create the fourth page, ‘Other’.</p></li>
+<li><p>Plot the notebook at column 0, row 0. Note, we filled the notebook
+pages before we plotted the notebook.</p></li>
+<li><p>Set the displayed tab to ‘Simple’.</p></li>
+<li><p>Create the second window. We will fill this window with <strong>ttWidgets</strong>
+that set the keyword option <em>usetk=True</em> so you can see the difference
+between tk and ttk widgets. In some cases, working with ttk widgets is
+more complex and the visble difference may not be worth the hassle. A
+good example of this is the <strong>ttEntry</strong> widget.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>makeSimple</strong>. This is the method that fills the first notebook page,
+‘Simple’. This page  will contain the most commonly used widgets that are easy
+to implement.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Create an attribute to store the first page window, <code class="docutils literal notranslate"><span class="pre">simplePage</span></code>.</p></li>
+<li><p>This is the <strong>ttLabel</strong> secton. Labels are a good place to put data or images
+that don’t change.</p></li>
+<li><p>Add a <strong>ttLabel</strong> on the first page with bold text, with a tag of ‘ttlabel’. Note,
+if you use the <em>text</em> keyword argument, you can specify the contents at creation,
+you don’t have to use the <code class="docutils literal notranslate"><span class="pre">set</span></code> method. It does make the method call a
+bit long, however.</p></li>
+<li><p>Same.</p></li>
+<li><p>Plot it at column 0, row 0. Notice that the columns and rows of <code class="docutils literal notranslate"><span class="pre">simplePage</span></code>
+are different from <code class="docutils literal notranslate"><span class="pre">gui</span></code>.</p></li>
+<li><p>This is the <strong>ttLine</strong> section. Lines are vertical or horizontal which seperate
+groups of widgets. This is a ttk only widget which has no frame.</p></li>
+<li><p>Add a horizontal <strong>ttLine</strong> to the page, with a tag of ‘’ttline’.</p></li>
+<li><p>Plot it at column 0, row 1, stetching across the page. If we did not use the
+<em>sticky=’we’</em> keyword argument, it would have plotted a single point!</p></li>
+<li><p>This is the <strong>ttEntry</strong> section. The entry widget allows the user to type in
+a response. You can think of it as a replacement from the <code class="docutils literal notranslate"><span class="pre">input</span></code> function
+in command-line scripts.</p></li>
+<li><p>Add a <strong>ttStyle</strong> for a <strong>ttEntry</strong> with green text, with a tag of ‘g.TEntry’.
+The tag must end with ‘.TEntry’ since this is a style for an entry widget. To
+change he appearance of a ttk.Entry, you must use a style. With tk.Entrys this
+is not neccessary as you will see in the tk window. However, this style
+can be used for multiple entries.</p></li>
+<li><p>Add a <strong>ttEntry</strong> using the ‘g.TEntry’ style, with a tag of ‘ttentry’. Note,
+the difference between the tag of the entry and the tag for the style.</p></li>
+<li><p>Set the entry contents to ‘Green Text’. This string will appear as green because
+of the style argument.</p></li>
+<li><p>Plot it at column 0, row 3</p></li>
+<li><p>This is the <strong>ttCombobox</strong> section. Comboboxes are a combination of a entry
+and a list. They are good for giving the user a fixed set of options but allowing
+them to create their own.</p></li>
+<li><p>Create a combobox option list, <code class="docutils literal notranslate"><span class="pre">acombo</span></code>.</p></li>
+<li><p>Add a <strong>ttCombobox</strong> using <code class="docutils literal notranslate"><span class="pre">acombo</span></code>, with tag a of ‘ttcombo’.</p></li>
+<li><p>Plot it at column 0, row 5.</p></li>
+<li><p>This is the <strong>ttCheckbox</strong> section. Checkboxes are a good way of letting the user
+select multiple independent options.</p></li>
+<li><p>Create a list of checkbox options, <code class="docutils literal notranslate"><span class="pre">achecks</span></code>.</p></li>
+<li><p>Add a <strong>ttCheckbox</strong> using <code class="docutils literal notranslate"><span class="pre">achecks</span></code>, with a tag of ‘ttchecks’.</p></li>
+<li><p>Set the selected option to ‘CheckOption1’. Note that multiple options can be
+selected at a time.</p></li>
+<li><p>Plot it at column 0, row 6.</p></li>
+<li><p>Disable the second option (‘CheckOption2’) from being selected. This
+demonstrates how to change the state of a widget. To enable, you would set the
+state to [‘!disabled’].</p></li>
+<li><p>This is the <strong>Radiobox</strong> section. Radioboxes are a good way of letting the user
+select a single option from a group of dependent options.</p></li>
+<li><p>Create a list of options, <code class="docutils literal notranslate"><span class="pre">aradio</span></code>.</p></li>
+<li><p>Add a <strong>ttRadiobox</strong> using <code class="docutils literal notranslate"><span class="pre">aradio</span></code> with a tag of ‘ttradio’. Note, only a
+single option can be selected at a time.</p></li>
+<li><p>Plot it at column 0, row 7.</p></li>
+<li><p>This is the <strong>ttScale</strong> section. Scales are a good widget for single integer
+entry if the range is small.</p></li>
+<li><p>Add a horizontal <strong>ttScale</strong> that goes between 1 and 10, that has an entry
+width of 2 characters, a length of 200 pixels, with a tag of ‘ttscale’.</p></li>
+<li><p>Plot it at column 0, row 8.</p></li>
+<li><p>This is the <strong>ttSpinbox</strong> section. Spinboxes are a great way to enter a group
+of related integers in a particular format like dates, times, ss numbers, etc.</p></li>
+<li><p>Create a date list for month, date, and year, <code class="docutils literal notranslate"><span class="pre">adate</span></code>. The first option is
+the width, the second the minimum value, and the third the maximum value.</p></li>
+<li><p>Add a <strong>ttSpinbox</strong> for dates that runs from 1/1/2000 to 12/31/2099, with a
+tag of ‘ttspin’.</p></li>
+<li><p>Set the date to 4/21/2023. Note, the <code class="docutils literal notranslate"><span class="pre">set</span></code> method requires a string with the
+separators.</p></li>
+<li><p>Plot it at column 0, row 9.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>makeDialog</strong>. Create the method that fills the ‘Dialog’ page. These widgets use
+the built-in tk dialog widgets.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Create an attribute to store the second page window, <code class="docutils literal notranslate"><span class="pre">dialogPage</span></code>.</p></li>
+<li><p>This is the <strong>ttOpen</strong> dialog section. This is how the user can select A
+file to open.</p></li>
+<li><p>Add a <strong>ttOpen</strong> with an entry width of 40 characters with a tag of ‘ttopen’.</p></li>
+<li><p>Plot it on the ‘Dialog’ page at column 0, row 0.</p></li>
+<li><p>This is the <strong>ttSaveAs</strong> dialog section. This is how the user can select
+a file to save their work. If the filename already exists, a confirming overwrite
+dialog pops up.</p></li>
+<li><p>Add a <strong>ttSaveAs</strong> with an entry width of 40 characters with a tag of ‘ttsaveas’.</p></li>
+<li><p>Plot it at column 0, row 1.</p></li>
+<li><p>This is the <strong>ttChooseDir</strong> dialog section. This allows the user to select a
+working directory.</p></li>
+<li><p>Add a <strong>ttChooseDir</strong> with an entry width of 40 characters with a tag of
+‘ttchoosedir’.</p></li>
+<li><p>Plot it at column 0, row 2.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>makeMulti</strong>. This is the method that fills the ‘Multi’ page. This page will
+contain more complex widgets.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Create an attribute to store the third page window, <code class="docutils literal notranslate"><span class="pre">multiPage</span></code>.</p></li>
+<li><p>This is the <strong>ttListbox</strong> section. While an older tk only widget, listboxes
+are still very useful. They can be configured to allow a single or multiple
+option section.</p></li>
+<li><p>Create a list of listbox options, <code class="docutils literal notranslate"><span class="pre">alist</span></code>.</p></li>
+<li><p>Add a <strong>ttlistbox</strong> that uses <code class="docutils literal notranslate"><span class="pre">alist</span></code>, that is 4 characters high, with a
+tag of ‘ttlist’. Listboxes default to single selection like a radiobox so
+we are changing this using <em>selectmode=’multiple’</em>.</p></li>
+<li><p>Plot it on the ‘Multi’ page at column 0, row 0.</p></li>
+<li><p>This is the <strong>ttLedger</strong> section. Ledger is a new widget based on a
+a ttk.Treeview. It is good for displaying multicolumn data. it includes
+a vertical scrollbar. Horizontal scrolling in treeview does not work so
+if you need horizontal scrolling use a text widget.</p></li>
+<li><p>Create a list of lists, <code class="docutils literal notranslate"><span class="pre">cols</span></code>, that contain the column header and
+width in pixels.</p></li>
+<li><p>Add a <strong>ttLedger</strong>, using <code class="docutils literal notranslate"><span class="pre">cols</span></code>, with height of 4 characters and a tag
+of ‘ttledger’.</p></li>
+<li><p>Add a line of data to the Ledger.</p></li>
+<li><p>Same.</p></li>
+<li><p>Same.</p></li>
+<li><p>Plot it at column 0, row 1.</p></li>
+<li><p>This the <strong>ttCollector</strong> section. This is a new complex widget combining
+multiple widgets and a ledger with 2 command buttons, ‘Add’ and ‘Delete’.
+In this example,  we will combine a combobox and a radiobox box. It acts
+like a dialog inside of a dialog.</p></li>
+<li><p>We are going to add a <strong>ttFrame</strong> with a tag of ‘ttframe’, and place all
+the widgets connected to the collection inside. It will be referenced by
+an attribute <code class="docutils literal notranslate"><span class="pre">subframe</span></code>.</p></li>
+<li><p>This is the <strong>ttCombobox</strong> section for the collector.</p></li>
+<li><p>Create a list of combobox options, <code class="docutils literal notranslate"><span class="pre">acombo</span></code>.</p></li>
+<li><p>Add a <strong>ttCombobox</strong> using <code class="docutils literal notranslate"><span class="pre">acombo</span></code> with a tag of ‘ttcombo2’. Note, While
+we reused <code class="docutils literal notranslate"><span class="pre">acombo</span></code> for a different list of options, the tag ‘ttcombo2’
+is unique. We are doing this to eliminate any confusion in the code when
+we collect the widgets. However, we could have used the same tag since each
+window keeps its own dictionary of tags.</p></li>
+<li><p>Plot it at column 0, row 0 in <code class="docutils literal notranslate"><span class="pre">subframe</span></code>.</p></li>
+<li><p>This is the <strong>ttRadiobox</strong> section for the collector.</p></li>
+<li><p>Create a list of radiobox options, <code class="docutils literal notranslate"><span class="pre">aradio</span></code>.</p></li>
+<li><p>Create a <strong>ttRadioBox</strong> using <code class="docutils literal notranslate"><span class="pre">aradio</span></code> with a tag of ‘ttradio2’.</p></li>
+<li><p>Plot it at column 0, row 1.</p></li>
+<li><p>This is the <strong>ttCollector</strong> section. This will connect the above widgets
+to the collector.</p></li>
+<li><p>Create a list of lists, <code class="docutils literal notranslate"><span class="pre">cols</span></code>, that has the column headers and the width
+in pixels.</p></li>
+<li><p>Create the <strong>ttCollector</strong> using <code class="docutils literal notranslate"><span class="pre">cols</span></code> and the list of connected widgets tags,
+that is 4 characters high, with a tag of ‘ttcollector’. Note, the connected widgets
+must be created before the collector is created.</p></li>
+<li><p>Same.</p></li>
+<li><p>Plot the collector at column 0, row 2 of <code class="docutils literal notranslate"><span class="pre">subwin</span></code>.</p></li>
+<li><p>Plot <code class="docutils literal notranslate"><span class="pre">subwin</span></code> (which has a tag ‘ttframe’) at column 0, row 2 of <code class="docutils literal notranslate"><span class="pre">multiPage</span></code>.
+Note how the arguments of <code class="docutils literal notranslate"><span class="pre">plotxy</span></code> are dependent on the current container
+you are working with and when plotting frames you use the tag.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>makeOther</strong>. This method fills the ‘Other’ page. This page will contain widgets
+that are not in the first three pages.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Create an attribute to store the fourth page window, <code class="docutils literal notranslate"><span class="pre">otherPage</span></code>.</p></li>
+<li><p>The is the <strong>ttCanvas</strong> section. Canvas is a powerful tk widget that allows you
+to create drawings. It has extensive methods which are listed in the Tkinter
+documentaton. In this example, we are going to draw a simple green oval.</p></li>
+<li><p>Add a <strong>ttCanvas</strong> that is 300 pixels wide and 100 pixels high, with a tag of
+‘ttcanvas’ and save it under <code class="docutils literal notranslate"><span class="pre">canvas</span></code>. Almost all <code class="docutils literal notranslate"><span class="pre">addWidget</span></code> calls return
+the ttk or tk widget but most of the time, we don’t need it becasue we reference
+the widget through the tag. In this case, we are going to store the canvas widget
+in a local varaible, <code class="docutils literal notranslate"><span class="pre">canvas</span></code>, since we are going to call a method of the widget.
+We are using a local variable since we are not going the access this widget outside
+this method. We could have also accessed the canvas widget using
+<code class="docutils literal notranslate"><span class="pre">getWidget('ttcanvas')</span></code>.</p></li>
+<li><p>Same.</p></li>
+<li><p>Create a green oval at position (10,10) that is 290 pixels wide and 90 pixels
+high by calling the <code class="docutils literal notranslate"><span class="pre">create_oval</span></code> method of <code class="docutils literal notranslate"><span class="pre">canvas</span></code>.</p></li>
+<li><p>Plot this canvas at column 0, row 0 on <code class="docutils literal notranslate"><span class="pre">otherPage</span></code>.</p></li>
+<li><p>This is the <strong>ttMultipane</strong> section. Multipanes are multiple windows placed
+overlapping each other that can be re-sized.</p></li>
+<li><p>Create a list of pane titles, <code class="docutils literal notranslate"><span class="pre">paneTitles</span></code>.</p></li>
+<li><p>Add a <strong>ttMultipane</strong> using <code class="docutils literal notranslate"><span class="pre">paneTitles</span></code> with a tag of ‘ttpane’’. The default
+orientation is vertical so this is why we are using the <em>orient=’horizontal’</em>
+keyword argument. Note, the method will return a list of 3 windows, which we will
+store in <code class="docutils literal notranslate"><span class="pre">panes</span></code>.</p></li>
+<li><p>Set up a loop running from 0 to 2…</p></li>
+<li><p>This is the <strong>ttlabel</strong> section of the multipane. We want to place a single label
+in each pane.</p></li>
+<li><p>Create a dynamic tag that looks like ‘ttlabeln’, where n is 0-2.</p></li>
+<li><p>Add a label with the above tag in the correct window.</p></li>
+<li><p>Set the contents of the label like this: ‘Inner label n’ where n is 1-3.</p></li>
+<li><p>Plot the label in the column 0, row 0 of the correct window.</p></li>
+<li><p>Plot the multipane in column 0, row 1, of <code class="docutils literal notranslate"><span class="pre">otherPage</span></code>.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>popOpen</strong>. This method pops-up an open dialog. Note,the next 4 methods all call
+the same method. Only the arguments are different. These are the methods that the
+menu options are connected to.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Pop-up an open dialog. Display the user’s entry ‘ttext’.</p></li>
+<li><p>Same.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>popSaveAs</strong>. This method pops-up a save as dialog.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Pop-up a save as dialog. Display the user’s entry in ‘ttext’.</p></li>
+<li><p>Same.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>popChooseDir</strong>. This method pops-up a choose directory dialog.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Pop-up a choose directory dialog. Display the user’s entry in ‘ttext’.</p></li>
+<li><p>Same.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>popColor</strong>. This method pops-up a choose color dialog.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Pop-up a choose color dialog. Display the user’s entry in ‘ttext’.</p></li>
+<li><p>Same.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>popAbout</strong>. This method pops-up an about window. This is where you put information
+about your application.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Pop-up a message window. Note, you don’t use a tag or store anything</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>makeGui2</strong>. This method fills in the second window with tk versions of <strong>ttWidgets</strong>.
+This way you can see the difference between the two type of widgets</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>This is the <strong>ttLabel</strong> section.</p></li>
+<li><p>Add a <strong>ttLabel</strong> to <code class="docutils literal notranslate"><span class="pre">gui2</span></code> with the keyword argument <em>usetk=True</em> and a tag of
+‘ttlabel2. This will  use tk widgets instead of ttk widgets. You will see this
+argument repeated for every widget in <code class="docutils literal notranslate"><span class="pre">gui2</span></code>. The number of keyword arguments
+is greater with tk widgets since some of those options were sent to the style
+method in the ttk version. Read the Tkinter documentation for more information.
+Note, tk widgets are in the front of the documentation and not all tk widgets have
+ttk versions.</p></li>
+<li><p>Same.</p></li>
+<li><p>This is the <strong>ttEntry</strong> section.</p></li>
+<li><p>Add a <strong>ttEntry</strong> to <code class="docutils literal notranslate"><span class="pre">gui2</span></code> with of ‘ttentry2’. Note, you can specify the foreground
+and background colors as keyword arguments so styles are not required to change default
+colors.</p></li>
+<li><p>Same.</p></li>
+<li><p>This is the <strong>ttCheckbox</strong> section.</p></li>
+<li><p>Create a list of checkbox options, <code class="docutils literal notranslate"><span class="pre">achecks</span></code>.</p></li>
+<li><p>Add a group of checkboxes using <code class="docutils literal notranslate"><span class="pre">achecks</span></code> with a tag of ‘ttchecks2’.</p></li>
+<li><p>Preselect the third option.</p></li>
+<li><p>This is the <strong>ttRadiobox</strong> section.</p></li>
+<li><p>Create a list of radiobox options, <code class="docutils literal notranslate"><span class="pre">aradio</span></code>.</p></li>
+<li><p>Add a <strong>ttRadiobox</strong> to <code class="docutils literal notranslate"><span class="pre">gui2</span></code> with a tag of ‘ttradio3’.</p></li>
+<li><p>Preselect the second option.</p></li>
+<li><p>This is the <strong>ttMessage</strong> section. This is a tk only widget good for displaying
+multiple lines of text.</p></li>
+<li><p>Add a <strong>ttMessage</strong> widget center justified with a tag of ‘ttmessage’.</p></li>
+<li><p>Set the message content.</p></li>
+<li><p>Same.</p></li>
+<li><p>This is the option list section. This is an older tk only widget, similar
+to a combox without the entry widget.</p></li>
+<li><p>Create a list of options, <code class="docutils literal notranslate"><span class="pre">alist</span></code>.</p></li>
+<li><p>Add a <strong>ttOptionlist</strong> using <code class="docutils literal notranslate"><span class="pre">alist</span></code> with a tag of ‘ttoption’.</p></li>
+<li><p>Set the selected option to ‘Option1’. Note, like a radiobox, only a single option
+can be selected at a time.</p></li>
+<li><p>This is the <strong>ttScale</strong> section.</p></li>
+<li><p>Add a horizontal <strong>ttScale</strong> that goes between 1 and 10, that has an entry
+width of 2 characters and a length of 200 pixels and a tag of ‘ttscale2’.</p></li>
+<li><p>Same.</p></li>
+<li><p>This is the <strong>ttSpinbox</strong> section.</p></li>
+<li><p>Create a date list for month, date, and year, <code class="docutils literal notranslate"><span class="pre">adate</span></code>. The first value is the
+width in characters, the second is the minimum value, and the third is the maximum
+value.</p></li>
+<li><p>Add a <strong>ttSpinbox</strong> for dates that runs from 1/1/2000 to 12/31/2099 with a tag of
+‘ttspin2’.</p></li>
+<li><p>Set the date to 3/15/2021</p></li>
+<li><p>This is the <strong>ttButtonbox</strong> creation section.</p></li>
+<li><p>Create a button list, <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, which has two labels (‘Collect’ and ‘Close’) and the
+linked methods (<code class="docutils literal notranslate"><span class="pre">collect2</span></code> and <code class="docutils literal notranslate"><span class="pre">close</span></code>). Unlike <code class="docutils literal notranslate"><span class="pre">cancel</span></code>, <code class="docutils literal notranslate"><span class="pre">close</span></code> will close
+the window but the apllication will contune to run.</p></li>
+<li><p>Create a <strong>ttButtonbox</strong> using <code class="docutils literal notranslate"><span class="pre">cmd</span></code> with a tag of ‘ttbutton2’.</p></li>
+<li><p>This is the widget plotting section. In <code class="docutils literal notranslate"><span class="pre">makeGui</span></code> we plotted the widgets as soon
+as we created them. Here we are going the plot all the widgets at the end of the
+method. Some programmers like this technique because they can experiment with the
+placement of widgets easier.</p></li>
+<li><p>Plot ‘ttlabel2’ at column 0, row 0.</p></li>
+<li><p>Plot ‘ttentry2’ at column 0, row 1.</p></li>
+<li><p>PLot ‘ttchecks2’ at column 0, row 2.</p></li>
+<li><p>PLot ‘ttradio3’ at column 0, row 3.</p></li>
+<li><p>PLot ‘ttmessage’ at column 0, row 4.</p></li>
+<li><p>Plot ‘ttoption’ at column 0, row 5.</p></li>
+<li><p>Plot ‘ttscale2’ at column 0, row 6.</p></li>
+<li><p>Plot ‘ttspin2’ at column 0, row 7.</p></li>
+<li><p>Plot ‘ttbutton2’ at column 0, row 8, with a 10 pixel vertical spacing.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>collect</strong>. This method collects all the contents of the <code class="docutils literal notranslate"><span class="pre">gui</span></code> window. To get the
+contents of any widget, you call the <code class="docutils literal notranslate"><span class="pre">get</span></code> method on the window with the tag as the
+argument. You don’t have to worry about the type of widget, <code class="docutils literal notranslate"><span class="pre">get</span></code> handles this
+automatically.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Build a string that will contain the widget contents, <code class="docutils literal notranslate"><span class="pre">result</span></code>. The header
+will indication that these are widgets from <code class="docutils literal notranslate"><span class="pre">simplePage</span></code>.</p></li>
+<li><p>Get the contents of ‘ttlabel’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttentry’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttcombo’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttchecks’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>. Note, since checkboxes
+can have multiple values, <code class="docutils literal notranslate"><span class="pre">get</span></code> returns a list, so we must convert it to
+a string.</p></li>
+<li><p>Get the contents of ‘ttradio’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttscale’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>. Note, since <code class="docutils literal notranslate"><span class="pre">get</span></code>
+returns a int we must convert it to a string.</p></li>
+<li><p>Get the contents of ‘ttspin’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>We have collected about a third of the widgets so lets move the ‘’ttprogress’
+to the 33% position. To change the contents of any widget you use the <code class="docutils literal notranslate"><span class="pre">set</span></code>
+method on the window with the tag as the first argument and the value as the
+second argument. Again, you don’t have to worry about the type of widget, <code class="docutils literal notranslate"><span class="pre">set</span></code>
+handles this automatically.</p></li>
+<li><p>Update ‘ttext’ with <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Wait one second so the user can see the ‘ttprogress’ change. The <code class="docutils literal notranslate"><span class="pre">after</span></code>
+method of the master attribute has a number of very important uses. Read
+the Tkinter documentation for more information.</p></li>
+<li><p>Create a new <code class="docutils literal notranslate"><span class="pre">result</span></code> for <code class="docutils literal notranslate"><span class="pre">dialogPage</span></code>.</p></li>
+<li><p>Get the contents of ‘ttopen’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttsaveas’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttchoosedir’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>We have collected about two-thirds of the widgets so lets move the ‘’ttprogress’
+to the 66% position.</p></li>
+<li><p>Update ‘ttext’ with <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Wait one second so the user can see the ‘ttprogress’ change.</p></li>
+<li><p>Create a new <code class="docutils literal notranslate"><span class="pre">result</span></code> for <code class="docutils literal notranslate"><span class="pre">multiPage</span></code>.</p></li>
+<li><p>Get the contents of ‘ttlist’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>. Note, since listboxes
+can have multiple values, <code class="docutils literal notranslate"><span class="pre">get</span></code> returns a list, so we must convert it to
+a string.</p></li>
+<li><p>Get the contents of ‘ttledger’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>. Note, since ledgers
+can have multiple values, <code class="docutils literal notranslate"><span class="pre">get</span></code> returns a list, so we must convert it to
+a string.</p></li>
+<li><p>Get the contents of ‘ttcollector’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>. Collector can be
+a single or multi value widget. We want a multi-value so the keyword argument
+is <em>allValues=True</em>, Note, since <code class="docutils literal notranslate"><span class="pre">get</span></code> returns a list, so we must convert it
+to a string.</p></li>
+<li><p>Get the displayed page from ‘ttnotebook’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>We have collected all of the widgets so lets move the ‘’ttprogress’
+to the 100% position.</p></li>
+<li><p>Update ‘ttext’ with <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Wait one second so the user can see the ‘ttprogress’ change.</p></li>
+<li><p>Result ‘ttprogess’ back to 0%.</p></li>
+<li><p>Blank line.</p></li>
+<li><p><strong>collect2</strong>. This method collects all the contents of the <code class="docutils literal notranslate"><span class="pre">gui2</span></code> window.</p></li>
+<li><p>Method documentation.</p></li>
+<li><p>Build a string that will contain the widget contents, <code class="docutils literal notranslate"><span class="pre">result</span></code>. The header
+will indication that these are widgets from <code class="docutils literal notranslate"><span class="pre">gui2</span></code>.</p></li>
+<li><p>Get the contents of ‘ttlabel2’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttentry2’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttchecks2’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>. Note, since checkboxes
+can have multiple values, <code class="docutils literal notranslate"><span class="pre">get</span></code> returns a list, so we must convert it to
+a string.</p></li>
+<li><p>Get the contents of ‘ttradio3’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttmessage’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttoption’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><p>Get the contents of ‘ttscale2’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.  Note, since <code class="docutils literal notranslate"><span class="pre">get</span></code>
+returns a int we must convert it to a string.</p></li>
+<li><p>Get the contents of ‘ttspin2’ and add to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+<li><ol class="arabic simple" start="249">
+<li><p>Update ‘ttext’ with <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p></li>
+</ol>
+</li>
+<li><p>Blank line.</p></li>
+<li><p><strong>main</strong>. Common Python. This is the main driving functon.</p></li>
+<li><p>Function documentation.</p></li>
+<li><p>Create an instance of Gui, <code class="docutils literal notranslate"><span class="pre">app</span></code>. Note, that this will build all the
+windows.</p></li>
+<li><p>Begin a try block. This part of the application could crash and we want
+to capture any error messages.</p></li>
+<li><p>Start the application loop and wait for the user to press a command button.
+This will continue to run until the user clicks on ‘Exit’.</p></li>
+<li><p>If an error occurs…</p></li>
+<li><p>Catch the error message in <code class="docutils literal notranslate"><span class="pre">errorMessage</span></code>. The <code class="docutils literal notranslate"><span class="pre">catchExcept</span></code> method is
+included in all <em>Tkintertoy</em> windows.</p></li>
+<li><p>Pop-up an message box containing <code class="docutils literal notranslate"><span class="pre">errorMessage</span></code>.</p></li>
+<li><p>After the user click on ‘Ok’ in the message box, exit the program.</p></li>
+<li><p>Blank line.</p></li>
+<li><p>Standard Python. If you are not importing, excute <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+<li><p>Same.</p></li>
+</ol>
+<p>By looking at this code, the novice programmer should be able to use most of
+the <em>Tkintertoy</em> widgets for their own application. Be sure to also see the code
+examples in the tutorial for more information.</p>
+</section>
+<section id="a-collection-of-screenshots">
+<h2>A Collection of Screenshots<a class="headerlink" href="#a-collection-of-screenshots" title="Permalink to this heading"></a></h2>
+<p>Here are screen shots of the resulting GUI, the Simple page:</p>
+<blockquote>
+<div><img alt="_images/gallery-simple.png" src="_images/gallery-simple.png" />
+</div></blockquote>
+<p>The Dialog page:</p>
+<blockquote>
+<div><img alt="_images/gallery-dialog.png" src="_images/gallery-dialog.png" />
+</div></blockquote>
+<p>The Multi page:</p>
+<blockquote>
+<div><img alt="_images/gallery-multi.png" src="_images/gallery-multi.png" />
+</div></blockquote>
+<p>The Other page:</p>
+<blockquote>
+<div><img alt="_images/gallery-other.png" src="_images/gallery-other.png" />
+</div></blockquote>
+<p>The second (tk) window:</p>
+<blockquote>
+<div><img alt="_images/gallery-second.png" src="_images/gallery-second.png" />
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tkintertoy.html" class="btn btn-neutral float-left" title="tkintertoy module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2023, Mike Callahan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

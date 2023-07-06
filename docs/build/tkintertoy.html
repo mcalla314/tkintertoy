@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tkintertoy module &mdash; Tkintertoy 1.5.0 documentation</title>
+  <title>tkintertoy module &mdash; Tkintertoy 1.6.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Tkintertoy 1.5 Tutorial" href="tutorial.html" /> 
+    <link rel="next" title="Tkintertoy Gallery" href="ttgallery.html" />
+    <link rel="prev" title="Tkintertoy 1.6 Tutorial" href="tutorial.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,7 +35,7 @@
             Tkintertoy
           </a>
               <div class="version">
-                1.5.0
+                1.6.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -46,7 +47,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tkintertoy 1.5 Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tkintertoy 1.6 Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">tkintertoy module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#tt.Window"><code class="docutils literal notranslate"><span class="pre">Window</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tt.Window.VERSION"><code class="docutils literal notranslate"><span class="pre">Window.VERSION</span></code></a></li>
@@ -93,6 +94,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#tt.Window.grid"><code class="docutils literal notranslate"><span class="pre">Window.grid()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tt.Window.mainloop"><code class="docutils literal notranslate"><span class="pre">Window.mainloop()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tt.Window.plot"><code class="docutils literal notranslate"><span class="pre">Window.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tt.Window.plotxy"><code class="docutils literal notranslate"><span class="pre">Window.plotxy()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tt.Window.popDialog"><code class="docutils literal notranslate"><span class="pre">Window.popDialog()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tt.Window.popMessage"><code class="docutils literal notranslate"><span class="pre">Window.popMessage()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tt.Window.refresh"><code class="docutils literal notranslate"><span class="pre">Window.refresh()</span></code></a></li>
@@ -106,6 +108,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ttgallery.html">Tkintertoy Gallery</a></li>
 </ul>
 
         </div>
@@ -196,7 +199,7 @@ to find. When the code references Tkinter documentation it is referring to Dr.
 Shipman’s work.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="tt.Window.VERSION">
-<span class="sig-name descname"><span class="pre">VERSION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1.50'</span></em><a class="headerlink" href="#tt.Window.VERSION" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">VERSION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1.60'</span></em><a class="headerlink" href="#tt.Window.VERSION" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -336,13 +339,13 @@ Get/set uses list of str.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tt.Window.addChooseDir">
 <span class="sig-name descname"><span class="pre">addChooseDir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addChooseDir" title="Permalink to this definition"></a></dt>
-<dd><p>Create a ttChooseDirbox which is a directory entry with a browse button.</p>
+<dd><p>Create a ttChoosedirbox which is a directory entry with a browse button.</p>
 <p>This has all the widgets needed to select a directory. When the user clicks
 on the Browse button, a standard Choose Directory dialog box pops up. There
 are many tkparms that are useful for limiting choices, see the Tkinter
 documentation. Get/set uses str. Normally, this would be use in a dialog.
-For a menu command use popChooseDir. Width is a necessary option since
-<a href="#id1"><span class="problematic" id="id2">**</span></a>tkparms is for the askopenfilename widget.</p>
+For a menu command use popChooseDir. Width is a necessary option since tkparms is for
+the askopenfilename widget.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -690,15 +693,14 @@ Get/set uses str.</p>
 <span class="sig-name descname"><span class="pre">addNotebook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.addNotebook" title="Permalink to this definition"></a></dt>
 <dd><p>Create a tabbed notebook container.</p>
 <p>This allows the programmer to group similar pages into a series of new windows.
-The user selected the active window by clicking on the tab. Assignment allows
-the program to display a page number (counting from 0), and return the
-currently selected page number. There is no frame. Get/set uses int. Ther is no
-tk version.</p>
+The user selects the active window by clicking on the tab. Assignment allows
+the program to display a page tab, and return the currently selected page.
+There is no containing frame. Get/set uses int. There is no tk version.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tag</strong> (<em>str</em>) – Reference to container</p></li>
-<li><p><strong>tabs</strong> (<em>list</em>) – (Tab Titles)</p></li>
+<li><p><strong>tabs</strong> (<em>list</em>) – (Tab Titles), each page must be unique</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
@@ -723,7 +725,7 @@ tk version.</p>
 the Browse button, a standard Open dialog box pops up. There are many
 tkparms that are useful for limiting choices, see the Tkinter documentation.
 Get/set uses str. Normally, this widget would be in a dialog. For a menu
-command use popOpen. Width is a necessary option since <a href="#id3"><span class="problematic" id="id4">**</span></a>tkparms is for
+command use popOpen. Width is a necessary option since tkparms is for
 the askopenfilename widget. If the programmer as an icon, they can replace
 the ‘Browse’ text.</p>
 <dl class="field-list simple">
@@ -874,7 +876,7 @@ selects an existing file, it will pop up a overwrite confirmation box.
 There are many tkparms that are useful for limiting choices, see the Tkinter
 documentation. Get/set uses str. Normally, this widget would be in a
 dialog. For a menu command, use popSaveAs. Width is a necessary option
-since <a href="#id5"><span class="problematic" id="id6">**</span></a>tkparms is for the asksaveasfilename widget.</p>
+since tkparms is for the asksaveasfilename widget.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1176,7 +1178,25 @@ methods.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tt.Window.grid">
 <span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.grid" title="Permalink to this definition"></a></dt>
-<dd><p>Some instructors prefer grid</p>
+<dd><p>Same as plot, some instructors prefer grid which is standard tk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>row</strong> (<em>int</em>) – the row number counting from 0</p></li>
+<li><p><strong>column</strong> (<em>int</em>) – the column number</p></li>
+<li><p><strong>rowspan</strong> (<em>int</em>) – the number of rows to span</p></li>
+<li><p><strong>columnspan</strong> (<em>int</em>) – the number of columns to span</p></li>
+<li><p><strong>sticky</strong> (<em>str</em>) – the directions to fill the cell for the widget</p></li>
+<li><p><strong>padx</strong> (<em>int</em>) – horizontal space between widget cells (pixels)</p></li>
+<li><p><strong>pady</strong> (<em>int</em>) – vertical space between widget cells (pixels)</p></li>
+<li><p><strong>ipadx</strong> (<em>int</em>) – horizontal space within cell (pixels)</p></li>
+<li><p><strong>ipady</strong> (<em>int</em>) – vertical space within cell (pixels)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1189,9 +1209,10 @@ methods.</p>
 <dt class="sig sig-object py" id="tt.Window.plot">
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.plot" title="Permalink to this definition"></a></dt>
 <dd><p>Plot the ttWidget.</p>
-<p>Place a frame and widget in a cell of a window using the row and column.
-Plot was selected as an easier name for beginners than grid. Tkparms
-are extremely useful here and should be understood. Look at the Tkinter
+<p>Deprecated, use plotxy.
+Place a frame and widget in a cell of a window using the row and column.
+Plot was selected as an easier name for novices than grid. Tkparms are
+extremely useful here and should be understood. Look at the Tkinter
 documentation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1201,6 +1222,36 @@ documentation.</p>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>row</strong> (<em>int</em>) – the row number counting from 0</p></li>
 <li><p><strong>column</strong> (<em>int</em>) – the column number</p></li>
+<li><p><strong>rowspan</strong> (<em>int</em>) – the number of rows to span</p></li>
+<li><p><strong>columnspan</strong> (<em>int</em>) – the number of columns to span</p></li>
+<li><p><strong>sticky</strong> (<em>str</em>) – the directions to fill the cell for the widget</p></li>
+<li><p><strong>padx</strong> (<em>int</em>) – horizontal space between widget cells (pixels)</p></li>
+<li><p><strong>pady</strong> (<em>int</em>) – vertical space between widget cells (pixels)</p></li>
+<li><p><strong>ipadx</strong> (<em>int</em>) – horizontal space within cell (pixels)</p></li>
+<li><p><strong>ipady</strong> (<em>int</em>) – vertical space within cell (pixels)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tt.Window.plotxy">
+<span class="sig-name descname"><span class="pre">plotxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tkparms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tt.Window.plotxy" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the ttWidget at column x, row y.</p>
+<p>Place a frame and widget in a cell of a window using the column (x) and
+row (y). Plot was selected as an easy name for novice programmers since
+they are plotting widgets in a xy grid. Tkparms are extremely useful here
+and should be understood. Look at the Tkinter documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – Reference to widget</p></li>
+<li><p><strong>column</strong> (<em>int</em>) – the column number counting from 0</p></li>
+<li><p><strong>row</strong> (<em>int</em>) – the row number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>rowspan</strong> (<em>int</em>) – the number of rows to span</p></li>
 <li><p><strong>columnspan</strong> (<em>int</em>) – the number of columns to span</p></li>
 <li><p><strong>sticky</strong> (<em>str</em>) – the directions to fill the cell for the widget</p></li>
@@ -1381,7 +1432,8 @@ element in multipart widget. See Tkinter documentation.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tkintertoy 1.5 Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tkintertoy 1.6 Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ttgallery.html" class="btn btn-neutral float-right" title="Tkintertoy Gallery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

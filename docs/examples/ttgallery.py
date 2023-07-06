@@ -4,7 +4,7 @@
 #
 # Author:      mike.callahan
 #
-# Created:     6/26/2023
+# Created:     7/5/2023
 # Copyright:   (c) mike.callahan 2019 - 2023
 # License:     MIT
 #-------------------------------------------------------------------------------
@@ -114,7 +114,8 @@ class Gui:
         self.multiPage = self.pages[2]
         # Listbox
         alist = ['ListOption1','ListOption2','ListOption3']
-        self.multiPage.addList('ttlist', 'List', alist, height=4) # create list
+        self.multiPage.addList('ttlist', 'List', alist, height=4,
+            selectmode='multiple') # create list
         self.multiPage.plotxy('ttlist', 0, 0)
         # Ledger
         cols = [['column1',100],['column2',80],['column3',80]]
@@ -261,14 +262,14 @@ class Gui:
 
     def collect2(self):
         """ Collect the infomation from the second window and place in ttext """
-        result = '\nSecond Window:\n'
-        result += self.gui2.get('ttlabel2')+'\n'
-        result += self.gui2.get('ttentry2')+'\n'
-        result += str(self.gui2.get('ttchecks2'))+'\n'
-        result += self.gui2.get('ttradio3')+'\n'
+        result = '\nSecond Window:\n    '
+        result += self.gui2.get('ttlabel2')+'\n    '
+        result += self.gui2.get('ttentry2')+'\n    '
+        result += str(self.gui2.get('ttchecks2'))+'\n    '
+        result += self.gui2.get('ttradio3')+'\n    '
         result += self.gui2.get('ttmessage') + '\n    '
         result += self.gui2.get('ttoption') + '\n    '
-        result += str(self.gui2.get('ttscale2'))+'\n'
+        result += str(self.gui2.get('ttscale2'))+'\n    '
         result += self.gui2.get('ttspin2')+'\n\n'
         self.gui.set('ttext', result)
 

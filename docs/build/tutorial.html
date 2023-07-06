@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tkintertoy 1.5 Tutorial &mdash; Tkintertoy 1.5.0 documentation</title>
+  <title>Tkintertoy 1.6 Tutorial &mdash; Tkintertoy 1.6.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             Tkintertoy
           </a>
               <div class="version">
-                1.5.0
+                1.6.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,8 +47,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tkintertoy 1.5 Tutorial</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tkintertoy 1.6 Tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-zen-of-tkintertoy">The Zen of Tkintertoy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a-hello-world-example">A “Hello World” Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simple-map-creation-dialog">Simple Map Creation Dialog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#selection-widgets">Selection Widgets</a></li>
@@ -62,6 +63,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tkintertoy.html">tkintertoy module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttgallery.html">Tkintertoy Gallery</a></li>
 </ul>
 
         </div>
@@ -78,7 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Tkintertoy 1.5 Tutorial</li>
+      <li class="breadcrumb-item active">Tkintertoy 1.6 Tutorial</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,12 +90,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="tkintertoy-1-5-tutorial">
-<h1>Tkintertoy 1.5 Tutorial<a class="headerlink" href="#tkintertoy-1-5-tutorial" title="Permalink to this heading"></a></h1>
+  <section id="tkintertoy-1-6-tutorial">
+<h1>Tkintertoy 1.6 Tutorial<a class="headerlink" href="#tkintertoy-1-6-tutorial" title="Permalink to this heading"></a></h1>
 <blockquote>
 <div><dl class="field-list simple">
 <dt class="field-odd">Date<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Jun 11, 2023</p>
+<dd class="field-odd"><p>Jul 06, 2023</p>
 </dd>
 <dt class="field-even">Author<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Mike Callahan</strong></p>
@@ -111,7 +113,7 @@ which is easy to use, but also can be create more complex GUIs. I have been
 teaching a Python class in a local vocational technical college using <em>Tkintertoy</em>
 with great success.</p>
 <p>With this version, I have fixed a few minor bugs, improved the documentation, improved
-the operation of the library, and cleaned up the code for version 1.5. Support for
+the operation of the library, and cleaned up the code for version 1.6. Support for
 Python 2 was removed since the library is no longer tested using Python 2.</p>
 <p>Tkintertoy creates <code class="docutils literal notranslate"><span class="pre">Windows</span></code> which contain widgets. Almost every <em>tk</em> or <em>ttk</em>
 widget is supported and a few combined widgets are included. Most widgets
@@ -129,6 +131,18 @@ tk/ttk widget, the more advanced programmer can access all the tk/ttk options an
 methods of the widgets. Tkintertoy makes sure that all aspects of tk/ttk are
 exposed when the programmer needs them. <em>Tkintertoy</em> is light-weight wrapper of
 <em>Tkinter</em> and can be used a gentle introduction to the complete library.</p>
+</section>
+<section id="the-zen-of-tkintertoy">
+<h2>The Zen of Tkintertoy<a class="headerlink" href="#the-zen-of-tkintertoy" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>It must be very simple to use. Not much more complicated than <code class="docutils literal notranslate"><span class="pre">input</span></code> or <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p></li>
+<li><p>It must produce well-balanced and clean, if simple, interfaces.</p></li>
+<li><p>It must be very light-weight and easy to install. Everything is basically in one file,
+tt.py.</p></li>
+<li><p>It must be based on Tkinter. Tkinter is still the default Gui library for Python. After
+working in Tkintertoy, the student can easily move into more complex Tkinter.</p></li>
+<li><p>The source code should be easy to follow.</p></li>
+</ol>
 <p>In the following examples below, one can see how the ideas in Tkintertoy can be used
 to create simple but useful GUIs. GUI programming can be fun, which puts the “toy” in
 <em>Tkintertoy</em>.</p>
@@ -150,9 +164,9 @@ key. Below is the code followed by an explanation of every line:</p>
 <span class="linenos"> 4</span><span class="n">gui</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Type in your name&#39;</span><span class="p">)</span>
 <span class="linenos"> 5</span><span class="n">gui</span><span class="o">.</span><span class="n">addLabel</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="s1">&#39;Welcome message&#39;</span><span class="p">)</span>
 <span class="linenos"> 6</span><span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">)</span>
-<span class="linenos"> 7</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos"> 8</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos"> 9</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="linenos">10</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="linenos">11</span>    <span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
 <span class="linenos">12</span>    <span class="k">if</span> <span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
@@ -183,7 +197,7 @@ dictionary. However, most of the time the programmer does not access the <code c
 dictionary directly, <em>Tkintertoy</em> provides methods for this. The title of the Frame
 surrounding the Entry widget will be ‘Type in your name’. Entry frame titles are a
 great place to put instructions to your user. If you don’t want a title, just leave
-off this argument. <a href="#id1"><span class="problematic" id="id2">*</span></a>Tkintertoy will use a plain ttk/tk.Frame instead. The default width
+off this argument. <em>Tkintertoy</em> will use a plain ttk/tk.Frame instead. The default width
 of the Entry widget is 20 characters, but this, like many other options can be changed.</p></li>
 <li><p>Add a <strong>ttLabel</strong> widget to <code class="docutils literal notranslate"><span class="pre">gui</span></code>. This will be the combination of a ttk.Label in a
 ttk.LabelFrame. This tag will be ‘welcome’ since this where the welcome message will
@@ -200,17 +214,19 @@ removes the window, and empties the <code class="docutils literal notranslate"><
 and these actions can be easily modified by the programmer, but by providing a default
 pair of buttons and callbacks, even a novice programmer can create a working GUI application
 quickly. No callback programming is necessary.</p></li>
-<li><p>Place the ‘name’ ttwidget at row 0 (first row) of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered. The <em>row=0</em> argument
-could have been left off since it is the default. The <code class="docutils literal notranslate"><span class="pre">plot</span></code> method is a synonym for the
-tk <code class="docutils literal notranslate"><span class="pre">grid</span></code> method. All arguments to <code class="docutils literal notranslate"><span class="pre">grid</span></code> can be used in <code class="docutils literal notranslate"><span class="pre">plot</span></code>. Plot was selected as
-a better word for a novice. However, <code class="docutils literal notranslate"><span class="pre">grid</span></code> will also work. Until a widget is plotted, it
-will not appear. However, the <code class="docutils literal notranslate"><span class="pre">gui</span></code> window is automatically plotted. Actually, you are
-plotting the ttk.LabelFrame, the ttk.Entry widget is automatically plotting in the Frame
-filling up the entire frame using <em>sticky=’nswe’</em>.</p></li>
-<li><p>Place the ‘welcome’ widget at row 1 (second row) of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered. There is a 3 pixel
-default vertical spacing between widget rows.</p></li>
-<li><p>Place the ‘command’ widget at row 2 (third row) of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered with a vertical
-spacing of 10 pixels with <em>pady=10</em>.</p></li>
+<li><p>Place the ‘name’ ttwidget at column 0 (first column), row 0 (first row) of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered.
+The second argument is the column (x dimension counting from zero) and the third argument is
+the row (y dimension). Both these value default to 0 but it is a good idea to always include
+them. The <code class="docutils literal notranslate"><span class="pre">plotxy</span></code> method is basically the tk <code class="docutils literal notranslate"><span class="pre">grid</span></code> method with the column and row keywords
+arguments specified. All other keyword arguments to <code class="docutils literal notranslate"><span class="pre">grid</span></code> can be used in <code class="docutils literal notranslate"><span class="pre">plotxy</span></code>. Plot
+was selected as a better word for a novice. However, <code class="docutils literal notranslate"><span class="pre">grid</span></code> will also work. Until a widget is
+plotted, it will not appear. However, the <code class="docutils literal notranslate"><span class="pre">gui</span></code> window is automatically plotted. Actually,
+you are plotting the ttk.LabelFrame, the ttk.Entry widget is automatically plotting in the
+Frame filling up the entire frame using <em>sticky=’nswe’</em>.</p></li>
+<li><p>Place the ‘welcome’ widget at column 0, row 1 (second row) of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered. There is a 3
+pixel default vertical spacing between widget rows.</p></li>
+<li><p>Place the ‘command’ widget at column 0, row 2 of <code class="docutils literal notranslate"><span class="pre">gui</span></code> centered with a vertical spacing of 10
+pixels with <em>pady=10</em>.</p></li>
 <li><p>Begin an infinite loop.</p></li>
 <li><p>Wait for the user to press click on a button. The <code class="docutils literal notranslate"><span class="pre">waitforUser</span></code> method is a synonym
 for the tk <code class="docutils literal notranslate"><span class="pre">mainloop</span></code> method. Again, the name was changed to help a novice programmer.
@@ -266,11 +282,11 @@ window.</p>
 <span class="linenos"> 8</span><span class="n">gui</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Map Title&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 <span class="linenos"> 9</span><span class="n">gui</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s1">&#39;Status:&#39;</span><span class="p">)</span>
 <span class="linenos">10</span><span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">)</span>
-<span class="linenos">11</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">12</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">13</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">14</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="linenos">15</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="linenos">16</span><span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
 <span class="linenos">17</span><span class="k">if</span> <span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
 <span class="linenos">18</span>    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Converting </span><span class="si">{</span><span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> into </span><span class="si">{</span><span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">...</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -286,7 +302,7 @@ window.</p>
 <li><p>Import the <code class="docutils literal notranslate"><span class="pre">Window</span></code> object from tkintertoy.</p></li>
 <li><p>Create an instance of a <code class="docutils literal notranslate"><span class="pre">Window</span></code> and label it <code class="docutils literal notranslate"><span class="pre">gui</span></code>.</p></li>
 <li><p>Set the title <code class="docutils literal notranslate"><span class="pre">gui</span></code> to “Create a Map”.</p></li>
-<li><p>We want to limit the input files to <a href="#id3"><span class="problematic" id="id4">*</span></a>.csv only. This list will be used in the method in the
+<li><p>We want to limit the input files to <em>.csv only</em>. This list will be used in the method in the
 next line. Notice, you can filter multiple types.</p></li>
 <li><p>Add an <strong>ttOpen</strong> dialog widget. This is a combination of a ttk.Entry widget, a ‘Browse’ ttk.
 Button, and a ttk.LabelFrame. If the user clicks on the ‘Browse’ button, they will see a
@@ -301,12 +317,12 @@ limited to PNG files. If the file already exists, an overwrite confirmation dial
 and a ttk.LabelFrame. It will have a width of 40 characters, a height of 5 lines, and will be used
 for all status messages. The <strong>ttText</strong> widget is extremelly useful for many different purposes.</p></li>
 <li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
-<li><p>Plot the ‘input’ widget in the first row (row 0), vertically separating widgets by 10 pixels.</p></li>
-<li><p>Plot the ‘output’ widget in the second row, vertically separating widgets by 10 pixels. Notice
+<li><p>Plot the ‘input’ widget at column 0, row 0, vertically separating widgets by 10 pixels.</p></li>
+<li><p>Plot the ‘output’ widget at column 0, row 1, vertically separating widgets by 10 pixels. Notice
 this will cause a 20 pixel separation between the input and output widgets.</p></li>
-<li><p>Plot the ‘title’ widget in the third row, vertically separating widgets by 10 pixels.</p></li>
-<li><p>Plot the ‘status’ widget in the fourth row, vertically separating widgets by 10 pixels.</p></li>
-<li><p>Plot the ‘commands’ widget in the fifth row, vertically separating widgets by 20 pixels. This
+<li><p>Plot the ‘title’ widget at column 0, row 2, vertically separating widgets by 10 pixels.</p></li>
+<li><p>Plot the ‘status’ widget at column 0, row 3, vertically separating widgets by 10 pixels.</p></li>
+<li><p>Plot the ‘commands’ widget at column 0, row 4, vertically separating widgets by 20 pixels. This
 will be 30 pixels from the status widget.</p></li>
 <li><p>Enter the event processing loop and exit when the user clicks on a button. This script will
 execute once so there is no need for an infinte loop.</p></li>
@@ -350,11 +366,11 @@ use a listbox to indicate which toppings the user wants, and a checkbox to indic
 <span class="linenos"> 9</span><span class="n">app</span><span class="o">.</span><span class="n">addCheck</span><span class="p">(</span><span class="s1">&#39;condiments&#39;</span><span class="p">,</span> <span class="s1">&#39;Condiments&#39;</span><span class="p">,</span> <span class="n">condiments</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
 <span class="linenos">10</span><span class="n">app</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39;Order Up&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="linenos">11</span><span class="n">app</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">)</span>
-<span class="linenos">12</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">13</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">14</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;condiments&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="linenos">15</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="linenos">16</span><span class="n">app</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">app</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">app</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">app</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;condiments&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">15</span><span class="n">app</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">app</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="linenos">17</span>
 <span class="linenos">18</span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="linenos">19</span>    <span class="n">app</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
@@ -403,11 +419,11 @@ It is best used with a small number of options.</p></li>
 <li><p>Add a <strong>ttText</strong> with a height of 5. This is where the order will appear. Note that the width of the text
 widget determines the width of the entire application.</p></li>
 <li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
-<li><p>Plot the ‘type’ widget in the first row, first column.</p></li>
-<li><p>Plot the ‘toppings’ widget in the first row, second column.</p></li>
-<li><p>Plot the ‘condiments’ widget in the first row, third column.</p></li>
-<li><p>Plot the ‘order’ widget in the second row, strectched across three columns with <em>colunmspan=3</em>.</p></li>
-<li><p>Plot the ‘commands’ widget in the third row, also stretched across three columns.</p></li>
+<li><p>Plot the ‘type’ widget at column 0, row 0.</p></li>
+<li><p>Plot the ‘toppings’ widget at column 1, row 0.</p></li>
+<li><p>Plot the ‘condiments’ widget at column 2, row 0.</p></li>
+<li><p>Plot the ‘order’ widget at column 0, row 1, strectched across three columns with <em>colunmspan=3</em>.</p></li>
+<li><p>Plot the ‘commands’ widget at column 0, row 2, also stretched across three columns.</p></li>
 <li><p>Blank line</p></li>
 <li><p>Begin a infinite loop.</p></li>
 <li><p>Enter the event processing loop and exit when the user clicks on a button.</p></li>
@@ -474,9 +490,9 @@ by writing in an object-oriented fashion, which will be covered in the next exam
 <span class="linenos">18</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addCombo</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;Items&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">postcommand</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="n">update</span><span class="p">(</span><span class="n">gui</span><span class="p">)))</span>
 <span class="linenos">19</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">)</span>
 <span class="linenos">20</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
-<span class="linenos">21</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">22</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="linenos">23</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="linenos">24</span>    <span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
 <span class="linenos">25</span>    <span class="k">if</span> <span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
 <span class="linenos">26</span>        <span class="n">selected</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
@@ -520,9 +536,9 @@ Do not fear <code class="docutils literal notranslate"><span class="pre">lambda<
 <li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
 <li><p>Initialize the items widget entry widget to just three dots. This lets the user know there are selections
 available in the pulldown.</p></li>
-<li><p>Plot the category widget in the first row.</p></li>
-<li><p>Plot the items widget in the second row.</p></li>
-<li><p>Plot the command buttons in the third row.</p></li>
+<li><p>Plot the category widget at column 0, row 0.</p></li>
+<li><p>Plot the items widget at column 0, row 1.</p></li>
+<li><p>Plot the command buttons at column 0, row 2.</p></li>
 <li><p>Start the event processing loop and wait for the user to click on a button. Notice that as the user clicks
 on a category button, the list in the items combobox changes and the event loop keeps running. We do not need
 an infinite loop.</p></li>
@@ -565,9 +581,9 @@ really complicated at all, just a little different. The GUI design did not chang
 <span class="linenos">18</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addCombo</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;Items&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">postcommand</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="n">update</span><span class="p">(</span><span class="n">gui</span><span class="p">)))</span>
 <span class="linenos">19</span>    <span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">)</span>
 <span class="linenos">20</span>    <span class="n">gui</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
-<span class="linenos">21</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">22</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="linenos">23</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="linenos">24</span>    <span class="n">gui</span><span class="o">.</span><span class="n">waitforUser</span><span class="p">()</span>
 <span class="linenos">25</span>    <span class="k">if</span> <span class="n">gui</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
 <span class="linenos">26</span>        <span class="n">selected</span> <span class="o">=</span> <span class="n">gui</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
@@ -601,9 +617,9 @@ since ALL methods can access <code class="docutils literal notranslate"><span cl
 reduces argument passing.</p></li>
 <li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
 <li><p>Initialize the items widget.</p></li>
-<li><p>Plot the category widget in the first row.</p></li>
-<li><p>Plot the items widget in the second row.</p></li>
-<li><p>Plot the command buttons in the third row.</p></li>
+<li><p>Plot the category widget at column 0, row 0.</p></li>
+<li><p>Plot the items widget at column 0, row 1.</p></li>
+<li><p>Plot the command buttons at column 0, row 2.</p></li>
 <li><p>Blank line.</p></li>
 <li><p>Create the callback method using the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter.</p></li>
 <li><p>This is the method documentation string.</p></li>
@@ -672,11 +688,11 @@ in the <strong>ttCollector</strong> widget. Here is the code:</p>
 <span class="linenos">20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addCollector</span><span class="p">(</span><span class="s1">&#39;paths&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;tdate&#39;</span><span class="p">,</span><span class="s1">&#39;county&#39;</span><span class="p">,</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;Included Tornadoes&#39;</span><span class="p">,</span>
 <span class="linenos">21</span>            <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="linenos">22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">)</span>
-<span class="linenos">23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;tdate&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">24</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;paths&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;tdate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">24</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;paths&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="linenos">28</span>
 <span class="linenos">29</span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 <span class="linenos">30</span><span class="w">    </span><span class="sd">&quot;&quot;&quot; the driving function &quot;&quot;&quot;</span>
@@ -728,11 +744,11 @@ Clicking on ‘Add’ will collect the values in the widgets and add them in a l
 Clicking on ‘Delete’ will delete the currently selected line in the treeview.</p></li>
 <li><p>Same.</p></li>
 <li><p>Add a <strong>ttButtonbox</strong> with the default ‘Ok’ and ‘Cancel’ buttons.</p></li>
-<li><p>Plot the ‘tdate’ widget in the first row, separating the widgets by 5 pixels.</p></li>
-<li><p>Plot the ‘county’ widget in the second row, separating the widgets by 5 pixels.</p></li>
-<li><p>Plot the ‘damage’ level widget in the third row, separating the widgets by 5 pixels.</p></li>
-<li><p>Plot the ‘path’ widget in the fourth row, separating the widgets by 5 pixels.</p></li>
-<li><p>Plot the ‘command’ widget in the fifth row, separating the widgets by 10 pixels.</p></li>
+<li><p>Plot the ‘tdate’ widget at column 0, row, 0, separating the widgets by 5 pixels.</p></li>
+<li><p>Plot the ‘county’ widget at column 0, row 1, separating the widgets by 5 pixels.</p></li>
+<li><p>Plot the ‘damage’ level widget at column 0, row 2, separating the widgets by 5 pixels.</p></li>
+<li><p>Plot the ‘path’ widget at column 0, row 3, separating the widgets by 5 pixels.</p></li>
+<li><p>Plot the ‘command’ widget at column 0, row 4, separating the widgets by 10 pixels.</p></li>
 <li><p>Blank line.</p></li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">main</span></code> function.</p></li>
 <li><p>This is the function documentation.</p></li>
@@ -740,8 +756,8 @@ Clicking on ‘Delete’ will delete the currently selected line in the treeview
 <li><p>Start the event processing loop</p></li>
 <li><p>If the user clicked on ‘Ok’…</p></li>
 <li><p>Get all the lines in the collector as a list of lists.</p></li>
-<li><p>This is where the tornado path generation code would begin but we are just going to print the data.
-The example gives [[‘4/3/2010’, ‘Clark’, ‘EF2’], [‘4/3/2010’, ‘Floyd’, ‘EF2’]].</p></li>
+<li><p>This is where the tornado path generation code would begin but we are just going to print the data
+in a pop-up information window. The example gives [[‘4/3/2010’, ‘Clark’, ‘EF2’], [‘4/3/2010’, ‘Floyd’, ‘EF2’]].</p></li>
 <li><p>Call the driving function.</p></li>
 </ol>
 <p>When you click on ‘Add’, the current selections in ‘tdate’, ‘counties’, and ‘level’ will be added into
@@ -783,38 +799,38 @@ some simple error trapping:</p>
 <span class="linenos"> 17</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Map Title&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 <span class="linenos"> 18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;24 Hour Precipitation Ending 7 AM </span><span class="si">{0[3]}</span><span class="s1"> </span><span class="si">{0[0]}</span><span class="s1">, </span><span class="si">{0[2]}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
 <span class="linenos"> 19</span>            <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">))</span>
-<span class="linenos"> 20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 20</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos"> 21</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="s1">&#39;Output Filename&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 <span class="linenos"> 22</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="s1">&#39;pcpn</span><span class="si">{0[1]}{0[0]}{0[2]}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">))</span>
-<span class="linenos"> 23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="linenos"> 24</span>        <span class="n">jobs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Make KMLs&#39;</span><span class="p">,</span> <span class="s1">&#39;Make Maps&#39;</span><span class="p">]</span>
 <span class="linenos"> 25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">addCheck</span><span class="p">(</span><span class="s1">&#39;jobs&#39;</span><span class="p">,</span> <span class="s1">&#39;Jobs&#39;</span><span class="p">,</span> <span class="n">jobs</span><span class="p">)</span>
 <span class="linenos"> 26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;jobs&#39;</span><span class="p">,</span> <span class="n">jobs</span><span class="p">)</span>
-<span class="linenos"> 27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;jobs&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">routine</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;jobs&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="linenos"> 28</span>        <span class="c1"># accum pcpn page</span>
 <span class="linenos"> 29</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="linenos"> 30</span>        <span class="n">parms</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2100</span><span class="p">]]</span>
 <span class="linenos"> 31</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">addSpin</span><span class="p">(</span><span class="s1">&#39;endDate&#39;</span><span class="p">,</span> <span class="n">parms</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Ending Date&#39;</span><span class="p">,</span>
 <span class="linenos"> 32</span>            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">updateAccum</span><span class="p">)</span>
 <span class="linenos"> 33</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;endDate&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="linenos"> 34</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;endDate&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 34</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;endDate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos"> 35</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">addSpin</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">]],</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Days back&#39;</span><span class="p">,</span>
 <span class="linenos"> 36</span>            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">updateAccum</span><span class="p">)</span>
 <span class="linenos"> 37</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
-<span class="linenos"> 38</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 38</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;daysBack&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="linenos"> 39</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="linenos"> 40</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 40</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="linenos"> 41</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">addEntry</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="s1">&#39;Output Filename&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-<span class="linenos"> 42</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 42</span>        <span class="bp">self</span><span class="o">.</span><span class="n">accum</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;outfile&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="linenos"> 43</span>        <span class="bp">self</span><span class="o">.</span><span class="n">updateAccum</span><span class="p">()</span>
 <span class="linenos"> 44</span>        <span class="c1"># dialog</span>
 <span class="linenos"> 45</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="s1">&#39;Messages&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="linenos"> 46</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 46</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="linenos"> 47</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="linenos"> 48</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">go</span><span class="p">)</span>
 <span class="linenos"> 49</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Exit&#39;</span><span class="p">)</span>
-<span class="linenos"> 50</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="linenos"> 51</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 50</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 51</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="linenos"> 52</span>        <span class="bp">self</span><span class="o">.</span><span class="n">dialog</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Routine&#39;</span><span class="p">)</span>
 <span class="linenos"> 53</span>
 <span class="linenos"> 54</span>    <span class="k">def</span> <span class="nf">updateAccum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -900,41 +916,41 @@ container for each notebook page.</p></li>
 <li><p>Add a title <strong>ttEntry</strong> widget. This will be filled in dynamically and be the title of the map.</p></li>
 <li><p>Set the title using today’s date.</p></li>
 <li><p>Same.</p></li>
-<li><p>Plot the title in the first row.</p></li>
+<li><p>Plot the title at column 0, row 0.</p></li>
 <li><p>Add an output filename <strong>ttEntry</strong> widget. This will also filled in dynamically.</p></li>
 <li><p>Set the output filename using today’s date.</p></li>
-<li><p>Plot the output filename widget in the second row.</p></li>
+<li><p>Plot the output filename widget at column 0, row 1.</p></li>
 <li><p>Create a list of two types of jobs: Make KMLs &amp; Make Maps.</p></li>
 <li><p>Add a jobs <strong>ttCheckbox</strong>.</p></li>
 <li><p>Turn on both check boxes, by default.</p></li>
-<li><p>Plot the jobs widget in the third row.</p></li>
+<li><p>Plot the jobs widget at column 0, row 2.</p></li>
 <li><p>This code section is for the ‘Accumulate’ notebook page.</p></li>
 <li><p>Assign the second page (page[1]) of the notebook, which is a <code class="docutils literal notranslate"><span class="pre">Window</span></code> to an attribute <code class="docutils literal notranslate"><span class="pre">accum</span></code>.</p></li>
 <li><p>Create the list for the parameters of a date spinner.</p></li>
 <li><p>Add an ending date <strong>ttSpinbox</strong>, with the callback set to self.updateAccum().</p></li>
 <li><p>Same.</p></li>
 <li><p>Set the ending date to today.</p></li>
-<li><p>Plot the ending date widget in the first row.</p></li>
+<li><p>Plot the ending date widget at column 0, row 0.</p></li>
 <li><p>Add a single days back <strong>ttSpinbox</strong> with the callback set to self.updateAccum() as well.</p></li>
 <li><p>Same.</p></li>
 <li><p>Set the default days back to 2.</p></li>
-<li><p>Plot the days back widget in the second row.</p></li>
+<li><p>Plot the days back widget at column 0, row 1.</p></li>
 <li><p>Add a title <strong>ttEntry</strong>. This will be filled in dynamically.</p></li>
-<li><p>Plot the title widget in the third row.</p></li>
+<li><p>Plot the title widget at column 0, row 2.</p></li>
 <li><p>Add an output filename <strong>ttEntry</strong>. This will be filled in dynamically.</p></li>
-<li><p>Plot the output filename widget in the fourth row.</p></li>
+<li><p>Plot the output filename widget at column 0, row 3.</p></li>
 <li><p>Fill in the title using the default values in the above widgets.</p></li>
 <li><p>This section of code is for the rest of the dialog window.</p></li>
 <li><p>Add a messages <strong>ttText</strong>. This is where all messages to the user will appear.</p></li>
-<li><p>Plot the messages widget in the second row of the dialog window. The notebook will be in the first row.</p></li>
+<li><p>Plot the messages widget at column 0, row 1 of the dialog window. The notebook will be at column 0, row 0.</p></li>
 <li><p>Add a command <strong>ttButtonbox</strong>, the default are labeled Ok and Cancel.</p></li>
 <li><p>Set the callback for the first button to the <code class="docutils literal notranslate"><span class="pre">go</span></code> method. We are changing the <em>command</em> parameter.
 This shows how easy it is to get to the more complex parts of Tk/ttk from tkintertoy. The <code class="docutils literal notranslate"><span class="pre">setWidget</span></code>
 allows the programmer to change any of the tk/ttk options after the widget is created.</p></li>
 <li><p>Set the label of the second button to <code class="docutils literal notranslate"><span class="pre">Exit</span></code> using the same method as above but changing the <em>text</em>
 parameter. This shows how options of buttons can be dynamic.</p></li>
-<li><p>Plot the command buttons in the third row.</p></li>
-<li><p>Plot the notebook in the first row.</p></li>
+<li><p>Plot the command buttons at column 0, row 2.</p></li>
+<li><p>Plot the notebook at column 0, row 0.</p></li>
 <li><p>Set the default notebook page to ‘Routine’. This will be the page displayed when the application
 first starts. Note that <code class="docutils literal notranslate"><span class="pre">set</span></code> and <code class="docutils literal notranslate"><span class="pre">get</span></code> use the notebook tab names.</p></li>
 <li><p>Blank line.</p></li>
@@ -1066,16 +1082,16 @@ some simple error trapping:</p>
 <span class="linenos">29</span>            <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="linenos">30</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addText</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="s1">&#39;Order Summary&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="linenos">31</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="linenos">32</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">33</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">34</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;we&#39;</span><span class="p">)</span>
-<span class="linenos">35</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">36</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;crust&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">37</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">38</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;extras&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">39</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;addpizza&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>               
-<span class="linenos">40</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="linenos">41</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">32</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">33</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">34</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;we&#39;</span><span class="p">)</span>
+<span class="linenos">35</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">36</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;crust&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">37</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;toppings&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">38</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;extras&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">39</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;addpizza&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>               
+<span class="linenos">40</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos">41</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="linenos">42</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">)</span>
 <span class="linenos">43</span>
 <span class="linenos">44</span>    <span class="k">def</span> <span class="nf">addOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1092,7 +1108,7 @@ some simple error trapping:</p>
 <span class="linenos">55</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Print the order to the console &quot;&quot;&quot;</span>
 <span class="linenos">56</span>        <span class="n">summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; : &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
 <span class="linenos">57</span>        <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">)</span>
-<span class="linenos">58</span>        <span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
+<span class="linenos">58</span>        <span class="bp">self</span><span class="o">.</span><span class="n">popMessage</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="s1">&#39;showinfo&#39;</span><span class="p">,</span> <span class="s1">&#39;Order&#39;</span><span class="p">)</span>
 <span class="linenos">59</span>        <span class="bp">self</span><span class="o">.</span><span class="n">clearPizza</span><span class="p">()</span>
 <span class="linenos">60</span>        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="linenos">61</span>        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
@@ -1157,18 +1173,18 @@ instead of a checkbox.</p></li>
 <li><p>Same.</p></li>
 <li><p>Add a ttText widget to show the order.</p></li>
 <li><p>Add the two command buttons defined in line 19.</p></li>
-<li><p>Plot the ‘name’ entry in row 0, column 0, with a five pixel spacing.</p></li>
-<li><p>Plot the order ‘type’ radiobox in row 0, column 1, with a five pixel spacing.</p></li>
-<li><p>Plot the line across row 1 with a 10 pixel spacing. If we did not use the sticky=’we’ option, the
-line would be a single point.</p></li>
-<li><p>Plot the ‘size’ combobox row 2, column 0, with a five pixel spacing.</p></li>
-<li><p>Plot the ‘crust’ radiobox in row 2, column 1, with a five pixel spacing.</p></li>
-<li><p>Plot the ‘toppings’ listbox in row 3, column 0, with a five pixel spacing.</p></li>
-<li><p>Plot the ‘extras’ radiobox in row 3, column 1, with a 5 pixel spacing.</p></li>
-<li><p>Plot the ‘addpizza’ button in row 4, column 0, spread across both columns, with a 10 pixel spacing.</p></li>
-<li><p>Plot the ‘summary’ text widget in row 5, column 0, spread across both columns, with a 5 pixel
+<li><p>Plot the ‘name’ entry at column 0, row 0, with a five pixel spacing.</p></li>
+<li><p>Plot the order ‘type’ radiobox at column 1, row 0, with a five pixel spacing.</p></li>
+<li><p>Plot the line at column 0, row 1 strectched across all of the row with a 10 pixel spacing. If we did
+not use the sticky=’we’ option, the line would be a single point!</p></li>
+<li><p>Plot the ‘size’ combobox at column 0, row 2, with a 5 pixel spacing.</p></li>
+<li><p>Plot the ‘crust’ radiobox at column 1, row 2, with a 5 pixel spacing.</p></li>
+<li><p>Plot the ‘toppings’ listbox at column 0, row 3, with a 5 pixel spacing.</p></li>
+<li><p>Plot the ‘extras’ radiobox at column 1, row 3, with a 5 pixel spacing.</p></li>
+<li><p>Plot the ‘addpizza’ button at column 0, row 4, spread across both columns, with a 10 pixel spacing.</p></li>
+<li><p>Plot the ‘summary’ text widget at column 0, row 5, spread across both columns, with a 5 pixel
 spacing.</p></li>
-<li><p>Plot the ‘command’ buttons in row 6, column 0, spread across both columns, with a 10 pixel spacing.</p></li>
+<li><p>Plot the ‘command’ buttons at column 0, row 6, spread across both columns, with a 10 pixel spacing.</p></li>
 <li><p>Set the ‘size’ combobox to ‘Medium’.</p></li>
 <li><p>Blank line.</p></li>
 <li><p>This method adds a pizza to the order.</p></li>
@@ -1186,7 +1202,7 @@ the console.</p></li>
 <li><p>Method documentation.</p></li>
 <li><p>Create a summary str with the customer ‘name’ and the order ‘type’.</p></li>
 <li><p>Get the contents of the ‘summary’ text widget.</p></li>
-<li><p>Print the summary.</p></li>
+<li><p>Show the summary in a pop-up window. Normally this would go to a different display or computer.</p></li>
 <li><p>Call the clearPizza method.</p></li>
 <li><p>Clear the ‘name’ entry.</p></li>
 <li><p>Clear the selections in the order ‘type’ radiobox.</p></li>
@@ -1290,8 +1306,8 @@ written. We will stay with inheritance style coding.</p>
 <span class="linenos"> 62</span>        <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">startstop</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Reset&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">),</span>
 <span class="linenos"> 63</span>            <span class="p">(</span><span class="s1">&#39;Exit&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cancel</span><span class="p">)]</span>                 <span class="c1"># label and assign buttons</span>
 <span class="linenos"> 64</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addButton</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="n">buttons</span><span class="p">)</span>     <span class="c1"># create buttons</span>
-<span class="linenos"> 65</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;elapsed&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos"> 66</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos"> 65</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;elapsed&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 66</span>        <span class="bp">self</span><span class="o">.</span><span class="n">plotxy</span><span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="linenos"> 67</span>        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>                                  <span class="c1"># update display</span>
 <span class="linenos"> 68</span>
 <span class="linenos"> 69</span>    <span class="k">def</span> <span class="nf">startstop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1409,8 +1425,8 @@ commands are Gui methods.</p></li>
 <li><p>Same.</p></li>
 <li><p>Create a row of <strong>ttButtons</strong> which will be initialized using the labels and commands
 in <code class="docutils literal notranslate"><span class="pre">buttons</span></code>.</p></li>
-<li><p>Plot the ‘elapsed’ in row 0.</p></li>
-<li><p>Plot the ‘buttons’ in row 1 with a 10 pixel spacing.</p></li>
+<li><p>Plot the ‘elapsed’ at column 0, row 0.</p></li>
+<li><p>Plot the ‘buttons’ at column 0, row 1, with a 10 pixel spacing.</p></li>
 <li><p>Update the gui.</p></li>
 <li><p>Blank line.</p></li>
 <li><p>Create the <code class="docutils literal notranslate"><span class="pre">startstop</span></code> method. Since the user will start and stop the stopwatch using

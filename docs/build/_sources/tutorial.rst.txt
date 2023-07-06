@@ -1,7 +1,7 @@
-.. tuorial.rst 06/11/23
+.. tuorial.rst 06/26/23
 
 =======================
-Tkintertoy 1.5 Tutorial
+Tkintertoy 1.6 Tutorial
 =======================
 
   :Date: |today|
@@ -20,7 +20,7 @@ teaching a Python class in a local vocational technical college using *Tkinterto
 with great success.
 
 With this version, I have fixed a few minor bugs, improved the documentation, improved
-the operation of the library, and cleaned up the code for version 1.5. Support for
+the operation of the library, and cleaned up the code for version 1.6. Support for
 Python 2 was removed since the library is no longer tested using Python 2.
 
 Tkintertoy creates ``Windows`` which contain widgets. Almost every *tk* or *ttk*
@@ -40,6 +40,17 @@ tk/ttk widget, the more advanced programmer can access all the tk/ttk options an
 methods of the widgets. Tkintertoy makes sure that all aspects of tk/ttk are
 exposed when the programmer needs them. *Tkintertoy* is light-weight wrapper of
 *Tkinter* and can be used a gentle introduction to the complete library.
+
+The Zen of Tkintertoy
+=====================
+
+1. It must be very simple to use. Not much more complicated than ``input`` or ``print``.
+2. It must produce well-balanced and clean, if simple, interfaces.
+3. It must be very light-weight and easy to install. Everything is basically in one file,
+   tt.py.
+4. It must be based on Tkinter. Tkinter is still the default Gui library for Python. After
+   working in Tkintertoy, the student can easily move into more complex Tkinter.
+5. The source code should be easy to follow.   
 
 In the following examples below, one can see how the ideas in Tkintertoy can be used
 to create simple but useful GUIs. GUI programming can be fun, which puts the "toy" in
@@ -84,7 +95,7 @@ Here is an explanation of what each line does:
     dictionary directly, *Tkintertoy* provides methods for this. The title of the Frame
     surrounding the Entry widget will be 'Type in your name'. Entry frame titles are a
     great place to put instructions to your user. If you don't want a title, just leave
-    off this argument. *Tkintertoy will use a plain ttk/tk.Frame instead. The default width
+    off this argument. *Tkintertoy* will use a plain ttk/tk.Frame instead. The default width
     of the Entry widget is 20 characters, but this, like many other options can be changed.
 5.  Add a **ttLabel** widget to ``gui``. This will be the combination of a ttk.Label in a
     ttk.LabelFrame. This tag will be 'welcome' since this where the welcome message will
@@ -101,17 +112,19 @@ Here is an explanation of what each line does:
     and these actions can be easily modified by the programmer, but by providing a default
     pair of buttons and callbacks, even a novice programmer can create a working GUI application
     quickly. No callback programming is necessary.
-7.  Place the 'name' ttwidget at row 0 (first row) of ``gui`` centered. The *row=0* argument
-    could have been left off since it is the default. The ``plot`` method is a synonym for the
-    tk ``grid`` method. All arguments to ``grid`` can be used in ``plot``. Plot was selected as
-    a better word for a novice. However, ``grid`` will also work. Until a widget is plotted, it
-    will not appear. However, the ``gui`` window is automatically plotted. Actually, you are
-    plotting the ttk.LabelFrame, the ttk.Entry widget is automatically plotting in the Frame
-    filling up the entire frame using *sticky='nswe'*.
-8.  Place the 'welcome' widget at row 1 (second row) of ``gui`` centered. There is a 3 pixel
-    default vertical spacing between widget rows.
-9.  Place the 'command' widget at row 2 (third row) of ``gui`` centered with a vertical
-    spacing of 10 pixels with *pady=10*.
+7.  Place the 'name' ttwidget at column 0 (first column), row 0 (first row) of ``gui`` centered.
+    The second argument is the column (x dimension counting from zero) and the third argument is
+    the row (y dimension). Both these value default to 0 but it is a good idea to always include
+    them. The ``plotxy`` method is basically the tk ``grid`` method with the column and row keywords
+    arguments specified. All other keyword arguments to ``grid`` can be used in ``plotxy``. Plot
+    was selected as a better word for a novice. However, ``grid`` will also work. Until a widget is
+    plotted, it will not appear. However, the ``gui`` window is automatically plotted. Actually,
+    you are plotting the ttk.LabelFrame, the ttk.Entry widget is automatically plotting in the
+    Frame filling up the entire frame using *sticky='nswe'*.
+8.  Place the 'welcome' widget at column 0, row 1 (second row) of ``gui`` centered. There is a 3
+    pixel default vertical spacing between widget rows.
+9.  Place the 'command' widget at column 0, row 2 of ``gui`` centered with a vertical spacing of 10
+    pixels with *pady=10*.
 10. Begin an infinite loop.
 11. Wait for the user to press click on a button. The ``waitforUser`` method is a synonym
     for the tk ``mainloop`` method. Again, the name was changed to help a novice programmer.
@@ -169,7 +182,7 @@ Each line of code is explained below:
 1.  Import the ``Window`` object from tkintertoy.
 2.  Create an instance of a ``Window`` and label it ``gui``.
 3.  Set the title ``gui`` to "Create a Map".
-4.  We want to limit the input files to *.csv only. This list will be used in the method in the
+4.  We want to limit the input files to *.csv only*. This list will be used in the method in the
     next line. Notice, you can filter multiple types.
 5.  Add an **ttOpen** dialog widget. This is a combination of a ttk.Entry widget, a 'Browse' ttk.
     Button, and a ttk.LabelFrame. If the user clicks on the 'Browse' button, they will see a
@@ -184,12 +197,12 @@ Each line of code is explained below:
     and a ttk.LabelFrame. It will have a width of 40 characters, a height of 5 lines, and will be used
     for all status messages. The **ttText** widget is extremelly useful for many different purposes.
 10. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
-11. Plot the 'input' widget in the first row (row 0), vertically separating widgets by 10 pixels.
-12. Plot the 'output' widget in the second row, vertically separating widgets by 10 pixels. Notice
+11. Plot the 'input' widget at column 0, row 0, vertically separating widgets by 10 pixels.
+12. Plot the 'output' widget at column 0, row 1, vertically separating widgets by 10 pixels. Notice
     this will cause a 20 pixel separation between the input and output widgets.
-13. Plot the 'title' widget in the third row, vertically separating widgets by 10 pixels.
-14. Plot the 'status' widget in the fourth row, vertically separating widgets by 10 pixels.
-15. Plot the 'commands' widget in the fifth row, vertically separating widgets by 20 pixels. This
+13. Plot the 'title' widget at column 0, row 2, vertically separating widgets by 10 pixels.
+14. Plot the 'status' widget at column 0, row 3, vertically separating widgets by 10 pixels.
+15. Plot the 'commands' widget at column 0, row 4, vertically separating widgets by 20 pixels. This
     will be 30 pixels from the status widget.
 16. Enter the event processing loop and exit when the user clicks on a button. This script will
     execute once so there is no need for an infinte loop.
@@ -251,11 +264,11 @@ Here is the code:
 10. Add a **ttText** with a height of 5. This is where the order will appear. Note that the width of the text
     widget determines the width of the entire application.
 11. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
-12. Plot the 'type' widget in the first row, first column.
-13. Plot the 'toppings' widget in the first row, second column.
-14. Plot the 'condiments' widget in the first row, third column.
-15. Plot the 'order' widget in the second row, strectched across three columns with *colunmspan=3*.
-16. Plot the 'commands' widget in the third row, also stretched across three columns.
+12. Plot the 'type' widget at column 0, row 0.
+13. Plot the 'toppings' widget at column 1, row 0.
+14. Plot the 'condiments' widget at column 2, row 0.
+15. Plot the 'order' widget at column 0, row 1, strectched across three columns with *colunmspan=3*.
+16. Plot the 'commands' widget at column 0, row 2, also stretched across three columns.
 17. Blank line
 18. Begin a infinite loop.
 19. Enter the event processing loop and exit when the user clicks on a button.
@@ -342,9 +355,9 @@ Below explains every line:
 19. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
 20. Initialize the items widget entry widget to just three dots. This lets the user know there are selections
     available in the pulldown.
-21. Plot the category widget in the first row.
-22. Plot the items widget in the second row.
-23. Plot the command buttons in the third row.
+21. Plot the category widget at column 0, row 0.
+22. Plot the items widget at column 0, row 1.
+23. Plot the command buttons at column 0, row 2.
 24. Start the event processing loop and wait for the user to click on a button. Notice that as the user clicks
     on a category button, the list in the items combobox changes and the event loop keeps running. We do not need
     an infinite loop.
@@ -394,9 +407,9 @@ And the line explanations:
     reduces argument passing.
 13. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
 14. Initialize the items widget.
-15. Plot the category widget in the first row.
-16. Plot the items widget in the second row.
-17. Plot the command buttons in the third row.
+15. Plot the category widget at column 0, row 0.
+16. Plot the items widget at column 0, row 1.
+17. Plot the command buttons at column 0, row 2.
 18. Blank line.
 19. Create the callback method using the ``self`` parameter.
 20. This is the method documentation string.
@@ -487,11 +500,11 @@ previous example:
     Clicking on 'Delete' will delete the currently selected line in the treeview.
 21. Same.
 22. Add a **ttButtonbox** with the default 'Ok' and 'Cancel' buttons.
-23. Plot the 'tdate' widget in the first row, separating the widgets by 5 pixels.
-24. Plot the 'county' widget in the second row, separating the widgets by 5 pixels.
-25. Plot the 'damage' level widget in the third row, separating the widgets by 5 pixels.
-26. Plot the 'path' widget in the fourth row, separating the widgets by 5 pixels.
-27. Plot the 'command' widget in the fifth row, separating the widgets by 10 pixels.
+23. Plot the 'tdate' widget at column 0, row, 0, separating the widgets by 5 pixels.
+24. Plot the 'county' widget at column 0, row 1, separating the widgets by 5 pixels.
+25. Plot the 'damage' level widget at column 0, row 2, separating the widgets by 5 pixels.
+26. Plot the 'path' widget at column 0, row 3, separating the widgets by 5 pixels.
+27. Plot the 'command' widget at column 0, row 4, separating the widgets by 10 pixels.
 28. Blank line.
 29. Create a ``main`` function.
 30. This is the function documentation.
@@ -499,8 +512,8 @@ previous example:
 32. Start the event processing loop
 33. If the user clicked on 'Ok'...
 34. Get all the lines in the collector as a list of lists.
-35. This is where the tornado path generation code would begin but we are just going to print the data.
-    The example gives [['4/3/2010', 'Clark', 'EF2'], ['4/3/2010', 'Floyd', 'EF2']].
+35. This is where the tornado path generation code would begin but we are just going to print the data
+    in a pop-up information window. The example gives [['4/3/2010', 'Clark', 'EF2'], ['4/3/2010', 'Floyd', 'EF2']].
 36. Call the driving function.
 
 When you click on 'Add', the current selections in 'tdate', 'counties', and 'level' will be added into
@@ -555,41 +568,41 @@ Here are the line explanations:
 17. Add a title **ttEntry** widget. This will be filled in dynamically and be the title of the map.
 18. Set the title using today's date.
 19. Same.
-20. Plot the title in the first row.
+20. Plot the title at column 0, row 0.
 21. Add an output filename **ttEntry** widget. This will also filled in dynamically.
 22. Set the output filename using today's date.
-23. Plot the output filename widget in the second row.
+23. Plot the output filename widget at column 0, row 1.
 24. Create a list of two types of jobs: Make KMLs & Make Maps.
 25. Add a jobs **ttCheckbox**.
 26. Turn on both check boxes, by default.
-27. Plot the jobs widget in the third row.
+27. Plot the jobs widget at column 0, row 2.
 28. This code section is for the 'Accumulate' notebook page.
 29. Assign the second page (page[1]) of the notebook, which is a ``Window`` to an attribute ``accum``.
 30. Create the list for the parameters of a date spinner.
 31. Add an ending date **ttSpinbox**, with the callback set to self.updateAccum().
 32. Same.
 33. Set the ending date to today.
-34. Plot the ending date widget in the first row.
+34. Plot the ending date widget at column 0, row 0.
 35. Add a single days back **ttSpinbox** with the callback set to self.updateAccum() as well.
 36. Same.
 37. Set the default days back to 2.
-38. Plot the days back widget in the second row.
+38. Plot the days back widget at column 0, row 1.
 39. Add a title **ttEntry**. This will be filled in dynamically.
-40. Plot the title widget in the third row.
+40. Plot the title widget at column 0, row 2.
 41. Add an output filename **ttEntry**. This will be filled in dynamically.
-42. Plot the output filename widget in the fourth row.
+42. Plot the output filename widget at column 0, row 3.
 43. Fill in the title using the default values in the above widgets.
 44. This section of code is for the rest of the dialog window.
 45. Add a messages **ttText**. This is where all messages to the user will appear.
-46. Plot the messages widget in the second row of the dialog window. The notebook will be in the first row.
+46. Plot the messages widget at column 0, row 1 of the dialog window. The notebook will be at column 0, row 0.
 47. Add a command **ttButtonbox**, the default are labeled Ok and Cancel.
 48. Set the callback for the first button to the ``go`` method. We are changing the *command* parameter.
     This shows how easy it is to get to the more complex parts of Tk/ttk from tkintertoy. The ``setWidget``
     allows the programmer to change any of the tk/ttk options after the widget is created.
 49. Set the label of the second button to ``Exit`` using the same method as above but changing the *text*
     parameter. This shows how options of buttons can be dynamic.
-50. Plot the command buttons in the third row.
-51. Plot the notebook in the first row.
+50. Plot the command buttons at column 0, row 2.
+51. Plot the notebook at column 0, row 0.
 52. Set the default notebook page to 'Routine'. This will be the page displayed when the application
     first starts. Note that ``set`` and ``get`` use the notebook tab names.
 53. Blank line.
@@ -736,18 +749,18 @@ Here are the line explanations:
 29. Same.
 30. Add a ttText widget to show the order.
 31. Add the two command buttons defined in line 19.
-32. Plot the 'name' entry in row 0, column 0, with a five pixel spacing.
-33. Plot the order 'type' radiobox in row 0, column 1, with a five pixel spacing.
-34. Plot the line across row 1 with a 10 pixel spacing. If we did not use the sticky='we' option, the
-    line would be a single point.
-35. Plot the 'size' combobox row 2, column 0, with a five pixel spacing.
-36. Plot the 'crust' radiobox in row 2, column 1, with a five pixel spacing.
-37. Plot the 'toppings' listbox in row 3, column 0, with a five pixel spacing.
-38. Plot the 'extras' radiobox in row 3, column 1, with a 5 pixel spacing.
-39. Plot the 'addpizza' button in row 4, column 0, spread across both columns, with a 10 pixel spacing.
-40. Plot the 'summary' text widget in row 5, column 0, spread across both columns, with a 5 pixel
+32. Plot the 'name' entry at column 0, row 0, with a five pixel spacing.
+33. Plot the order 'type' radiobox at column 1, row 0, with a five pixel spacing.
+34. Plot the line at column 0, row 1 strectched across all of the row with a 10 pixel spacing. If we did
+    not use the sticky='we' option, the line would be a single point!
+35. Plot the 'size' combobox at column 0, row 2, with a 5 pixel spacing.
+36. Plot the 'crust' radiobox at column 1, row 2, with a 5 pixel spacing.
+37. Plot the 'toppings' listbox at column 0, row 3, with a 5 pixel spacing.
+38. Plot the 'extras' radiobox at column 1, row 3, with a 5 pixel spacing.
+39. Plot the 'addpizza' button at column 0, row 4, spread across both columns, with a 10 pixel spacing.
+40. Plot the 'summary' text widget at column 0, row 5, spread across both columns, with a 5 pixel
     spacing.
-41. Plot the 'command' buttons in row 6, column 0, spread across both columns, with a 10 pixel spacing.
+41. Plot the 'command' buttons at column 0, row 6, spread across both columns, with a 10 pixel spacing.
 42. Set the 'size' combobox to 'Medium'.
 43. Blank line.
 44. This method adds a pizza to the order.
@@ -765,7 +778,7 @@ Here are the line explanations:
 55. Method documentation.
 56. Create a summary str with the customer 'name' and the order 'type'.
 57. Get the contents of the 'summary' text widget.
-58. Print the summary.
+58. Show the summary in a pop-up window. Normally this would go to a different display or computer.
 59. Call the clearPizza method.
 60. Clear the 'name' entry.
 61. Clear the selections in the order 'type' radiobox.
@@ -888,8 +901,8 @@ Here are the line explanations:
 63. Same.
 64. Create a row of **ttButtons** which will be initialized using the labels and commands
     in ``buttons``.
-65. Plot the 'elapsed' in row 0.
-66. Plot the 'buttons' in row 1 with a 10 pixel spacing.
+65. Plot the 'elapsed' at column 0, row 0.
+66. Plot the 'buttons' at column 0, row 1, with a 10 pixel spacing.
 67. Update the gui.
 68. Blank line.
 69. Create the ``startstop`` method. Since the user will start and stop the stopwatch using
@@ -948,15 +961,3 @@ always, looking at the code can be very instructive.
 As a result of the classes I have been teaching, I have created a series of narrated slideshows
 on YouTube as *Programming on Purpose with Python* which features how to use **Tkintertoy** to
 develop complete applications. Just search for *Mike Callahan* and *programming*.
-
-
-  
-
-  
-
-
-
-
-
-
-

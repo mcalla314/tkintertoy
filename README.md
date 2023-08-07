@@ -30,7 +30,7 @@ widgets. The application will wait for the user to type in their first name.
 After typing it in, and clicking on Ok, the application will display a welcome
 label. The user exits the code by clicking on Cancel.
 
-![Simple GUI](http://tkintertoy.readthedocs.io/en/1.6/_images/first.png)
+![Simple GUI](http://tkintertoy.readthedocs.io/en/master/_images/first.png)
 
 As you can see in order to create a simple GUI, you create a window, add widgets,
 plot the widgets in the desired location, and then call waitforUser.
